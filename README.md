@@ -1,1 +1,1 @@
-icode this challenge progess bars with hover functions
+iCodeThis daily challenges
