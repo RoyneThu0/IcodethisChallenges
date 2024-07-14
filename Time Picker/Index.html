@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Picker</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen h-screen bg-[#1c1a31] flex items-center justify-center">
+    <div class="w-11/12 max-w-4xl bg-[#2b2850] flex">
+      <div
+        class="w-3/5 bg-[#2b2850] border-r-2 border-[#1c1a31] items-center justify-center"
+      >
+        <p class="px-8 font-semibold text-white text-lg pt-10">
+          Absolute time range
+        </p>
+
+        <div class="w-full flex-col flex items-center justify-center px-8">
+          <label
+            for="fromInput"
+            class="block text-white text-xs mt-10 w-full text-start"
+            >From</label
+          >
+          <input
+            type="text"
+            id="fromInput"
+            aria-label="From"
+            class="mt-1 w-full py-3 border border-[#1c1a31] rounded-lg p-2"
+            placeholder="now-1h"
+          />
+
+          <label
+            for="fromInput"
+            class="block text-white text-xs mt-5 w-full text-start"
+            >To</label
+          >
+          <input
+            type="text"
+            id="fromInput"
+            aria-label="From"
+            class="mt-1 w-full py-3 border border-[#1c1a31] rounded-lg p-2"
+            placeholder="now"
+          />
+        </div>
+
+        <button
+          class="px-5 py-2 mt-6 mx-8 rounded-full bg-gradient-to-r from-purple-400 to-purple-600"
+        >
+          Apply time change
+        </button>
+
+        <span class="text-white mt-16 text-xs w-full flex text-center px-9"
+          >Want to find out more?
+          <p class="underline cursor-pointer hover:text-blue-400">
+            Read the documentation
+          </p></span
+        >
+
+        <div
+          class="bg-[#2b2850] border-t-2 border-[#1d1b37] py-3 mt-16 w-full flex items-center justify-between px-5"
+        >
+          <button
+            class="text-slate-600 px-3 py-1 bg-[#262448] rounded-full hover:bg-blue-600"
+          >
+            UTC
+          </button>
+          <p
+            class="underline text-xs text-slate-600 cursor-pointer hover:text-blue-400"
+          >
+            Change time zone
+          </p>
+        </div>
+      </div>
+      <div class="w-2/5 bg-[#2b2850] py-2 items-center justify-center">
+        <div class="flex items-center justify-between px-4">
+          <p class="font-semibold text-white pt-10">Relative time changes</p>
+          <i
+            class="fa-solid fa-x text-slate-400 hover:text-blue-400 cursor-pointer"
+          ></i>
+        </div>
+        <div class="px-12 mt-5 space-y-1">
+          <p
+            class="flex items-center justify-center text-white hover:bg-purple-900 px-4 py-3 rounded-xl"
+          >
+            Last 5 minutes
+          </p>
+          <p
+            class="flex items-center justify-center text-white hover:bg-purple-900 px-4 py-3 rounded-xl"
+          >
+            Last 5 minutes
+          </p>
+          <p
+            class="flex items-center justify-center text-white hover:bg-purple-900 px-4 py-3 rounded-xl"
+          >
+            Last 5 minutes
+          </p>
+
+          <p
+            class="flex items-center justify-center text-white hover:bg-purple-900 px-4 py-3 rounded-xl"
+          >
+            Last 5 minutes
+          </p>
+          <p
+            class="flex items-center justify-center text-white hover:bg-purple-900 px-4 py-3 rounded-xl"
+          >
+            Last 5 minutes
+          </p>
+          <p
+            class="flex items-center justify-center text-white hover:bg-purple-900 px-4 py-3 rounded-xl"
+          >
+            Last 5 minutes
+          </p>
+
+          <p class="cursor-pointer text-white hover:text-blue-500 pt-2">
+            Load more
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
