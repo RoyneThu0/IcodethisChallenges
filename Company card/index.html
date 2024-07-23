@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="bg-indigo-950 w-screen h-screen flex items-center justify-center"
+  >
+    <div class="w-11/12 max-w-5xl bg-slate-800 py-5 shadow-2xl flex-col">
+      <div class="flex items-center justify-around">
+        <i
+          class="fa-solid fa-chevron-left text-slate-950 hover:text-blue-400 active:text-purple-300 ml-10 text-7xl"
+        ></i>
+        <div class="flex-col ml-10 flex-3">
+          <div class="h-30 w-30 rounded-full">
+            <img
+              class="h-48 w-48 rounded-full"
+              src="data:image/png;base64,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"
+              alt=""
+            />
+          </div>
+          <div class="flex justify-center mt-4">
+            <i class="fa-solid fa-star text-xl text-yellow-300 mx-1"></i>
+            <i class="fa-solid fa-star text-xl text-yellow-300 mx-1"></i>
+            <i class="fa-solid fa-star text-xl text-yellow-300 mx-1"></i>
+            <i class="fa-solid fa-star text-xl text-yellow-300 mx-1"></i>
+          </div>
+          <p class="w-full text-center font-semibold text-white">
+            2778 reviews
+          </p>
+        </div>
+        <div class="flex-1 ml-20">
+          <p class="font-semibold text-3xl text-white">#1. GOOGLE</p>
+          <p class="cursor-pointer underline text-pink-500 mb-5 mt-2">
+            http://www.google.com
+          </p>
+          <p class="text-white mr-5">
+            Google LLC is an American multinational technology company that
+            specializes in internet -related services and products. These
+            include online advertising technologies, search, cloud computing,
+            software, and hardware.
+          </p>
+        </div>
+
+        <i
+          class="fa-solid fa-chevron-right text-slate-300 cursor-pointer hover:text-blue-400 active:text-purple-300 mr-10 text-7xl"
+        ></i>
+      </div>
+      <div class="flex w-full pt-10 items-center justify-center">
+        <div class="flex w-1/3 ml-10 flex-col space-y-4 justify-center">
+          <span class="text-md font-semibold text-white">
+            TOTAL EMPLOYEES
+            <p class="text-white text-2xl font-semibold">72,043</p>
+          </span>
+          <span class="text-md font-semibold text-white">
+            JOB OPENINGS
+            <p class="text-pink-500 text-2xl font-semibold">1278</p>
+          </span>
+        </div>
+        <div class="flex pr-7 w-2/3 py-5 flex-col">
+          <p class="text-2xl font-semibold text-white">PAID TIME OFF</p>
+          <div class="flex-col w-full">
+            <div class="flex items-center justify-center">
+              <p class="w-1/3 text-white font-semibold">General pto</p>
+              <div class="w-2/3">
+                <div class="bg-slate-900 h-2 w-full rounded-full">
+                  <div class="bg-pink-500 h-2 w-1/5 rounded-full"></div>
+                </div>
+              </div>
+              <p class="ml-3 text-white font-bold">15</p>
+            </div>
+            <div class="flex items-center justify-center">
+              <p class="w-1/3 text-white font-semibold">
+                Total pto after 5 years
+              </p>
+              <div class="w-2/3">
+                <div class="bg-slate-900 h-2 w-full rounded-full">
+                  <div class="bg-pink-500 h-2 w-2/5 rounded-full"></div>
+                </div>
+              </div>
+              <p class="ml-3 text-white font-bold">20</p>
+            </div>
+            <div class="flex items-center justify-center">
+              <p class="w-1/3 text-white font-semibold">For volunteering</p>
+              <div class="w-2/3">
+                <div class="bg-slate-900 h-2 w-full rounded-full">
+                  <div class="bg-pink-500 h-2 w-1/4 rounded-full"></div>
+                </div>
+              </div>
+              <p class="ml-3 text-white font-bold">25</p>
+            </div>
+            <div class="flex items-center justify-center">
+              <p class="w-1/3 text-white font-semibold">
+                General pto for part timers
+              </p>
+              <div class="w-2/3">
+                <div class="bg-slate-900 h-2 w-full rounded-full">
+                  <div class="bg-pink-500 h-2 w-1/12 rounded-full"></div>
+                </div>
+              </div>
+              <p class="ml-3 text-white font-bold">7</p>
+            </div>
+
+            <div class="flex items-center justify-center">
+              <p class="w-1/3 text-white font-semibold">
+                #Sick days for part timers
+              </p>
+              <div class="w-2/3">
+                <div class="bg-slate-900 h-2 w-full rounded-full"></div>
+              </div>
+              <p class="ml-3 text-white font-bold">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
