@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Device Stats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="h-screen w-screen items-center justify-center grid grid-cols-1 sm:grid-cols-2 bg-slate-200"
+  >
+    <div
+      class="w-11/12 max-w-sm px-7 py-2 bg-slate-100 rounded-lg shadow-xl mx-10"
+    >
+      <div class="bg-slate-100">
+        <div class="flex items-center justify-center p-4">
+          <p class="w-full text-start text-black font-bold">Recycled</p>
+          <i
+            class="fa-solid fa-ellipsis text-2xl h-7 w-7 border border-slate-700 flex items-center justify-center p-4 rounded-sm"
+          ></i>
+        </div>
+
+        <div class="flex items-center justify-center">
+          <div
+            class="chart-container w-1/2 h-48 flex items-center justify-center"
+            style="position: relative"
+          >
+            <canvas id="myDoughnutChart"></canvas>
+          </div>
+
+          <div class="w-full flex flex-col px-3 space-y-3 py-1">
+            <div class="flex w-full items-center justify-center">
+              <div
+                class="mx-3 py-1 px-1 rounded-full bg-green-400 flex items-center justify-center"
+              ></div>
+              <p class="w-full text-start text-xs">Text</p>
+              <p class="w-full text-end text-xs font-bold">32%</p>
+            </div>
+            <div class="flex w-full items-center justify-center">
+              <div
+                class="mx-3 py-1 px-1 rounded-full bg-yellow-400 flex items-center justify-center"
+              ></div>
+              <p class="w-full text-start text-xs">Images</p>
+              <p class="w-full text-end text-xs font-bold">25%</p>
+            </div>
+            <div class="flex w-full items-center justify-center">
+              <div
+                class="mx-3 py-1 px-1 rounded-full bg-red-400 flex items-center justify-center"
+              ></div>
+              <p class="w-full text-start text-xs">Documents</p>
+              <p class="w-full text-end text-xs font-bold">22%</p>
+            </div>
+            <div class="flex w-full items-center justify-center">
+              <div
+                class="mx-3 py-1 px-1 rounded-full bg-sky-400 flex items-center justify-center"
+              ></div>
+              <p class="w-full text-start text-xs">Videos</p>
+              <p class="w-full text-end text-xs font-bold">11%</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center mt-5 mb-5">
+          <button
+            class="w-full py-2 border rounded-md border-slate-600 hover:bg-blue-300 active:bg-blue-700"
+          >
+            Read full report<i
+              class="fa-solid fa-chevron-right text-sm mx-3"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-11/12 max-w-lg py-2 bg-slate-100 px-10 rounded-lg shadow-xl">
+      <div class="w-full flex items-center justify-between mt-5">
+        <p class="font-bold text-xl">Goals</p>
+        <button
+          class="px-2 py-1 border border-slate-900 text-xs rounded-md hover:bg-blue-300 active:bg-blue-700"
+        >
+          This Month <i class="fa-solid fa-chevron-down text-xs mx-1"></i>
+        </button>
+      </div>
+      <div class="w-full space-y-4 flex-col py-8 mt-2">
+        <div class="mb-4">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold">Direct</p>
+            <p class="text-sm font-semibold">3,183</p>
+          </div>
+          <div class="bg-slate-300 w-full h-2 rounded-full">
+            <div class="bg-sky-500 w-1/2 h-2 rounded-full"></div>
+          </div>
+        </div>
+        <div class="my-4">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold">Organic</p>
+            <p class="text-sm font-semibold">3,486</p>
+          </div>
+          <div class="bg-slate-300 w-full h-2 rounded-full">
+            <div class="bg-pink-500 w-2/3 h-2 rounded-full"></div>
+          </div>
+        </div>
+        <div class="my-4">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold">Direct</p>
+            <p class="text-sm font-semibold">1,046</p>
+          </div>
+          <div class="bg-slate-300 w-full h-2 rounded-full">
+            <div class="bg-purple-500 w-1/4 h-2 rounded-full"></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold">Direct</p>
+            <p class="text-sm font-semibold">174</p>
+          </div>
+          <div class="bg-slate-300 w-full h-2 rounded-full">
+            <div class="bg-blue-700 w-1/6 h-2 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var ctx = document.getElementById("myDoughnutChart").getContext("2d");
+      var myDoughnutChart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          datasets: [
+            {
+              label: "%",
+              data: [32, 25, 22, 11],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.6)",
+                "rgba(54, 162, 235, 0.6)",
+                "rgba(255, 206, 86, 0.6)",
+                "rgba(104, 206, 86, 0.6)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 133, 1)",
+                "rgba(54, 162, 236, 1)",
+                "rgba(255, 206, 89, 1)",
+                "rgba(104, 205, 89, 1)",
+              ],
+              borderWidth: 3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: 65,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+
+      const customLabelsContainer = document.getElementById("customLabels");
+      customLabelsContainer.innerHTML = "";
+
+      myDoughnutChart.data.labels.forEach((label, index) => {
+        const color = myDoughnutChart.data.datasets[0].backgroundColor[index];
+        const labelDiv = document.createElement("div");
+        labelDiv.className = "flex items-center gap-2";
+        labelDiv.innerHTML = `<span class="inline-block h-4 w-4 rounded-full" style="background-color: ${color};"></span> <span class="text-white">${label}</span>`;
+        customLabelsContainer.appendChild(labelDiv);
+      });
+    </script>
+  </body>
+</html>
