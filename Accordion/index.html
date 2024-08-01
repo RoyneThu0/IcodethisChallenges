@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .accordion-content {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-100 h-screen w-screen flex items-center justify-center">
+    <div
+      class="w-11/12 max-w-lg p-10 bg-slate-200 rounded-lg shadow-xl flex-col items-center justify-center"
+    >
+      <p class="font-bold text-lg">
+        Coronavirus-Facts, advice and <br />
+        measures
+      </p>
+      <div id="Accordion" class="mt-5 space-y-2">
+        <div class="w-full flex items-center justify-center">
+          <div class="w-1 h-12 rounded-l-xl bg-orange-400"></div>
+          <div
+            class="w-11/12 bg-orange-100 p-3 rounded-r-lg flex items-center justify-start header"
+          >
+            <button class="accordion-toggle mr-4">
+              <i class="fas fa-plus text-slate-500"></i>
+            </button>
+            <p class="font-bold">What is Coronavirus?</p>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p>
+            Coronavirus is a type of virus that can cause illness in animals and
+            humans...
+          </p>
+        </div>
+        <div class="w-full flex items-center justify-center">
+          <div class="w-1 h-12 rounded-l-xl bg-purple-400"></div>
+          <div
+            class="w-11/12 bg-purple-100 p-3 rounded-r-lg flex items-center justify-start header"
+          >
+            <button class="accordion-toggle mr-4">
+              <i class="fas fa-plus text-slate-500"></i>
+            </button>
+            <p class="font-bold">For the Public</p>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p>
+            Information and advice for the public on how to protect
+            themselves...
+          </p>
+        </div>
+        <div class="w-full flex items-center justify-center">
+          <div class="w-1 h-12 rounded-l-xl bg-pink-400"></div>
+          <div
+            class="w-11/12 bg-pink-100 p-3 rounded-r-lg flex items-center justify-start header"
+          >
+            <button class="accordion-toggle mr-4">
+              <i class="fas fa-plus text-slate-500"></i>
+            </button>
+            <p class="font-bold">Facts and knowledge about Covid 19</p>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p>
+            Covid-19 is caused by the SARS-CoV-2 virus. It was first identified
+            in Wuhan, China...
+          </p>
+        </div>
+
+        <div class="w-full flex items-center justify-center">
+          <div class="w-1 h-12 rounded-l-xl bg-green-400"></div>
+          <div
+            class="w-11/12 bg-green-100 p-3 rounded-r-lg flex items-center justify-start header"
+          >
+            <button class="accordion-toggle mr-4">
+              <i class="fas fa-plus text-slate-500"></i>
+            </button>
+            <p class="font-bold">Symptoms of Covid-19</p>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p>
+            Common symptoms of Covid-19 include fever, dry cough, and tiredness.
+            Some patients may also experience aches and pains, nasal congestion,
+            sore throat, or diarrhea...
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll(".accordion-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const content = button.closest(".header").nextElementSibling;
+          content.style.display =
+            content.style.display === "none" ? "block" : "none";
+        });
+      });
+    </script>
+  </body>
+</html>
