@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stats Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen h-screen bg-slate-100 flex items-center justify-center">
+    <div
+      class="max-w-4xl w-11/12 py-10 flex-col flex items-center justify-center gap-40"
+    >
+      <div
+        class="w-full items-center justify-between grid grid-cols-1 sm:grid-cols-2 space-x-2 space-y-3"
+      >
+        <div
+          id="chart"
+          class="bg-white max-w-md p-10 rounded-lg shadow-xl shadow-slate-400"
+        >
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <div
+          class="bg-white max-w-md px-5 py-5 rounded-lg shadow-xl shadow-slate-400 flex items-center justify-center gap-10"
+        >
+          <div class="flex items-center justify-center">
+            <span class="text-3xl font-bold text-center w-full"
+              >0
+              <p class="font-light text-lg">Tweets</p>
+            </span>
+          </div>
+          <div class="h-28 px-0.5 bg-slate-600"></div>
+          <div class="flex items-center justify-center">
+            <span class="text-3xl font-bold text-center w-full"
+              >98
+              <p class="font-light text-lg">Clicks</p>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-white w-11/12 max-w-lg p-10 flex items-center justify-center flex-col rounded-xl shadow-xl shadow-slate-400"
+      >
+        <p class="w-full flex items-start">Overview</p>
+        <div class="flex-col mt-10 w-full space-y-5">
+          <div class="flex w-full items-center justify-between">
+            <p>Deliveries</p>
+            <p>
+              <i class="fa-solid fa-circle-arrow-up mx-2 text-green-400"></i
+              >99.7%
+            </p>
+          </div>
+          <div class="h-0.5 w-full bg-slate-200"></div>
+          <div class="flex w-full items-center justify-between">
+            <p>Total opens</p>
+            <p>857</p>
+          </div>
+          <div class="h-0.5 w-full bg-slate-200"></div>
+          <div class="flex w-full items-center justify-between">
+            <p>Forwarded</p>
+            <p>
+              <i class="fa-solid fa-circle-arrow-down mx-2 text-red-400"></i>71
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Current", "All", "Average"],
+          datasets: [
+            {
+              label: "Stats",
+              data: [12.2, 34.8, 28.7],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(75, 192, 192, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
