@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="path/to/utils.js"></script>
+  </head>
+  <body class="w-screen h-screen flex flex-col bg-slate-400">
+    <div
+      class="w-full flex items-center justify-end bg-gray-900 px-10 py-3 space-x-10"
+    >
+      <i
+        class="fa-regular text-slate-300 cursor-pointer fa-circle-info text-2xl"
+      ></i>
+      <i class="fa-regular text-slate-300 cursor-pointer fa-bell text-2xl"></i>
+      <img
+        class="h-12 w-12 rounded-full hover:border-2 hover:border-blue-500"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAD8CAMAAAAFbRsXAAABMlBMVEX///8AAAD82sz0nCWNxO9mTKL/3c/5nyb/4NKQyPRoTaX/4dP8/Pz7oCb/3c5cXFz29varq6vl5eXKysrt7e27u7tMTEzi4uK1tbXy8vLa2tp1dXXQ0NCioqIQEBDFxcU3NzeamppDQ0N9fX1ra2scHByQkJBgYGA7Ozuqk4omJiYvLy9JPzvnyLvTt6uSkpKFhYXOgx8kHx3Gq6AVFRVINnMvI0vCfB1hVE7ixLe4n5VaTklvYFpxSBHrliPgjyKYYRdRNAyahX2ychs4MC0UHCJeg6CIdm6EuOA9LWEWECM9JwmLWRVLMAvUhyCjaBhhPg4wQ1F2pMghLjhKZn1RPIEpHkFOOnwRDRshGDQsIUchFQVqRBAvHgcaEQQ/WGtEXnNZfJh7qtAsPUpnj64TDh8J2aKXAAAdWklEQVR4nO1dB1cbOddmDIwHbNxwr7gBrjSHYowBQ2JICKQQElI2myz7///CpytpZjRdtmfI956z9z3nPVljz+jR7VdX0tzcf/Qf/Uf/0X/0v0qZbCldWK/mCFW3twrRdGI1Hwv+6YFNQJF8odYSLKhXqaazkT89RGeKrG4li1YgFCom10uxPz1UG0pFN5xBKLRWLWX+9IjNKFWu8IOQORMuZP/0uLUUTCdNxvnXm3cnN2d3FwdAFxdnN9/fGDm2tr36/0dl0nrdfvv95mLndDjvR7TiV2l+eHpw9v2H7tvNXOn/BZZYmB3Vm5O7W4Jg3pTgD6cXN+d/abFU838axlxaFZdvJxen85YQNGjmhzt3WtZUon+WLduKRpwcDDkwsKwZ7tywWFrlPwclUqOD+HE3EQqVMwcnjJA1C38ISmSDjuBsuDIxChnL8O4tw5X0HwlicpQdO9PCIFjmd04YXSk9P44CNVSnkwuVni2nZ6q2hJ/bS8aIvXo7nBUH0Mrw4lyBUo0/K5CyS/ygxEpYvfCMqhLEjrB46xIOgOK/vZG9UmX12YDE6/DCm5n03Ajl9EbmSu65Iv0sdoOnbuIAWjn9TpEUy88jXwms6e4Jlkx+/8GbZ5UvbHy/uypZMpShIl/VZ0i+sNE68QIIkq8d2du3vPePGMg7b4AgW3wmM2Xba03BovVjOOkQV1B2NZx3xr9yKzvIpMfmCyu7cDCZtqNY5O2Pbz/Oz5zdqMqUprc6nyIBykQ45u++CXKA5vzllVtZU6KeIiEx/Bm/lviHTJTL8zv/vGy+1r1UlLwwmXD5T7HUvz07uOG2dyuyT6l5aYe38Ct+cEaN/luI1M8P5lf882+4DbfCRS9VnoSNwrsJcJzNY9RvJxDJlQuiVy0P05T4Gn7FDQdL/KcgIxdk9EOE6YLb3K2cviOxl4e+MVsnSOadRwWDuSM4/Dvo37c2oFf8fvR/zCdnnhuvVZI/vHPSk5U7RgZX0LjOLVH4hzt3J+/endwxmefKDsmEyx4iIXP11509U06h6ENzMP+pjWT5d07k7P3bjvod/5D4+W3vkOSb5LXnBzaFrRVscCmO4TtLA8HEvUCM0/TPkzSl6p1DSW3S177bseQKwxCMwyLR999ir/HX23fnmC3a9JPY4Zx3SDJyuRE7CVOGXCga4t9BY/1mnuj7D0Djvt2d+ldWhqBU37R/J0iqngGZm4sqhew3Z6fg8PRATojJ8q8Mz3TCr8EBTzihRcuV71rZUpF4qCdzKYUpKAS5OcA1eUZlVt5hyRrenoHovLHgB7BNttDEtOmBUCQe2q65uTSrpMKb7zcXB7enmIbDIVbUk3PioU/MC3qYH8UDRTQxRwzZzonX/gQvL4wal4ITnVvEmNhJFtkiMsyH8bsEScIzHDH09LYk+fptOxRvz26tbDRELYLKDyJZdyZfJkg8W+AChvQln0+SugMLFD8uTlcsA0U/GCk2jhwKBqPFIqmnvMERR8++FH1AYqDT0LOl176EWp5dvPtGWyPDds7cuBHPuOZNnRsyk4bkIxSSAp29xmg8GBweHx8Pxv2uL3AEEm9dtvffCmzU4p+n9tqccDCc9GJxK4P8SLHjUykkSgGFpJDPFxgLdoV7LFkyA/z+gx92OObnzwFJzQMgZfTcccBnQyKwRCheWOi6H0IsYs/8/h084xc2gkgiyHXXcUQgbuyKdkB80ohY3x1TKH5ZlFbmL/Agf9zaKZR/iMsrabeBRMH22jIEeDKmJvhiaIxh/GBsT1b8pzdkjdcpU/MP31ga4WA2vbU9VTIZaVHbSwZsxZlAv06N2MnFqaazw+9fucX2+Zz8/Y3z4irJnJsG05WKkmCpMk3RBaKTXUWEGor1MkiXb6w6lZOzi4ODHUy45+ab+qcLI8fMkIBBCLMxfSRR7YE5247mp7LNwQqj6tJYOLYWskBHhWJB5wc8MDASwK5Gwgko6YSjM5RacA34SFRU2lZbAr5G0xrFt7NTThjzNDqj8WOwgMR2LTpbEQ9atQby4HsqKCsBE7vjXQsgbydapMDpmgAsgGJObdbwa5VhCPEWNrJFvhWQkOcfD9rty8t2+3A8aux1u10sdAeTIQHvs5nPFpCIze7nNxiGiF08sXv2LgV9j/H7yPOLIfQ/7PsF23jMSEoXSy69OmPwhSvZ3ZCP4Yiwa2W3KAhftzE+RKzoiuwXJYzkzjpC1hMy4e9YwZyt4wtsxaEiSxKJ4UeWwhUQuyM1Nt7ts16HOH9QeCeN968guLcXSodUIRHdxl2VuamNVkkvSuTJHSMEPFTfqKdV78suw5TAHvnwx83F6fwKIa3fBJof3h7cnTCtUZukTh/MlzeRF5ludSsCNa02Mxapj589MGOJ6BuZ9AX32V93VG79OD+5uTk7u0N0cXeB6e7s5uRc39pJ7BalPNLYzWnCk4JBtwOH+OEmIaS4p7e67TbiT5G11qJonyubUVIzolQOfTKxgMVhhi+14+2QMZqwROMJDxtHKC8W9y6FQ41pEKVOY9AzG7COdgejvSOYNX1xKL41eYRfhSfqYisqXHvYkIWYEXaY4Y0ABP62r6231iKyZUf90aGV14RpGvc7oiSFsG0xSlKkILQmWt/Cprepn/jAMXwMGXxg3GbGd6QoyPGRij10JLRNxDAEQLv90fj4chd+VyzWdy/bKG8G74nYRq0dvMpMjoJbJvisCS/rjvROQyTChRgVaAt9ZZAqkJEm0hcHlHtGQryRpJD2P8F7qt9AClU3n/tUkx8JNr27RksbIMkgevGuMFZgUmcpFPcMomhq43ios2uWk1Cm8OePGyYaQsaMC46DQF/1+Ur40taHlIiB0wLBc7PJ684zyWZrrRLObaV16QrufLg0fQEZ87gnDCTdh2OfUSEa9uGyDRBwoEmLcRtolbEWrfC2CqdsxRBa/BGYvJG+td01+/qUMCAbFSaoCmnL7CDkCE60lE9DBt7rBCTTJJ1Us7sa83vYn37M5kDGJm7EkqLW5hxEa9DY6/gkEoszoz4yYVfIwjhNT2B9uQvz9kAwi5rtwai/1+2glCkgEQ6BW+zbRfOuEPCdOxxxBqIA2oV0r989wizqHgXcFSQDiR3kmXrcLlwG8vLjS15Eu5fHlEUgcyHLStesQMAOrnEnU1TZP14tLFz9/vDq/uc/3IDql+3BuAGAQqBEbgMSIarjtr4ykL+XFhYWloAWrq4+PP36+/1H7k2HvSaSuQaVOcnczE1B2PpucAMpkcH8AiAyYTyUQfx4QIlA5gAQmIVQaDZE2Pryr7rTPrknFogOzxMIHDccgSoRljlRIkI3DSQRgvgtN4AweJDAvZ8EigyofTigQkdt9yRcAjfCv1KdJe/8YA2EwnmaHIhKdZxsNMDUYTZJPLYB3Ah/jBtz5AgF8nsWICr1mpeQPyFICpvMDTh2IxPkT/EeH5CFhSlky5aKsuQRTCHKJxkUCaf5K74ZsjzzyxnI1UQKPzEmhU8EVCCAiwP8HAmSHcU/nYEsLPyyG8zPD79/f/jw9PTq1/3f7/+ZwGrrCDAhRo1JxRKC33g+HU2vppx8PNnh/fKKA8jS73trt/+0pBJiH/JCgOn+53v+2MeE6tVqmNaZKlv2dewq+Zqj2cJIlq4+3L//SF+inXS9ljGgZjJ4DK3ZhsI0RrnnAYLHBy7/CdGHq4/sW6y1bGnho9mwuKk92ut2+1Css6pEYCK7EvhkSzfbGu23mYmln6YD/OcnD8DDPR8YMwnHkLYlRtp86exJllQM5APNON7b/NJUtv5GrPr9dM8IaPGy3W4fHx8fHh4et0k2fdxV7DEEkS07IOvkKY5269XP9/+8f//z7/tXTx9+XyHSDs+WpSZT/5NOyy/5g8HeESmiUWcC5bMRWwYQUcxil2fRIEX4bY9kSeMQey9f6g2sjbkwYckv+U8ykIEuaEEO8VBblYH82lbd6aEOTuruFKPY+lSdlvytzJqiaF1D7aKjq8qEjhw8fYlDNpRpvRyA/O6arAzYKAkywQySl/e/lxTQ8vSYlAL1yKDqbB+yJDmmFJDcC7AyAgsGnaMupr2+2hlYtJ+IDyjrBLp/ulJhkGcCjZ1rMs5ASs5STgjUpBGQFRJRSJLUzlN7u8f6fYZkt+/QRkW1xqk6RLXk45UDEuwCtaXcgNp+YitbFuhe0d8almHMgCD769C0mS3yDWXp6qVemsW+KvwOds+MZIaMOTJHaAlzakcpy9bECQno5oAV51BHBcKRC+ge90v+KYdkQcrYdMAxF5RPObp3evWTXjHJUhwRzQlxLFzJv2xbDp5hSJenOpSt8yL5W9Cux0mMbHHkmZpnKTbZanWOJSgPcdQiZMuFQyDHWdQU4tX12cnUXfX3A55CfqcnFHk6a5Rq9nt720VCFWbNmbFbE7GEKWd0ODQEGMK3tSQnP/albZGLGkzVCMvLoFhL+JMBbAEJma6L6Spg0h5KF/lanZjNLvcWTFla+iCHjowRlpi+/5/cONSI+NhkIf7ocnAkqZ+LgINz0SdeV4cjFH9dLSwZcteFJyYCVo1wqMN0MXBmmktMemmyWIpbokZQy5NCKHwQOxOswukXE/9BQRETWCygbF1bRVCbBaQuE9JzORMWh5lgUSaTpbK9Ee7k4S0D1wQjvfzn5/2vX69whcdQ32FssLTHfM6BZOmD+rSBqaIbm4h4q8BBnPGOLTtEtTQeadufAg3mj/cOBlyNsASLlXxfpykIa0mm34j/CCisIm1o3HXeSLW7F0AzplFOHzsB9gZ8ic1NzJtvcWMLGnoqsZ2sF+vJ9Qk6tHDCC7GH5Gs4cGXsC3S1XXQhUduCXXzSWwoGxxMrpHumaUgI6r508MHIZHtF8TrJHm2ysmmn7o06ARxfMZIl+pBu1jXHIL7/bQ5Fyw6a3Bg5sidMsDCtJbZRGUHpHwtm1Gwg4cPh264aVUhdJI3JuM7u/fygN+DI9v2+13zHql0V5wZTAoFYq6n2NImBzsigLO1+CEsCtAcpxjckgs0PQ4k5r2XkS50B//1KV8+3bLvFgeiUPeQARBNMI1+k6XLfHXRpiwAEV/L2BTHQBUtJ1yxTdUFPLz9CKQyZb2Npy0KufHRBd8pjXwDIoc6ChAIi7G9D1N/rSHKnAwjWpSyDHeK5ZGfF30eBcinrNi7s2KcEAjpi4ptIf5527XxXDlfp1pdqflOIy08pcvbDHtu1EuGV6SlFC6wWR0kGCRbiQT+AMWIvCF24eSFHnlJDcj/igNHr23bV4cxgys2hvEAgGoGNF2IANyxvkHnbIDamBI460HdAgbQ8ZP8mAMIZsxsoywcE1xo6YkDsg01TAoc8VvdgBUeAUufQlhsNn9N7gOutKYHEelbxG0s4FGkEyLYWYVP9eRi0JE3tHjJlllAO9yTn6YLgtzLlJot4ExTQkYAPxFsUB0Jd/fmqsA4bL2V3D1uTTVzqYd/H1eUVQvOQnPIUC4h+TZp8daSYpMGeiPjPON+kEK+ysgkbYo7640PqVXfb40aXD4WPrISEp8NByqYOm45oulMc4IlF/oQpBqSFoiEkF6FZA8XkaH4k6IrkQ0EnbOpNx7C6O7AV3xCYo8txV6QTK+0KKvshDXDcfDUJkKmPFQGnvGtflzlqIAevlgSQ/1V7XoJrfG6Ijy5n2DyNExLL/auYRG2XktgRKsrPE1xlT06CasbUR3FE4DCtyQaD0hI5jsgW+erQXIT3okx/2lYZWGKesVm9sC+HJvmiAzMnA8IkiFNQBtprOFwJ+8ZLsmCxyrfAMRGQGc7hwDH4RP3VKG8ozOEUYOAeDJJXTRtqYQJXYl6esSShNZfZhnqEe4QCykOHthMnIpWUSXr1kXdPIgfScE/PJRTc4GhgpkMCsb4bdlVZvzWAW1p3TbeNTEEhSTpSQrTkLIfVkBU4Tssl1ycOeVY3+J6nOQOnPstxh3gFbtdpLxGauYDUIb0CxYYrLeRiwNc/1JeXCzOwBK/2tO3nWNxrNEbHuInjcuwGOxCKvQFb3kyWyzhX2JhSvLLb9O4XW2Mqr1D1jkddnzTzNh4RDldgS2jN7SyKRTMFgNKbginBBHMRj73Co8lr4+0js3MD1FtTd9lIyJlhZgtErTahGY4X1jTiaecXod1IcMNSIfXuH7OKsVnWNJbF4FivZnSCVDFflYudzVw6AfLVswsBxaNdzda96VBIPt15HTXjpUSw65t7M348KstUPYcv0Uo1nRRe7FzO6ARF6WikEam1snmXXx7CjZqzdwzmc3K9thKVxbHkrPC+tn02aY8CWSmtrVU1w0glOCqnartpLJhV7gtrVleZtLXpqPBih6frwvSXUkhrpYQ16wUpPLXBKBL23rql1sdUFDnNvWyppLPCT7tzNSTpj7Az0QxMmdhcqkZLKZlyz/qqojjlba+W0GANFuR+RVuFnw4FcnyabshKwUJkMuVWfaOnRo7YgG2aX1WU0yoGpRKw4+HTNfzx0qUoiqLQOT6hXs1bWNZglDgDttUhC2WepFn8hcORnPazLKy2f3mxuLz8Ah507BoSJFK61bykfgp1kwmktbspgLJhttoAPdhsP0EM71zYX1xeXFxc3ncPiSjpYinEDGuDiifz8cXnL4LQ0sVaKRCwnEkABueeKPWjzBaI77+flwHHImGJU/zIQ1JI5zIEIWwdd8TXke6+Bpn4BFqhHzTmypZRImEhlvaqJNZUdgCQa4EimSksFJFIsZX5Zi2a2rCuWUXA0n65JjIBSNYM0w8MMzktf7VOSmE4FkBKTmEgeo04W5yNJzgKYVZ668RA1iyXB7FyqHP5GXhiYB4U4HrGbtMselE5tQ5S9fhpUcGBHxIt4aNqpjyzQRK1IhWWtTtpsecglsODUOcSi/eGVo5iZZCcsIm5y1LDDnK5qNKDAPk/Xjm/PJo8GgGRGjBRyGZZlZG6YGp1001iMJlBYPlmisDB1Rwerfl9S9i/65+ANQ19PQuh8MTVBdGncRl1zWWbEXaBSKHUBitVCoHtVCrl1CybH4IUwVc3XuuegI0vLuynJkaCNEOj32Gdw8iabVKP9rBU6XEsLj4KQpG4jhhtujRlRyRR0ek4JZAK4ldTIJP682esKYQ0g2HG5pZh+hJ6L4zGWDOZTDKjYHTqCEm83LNmRwYrjvDCMBFYy+TjFiZAgj2fqhnm97eWDc2JiabpZFIhR46xt7VNjF/T/LY7eiHoNbJWuqc8CswpBTFcknBGImojW71IyVTVbYmOVEFFTaRKRqLqmlUoH9miRv5Ri4X8Vg1ecMrohETUZK4mIiVTWNuckUXC/dVMqjTiAWSXXGXScrvY47UKhcRZzOsckYiaDq9mblUvAZktxQmuaVYMoqayrUWCgwzHS6Ky63L9ZF9xiEgshZYm17JFolHwYjhtIgA5ZeddUBBUxQlWFRe4DGSDhGNNMVKSL1x/wFAIL7XLwzGM1jRnBAVXmFEpmxYH4ZjztPxPxo3UVN/x6fOLF58tRAyQcJ1PFVHuAX59TSyeYTEyjp2RoalHFBkFb1pmSnBELS0a5pkVVPTaa8IO7PkEM5dIaN8Qq5hQbF2Tfn4lz9TPbARrk3alEIJC2doWNxLW+4a2VSAJlderaOAUB5jJf/ev0as/myFZhpBpw4EnUdM99MZWEFLgHikRZCjEMMMy+SaUU1lcVqV9Tfh3UcUB1mb50yNhEVEZVm0eaeOkFZHhfXnY3//68PD4WgFitlUD7+od4PqJyGpG3fGyb3gJtTpVRWhLgoD1nMjyC1nlybhfoPF83d/fR4N6fP36y5dHiGLtpAvjuFYmYPH6CxmcqbHDy6XtIynE+oxk2vlkZDQFTTqdYeXRYeGRJFDwyi9aUZJ9h46sG1TwQdGsWBI2W61FkuugxmoC3triWsLINisy05qyHc4QhlDP/aBTjX1zJIYwTSawRdeaZxD3Y7W9LFZhntrLlXgr5cr3kBuh/y4J/6o4hAcTOwUTGq7lahvJyiaiymbR8sSXCLJXr7UP+IT1xHLTSVDewVTc4BApI6WUvrt1PIPLj0hBv+hFS5lQbaATSxQsoq1MT9YyqiWf6TBttDddVLLvKaikyPkGEWkQsBeCidnFn/L2zAZR6EF/9vnh6/X+V2qKbZfrM6Xs9JdNFRRmrxGbhQaAh/yoZwnmCfehgBWFpxqdmroPz5GqSh20LgO5JnpybfSED/wnntWEIv3Ri0fGMfIfazUpVRSxL2KhRjqCWIIV81ofNCJOtXj1cIs6pUUcxH/69JkYC8/uVWVi3zA2uSBWX5dxCIIslxbK9QRn0OXhMeoULBNbMVNrji3F1A3Qq9SPPGI1Xf4KL37UqPzrSVo0K4rZUn48yVl8k1KJUb8a1c9PzJuFz4oBxa6Z/6AwWC9U6xc0NHD5urVgtShreIF5dqROTNWyYqMovX5Eod/+/uvJLoUBB/f6M50FOi0u3+xVULvPc+zYUqxDNwuvJpKMILkI+GH/GtEDcdruXg0LN5jUqfWpaFxcHtyHXLIGM7P/6RMdA6HJelHS+g1FFXcvV8xAWEbMR7AoaOwIEuwvpL64DDXBByoXKO293n80RCjOlNBsvXP7bkU4r49yJCMUtX+DbSsPuBb1lYn6CJ7rCU4yVSiYj5YL0QSJbV2+dwkOvqJ5epZJ2OkfSWkNZ0GaYuPy4hfroN2JIq0pJNORoIRCs8K0cWyRbSWiYIrYyzjdmrqHjhzsNO3ODUuqKX5t3TQKzBboMu7Xz7JYfdqfSVejXngRRIoVDFtZ9kxaXpJ+/XX/ep94gembGnPeBloQ8VrboTzT+AbkWCO1Jnxl1Wytw/aEtMXu4QUGRtF8eY2PyLl6/GcFT0wl01U3laCOV6wka7nt9EzXJJHtz97lInNlg/U1DsCNa9prM6oYxwvsw3IkW1yH0ThQhKwvuBtoaajlsDiAjE1ztnvQMNHjAdP5/GqplIgWyuvV3EaystZqrVHarFBKUgortFGr1XKIqtXq9vb21tZWoVCIRqPpdDqxms/GMnDgQcxhwxH442n3UbI0yR7uSanYazZbdehF2S5HAVoqnjEc5gBlTzeuCs05DsddbPVmq5LcyFXXy8C5RBr3XrthapKO734GciOnK5W3UAQcTZdWEZUSiXQaCXmhXG09JxAPTQ2p2D8TuZzTaang/P5paC2RR7SKdKO8Tai6ve7Z7dlAG94A8TCCMKe4Nzj469NukeEWH5fI/bTHgcLOY5qKvLgl245SHuFwCITdp3WvgNinJq5T3HgckFvkXSZqRp4xxPUKsz3Fpr4jwZmmLr9NQ1XvcAhFL8MRHeU9xDH1eU3TkFc+hNDzuUSvnDqlZzPAGa8zEQ9rmhradh7KbPRMUQpHQlXluevXhlxewDCnrPMgo3a5SjnrnJE9hyuJrTkOY8vO8UNM6FyXcaNAak8Z55oKSLj1pENjQMoxLvCue4dS0Oz4Xy3hlUrroh5eI99yfIqHlWZMHAYLS4U1EDzXzgZ8zds4haNwknP4InHbzmXYGY7acCYej04qadbKTta4IxXLL8jkYVpScny50lRgbX5TvHPinQnO8+QgdB4tTziW17iDzizxSt+z1scvqySfi2v5BSWydY4PWi4siZhQytkRCgpDrEepTDMHSzwJ5zkcuqCaGmK0esZghmmq5LCALje/AMU3eXAoUWs8gRfWYtn8aiJaWK/mauHKZqvZbDFD46nDuK4mEa6U0GElPhjJaLxcPuxsPVzOejkCE2EaexlPVJ0k1t3okSMwKSanLEel0jm7eKXnJhJbtSw2K7X19OosfjiYjVpLWdO9JMsiLiq2ktVyIh9zJ7qLpzcssLTcWj40hk31SjVayrrQiqCleMIcy5orUVdca69aG1uJrDceFyiTMAvSKi7MWV4x9j3EhvwzFMozCaOJTM48dbEiUua1cLWQSD1jQdbIF9udhlwUjHgnR3YUj2pDMbPjNf5XKLXOhtu1/2Ekc3OrTN3oWVdN3KeI0i77/MvWblOsTC3ns3cSuE8l4sw8SE+eneJliCy9L6Q+B8UKSa7lhv8DcY/I6Aak5ZEAAAAASUVORK5CYII="
+        alt=""
+      />
+    </div>
+    <div
+      class="w-full flex items-center justify-between bg-slate-200 px-10 py-3 space-x-10"
+    >
+      <div class="w-full flex items-center">
+        <ul class="flex space-x-3">
+          <li
+            class="text-md cursor-pointer hover:underline hover:underline-offset-8"
+          >
+            Home
+          </li>
+          <li
+            class="text-md cursor-pointer hover:underline hover:underline-offset-8"
+          >
+            Audience
+          </li>
+          <li
+            class="text-md cursor-pointer hover:underline hover:underline-offset-8"
+          >
+            Behaviour
+          </li>
+          <li
+            class="text-md cursor-pointer hover:underline hover:underline-offset-8"
+          >
+            Conversions
+          </li>
+        </ul>
+      </div>
+      <p class="text-md cursor-pointer">Customize</p>
+    </div>
+    <div
+      class="w-full p-10 bg-slate-200 sm:flex grid sm:grid-cols-2 grid-cols-1 items-center justify-center group gap-3"
+    >
+      <div class="w-2/3 p-5 sm:grid-cols-2 grid-cols-1 rounded-lg">
+        <div
+          class="w-full p-3 sm:flex grid sm:grid-cols-2 grid-cols-1 items-center justify-center gap-3"
+        >
+          <div
+            class="bg-blue-900 hover:shadow-slate-700 hover:shadow-lg shadow-slate-300 shadow-lg w-full sm:w-2/6 rounded-lg p-5 flex-col items-center justify-start"
+          >
+            <p class="text-white text-xl">Active Users</p>
+            <p class="text-white text-5xl font-semibold font-sans">72</p>
+            <p class="text-white">
+              VIEW REFFERALS<i
+                class="fa-solid fa-arrow-right mx-4 mt-5 text-lg"
+              ></i>
+            </p>
+          </div>
+          <div
+            id="chart"
+            class="bg-white px-2 py-4 w-4/6 rounded-lg flex-col hover:shadow-slate-700 hover:shadow-lg"
+          >
+            <p class="font-semibold text-2xl">Page views per minute</p>
+            <canvas id="myChart" class="w-full" height="100"></canvas>
+          </div>
+        </div>
+        <div
+          class="w-full p-4 sm:flex grid sm:grid-cols-4 grid-cols-1 items-center justify-center gap-3"
+        >
+          <div
+            class="bg-slate-50 hover:shadow-slate-700 hover:shadow-lg w-full rounded-lg p-2 flex-col items-center justify-start"
+          >
+            <div class="flex w-full items-center justify-between mb-4">
+              <p class="text-lg">Users</p>
+              <p class="text-green-500">
+                <i class="fa-solid fa-arrow-up mx-1 text-green-500"></i>256%
+              </p>
+            </div>
+            <p class="text-5xl font-semibold font-sans">72</p>
+          </div>
+          <div
+            class="bg-slate-50 hover:shadow-slate-700 hover:shadow-lg w-full rounded-lg p-2 flex-col items-center justify-start"
+          >
+            <div class="flex w-full items-center justify-between mb-4">
+              <p class="text-lg">Sessions</p>
+              <p class="text-green-500">
+                <i class="fa-solid fa-arrow-up mx-1 text-green-500"></i>256%
+              </p>
+            </div>
+            <p class="text-5xl font-semibold font-sans">17 K</p>
+          </div>
+          <div
+            class="bg-slate-50 hover:shadow-slate-700 hover:shadow-lg w-full rounded-lg p-2 flex-col items-center justify-start"
+          >
+            <div class="flex w-full items-center justify-between mb-4">
+              <p class="text-lg text-wrap">Bounce Rate</p>
+              <p class="text-red-500">
+                <i class="fa-solid fa-arrow-down mx-1 text-red-500"></i>19.6%
+              </p>
+            </div>
+            <p class="text-5xl font-semibold font-sans">62.57%</p>
+          </div>
+          <div
+            class="bg-slate-50 hover:shadow-slate-700 hover:shadow-lg w-full rounded-lg p-2 flex-col items-center justify-start"
+          >
+            <div class="flex w-full items-center justify-between mb-4">
+              <p class="text-lg text-wrap">Session</p>
+              <p class="text-red-500">
+                <i class="fa-solid fa-arrow-down mx-1 text-red-500"></i>29.7%
+              </p>
+            </div>
+            <p class="text-5xl font-semibold font-sans">1m 37s</p>
+          </div>
+        </div>
+
+        <div
+          class="grid sm:flex sm:grid-cols-2 grid-cols-1 bg-white mx-4 hover:shadow-slate-700 hover:shadow-lg p-7 mt-4 rounded-lg items-center justify-between space-y-4"
+        >
+          <div
+            class="grid sm:flex sm:grid-cols-2 grid-cols-1 items-center justify-center"
+          >
+            <i class="fa-solid fa-bell text-yellow-400 text-5xl"></i>
+            <div class="mx-4">
+              <p class="text-2xl font-semibold">No Alerts Set</p>
+              <p>Get notified when your data drastically change</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-center">
+            <button
+              class="bg-blue-200 px-10 py-4 border-2 border-blue-300 font-semibold rounded-lg hover:bg-green-200 active:bg-purple-300 text-blue-700 text-sm"
+            >
+              Set Alert
+            </button>
+          </div>
+        </div>
+        <div
+          class="grid sm:flex sm:grid-cols-2 grid-cols-1 items-center py-10 px-4 justify-center gap-4"
+        >
+          <div
+            class="w-full flex items-center justify-center hover:shadow-slate-700 hover:shadow-lg bg-white flex-col p-10 rounded-lg"
+          >
+            <p class="w-full text-start text-2xl">Devices</p>
+
+            <div
+              class="w-11/12 rounded-lg flex items-stretch justify-around gap-2 p-2 bg-slate-200 m-10"
+            >
+              <p
+                class="w-full px-2 py-2 bg-white flex justify-center rounded-lg shadow-xl"
+              >
+                May
+              </p>
+              <p
+                class="w-full px-2 py-2 hover:bg-white flex justify-center rounded-lg hover:shadow-xl"
+              >
+                June
+              </p>
+              <p
+                class="w-full px-2 py-2 hover:bg-white flex justify-center rounded-lg hover:shadow-xl"
+              >
+                July
+              </p>
+              <p
+                class="w-full px-2 py-2 hover:bg-white flex justify-center rounded-lg hover:shadow-xl"
+              >
+                August
+              </p>
+            </div>
+            <div class="w-full flex flex-col space-y-4">
+              <div>
+                <p>Desktop | 52%</p>
+                <div class="w-3/5 bg-black py-1"></div>
+              </div>
+              <div>
+                <p>Desktop | 52%</p>
+                <div class="w-1/5 bg-black py-1"></div>
+              </div>
+              <div>
+                <p>Desktop | 52%</p>
+                <div class="w-2/5 bg-black py-1"></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-center justify-center bg-white hover:shadow-slate-700 hover:shadow-lg flex-col p-10 rounded-lg"
+          >
+            <div class="w-full flex items-center justify-between">
+              <p class="w-full text-start text-2xl">Devices</p>
+              <i
+                class="fa-solid fa-ellipsis-v px-4 py-2 rounded-md hover:bg-slate-300"
+              ></i>
+            </div>
+
+            <div class="w-full flex flex-col mt-12 space-y-1">
+              <div
+                class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+              >
+                <p class="font-semibold">Direct</p>
+                <p>24</p>
+              </div>
+              <div
+                class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+              >
+                <p class="font-semibold">Organic</p>
+                <p>14</p>
+              </div>
+              <div
+                class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+              >
+                <p class="font-semibold">Social</p>
+                <p>5</p>
+              </div>
+              <div
+                class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+              >
+                <p class="font-semibold">Refferal</p>
+                <p>5</p>
+              </div>
+              <div
+                class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+              >
+                <p class="font-semibold">Social</p>
+                <p>2</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-1/3 py-4 px-3 mb-5 bg-white shadow-slate-700 shadow-lg sm:grid-cols-2 grid-cols-1 rounded-lg"
+      >
+        <div class="flex items-center justify-between">
+          <p class="text-xl">Top pages</p>
+          <p class="text-xl">Visits</p>
+        </div>
+        <div class="w-full flex flex-col mt-4 space-y-1">
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">/</p>
+            <p>23,956</p>
+          </div>
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">/about</p>
+            <p>477</p>
+          </div>
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">
+              /posts/sketch-help-ce...links-search- <br />
+              day-1120
+            </p>
+            <p>458</p>
+          </div>
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">
+              /posts/sketch-pricing...n-card-cards- <br />
+              day-1116
+            </p>
+            <p>447</p>
+          </div>
+
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">
+              /posts/sketch-stats-ca...istics-cards- <br />
+              day-1119
+            </p>
+            <p>785</p>
+          </div>
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">
+              /posts/sketch-dark-c...ongress-bar- <br />
+              day-1112
+            </p>
+            <p>962</p>
+          </div>
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">
+              /posts/sketch-messages-me...-<br />
+              messaging-ui-kit-day-5951
+            </p>
+            <p>558</p>
+          </div>
+          <div
+            class="flex w-full items-center justify-between hover:bg-slate-200 p-2 rounded-lg"
+          >
+            <p class="font-semibold">
+              /posts/sketch-modal-discount-<br />
+              -day-1061 1
+            </p>
+            <p>486</p>
+          </div>
+        </div>
+        <div
+          class="mt-7 bg-blue-900 hover:shadow-slate-700 hover:shadow-lg rounded-lg p-8 shadow-md shadow-slate-300"
+        >
+          <div class="flex w-full items-center justify-between rounded-lg">
+            <p class="text-lg text-white font-light">More Stats</p>
+            <i
+              class="fa-solid fa-chevron-right py-2 px-3 text-white bg-blue-600 rounded-md"
+            ></i>
+          </div>
+          <p class="text-sm mt-6 text-white font-light">More Stats</p>
+          <p class="text-4xl mt-2 font-semibold text-white">42 K</p>
+
+          <p class="text-sm mt-9 text-white font-light">More Stats</p>
+          <p class="text-4xl mt-2 font-semibold text-white">47.46 %</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["", "", " ", "", " "],
+          datasets: [
+            {
+              label: "Page Views",
+              data: [12, 19, 3, 5, 2],
+              backgroundColor: "rgba(75, 192, 192, 0.2)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 1,
+            },
+            {
+              label: "Unique Visitors",
+              data: [8, 11, 5, 6, 3],
+              backgroundColor: "rgba(153, 102, 255, 0.2)",
+              borderColor: "rgba(153, 102, 255, 1)",
+              borderWidth: 1,
+            },
+            {
+              label: "Conversions",
+              data: [2, 3, 1, 4, 2],
+              backgroundColor: "rgba(255, 159, 64, 0.2)",
+              borderColor: "rgba(255, 159, 64, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return ["48 page views", "3 min ago"];
+                },
+              },
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
