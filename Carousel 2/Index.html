@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .active {
+        background-color: #f97316; /* Tailwind orange-500 */
+        color: white;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-cyan-200 to-sky-400 flex items-center justify-center min-h-screen"
+  >
+    <div
+      class="w-11/12 max-w-5xl bg-slate-100 rounded-lg shadow-xl shadow-slate-400 p-10 flex flex-col items-center justify-center"
+    >
+      <div
+        id="select"
+        class="w-full p-10 mb-3 flex items-center justify-center space-x-2"
+      >
+        <p
+          class="px-4 py-1 rounded-sm hover:bg-orange-500 active:bg-red-600 hover:shadow-orange-800 duration-200 ease-in-out hover:shadow-lg"
+          data-category="all"
+        >
+          All
+        </p>
+        <p
+          class="px-4 py-1 rounded-sm hover:bg-orange-500 active:bg-red-600 hover:shadow-orange-800 duration-200 ease-in-out hover:shadow-lg"
+          data-category="photography"
+        >
+          Photography
+        </p>
+        <p
+          class="px-4 py-1 rounded-sm hover:bg-orange-500 active:bg-red-600 hover:shadow-orange-800 duration-200 ease-in-out hover:shadow-lg"
+          data-category="fashion"
+        >
+          Fashion
+        </p>
+        <p
+          class="px-4 py-1 rounded-sm hover:bg-orange-500 active:bg-red-600 hover:shadow-orange-800 duration-200 ease-in-out hover:shadow-lg"
+          data-category="sculpture"
+        >
+          Sculpture
+        </p>
+      </div>
+      <div class="flex items-center justify-center w-full">
+        <button
+          class="w-10 h-10 flex items-center justify-center rounded-full"
+          id="prevBtn"
+        >
+          <i
+            class="fa-solid fa-chevron-left text-slate-400 hover:text-orange-300 active:text-red-500 ease-in-out duration-200 text-4xl"
+          ></i>
+        </button>
+        <div class="w-full flex items-center justify-center">
+          <div class="relative w-4/5 overflow-hidden">
+            <div
+              class="flex transition-transform duration-500 ease-in-out"
+              id="carouselTrack"
+            >
+              <div class="flex-none w-1/3 p-2">
+                <div
+                  class="flex-col w-full bg-white border border-gray-300 flex rounded-lg hover:shadow-md hover:-translate-y-1 ease-in-out duration-300 hover:shadow-orange-600"
+                >
+                  <img
+                    class="w-full object-cover rounded-t-lg"
+                    src="https://assets.weimgs.com/weimgs/ab/images/wcm//products/202414/0025/pure-white-matte-ceramic-vases-fwh.jpg"
+                    alt=""
+                  />
+                  <p class="w-full text-center mt-5 font-bold">
+                    Britta Clay Art
+                  </p>
+                  <p class="w-full text-center text-sm mb-5 text-slate-400">
+                    Sat, 24 October 2020
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex-none w-1/3 p-2">
+                <div
+                  class="flex-col w-full bg-white border border-gray-300 flex rounded-lg hover:shadow-md hover:-translate-y-1 ease-in-out duration-300 hover:shadow-orange-600"
+                >
+                  <img
+                    class="w-full object-cover rounded-t-lg"
+                    src="https://cdn.prod.website-files.com/64c82edd724cd267a8038611/65cc1ea2fd2eec76f0211034_Untitled%20design.jpg"
+                    alt=""
+                  />
+                  <p class="w-full text-center mt-5 font-bold">
+                    Belgian Balloon Trophy
+                  </p>
+                  <p class="w-full text-center text-sm mb-5 text-slate-400">
+                    Sat, 20 October 2020
+                  </p>
+                </div>
+              </div>
+              <div class="flex-none w-1/3 p-2">
+                <div
+                  class="flex-col w-full bg-white border border-gray-300 flex rounded-lg hover:shadow-md hover:-translate-y-1 ease-in-out duration-300 hover:shadow-orange-600"
+                >
+                  <img
+                    class="w-full object-cover rounded-t-lg"
+                    src="https://www.treehugger.com/thmb/BpIi_PDPS6JwNnrUsDCcz1IifHA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2014__06__TheWave1-58448bc35ce44fd7b78f155b09096c6b.jpg"
+                    alt=""
+                  />
+                  <p class="w-full text-center mt-5 font-bold">
+                    Way of the hunt
+                  </p>
+                  <p class="w-full text-center text-sm mb-5 text-slate-400">
+                    Fri, 14 August 2020
+                  </p>
+                </div>
+              </div>
+              <div class="flex-none w-1/3 p-2">
+                <div
+                  class="flex-col w-full bg-white border border-gray-300 flex rounded-lg hover:shadow-md hover:-translate-y-1 ease-in-out duration-300 hover:shadow-orange-600"
+                >
+                  <img
+                    class="w-full object-cover rounded-t-lg"
+                    src="https://static1.squarespace.com/static/61c4da8eb1b30a201b9669f2/t/65218460dd074500201142e9/1696695392942/Sounds-of-Nature.jpg?format=1500w"
+                    alt=""
+                  />
+                  <p class="w-full text-center mt-5 font-bold">
+                    Sound of Nature
+                  </p>
+                  <p class="w-full text-center text-sm mb-5 text-slate-400">
+                    Sat, 15 November 2020
+                  </p>
+                </div>
+              </div>
+              <div class="flex-none w-1/3 p-2">
+                <div
+                  class="flex-col w-full bg-white border border-gray-300 flex rounded-lg hover:shadow-md hover:-translate-y-1 ease-in-out duration-300 hover:shadow-orange-600"
+                >
+                  <img
+                    class="w-full object-cover rounded-t-lg"
+                    src=" https://assets-global.website-files.com/623899567434bf1b32de3c10/64ca3f115be935f9d690a533_20230802_TNM_background_minerals_1500.jpg"
+                    alt=""
+                  />
+                  <p class="w-full text-center mt-5 font-bold">
+                    Ripples of the Earth
+                  </p>
+                  <p class="w-full text-center text-sm mb-5 text-slate-400">
+                    Mon, 4 January 2019
+                  </p>
+                </div>
+              </div>
+              <div class="flex-none w-1/3 p-2">
+                <div
+                  class="flex-col w-full bg-white border border-gray-300 flex rounded-lg hover:shadow-md hover:-translate-y-1 ease-in-out duration-300 hover:shadow-orange-600"
+                >
+                  <img
+                    class="w-full object-cover rounded-t-lg"
+                    src="https://www.adorama.com/alc/wp-content/uploads/2017/11/shutterstock_114802408-825x465.jpg"
+                    alt=""
+                  />
+                  <p class="w-full text-center mt-5 font-bold">
+                    The Heaven's Voice
+                  </p>
+                  <p class="w-full text-center text-sm mb-5 text-slate-400">
+                    Tue, 15 May 2020
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="w-10 h-10 flex items-center justify-center rounded-full"
+          id="nextBtn"
+        >
+          <i
+            class="fa-solid fa-chevron-right text-slate-400 hover:text-orange-300 active:text-red-500 ease-in-out duration-200 text-4xl"
+          ></i>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-center mt-8 mb-10">
+        <button
+          class="bg-orange-400 text-white px-8 py-2 rounded-lg shadow-lg hover:-translate-y-3 hover:duration-300 ease-in-out active:bg-red-400 active:shadow-red-500 shadow-orange-800"
+        >
+          View More
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const track = document.getElementById("carouselTrack");
+        const prevButton = document.getElementById("prevBtn");
+        const nextButton = document.getElementById("nextBtn");
+        const items = Array.from(track.children);
+        const itemWidth = items[0].getBoundingClientRect().width;
+
+        let currentIndex = 0;
+
+        const moveToItem = (index) => {
+          track.style.transform = `translateX(-${index * itemWidth}px)`;
+        };
+
+        prevButton.addEventListener("click", () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            moveToItem(currentIndex);
+          }
+        });
+
+        nextButton.addEventListener("click", () => {
+          if (currentIndex < items.length - 3) {
+            currentIndex++;
+            moveToItem(currentIndex);
+          }
+        });
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const selectElements = document.querySelectorAll("#select p");
+
+        selectElements.forEach((element) => {
+          element.addEventListener("click", () => {
+            selectElements.forEach((el) => el.classList.remove("active"));
+            element.classList.add("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
