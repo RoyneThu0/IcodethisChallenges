@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Theme Comps</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body
+    class="bg-gray-900 min-h-screen w-screen flex flex-col items-center justify-center"
+  >
+    <nav
+      class="bg-gray-800 w-full sm:w-3/4 lg:w-1/2 flex items-center justify-between sm:justify-end gap-4 sm:gap-10 py-3 px-4 rounded-lg my-4 text-white shadow-xl shadow-black"
+    >
+      <div class="flex gap-4">
+        <a class="active" href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button
+        class="mt-2 lg:mt-0 px-5 py-2 bg-gradient-to-r from-blue-400 to bg-purple-400 rounded-md"
+      >
+        Sign Up
+      </button>
+    </nav>
+    <div
+      class="flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl"
+    >
+      <div
+        class="w-full lg:w-1/2 bg-gray-800 p-4 rounded-xl m-4 shadow-xl shadow-black"
+      >
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="rounded-lg space-y-6 p-2 w-full lg:w-1/2 m-4">
+        <div class="relative inline-block text-left">
+          <button
+            id="options-button"
+            class="bg-gradient-to-r from-blue-400 to bg-purple-400 text-white px-4 py-2 rounded-md shadow-md"
+          >
+            Options
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div
+            id="options-menu"
+            class="hidden origin-top-right absolute left-20 mt-2 w-48 rounded-md shadow-lg bg-gray-700 ring-1 ring-black ring-opacity-5"
+          >
+            <div class="py-1" role="none">
+              <a
+                href="#"
+                class="text-gray-300 block px-4 py-2 text-sm hover:bg-gray-600"
+                >Sound</a
+              >
+              <a
+                href="#"
+                class="text-gray-300 block px-4 py-2 text-sm hover:bg-gray-600"
+                >Effects</a
+              >
+              <a
+                href="#"
+                class="text-gray-300 block px-4 py-2 text-sm hover:bg-gray-600"
+                >Animations</a
+              >
+              <a
+                href="#"
+                class="text-gray-300 block px-4 py-2 text-sm hover:bg-gray-600"
+                >Preferences</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="bg-gray-700 text-white px-4 py-2 flex rounded-md shadow-md"
+        >
+          Edit
+        </button>
+
+        <!-- Sliders -->
+        <div class="pt-10 lg:pt-20">
+          <div class="pb-5">
+            <div id="slider1"></div>
+            <div class="flex justify-between text-gray-400 mt-2">
+              <span>min</span>
+              <span>max</span>
+            </div>
+          </div>
+          <div>
+            <div id="slider2"></div>
+            <div class="flex justify-between text-gray-400 mt-2">
+              <span>0</span>
+              <span>100</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
+
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+
+      // Create gradient
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, "#A020F0"); // Indigo-600
+      gradient.addColorStop(1, "#00FFFF"); // Blue-500
+
+      const data = {
+        labels: [0, 1, 2, 3, 4, 5, 6, 7],
+        datasets: [
+          {
+            label: "My Dataset",
+            data: [5, 10, 5, 33.4, 25, 20, 15, 20],
+            borderColor: gradient,
+            backgroundColor: "rgba(127, 156, 245, 0.2)", // Semi-transparent fill color
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: "#7F9CF5",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#7F9CF5",
+          },
+        ],
+      };
+
+      const options = {
+        scales: {
+          x: {
+            ticks: {
+              color: "#ffffff",
+            },
+            grid: {
+              color: "rgba(255, 255, 255, 0.1)",
+            },
+          },
+          y: {
+            ticks: {
+              color: "#ffffff",
+            },
+            grid: {
+              color: "rgba(255, 255, 255, 0.1)",
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                let label = context.dataset.label || "";
+                if (label) {
+                  label += ": ";
+                }
+                label += context.parsed.y.toFixed(1);
+                return label;
+              },
+            },
+          },
+        },
+      };
+
+      new Chart(ctx, {
+        type: "line",
+        data: data,
+        options: options,
+      });
+
+      // Dropdown functionality
+      document
+        .getElementById("options-button")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("options-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Initialize noUiSliders
+      noUiSlider.create(document.getElementById("slider1"), {
+        start: [20, 80],
+        connect: true,
+        range: {
+          min: 0,
+          max: 100,
+        },
+      });
+
+      noUiSlider.create(document.getElementById("slider2"), {
+        start: [10, 90],
+        connect: true,
+        range: {
+          min: 0,
+          max: 100,
+        },
+      });
+
+      // Gradient for sliders
+      document.querySelectorAll(".noUi-connect").forEach((connect) => {
+        connect.style.background = "linear-gradient(90deg, #4f46e5, #3b82f6)";
+      });
+    </script>
+  </body>
+</html>
