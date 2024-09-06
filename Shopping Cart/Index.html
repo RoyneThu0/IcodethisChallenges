@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="h-screen w-screen flex items-start mt-20 bg-indigo-950 justify-center"
+  >
+    <div
+      class="w-11/12 max-w-3xl bg-slate-300 rounded-lg grid sm:grid-cols-2 sm:flex grid-cols-1 items-center"
+    >
+      <div
+        class="w-2/4 bg-slate-300 p-7 rounded-l-lg flex-col items-center justify-center"
+      >
+        <img
+          class="object-fill rounded-md shadow-slate-800 shadow-md"
+          src="https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/c94c3ea378f0_w480.webp"
+          alt=""
+        />
+        <div class="flex items-start justify-between mt-5">
+          <p class="w-full text-wrap text-xs">
+            The Complete Sass & SCSS Course: From Beginner to Advanced
+          </p>
+          <p class="font-bold fort-serif">$9.99</p>
+        </div>
+
+        <div class="bg-slate-50 w-full py-14 mt-28 rounded-md"></div>
+        <div class="flex items-start justify-between mt-3 gap-2">
+          <div class="w-full py-2 bg-slate-50 rounded-md"></div>
+          <div class="w-2/4 py-2 bg-slate-50 rounded-md"></div>
+        </div>
+        <div class="w-2/4 py-2 bg-slate-50 mt-2 rounded-md"></div>
+      </div>
+      <div class="w-full bg-blue-900 rounded-r-lg flex-col p-10">
+        <p class="font-bold text-white text-xl">Total: $9.99</p>
+
+        <input
+          type="text"
+          class="mt-3 bg-transparent border-b-2 border-slate-400 text-white w-full"
+          placeholder="Email address"
+        />
+        <input
+          type="text"
+          class="mt-7 bg-transparent border-b-2 border-slate-400 text-white w-full"
+          placeholder="Full name"
+        />
+        <input
+          type="text"
+          class="mt-7 bg-transparent border-b-2 border-slate-400 text-white w-full"
+          placeholder="Card number"
+        />
+        <div class="w-full flex items-center gap-3">
+          <input
+            type="text"
+            class="mt-4 w-1/3 bg-transparent border-b-2 border-slate-400 text-white"
+            placeholder="mm/y"
+          />
+          <input
+            type="text"
+            class="mt-4 w-1/3 bg-transparent border-b-2 border-slate-400 text-white"
+            placeholder="cvc"
+          />
+          <div class="mt-3 flex items-center gap-2">
+            <input type="checkbox" name="" id="" />
+            <p class="text-white">save card?</p>
+          </div>
+        </div>
+        <p class="w-full text-center mt-7 text-slate-400 text-sm">
+          your card will be charged with $9.99
+        </p>
+        <button
+          class="w-full py-4 bg-blue-400 mt-4 text-white rounded-md font-semibold"
+        >
+          PAY
+        </button>
+        <p class="text-white w-full text-center text-sm mt-5">or pay with</p>
+
+        <div class="w-full flex mt-4 justify-center">
+          <img
+            class="cursor-pointer w-1/3 rounded-lg"
+            src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTsIu88aR-9QVsGDDO-Kv_OhPHKdotNqCI2VpCrZ0IdojFA-LQ3"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
