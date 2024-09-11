@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Comps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+      }
+      .magicpattern-left {
+        width: 60%;
+        height: 65%;
+        /* background-color: blue; */
+        background-size: cover;
+        background-position: center;
+        background-repeat: repeat;
+        background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M842 613.5Q813 727 706.5 767T479 871.5q-121 64.5-223-28t-114.5-218Q129 500 156.5 385t158-85q130.5 30 187 26.5t152.5-6q96-2.5 156.5 88.5T842 613.5Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%23ff6f73%22 d=%22M842 613.5Q813 727 706.5 767T479 871.5q-121 64.5-223-28t-114.5-218Q129 500 156.5 385t158-85q130.5 30 187 26.5t152.5-6q96-2.5 156.5 88.5T842 613.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+      }
+      .magicpattern-right {
+        width: 60%;
+        height: 70%;
+        background-size: cover;
+        /* background-color: red; */
+        background-position: center center;
+        background-repeat: repeat;
+        background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M811 582q-86 82-169.5 89T481 737q-77 59-118.5-24T255 565q-66-65-14.5-140.5T326 209Q360 69 500 68.5t211.5 113Q783 295 840 397.5T811 582Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%23ff6f73%22 d=%22M811 582q-86 82-169.5 89T481 737q-77 59-118.5-24T255 565q-66-65-14.5-140.5T326 209Q360 69 500 68.5t211.5 113Q783 295 840 397.5T811 582Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+      }
+    </style>
+  </head>
+  <body class="bg-[#fcc4b4] w-screen h-screen flex items-center justify-center">
+    <div class="relative w-11/12 max-w-4xl container flex justify-between">
+      <div class="absolute z-0 top-10 magicpattern-left"></div>
+      <div class="absolute z-0 right-5 magicpattern-right mt-96"></div>
+      <div class="absolute w-full grid sm:grid-cols-2 grid-cols-1">
+        <div class="flex flex-col items-center justify-center p-10 w-full">
+          <div
+            class="w-3/4 bg-blue-900 flex-col py-3 shadow-indigo-950 shadow-lg rounded-lg"
+          >
+            <p class="text-white font-semibold mt-3 w-full text-start mx-4">
+              Who can see your content?
+            </p>
+
+            <div class="w-full flex items-center justify-start mx-4 mt-8">
+              <input type="checkbox" name="" id="" />
+              <p class="text-lg font-light mx-3 text-white">Only me</p>
+            </div>
+            <div class="w-full flex items-center justify-start mx-4 mt-3">
+              <input type="checkbox" name="" id="" />
+              <p class="text-lg font-light mx-3 text-white">Everyone</p>
+            </div>
+            <div class="w-full flex items-center justify-start mx-4 mt-3">
+              <input type="checkbox" name="" id="" />
+              <p class="text-lg font-light mx-3 text-white">Customize</p>
+            </div>
+          </div>
+
+          <div
+            class="w-20 h-20 mt-20 bg-blue-900 flex items-center justify-center shadow-indigo-950 shadow-lg rounded-full"
+          >
+            <i class="fa-solid fa-plus text-white text-4xl font-light"></i>
+          </div>
+        </div>
+        <div class="flex items-center justify-center p-10 w-full">
+          <div
+            class="w-2/3 bg-blue-900 flex items-center flex-col py-5 shadow-indigo-950 shadow-lg rounded-lg"
+          >
+            <button class="w-3/4 bg-yellow-400 py-3 rounded-sm font-semibold">
+              <i class="fa-solid fa-plus mx-1"></i>
+
+              Add new
+            </button>
+            <div class="mt-5 flex items-center flex-col justify-center w-full">
+              <p
+                class="text-blue-300 w-full flex justify-center gap-8 py-3 items-center hover:bg-slate-200 hover:text-black hover:shadow-slate-600 hover:shadow-lg hover:-translate-x-5 duration-200 ease-in-out active:bg-yellow-400"
+              >
+                <i class="fa-solid fa-file-arrow-up text-2xl"></i>Upload Files
+              </p>
+              <p
+                class="text-blue-300 w-full flex justify-center gap-5 py-3 items-center hover:bg-slate-200 hover:text-black hover:shadow-slate-600 hover:shadow-lg hover:-translate-x-5 duration-200 ease-in-out active:bg-yellow-400"
+              >
+                <i class="fa-solid fa-folder-open text-2xl"></i>Upload Folder
+              </p>
+              <p
+                class="text-blue-300 w-full flex justify-center gap-10 py-3 items-center hover:bg-slate-200 hover:text-black hover:shadow-slate-600 hover:shadow-lg hover:-translate-x-5 duration-200 ease-in-out active:bg-yellow-400"
+              >
+                <i class="fa-solid fa-folder-plus text-2xl"></i>New Folder
+              </p>
+              <p
+                class="text-blue-300 w-full flex justify-center gap-10 py-3 items-center hover:bg-slate-200 hover:text-black hover:shadow-slate-600 hover:shadow-lg hover:-translate-x-5 duration-200 ease-in-out active:bg-yellow-400"
+              >
+                <i class="fa-solid fa-file-import text-2xl"></i>Import Files
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
