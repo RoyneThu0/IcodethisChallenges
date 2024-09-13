@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi toggle</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .selected {
+        background-color: pink;
+      }
+      .selected-item {
+        background-color: pink;
+        padding: 5px;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="w-screen h-screen bg-slate-600 flex items-center justify-center">
+    <div
+      id="main"
+      class="w-11/12 max-w-xl py-6 px-6 bg-gray-900 rounded-lg flex-col"
+    >
+      <div class="w-full flex justify-end">
+        <button class="bg-black w-7 h-7 rounded-full">
+          <i class="fa-solid fa-xmark text-slate-400"></i>
+        </button>
+      </div>
+      <p class="w-full text-center text-slate-400 text-xl font-semibold">
+        Browse by interests
+      </p>
+      <p class="w-full text-wrap px-4 text-center mt-5 text-slate-400 text-sm">
+        Select some interests to help us personalize your interests on Edmondo
+      </p>
+      <div
+        class="interests flex-wrap items-center justify-center grid grid-cols-3 gap-5 mt-12 w-full"
+      >
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          Html
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          CSS
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          Javascript
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          Rust
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          SCSS
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          Svelte
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          React
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          Next JS
+        </button>
+        <button
+          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+        >
+          JQuery
+        </button>
+      </div>
+      <div class="my-10 flex items-center justify-center w-full gap-10">
+        <button
+          class="px-10 py-4 bg-slate-900 border border-slate-950 rounded-lg text-slate-400"
+        >
+          Skip
+        </button>
+
+        <button
+          id="saveButton"
+          class="px-10 py-4 bg-pink-600 rounded-lg text-white"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+    <div
+      id="selectContainer"
+      class="hidden w-11/12 max-w-xl py-6 px-6 bg-gray-900 rounded-lg flex-col"
+    >
+      <div class="w-full flex justify-end">
+        <button class="bg-black w-7 h-7 rounded-full">
+          <i class="fa-solid fa-xmark text-slate-400"></i>
+        </button>
+      </div>
+      <p class="w-full text-xl font-semibold text-center text-slate-400">
+        You have selected:
+      </p>
+      <div
+        id="select"
+        class="w-full items-center justify-center grid grid-cols-3 gap-5"
+      ></div>
+      <p class="w-full text-center text-sm mt-10 text-slate-400">
+        Click to remove any interests you want removed!
+      </p>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".interests button");
+        const selectedDiv = document.getElementById("select");
+        const saveButton = document.getElementById("saveButton");
+        const mainDiv = document.getElementById("main");
+        const selectContainer = document.getElementById("selectContainer");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            button.classList.toggle("bg-pink-500");
+            button.classList.toggle("selected");
+            updateSelectedItems();
+          });
+        });
+
+        saveButton.addEventListener("click", () => {
+          mainDiv.classList.add("hidden");
+          selectContainer.classList.remove("hidden");
+        });
+
+        function updateSelectedItems() {
+          const selectedItems = document.querySelectorAll(
+            ".interests button.selected"
+          );
+          selectedDiv.innerHTML = ""; // Clear previous selections
+
+          selectedItems.forEach((item) => {
+            const itemText = item.textContent.trim();
+            const selectedItem = document.createElement("button");
+            selectedItem.textContent = itemText;
+            selectedItem.classList.add(
+              "selected-item",
+              "bg-pink-500",
+              "py-3",
+              "text-slate-400",
+              "rounded-sm",
+              "w-full"
+            );
+            selectedItem.addEventListener("click", () => {
+              item.classList.remove("selected", "bg-pink-500");
+              updateSelectedItems();
+            });
+            selectedDiv.appendChild(selectedItem);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
