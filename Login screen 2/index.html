@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background: url("https://c4.wallpaperflare.com/wallpaper/706/982/419/sunset-4k-high-def-for-mac-wallpaper-preview.jpg")
+          no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex items-center justify-center flex-col h-screen">
+      <button
+        id="toggleButton"
+        class="py-2 px-7 m-4 bg-gradient-to-r from-blue-500 to-green-200 hover bg-cyan-400 hover:ease-in text-white border border-white rounded-lg"
+        onclick="flipCard()"
+      >
+        Toggle Login/Register
+      </button>
+      <div
+        id="card"
+        class="relative w-64 h-96 bg-white bg-opacity-20 rounded-xl shadow-2xl overflow-hidden transform transition-transform duration-700 ease-in-out"
+      >
+        <div id="login" class="absolute w-full h-full" style="display: none">
+          <div class="w-full h-full p-8">
+            <h2 class="text-2xl font-bold text-white">Login</h2>
+            <form id="loginForm" class="mt-8 space-y-6">
+              <input
+                type="text"
+                class="w-full p-2 bg-transparent border-b border-white text-white placeholder-white"
+                placeholder="Username"
+                required
+              />
+              <input
+                type="password"
+                class="w-full p-2 bg-transparent border-b border-white text-white placeholder-white"
+                placeholder="Password"
+                required
+              />
+              <button
+                type="submit"
+                class="w-full py-2 text-white bg-gradient-to-r from-blue-500 to-green-200 rounded-lg hover bg-cyan-400 hover:ease-in"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          id="register"
+          class="absolute w-full h-full py-3"
+          style="display: none; transform: scaleX(-1)"
+        >
+          <div class="w-full h-full p-8">
+            <h2 class="text-2xl font-bold text-white">Register</h2>
+            <form id="registerForm" class="mt-8 space-y-6">
+              <input
+                type="text"
+                class="w-full p-2 bg-transparent border-b border-white text-white placeholder-white"
+                placeholder="Username"
+                required
+              />
+              <input
+                type="email"
+                class="w-full p-2 bg-transparent border-b border-white text-white placeholder-white"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="password"
+                class="w-full p-2 bg-transparent border-b border-white text-white placeholder-white"
+                placeholder="Password"
+                required
+              />
+              <button
+                type="submit"
+                class="w-full py-2 text-white bg-gradient-to-r from-blue-500 to-green-200 rounded-lg hover bg-cyan-400 hover:ease-in"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function flipCard() {
+        const card = document.getElementById("card");
+        const login = document.getElementById("login");
+        const register = document.getElementById("register");
+        const toggleButton = document.getElementById("toggleButton");
+        const isFlipped = card.style.transform === "rotateY(180deg)";
+        card.style.transform = isFlipped ? "rotateY(0deg)" : "rotateY(180deg)";
+        if (isFlipped) {
+          login.style.display = "block";
+          register.style.display = "none";
+          toggleButton.textContent = "Register";
+        } else {
+          login.style.display = "none";
+          register.style.display = "block";
+          toggleButton.textContent = " Login ";
+        }
+      }
+    </script>
+  </body>
+</html>
