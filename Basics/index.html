@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="relative w-screen h-screen bg-slate-50 flex sm:items-center items-start justify-center"
+  >
+    <div
+      class="absolute z-0 top-20 left-40 rounded-full bg-fuchsia-300 shadow-2xl shadow-fuchsia-300 w-96 h-96 animate-pulse"
+    ></div>
+    <div
+      class="absolute z-0 bottom-12 left-96 rounded-full bg-cyan-300 shadow-2xl shadow-cyan-300 w-60 h-60 animate animate-pulse"
+    ></div>
+    <div
+      class="absolute z-0 top-64 right-24 rounded-full bg-yellow-200 shadow-2xl shadow-yellow-200 w-96 h-96"
+    ></div>
+    <div
+      class="w-screen h-screen absolute items-start z-10 bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-0 border border-gray-100 flex sm:items-center mt-10 justify-center"
+    >
+      <div
+        class="w-11/12 max-w-7xl border-2 border-white rounded-3xl shadow-sm shadow-slate-200"
+      >
+        <div
+          class="w-full p-7 backdrop-filter backdrop-blur-xl bg-opacity-70 bg-gray-50 border-8 border-white gap-3 rounded-2xl grid sm:grid-cols-4 grid-cols-1"
+        >
+          <div
+            class="w-full flex flex-col hover:bg-white hover:-translate-y-5 p-5 duration-500 group ease-in-out"
+          >
+            <p
+              class="flex items-center font-mono bg-pink-500 w-fit px-2 py-1 rounded-md text-white animate-bounce group-hover:animate-none ease-in-out duration-500"
+            >
+              <i class="fa-solid fa-circle text-xs mr-1"></i>TYPOGRAPHY
+            </p>
+
+            <div class="mt-7 flex text-xl flex-col">
+              <p class="font-semibold hover:font-bold">Make me bold</p>
+              <p class="font-style: italic">Make me italic</p>
+            </div>
+            <div class="mt-7 flex text-xl flex-col">
+              <p class="font-sans">I'm from the Arial font family!</p>
+              <p class="font-serif">And I'm from the Times New Roman Family!</p>
+            </div>
+
+            <div class="mt-7 flex text-xl flex-col">
+              <p class="font-sans underline">Make this Text be underlined</p>
+              <p class="line-through">And put a line through this one</p>
+            </div>
+          </div>
+          <div
+            class="w-full flex flex-col hover:bg-white hover:-translate-y-5 p-5 duration-500 group ease-in-out"
+          >
+            <p
+              class="flex items-center font-mono bg-pink-500 w-fit px-2 py-1 rounded-md text-white animate-bounce group-hover:animate-none ease-in-out duration-500"
+            >
+              <i class="fa-solid fa-circle text-xs mr-1"></i>HEADINGS
+            </p>
+            <div class="mt-7 space-y-5 font-bold flex flex-col">
+              <h1 class="text-3xl">This is a < h1 > tag</h1>
+              <h2 class="text-xl">This is a < h2 > tag</h2>
+              <h3>This is a < h3 > tag</h3>
+            </div>
+          </div>
+          <div
+            class="w-full flex flex-col hover:bg-white hover:-translate-y-5 p-5 duration-500 group ease-in-out"
+          >
+            <p
+              class="flex items-center font-mono bg-pink-500 w-fit px-2 py-1 rounded-md text-white animate-bounce group-hover:animate-none ease-in-out duration-500"
+            >
+              <i class="fa-solid fa-circle text-xs mr-1"></i>COLORS
+            </p>
+            <div class="mt-7 space-y-5 text-xl font-semibold flex flex-col">
+              <p class="text-orange-500">Color me orange!</p>
+              <div class="mt-3 h-20 w-20 bg-orange-500"></div>
+            </div>
+            <div class="mt-7 space-y-5 text-xl font-semibold flex flex-col">
+              <p class="text-purple-500">Color me Purple!</p>
+              <div class="mt-3 h-20 w-20 bg-purple-500 rounded-full"></div>
+            </div>
+          </div>
+          <div
+            class="w-full flex flex-col hover:bg-white hover:-translate-y-5 p-5 duration-500 group ease-in-out"
+          >
+            <p
+              class="flex items-center font-mono bg-pink-500 w-fit px-2 py-1 rounded-md text-white animate-bounce group-hover:animate-none ease-in-out duration-500"
+            >
+              <i class="fa-solid fa-circle text-xs mr-1"></i>BUTTONS
+            </p>
+            <div class="mt-7 text-xl flex flex-col">
+              <p class="font-semibold">Default</p>
+              <div class="w-full flex items-center justify-start">
+                <button
+                  class="w-2/3 bg-purple-500 text-white text-lg py-2 rounded-sm"
+                >
+                  Button
+                </button>
+              </div>
+
+              <p class="font-semibold mt-5">Hovered</p>
+
+              <div class="w-full flex items-center justify-start">
+                <button
+                  class="w-2/3 bg-purple-500 hover:bg-purple-400 text-white text-lg py-2 rounded-sm"
+                >
+                  Button
+                </button>
+              </div>
+              <p class="font-semibold mt-5">Active</p>
+
+              <div class="w-full flex items-center justify-start">
+                <button
+                  class="w-2/3 bg-purple-500 active:bg-purple-300 text-white text-lg py-2 rounded-sm"
+                >
+                  Button
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
