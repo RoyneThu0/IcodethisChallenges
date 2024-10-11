@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="relative w-screen h-screen bg-slate-50 flex sm:items-center items-start justify-center"
+  >
+    <div
+      class="absolute z-0 top-20 right-20 rounded-full bg-fuchsia-300 shadow-2xl shadow-fuchsia-300 w-96 h-96 animate-pulse"
+    ></div>
+    <div
+      class="absolute z-0 top-40 left-96 rounded-full bg-cyan-300 shadow-2xl shadow-cyan-300 w-60 h-60 animate animate-pulse"
+    ></div>
+    <div
+      class="absolute z-0 bottom-24 left-24 rounded-full bg-yellow-200 shadow-2xl shadow-yellow-200 w-96 h-96"
+    ></div>
+    <div
+      class="w-screen h-screen absolute items-start z-10 bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-0 border border-gray-100 flex sm:items-center mt-10 justify-center"
+    >
+      <div
+        class="w-11/12 max-w-5xl border-2 border-white rounded-3xl shadow-sm shadow-slate-200"
+      >
+        <div
+          class="w-full p-7 backdrop-filter backdrop-blur-lg bg-opacity-70 bg-gray-50 border-8 border-white gap-3 rounded-2xl grid sm:grid-cols-2 grid-cols-1"
+        >
+          <div class="w-full grid sm:grid-cols-4 grid-cols-2 items-center">
+            <div class="relative w-full">
+              <button
+                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                onclick="toggleDropdown(this)"
+              >
+                FRAMEWORK
+              </button>
+              <div
+                class="dropdown-menu absolute hidden bg-white shadow-md rounded-md mt-1 w-full"
+              >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Grid</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Chart</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Controls</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Financial chart</a
+                >
+              </div>
+            </div>
+            <div class="relative w-full">
+              <button
+                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                onclick="toggleDropdown(this)"
+              >
+                DEMOS
+              </button>
+              <div
+                class="dropdown-menu absolute hidden bg-white shadow-md rounded-md mt-1 w-full"
+              >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Grid</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Chart</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Controls</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Financial chart</a
+                >
+              </div>
+            </div>
+            <div class="relative w-full">
+              <button
+                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                onclick="toggleDropdown(this)"
+              >
+                RESOURCES
+              </button>
+              <div
+                class="dropdown-menu absolute hidden bg-white shadow-md rounded-md mt-1 w-full"
+              >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Grid</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Chart</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Controls</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Financial chart</a
+                >
+              </div>
+            </div>
+            <div class="relative w-full">
+              <button
+                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                onclick="toggleDropdown(this)"
+              >
+                DOCUMENTATION
+              </button>
+              <div
+                class="dropdown-menu absolute hidden bg-white shadow-md rounded-md mt-1 w-full"
+              >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Grid</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Chart</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Controls</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-200"
+                  >Financial chart</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-center sm:justify-end justify-center gap-2"
+          >
+            <button
+              class="sm:w-1/6 w-full text-sm rounded-md flex items-center justify-center hover:bg-slate-900 hover:text-white duration-500 ease-in-out py-3"
+            >
+              LOG IN
+            </button>
+            <button
+              class="sm:w-1/6 w-full text-sm rounded-md flex items-center justify-center hover:bg-slate-500 bg-slate-900 py-3 duration-500 ease-in-out text-white"
+            >
+              SIGN UP
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleDropdown(button) {
+        // Close any open dropdowns
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          if (menu !== button.nextElementSibling) {
+            menu.classList.add("hidden");
+          }
+        });
+
+        // Toggle the clicked dropdown
+        const dropdown = button.nextElementSibling;
+        dropdown.classList.toggle("hidden");
+      }
+
+      // Close dropdowns when clicking outside
+      window.addEventListener("click", function (event) {
+        if (!event.target.matches(".dropdown-toggle")) {
+          document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+            menu.classList.add("hidden");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
