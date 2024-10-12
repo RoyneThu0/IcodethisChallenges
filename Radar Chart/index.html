@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radar Chart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="w-screen h-screen flex flex-col items-center justify-center">
+    <div
+      class="w-2/3 grid sm:grid-cols-3 gap-0 grid-cols-1 items-center justify-center p-1"
+    >
+      <div class="w-full flex items-center justify-end p-1">
+        <img
+          class="max-w-72"
+          src="https://cdn.segaamerica.com/img/fearless/about/shadow-about.png"
+          alt=""
+        />
+      </div>
+      <div class="w-full w-max-10">
+        <img
+          class=""
+          src="https://static.vecteezy.com/system/resources/thumbnails/028/824/564/small_2x/vs-letters-versus-png.png"
+          alt=""
+        />
+      </div>
+      <div class="w-full p-1">
+        <img
+          class="max-w-60 transform-1 scale-x-[-1]"
+          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cfca3f83-9e45-4fa4-a361-574cc7aa62f8/dfsveqv-3e5fc3ea-09a8-466a-b56e-6111596d1c0f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NmY2EzZjgzLTllNDUtNGZhNC1hMzYxLTU3NGNjN2FhNjJmOFwvZGZzdmVxdi0zZTVmYzNlYS0wOWE4LTQ2NmEtYjU2ZS02MTExNTk2ZDFjMGYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.nnvESMREcjqt-eCDlkuqG51kJ0-0V49gbbWJREhCxfg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="w-11/12 max-w-xl p-5">
+      <canvas id="radarChart" width="400" height="400"></canvas>
+    </div>
+
+    <script>
+      const ctx = document.getElementById("radarChart").getContext("2d");
+      const radarChart = new Chart(ctx, {
+        type: "radar",
+        data: {
+          labels: [
+            "Pushing",
+            "Supporting",
+            "Versatility",
+            "Speed",
+            "Emotionless",
+            "Fighting",
+          ],
+          datasets: [
+            {
+              label: "Shadow",
+              data: [88, 29, 90, 11, 99, 95],
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgba(255, 99, 132, 1)",
+              borderWidth: 1,
+            },
+            {
+              label: "Sonic",
+              data: [88, 78, 40, 100, 16, 77],
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            r: {
+              angleLines: {
+                display: false,
+              },
+              suggestedMin: 0,
+              suggestedMax: 100,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
