@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#startStop {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  background-color: rgb(255, 41, 41);
+  border: 0;
+  border-radius: 10px;
+  width: 70px;
+  height: 30px;
+  outline: none;
+}
+
+.heart {
+  position: fixed;
+  top: -1vh;
+  width: 25px;
+  height: auto;
+  /* font-size: 40px; */
+  transform: translateY(0);
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(101vh);
+  }
+}
