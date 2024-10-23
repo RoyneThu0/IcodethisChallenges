@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Table 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex sm:items-center items-start mt-10 justify-center bg-slate-300"
+  >
+    <div class="w-11/12 max-w-3xl p-10 flex flex-col">
+      <div class="w-full flex items-center justify-between">
+        <p class="font-bold text-3xl">Choose your plan</p>
+        <div class="inline-flex items-center p-1 bg-gray-200 rounded-full">
+          <button
+            class="w-20 py-2 text-gray-500 text-sm focus:outline-none rounded-full transition-colors duration-300 ease-in-out"
+            id="monthly"
+          >
+            Monthly
+          </button>
+          <button
+            class="w-20 py-2 bg-white text-gray-900 text-sm focus:outline-none rounded-full transition-colors duration-300 ease-in-out"
+            id="yearly"
+          >
+            Yearly
+          </button>
+        </div>
+      </div>
+      <div
+        class="w-full h-5/6 p-5 mt-10 grid sm:grid-cols-2 grid-cols-1 items-start justify-center gap-6"
+      >
+        <div
+          class="w-full h-full flex flex-col p-5 bg-white shadow-lg shadow-slate-600 rounded-lg"
+        >
+          <p class="text-xl font-semibold">Starter</p>
+          <p class="mt-3 font-semibold">$8.99 / month</p>
+          <p class="text-sm text-slate-500">Billed yearly</p>
+          <p class="mt-5 text-xs text-slate-500">
+            Pretium fusce id velit ut tortor pretium. Sit amet consectetur
+            adipiscing elit ut. Condimentum mattis pellentesque id nibh. Euismod
+            elementum.
+          </p>
+          <button
+            class="w-full bg-black py-3 mt-3 text-white text-sm rounded-md hover:bg-white hover:text-black border border-black duration-300 ease-in-out"
+          >
+            Get Started
+          </button>
+        </div>
+        <div
+          class="w-full h-full flex flex-col p-5 bg-white shadow-lg shadow-slate-600 rounded-lg"
+        >
+          <p class="text-xl font-semibold">Professional</p>
+          <p class="mt-3 font-semibold">$21.99 / month</p>
+          <p class="text-sm text-slate-500">Billed yearly</p>
+          <p class="mt-5 text-xs text-slate-500">
+            Duis at consectetur lorem donec massa sapien faucibus. Ac placerat
+            vestibulum lectus mauris.
+          </p>
+          <button
+            class="w-full hover:bg-black py-3 mt-12 hover:text-white text-sm rounded-md bg-white text-black border border-black duration-300 ease-in-out"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const monthlyBtn = document.getElementById("monthly");
+      const yearlyBtn = document.getElementById("yearly");
+
+      monthlyBtn.addEventListener("click", () => {
+        monthlyBtn.classList.add("bg-white", "text-gray-900");
+        monthlyBtn.classList.remove("text-gray-500");
+        monthlyBtn.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.8)";
+
+        yearlyBtn.classList.remove("bg-white", "text-gray-900");
+        yearlyBtn.classList.add("text-gray-500");
+        yearlyBtn.style.boxShadow = "none";
+      });
+
+      yearlyBtn.addEventListener("click", () => {
+        yearlyBtn.classList.add("bg-white", "text-gray-900");
+        yearlyBtn.classList.remove("text-gray-500");
+        yearlyBtn.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.8)";
+
+        monthlyBtn.classList.remove("bg-white", "text-gray-900");
+        monthlyBtn.classList.add("text-gray-500");
+        monthlyBtn.style.boxShadow = "none";
+      });
+    </script>
+  </body>
+</html>
