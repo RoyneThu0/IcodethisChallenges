@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tags</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-slate-100 flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://c4.wallpaperflare.com/wallpaper/483/576/977/abstract-hexagon-simple-minimalism-wallpaper-preview.jpg);
+    "
+  >
+    <div
+      class="w-11/12 max-w-5xl bg-white p-10 flex flex-col rounded-lg shadow-inner shadow-slate-400"
+    >
+      <label for="tag" class="font-serif font-semibold pl-2">Tags</label>
+      <input
+        type="text"
+        class="w-full border border-slate-300 text-sm px-4 py-3 focus:outline-none rounded-lg"
+        placeholder="Add tags seperated by a comma"
+        name="tag"
+        id="tagInput"
+        onkeydown="handleKeyDown(event)"
+      />
+      <div id="tagContainer" class="flex flex-wrap gap-2 mt-3"></div>
+      <p class="text-xs mt-2">
+        For example:
+        <span class="text-blue-500 hover:text-sky-500 cursor-pointer"
+          >fitness app,</span
+        >
+        <span class="text-blue-500 hover:text-sky-500 cursor-pointer"
+          >dashboard,</span
+        >
+        <span class="text-blue-500 hover:text-sky-500 cursor-pointer"
+          >navigation,</span
+        >
+        <span class="text-blue-500 hover:text-sky-500 cursor-pointer"
+          >webshop,</span
+        ><span class="text-blue-500 hover:text-sky-500 cursor-pointer"
+          >landing page</span
+        >
+      </p>
+      <div
+        class="w-full flex flex-col items-start mt-6 font-serif font-semibold"
+      >
+        <p>Category</p>
+        <div class="relative w-fit">
+          <button
+            id="dropdownBtn"
+            class="w-full px-4 py-3 text-left text-gray-700 bg-white border-2 border-slate-400 rounded-lg focus:border-red-200 flex items-center justify-between"
+          >
+            <span id="dropdownBtnText">Select something</span>
+            <i class="fa-solid fa-chevron-down pl-2"></i>
+          </button>
+          <div
+            id="dropdownMenu"
+            class="hidden absolute z-10 w-full mt-2 bg-white border border-slate-400 rounded-lg shadow-lg"
+          >
+            <ul class="py-2 px-3 font-normal">
+              <li
+                class="hover:bg-slate-200 duration-200"
+                onclick="selectOption('Web')"
+              >
+                Web
+              </li>
+              <li
+                class="hover:bg-slate-200 duration-200"
+                onclick="selectOption('Mobile')"
+              >
+                Mobile
+              </li>
+              <li
+                class="hover:bg-slate-200 duration-200"
+                onclick="selectOption('Ui Kit')"
+              >
+                Ui Kit
+              </li>
+              <li
+                class="hover:bg-slate-200 duration-200"
+                onclick="selectOption('Coded')"
+              >
+                Coded
+              </li>
+              <li
+                class="hover:bg-slate-200 duration-200"
+                onclick="selectOption('Other')"
+              >
+                Other
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const dropdownBtn = document.getElementById("dropdownBtn");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+      const dropdownBtnText = document.getElementById("dropdownBtnText");
+
+      dropdownBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        dropdownMenu.classList.toggle("hidden");
+      });
+
+      function selectOption(option) {
+        dropdownBtnText.textContent = option;
+        dropdownMenu.classList.add("hidden");
+      }
+
+      window.addEventListener("click", (event) => {
+        if (
+          !dropdownBtn.contains(event.target) &&
+          !dropdownMenu.contains(event.target)
+        ) {
+          dropdownMenu.classList.add("hidden");
+        }
+      });
+
+      const tagContainer = document.getElementById("tagContainer");
+      const tagInput = document.getElementById("tagInput");
+      let tags = [];
+
+      function handleKeyDown(e) {
+        if (e.key === "Enter" || e.key === ",") {
+          const tag = tagInput.value.trim();
+          if (tag) {
+            tags.push(tag);
+            tagInput.value = "";
+            renderTags();
+          }
+        }
+      }
+      function addTags(newTags) {
+        newTags.forEach((tag) => {
+          tag = tag.trim();
+          if (tag && !tags.includes(tag)) {
+            tags.push(tag);
+            renderTags();
+          }
+        });
+      }
+
+      function removeTag(tag) {
+        tags = tags.filter((t) => t !== tag);
+        renderTags();
+      }
+
+      function renderTags() {
+        tagContainer.innerHTML = "";
+        tags.forEach((tag) => {
+          const tagElement = document.createElement("div");
+          tagElement.classList.add(
+            "bg-slate-100",
+            "text-slate-700",
+            "px-3",
+            "py-2",
+            "rounded-full",
+            "flex",
+            "items-center"
+          );
+
+          const tagText = document.createElement("span");
+          tagText.textContent = tag;
+          tagElement.appendChild(tagText);
+
+          const removeButton = document.createElement("button");
+          removeButton.classList.add("ml-2", "focus:outline-none");
+          removeButton.innerHTML = `<i class="fa-solid fa-times"></i>`;
+          removeButton.addEventListener("click", () => removeTag(tag));
+          tagElement.appendChild(removeButton);
+
+          tagContainer.appendChild(tagElement);
+        });
+      }
+    </script>
+  </body>
+</html>
