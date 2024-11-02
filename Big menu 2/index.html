@@ -13,15 +13,10 @@
       referrerpolicy="no-referrer"
     />
     <style>
-      body {
-        background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210427/pngtree-vector-crystal-purple-background-image_653523.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-
       .underline-on-hover:hover::after {
         width: 100%;
       }
+
       .underline-on-hover::after {
         content: "";
         display: block;
@@ -30,13 +25,19 @@
         background: #953fe6;
         transition: width 0.3s;
       }
-        
-    </style>
     </style>
   </head>
-  <body class="h-screen w-screen flex items-center justify-center">
-    <div class="lg:w-2/3 md:w-2/3 sm:w-11/12 py-10  bg-white rounded-xl">
-      <nav class="flex items-center justify-center gap-8 text-gray-800 text-sm px-10">
+
+  <body
+    class="h-screen w-screen flex sm:items-center items-start mt-10 sm:mt-0 bg-cover bg-center justify-center"
+    style="
+      background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20210427/pngtree-vector-crystal-purple-background-image_653523.jpg);
+    "
+  >
+    <div class="lg:w-2/3 md:w-2/3 sm:w-11/12 py-10 bg-white rounded-xl">
+      <nav
+        class="grid md:grid-cols-7 grid-cols-1 items-center justify-center gap-8 text-gray-800 text-sm px-10"
+      >
         <a href="#" class="underline-on-hover">Furniture</a>
         <a href="#" class="underline-on-hover">Lighting</a>
         <a href="#" class="underline-on-hover">Decor</a>
@@ -45,63 +46,130 @@
         <a href="#" class="underline-on-hover">Jewelry & Accessories</a>
         <a href="#" class="underline-on-hover">Outdoor Environment</a>
       </nav>
-      <div class="flex items-center justify-around gap-2 mt-12 mx-2 ">
+      <div
+        class="grid md:grid-cols-4 grid-cols-2 items-center justify-around gap-2 mt-12 mx-2"
+      >
         <div>
-            <h2 class="font-semibold mb-3 mt-16 ">Decoration</h2>
-            <ul class=" text-sm">
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Vases</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Jars</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Posters</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Photo frames</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300 active"><a href="#">Sculptures</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Wall</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Bordur</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Alarm clocks</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Pictures</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Picture frames</a></li>
-            </ul>
+          <h2 class="font-semibold mb-3 mt-16">Decoration</h2>
+          <ul class="text-sm">
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Vases</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Jars</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Posters</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Photo frames</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300 active">
+              <a href="#">Sculptures</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Wall</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Bordur</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Alarm clocks</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Pictures</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Picture frames</a>
+            </li>
+          </ul>
         </div>
 
         <div>
-            <h2 class="font-semibold mb-2 mt-16">Office & Small Storage</h2>
-            <ul class=" text-sm">
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Boxes</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Door Stoppers</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Curves</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Weekly magazine Storage</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300 active"><a href="#">Wood Storage</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Umbrella stand</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Key cabinet</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Calendars & Notebooks</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Pedal Buckets</a></li>
-
-            </ul>
+          <h2 class="font-semibold mb-2 mt-16">Office & Small Storage</h2>
+          <ul class="text-sm">
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Boxes</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Door Stoppers</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Curves</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Weekly magazine Storage</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300 active">
+              <a href="#">Wood Storage</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Umbrella stand</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Key cabinet</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Calendars & Notebooks</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Pedal Buckets</a>
+            </li>
+          </ul>
         </div>
 
-<div>
-            <h2 class="font-semibold mb-3">Bathroom fittings</h2>
-            <ul class=" text-sm">
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Scented candles</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Candlesticks</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Lanterns</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Candelabra</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300 active"><a href="#">Kerosene & Oil Lamps</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Laundry baskets</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Accessories</a></li>
-            </ul>
+        <div>
+          <h2 class="font-semibold mb-3">Bathroom fittings</h2>
+          <ul class="text-sm">
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Scented candles</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Candlesticks</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Lanterns</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Candelabra</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300 active">
+              <a href="#">Kerosene & Oil Lamps</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Laundry baskets</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Accessories</a>
+            </li>
+          </ul>
         </div>
 
-<div>
-            <h2 class="font-semibold mb-3">Bathroom fittings</h2>
-            <ul class=" text-sm">
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Toothbrush Holders</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Toilet roll Holders</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Toilet brushes</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Soap pumps</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300 active"><a href="#">Soap Cups</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Laundry baskets</a></li>
-                <li class="p-2 rounded-md hover:bg-purple-300"><a href="#">Towel rails</a></li>
-            </ul>
+        <div>
+          <h2 class="font-semibold mb-3">Bathroom fittings</h2>
+          <ul class="text-sm">
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Toothbrush Holders</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Toilet roll Holders</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Toilet brushes</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Soap pumps</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300 active">
+              <a href="#">Soap Cups</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Laundry baskets</a>
+            </li>
+            <li class="p-2 rounded-md hover:bg-purple-300">
+              <a href="#">Towel rails</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
