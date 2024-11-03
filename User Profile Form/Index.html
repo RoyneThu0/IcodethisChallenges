@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="flex items-center justify-center w-screen h-screen bg-gray-200 bg-cover bg-center"
+    style="
+      background-image: url(https://www.hdwallpapers.in/download/light_green_circles_bends_points_black_background_4k_hd_abstract-HD.jpg);
+    "
+  >
+    <div
+      class="bg-white rounded-lg shadow-lg w-11/12 max-w-2xl sm:flex grid sm:grid-cols-2 grid-cols-1"
+    >
+      <div
+        class="w-full bg-cover bg-center rounded-l-lg"
+        style="
+          background-image: url('https://i.pinimg.com/originals/53/11/be/5311be7e7fd093290e5cf5564902991f.gif');
+        "
+      ></div>
+
+      <div class="w-full p-8">
+        <h2 class="text-lg font-bold text-gray-600 mb-4">
+          Tell Us About Yourself...
+        </h2>
+
+        <div class="mb-4">
+          <label class="block text-xs text-gray-500 mb-1">MY NAME</label>
+          <div class="grid grid-cols-2 gap-2">
+            <input
+              type="text"
+              placeholder="First Name"
+              class="border border-gray-300 rounded px-3 py-2 text-sm w-full"
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              class="border border-gray-300 rounded px-3 py-2 text-sm w-full"
+            />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-xs text-gray-500 mb-1">GENDER</label>
+          <select
+            class="border border-gray-300 rounded px-3 py-2 text-sm w-full"
+          >
+            <option>Female</option>
+            <option>Male</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-xs text-gray-500 mb-1">BIRTHDAY</label>
+          <div class="grid grid-cols-3 gap-2">
+            <select class="border border-gray-300 rounded px-3 py-2 text-sm">
+              <option>Month</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Day"
+              class="border border-gray-300 rounded px-3 py-2 text-sm"
+            />
+            <input
+              type="text"
+              placeholder="Year"
+              class="border border-gray-300 rounded px-3 py-2 text-sm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-xs text-gray-500 mb-1">I LIVE IN</label>
+          <input
+            type="text"
+            placeholder="Country"
+            class="border border-gray-300 rounded px-3 py-2 text-sm w-full"
+          />
+        </div>
+
+        <div class="flex justify-between">
+          <button
+            class="bg-teal-500 text-white rounded px-4 py-2 hover:bg-teal-600"
+          >
+            Submit
+          </button>
+          <button class="text-teal-500 hover:underline">Skip</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
