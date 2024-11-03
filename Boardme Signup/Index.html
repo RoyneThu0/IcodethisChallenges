@@ -1,120 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boardme Signup</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
-  
-  </head>
-  <body class="w-screen h-screen flex items-center justify-center bg-slate-500">
-    <div
-    id="signUpDiv"
-      class="w-11/12 max-w-2xl bg-slate-300 rounded-lg flex items-center justify-center"
-    >
-      <div class="bg-blue-700 rounded-l-lg flex flex-col h-full p-5">
-        <p class="text-white font-semibold">boardme</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boardme Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <span class="mt-24 text-lg font-semibold text-wrap w-full text-white">
+
+</head>
+
+<body class="w-screen h-screen flex sm:items-center mt-10 md::mt-0 justify-center bg-slate-500 bg-cover bg-center"
+style="background-image:url(https://e7.pngegg.com/pngimages/32/377/png-clipart-grey-polygon-desktop-black-background-miscellaneous-texture.png);">
+  <div id="signUpDiv"
+    class="w-11/12 max-w-2xl h-fit bg-slate-300 rounded-lg grid md:grid-cols-2 grid-cols-1 items-center justify-center ">
+    <div class="bg-blue-700 sm:rounded-l-lg rounded-t-lg sm:rounded-tr-none flex flex-col h-full p-5 bg-cover bg-center"
+      style="background-image: url(https://64.media.tumblr.com/d75c280ec03232b1ff2ff32369f15eb2/f145147b69889cf3-04/s640x960/bc23be2ffc825053c58446cbe4eb704683f2a7f1.gif);">
+
+      <p class="text-white font-semibold">boardme</p>
+
+      <span class="mt-24 text-lg font-semibold text-wrap w-full text-white">
           implement user
           <p class="underline underline-offset-2">onboarding</p>
           experiences with just a few clicks
         </span>
 
-        <p class="text-slate-300 text-sm mt-20 text-wrap">
-          Guide your customers on a fantastic journey within your webapp
-        </p>
+      <p class="text-slate-300 text-sm mt-20 text-wrap">
+        Guide your customers on a fantastic journey within your webapp
+      </p>
+    </div>
+    <div class=" rounded-r-lg flex flex-col w-full p-5">
+      <p class="font-semibold text-xl text-nowrap">Get Started</p>
+      <div class="flex items-center space-x-2 w-full mt-6 rounded-lg bg-slate-400 p-2">
+        <i
+            class="fa-regular fa-envelope px-3 py-2 bg-slate-300 rounded-lg m-2 text-xl"
+          ></i>
+        <p>Sign Up with email</p>
       </div>
-      <div class=" rounded-r-lg flex flex-col w-full p-5">
-        <p class="font-semibold text-xl text-nowrap">Get Started</p>
-        <div
-          class="flex items-center space-x-2 w-full mt-6 rounded-lg bg-slate-400 p-2"
-        >
-          <i
-            class="fa-regular fa-envelope px-3 py-2 bg-slate-300 rounded-lg mx-2 text-xl"
+      <div class="flex items-center space-x-2 w-full mt-5 rounded-lg bg-slate-400 p-1">
+        <i
+            class="fa-brands fa-x-twitter px-3 py-2 bg-slate-300 rounded-lg m-2 text-xl"
           ></i>
-          <p>Sign Up with email</p>
-        </div>
-        <div
-          class="flex items-center space-x-2 w-full mt-5 rounded-lg bg-slate-400 p-1"
-        >
-          <i
-            class="fa-brands fa-x-twitter px-3 py-2 bg-slate-300 rounded-lg mx-2 text-xl"
-          ></i>
-          <p>Sign Up with X</p>
-        </div>
-        <div
-          class="flex items-center space-x-2 w-full mt-5 rounded-lg bg-slate-400 p-1"
-        >
-          <i
+        <p>Sign Up with X</p>
+      </div>
+      <div class="flex items-center space-x-2 w-full mt-5 rounded-lg bg-slate-400 p-1">
+        <i
             class="fa-brands fa-facebook px-3 py-2 bg-slate-300 text-blue-600 rounded-lg mx-2 text-xl"
           ></i>
-          <p>Sign Up with Facebook</p>
-        </div>
-        <span class="flex items-center mt-10"
-          >Already have an account?
-          <p  id="loginButton" class="mx-1 text-blue-400 cursor-pointer">Login</p></span
-        >
+        <p>Sign Up with Facebook</p>
       </div>
+      <span class="flex items-center mt-10"
+          >Already have an account?
+          <p  id="loginButton" class="mx-1 text-blue-400 cursor-pointer">Login</p></span>
     </div>
-    <div
-    id="loginDiv"
-      class=" hidden w-11/12 max-w-2xl bg-slate-300 rounded-lg flex items-center justify-center"
-    >
-      <div class="bg-blue-700 rounded-l-lg flex flex-col h-full p-5">
-        <p class="text-white font-semibold">boardme</p>
+  </div>
+  <div id="loginDiv"
+    class=" hidden w-11/12 h-fit max-w-2xl bg-slate-300 rounded-lg grid md:grid-cols-2 grid-cols-1 items-center justify-center">
+    <div class="bg-blue-700 rounded-l-lg flex flex-col h-full p-5 bg-cover bg-center"
+      style="background-image: url(https://64.media.tumblr.com/d4048838214da6e56b76385dde295fb1/f145147b69889cf3-5f/s640x960/e35b6c8c49a51608a9b0c94823972d72725cfe7d.gif);">
+      >
+      <p class="text-white font-semibold">boardme</p>
 
-        <span class="mt-28 text-lg font-semibold text-wrap w-full text-white">
+      <span class="mt-28 text-lg font-semibold text-wrap w-full text-white">
           implement user
           <p class="underline underline-offset-2">onboarding</p>
           experiences with just a few clicks
         </span>
 
-        <p class="text-slate-300 text-sm mt-20 text-wrap">
-          Guide your customers on a fantastic journey within your webapp
-        </p>
-      </div>
-      <div class=" rounded-r-lg flex flex-col w-full p-5">
+      <p class="text-slate-300 text-sm mt-20 text-wrap">
+        Guide your customers on a fantastic journey within your webapp
+      </p>
+    </div>
+    <div class=" rounded-r-lg flex flex-col w-full p-5">
 
-<div class="w-full flex items-start"><button id="signUpButton" class="mb-1"><i class="fa-solid fa-rotate-left"></i></button>
-</div>
-        <p class="font-semibold text-xl text-nowrap">Create your account</p>
-        <div class="flex flex-col space-y-2 mt-6">
-            <label for="name">Name</label>
-          <input
+      <div class="w-full flex items-start">
+        <button id="signUpButton" class="mb-1"><i class="fa-solid fa-rotate-left"></i></button>
+      </div>
+      <p class="font-semibold text-xl text-nowrap">Create your account</p>
+      <div class="flex flex-col space-y-2 mt-6">
+        <label for="name">Name</label>
+        <input
           id="name"
             type="text"
             placeholder=" Name"
             class="rounded-lg p-2 text-slate-100 bg-slate-200 border border-slate-400"
           />
-          <label for="email">Email</label>
-          <input
+        <label for="email">Email</label>
+        <input
           id="email"
             type="email"
             placeholder="Email"
             class="rounded-lg p-2 text-slate-100 bg-slate-200 border border-slate-400"
           />
-          <label for="password">Password</label>
-          <input
+        <label for="password">Password</label>
+        <input
           id="password"
             type="password"
             placeholder="Password"
             class="rounded-lg p-2 text-slate-100 bg-slate-200 border border-slate-400 mb-4"
           />
-           <button class="w-full px-4 py-2 rounded-lg text-white bg-blue-500 shadow-lg">Submit</button>
-       </div>
+        <button class="w-full px-4 py-2 rounded-lg text-white bg-blue-500 shadow-lg">Submit</button>
+      </div>
     </div>
 
     <script>
-  document.getElementById('signUpButton').addEventListener('click', function() {
+      document.getElementById('signUpButton').addEventListener('click', function() {
     document.getElementById('signUpDiv').classList.remove('hidden');
     document.getElementById('loginDiv').classList.add('hidden');
   });
@@ -123,6 +116,7 @@
     document.getElementById('loginDiv').classList.remove('hidden');
     document.getElementById('signUpDiv').classList.add('hidden');
   });
-</script>
-  </body>
+    </script>
+</body>
+
 </html>
