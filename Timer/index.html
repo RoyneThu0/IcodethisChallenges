@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .progress {
+        background: conic-gradient(
+          #4ade80 0%,
+          #4ade80 calc(var(--progress) * 1%),
+          transparent calc(var(--progress) * 1%),
+          transparent 100%
+        );
+        transition: background 1s linear;
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body
+    class="flex items-center justify-center w-screen h-screen"
+    style="background-color: #38b2ac"
+  >
+    <div
+      class="rounded-lg shadow-lg p-6 w-11/12 max-w-xs h-96 text-center shadow-slate-900"
+      style="background: linear-gradient(to bottom, #38b2ac, #4299e1)"
+    >
+      <!-- Top Tabs -->
+      <div class="flex justify-around mb-4 bg-teal-800 text-black">
+        <div>Alarm</div>
+        <div class="border-b-2 border-white">Timer</div>
+        <div>Stopwatch</div>
+      </div>
+
+      <!-- Timer Display -->
+      <div class="relative mt-10">
+        <div
+          id="circle"
+          class="h-40 w-40 mx-auto rounded-full border border-white flex items-center justify-center text-3xl font-semibold text-white relative"
+        >
+          <div class="progress p-1">
+            <div class="w-full h-full bg-white rounded-full"></div>
+          </div>
+          <span id="timer" class="relative z-10 text-black">25:00</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex justify-around mt-10">
+        <button
+          id="resetBtn"
+          class="bg-red-500 text-white w-14 h-14 rounded-full flex items-center justify-center"
+        >
+          ✕
+        </button>
+        <button
+          id="pauseBtn"
+          class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center"
+        >
+          ⏸️
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let timeLeft = 25 * 60; // 25 minutes in seconds
+      let countdown;
+      let isPaused = false;
+
+      // Get DOM elements
+      const timerDisplay = document.getElementById("timer");
+      const pauseBtn = document.getElementById("pauseBtn");
+      const resetBtn = document.getElementById("resetBtn");
+
+      // Update timer display
+      function displayTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        const progress = (seconds / (25 * 60)) * 100;
+
+        timerDisplay.textContent = `${minutes}:${
+          remainingSeconds < 10 ? "0" : ""
+        }${remainingSeconds}`;
+        document
+          .querySelector(".progress")
+          .style.setProperty("--progress", progress);
+      }
+
+      // Timer countdown function
+      function startTimer() {
+        countdown = setInterval(() => {
+          if (!isPaused && timeLeft > 0) {
+            timeLeft--;
+            displayTime(timeLeft);
+          } else if (timeLeft <= 0) {
+            clearInterval(countdown);
+            countdown = null; // Ensure countdown is set to null when timer ends
+            alert("Time's up!");
+          }
+        }, 1000);
+      }
+
+      // Event listeners for pause and reset buttons
+      pauseBtn.addEventListener("click", () => {
+        isPaused = !isPaused;
+        pauseBtn.textContent = isPaused ? "▶️" : "⏸️";
+        if (!countdown) startTimer(); // Start timer if it's not running
+      });
+
+      resetBtn.addEventListener("click", () => {
+        clearInterval(countdown);
+        countdown = null; // Ensure countdown is set to null when reset
+        timeLeft = 25 * 60;
+        isPaused = false;
+        pauseBtn.textContent = "⏸️";
+        displayTime(timeLeft);
+      });
+
+      // Initial timer display
+      displayTime(timeLeft);
+    </script>
+  </body>
+</html>
