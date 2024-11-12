@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="bg-gray-100 flex items-center justify-center min-h-screen bg-cover bg-center"
+    style="
+      background-image: url(https://free-3dtextureshd.com/wp-content/uploads/2024/03/88.jpg.webp);
+    "
+  >
+    <div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-10">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center space-x-2">
+          <label for="entries" class="text-gray-600">Show</label>
+          <select
+            id="entries"
+            class="border border-gray-300 rounded-md text-gray-600 py-1 px-2"
+          >
+            <option>8</option>
+            <option>10</option>
+            <option>15</option>
+          </select>
+          <span class="text-gray-600">entries</span>
+        </div>
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Search"
+            class="border border-gray-300 rounded-md py-1 px-3 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <p><i class="fa-solid fa-magnifying-glass text-gray-600"></i></p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-gray-800">
+          <thead class="bg-white">
+            <tr>
+              <th class="px-4 py-2 text-left text-gray-600 font-medium">
+                FIRST NAME
+              </th>
+              <th class="px-4 py-2 text-left text-gray-600 font-medium">
+                LAST NAME
+              </th>
+              <th class="px-4 py-2 text-left text-gray-600 font-medium">
+                EMAIL
+              </th>
+              <th class="px-4 py-2 text-left text-gray-600 font-medium">
+                CREATED AT
+              </th>
+            </tr>
+          </thead>
+          <tbody class="space-y-2">
+            <tr class="hover:scale-105 bg-white transition transform">
+              <td class="px-4 py-2">Manuel</td>
+              <td class="px-4 py-2">Sutton</td>
+              <td class="px-4 py-2">usike@udka.net</td>
+              <td class="px-4 py-2">09-06-2020</td>
+            </tr>
+            <tr class="hover:scale-110 bg-white transition transform">
+              <td class="px-4 py-2">Daisy</td>
+              <td class="px-4 py-2">Kelly</td>
+              <td class="px-4 py-2 flex items-center">ho@kepuf.edu</td>
+              <td class="px-4 py-2">09-06-2020</td>
+            </tr>
+            <tr class="hover:scale-105 bg-white transition transform">
+              <td class="px-4 py-2">Shane</td>
+              <td class="px-4 py-2">Underwood</td>
+              <td class="px-4 py-2">afawi@ajsenod.edu</td>
+              <td class="px-4 py-2">09-06-2020</td>
+            </tr>
+            <tr class="hover:scale-105 bg-white transition transform">
+              <td class="px-4 py-2">Ray</td>
+              <td class="px-4 py-2">Wise</td>
+              <td class="px-4 py-2">vebgelmo@ven.co.uk</td>
+              <td class="px-4 py-2">09-06-2020</td>
+            </tr>
+            <tr class="hover:scale-105 bg-white transition transform">
+              <td class="px-4 py-2">Sue</td>
+              <td class="px-4 py-2">Hammond</td>
+              <td class="px-4 py-2">zosub@bakus.edu</td>
+              <td class="px-4 py-2">09-06-2020</td>
+            </tr>
+            <tr class="hover:scale-105 bg-white transition transform">
+              <td class="px-4 py-2">Banks</td>
+              <td class="px-4 py-2">Roxie</td>
+              <td class="px-4 py-2">mekruj@orewera.co.uk</td>
+              <td class="px-4 py-2">09-06-2020</td>
+            </tr>
+            <tr class="hover:scale-105 bg-white transition transform">
+              <td class="px-4 py-2">Alfred</td>
+              <td class="px-4 py-2">Reese</td>
+              <td class="px-4 py-2">upigohi@sop.edu</td>
+              <td class="px-4 py-2">05-29-2020</td>
+            </tr>
+            <tr class="hover:scale-105 bg-white transition transform">
+              <td class="px-4 py-2">Maurice</td>
+              <td class="px-4 py-2">Lowe</td>
+              <td class="px-4 py-2">hib@oksuod.gov</td>
+              <td class="px-4 py-2">05-29-2020</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-between items-center mt-4">
+        <button class="text-blue-500 hover:underline">Previous</button>
+        <button class="text-blue-500 hover:underline">Next</button>
+      </div>
+    </div>
+  </body>
+</html>
