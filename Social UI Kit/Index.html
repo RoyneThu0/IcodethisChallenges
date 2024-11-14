@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile UI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom styles */
+      body {
+        background-color: #0b1121;
+      }
+      .profile-card {
+        background-color: #1c2a4a;
+      }
+      .follow-button {
+        background-color: #fbbf24;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen">
+    <!-- Profile Card -->
+    <div class="max-w-md w-full mx-4 profile-card rounded-lg p-6 shadow-lg">
+      <div class="text-center">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrZjCkPILn-tttmKfHudz5lcCmN4cTnTWqWQ&s"
+          alt="Profile Picture"
+          class="rounded-full mx-auto mb-4 w-20 h-20"
+        />
+        <h2 class="text-white text-xl font-bold">Frances P. Troia</h2>
+        <p class="text-gray-400">Photographer</p>
+        <div class="flex justify-center mt-4 space-x-8 text-gray-400">
+          <div>
+            <span class="block font-bold text-white">753</span>
+            <span>Posts</span>
+          </div>
+          <div>
+            <span class="block font-bold text-white">1477</span>
+            <span>Following</span>
+          </div>
+          <div>
+            <span class="block font-bold text-white">874</span>
+            <span>Followers</span>
+          </div>
+        </div>
+        <button
+          class="follow-button text-white rounded-full mt-6 py-2 px-6 font-semibold"
+        >
+          Follow
+        </button>
+      </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div
+      class="max-w-lg w-full mx-4 mt-8 profile-card rounded-lg p-6 shadow-lg text-gray-400"
+    >
+      <h3 class="text-white font-bold text-lg mb-4">24 Comments</h3>
+      <div class="space-y-6">
+        <!-- Comment 1 -->
+        <div>
+          <div class="flex items-center">
+            <img
+              src="https://via.placeholder.com/40"
+              alt="User"
+              class="rounded-full w-10 h-10 mr-3"
+            />
+            <div>
+              <p class="text-white font-semibold">
+                Frances P. Troia
+                <span class="text-gray-400 text-sm">2 hours ago</span>
+              </p>
+              <p>Malesuada nunc rhoncus ullamcorper ultricies semper.</p>
+              <a href="#" class="text-blue-400 text-sm hover:underline"
+                >Reply</a
+              >
+            </div>
+          </div>
+          <a href="#" class="text-blue-400 text-sm hover:underline ml-14"
+            >View 3 replies</a
+          >
+        </div>
+
+        <!-- Comment 2 -->
+        <div>
+          <div class="flex items-center">
+            <img
+              src="https://via.placeholder.com/40"
+              alt="User"
+              class="rounded-full w-10 h-10 mr-3"
+            />
+            <div>
+              <p class="text-white font-semibold">
+                David Saunders
+                <span class="text-gray-400 text-sm">3 hours ago</span>
+              </p>
+              <p>Enim pellentesque ultricies diam, vehicula nulla libero.</p>
+              <a href="#" class="text-blue-400 text-sm hover:underline"
+                >Reply</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment 3 -->
+        <div>
+          <div class="flex items-center">
+            <img
+              src="https://via.placeholder.com/40"
+              alt="User"
+              class="rounded-full w-10 h-10 mr-3"
+            />
+            <div>
+              <p class="text-white font-semibold">
+                Manuel Hall <span class="text-gray-400 text-sm">Yesterday</span>
+              </p>
+              <p>Aperiam montes, vel felis pretium quam ante.</p>
+              <a href="#" class="text-blue-400 text-sm hover:underline"
+                >Reply</a
+              >
+            </div>
+          </div>
+          <a href="#" class="text-blue-400 text-sm hover:underline ml-14"
+            >View 6 replies</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div
+      class="fixed bottom-0 inset-x-0 flex justify-between bg-gray-800 py-4 px-8 text-gray-400"
+    >
+      <a href="#" class="flex flex-col items-center">
+        <span class="text-lg">📸</span>
+        <span class="text-xs">Gallery</span>
+      </a>
+      <a href="#" class="flex flex-col items-center">
+        <span class="text-lg">ℹ️</span>
+        <span class="text-xs">About</span>
+      </a>
+      <a href="#" class="flex flex-col items-center">
+        <span class="text-lg">📸</span>
+        <span class="text-xs">Gallery</span>
+      </a>
+      <a href="#" class="flex flex-col items-center">
+        <span class="text-lg">🔔</span>
+        <span class="text-xs">Notifications</span>
+      </a>
+      <a href="#" class="flex flex-col items-center">
+        <span class="text-lg">👤</span>
+        <span class="text-xs">Profile</span>
+      </a>
+    </div>
+  </body>
+</html>
