@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: #fff;
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+.banner .content .title {
+  font-family: "Hallowed Grounds";
+  font-size: 6em;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://wallpapers.com/images/hd/4k-ultra-hd-venom-with-maskless-spider-man-dv99zxwdua5egas2.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+
+  mask-image: url("1118-ezgif.com-loop-count.gif");
+  mask-size: cover;
+  mask-position: center;
+}
