@@ -1,0 +1,7 @@
+.large-checkbox {
+  transform: scale(2);
+}
+button:hover {
+  background-color: #888;
+  color: white;
+}
