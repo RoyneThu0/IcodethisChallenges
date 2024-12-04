@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Selection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="flex items-center justify-center h-screen w-screen">
+    <img
+      class="bg-inherit h-screen w-screen object-cover absolute z-0"
+      src="https://images.unsplash.com/photo-1556798060-3d3c4e478d1e?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fHw%3D"
+      alt=""
+    />
+    <div
+      class="flex justify-center z-10 items-center h-1/5 min-w-max w-1/5 bg-gray-700 bg-opacity-50 mx-2 rounded-lg shadow-xl px-9"
+    >
+      <div>
+        <label class="text-sm" for="postInput">Write a post</label>
+        <input
+          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          type="text"
+          id="postInput"
+          type="text"
+          placeholder="What's on your mind"
+          style="display: block; width: 100%"
+        />
+        <div
+          style="display: flex; justify-content: flex-start; margin-top: 10px"
+        >
+          <input
+            type="file"
+            id="photoInput"
+            style="display: none"
+            onchange="handlePhotoSelected()"
+          />
+          <i
+            class="fas fa-camera text-xl text-blue-300 px-2"
+            title="Attach photo"
+            onclick="document.getElementById('photoInput').click()"
+          ></i>
+
+          <input
+            type="file"
+            id="fileInput"
+            style="display: none"
+            onchange="handleFileSelected()"
+          />
+          <i
+            class="fas fa-paperclip text-xl text-blue-300 px-2"
+            title="Attach files"
+            onclick="document.getElementById('fileInput').click()"
+            style="margin-left: 10px"
+          ></i>
+          <i
+            class="fas fa-smile text-xl text-blue-300 px-2"
+            title="Emoji"
+            onclick="addEmoji()"
+            style="margin-left: 10px"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <script>
+      function addPhoto() {
+        // Add functionality to add photo
+        console.log("Add photo clicked");
+      }
+
+      function attachFiles() {
+        // Add functionality to attach files
+        console.log("Attach files clicked");
+      }
+
+      function addEmoji() {
+        // Add functionality to add emoji
+        console.log("Add emoji clicked");
+      }
+    </script>
+  </body>
+</html>
