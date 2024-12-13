@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-In select</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-slate-300 flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://wallpapers.com/images/hd/grey-desktop-c2vlziggmax74ybq.jpg);
+    "
+  >
+    <div
+      id="sign-in"
+      class="bg-white w-11/12 max-w-lg p-6 rounded-lg shadow-lg flex items-center justify-center flex-col gap-4"
+    >
+      <i class="fa-solid fa-trophy text-6xl text-yellow-400"></i>
+      <p class="text-center font-semibold px-10">
+        Sign in to discover creatives and participate or post a challenge
+      </p>
+      <button
+        id="signin-btn"
+        class="px-10 py-2 rounded-xl text-white bg-purple-600 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
+      >
+        Sign in
+      </button>
+    </div>
+    <div id="recommended" class="hidden h-fit p-6 px-8 bg-white rounded-lg">
+      <div class="flex items-center justify-center w-full p-5">
+        <h1 class="font-semibold flex-1 pr-20">Reccomended</h1>
+        <a href="#" class="text-sky-500 visited:text-purple-600">Show all</a>
+      </div>
+
+      <div class="h-4/5 flex items-center justify-center flex-col">
+        <div
+          class="flex items-center justify-center w-full h-full rounded-lg gap-10 flex-col"
+        >
+          <div
+            class="flex items-center p-1 hover:bg-gradient-to-tr from-purple-400 rounded-full mx-2"
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4MfxczEyyBK_qu2sOJQLQDd6R80oOZ0iNFg&s"
+              alt="Profile Image"
+              class="rounded-full h-16 w-16 object-cover mr-8"
+            />
+            <div class="flex-1">
+              <h1 class="text-lg font-bold mb-4">John Doe</h1>
+              <p class="text-sm text-gray-600 pr-4">
+                Lorem ipsum dolor sit amet
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex items-center p-1 hover:bg-gradient-to-tr from-purple-400 rounded-full mx-2"
+          >
+            <img
+              src="data:image/jpeg;base64,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"
+              alt="Profile Image"
+              class="rounded-full h-16 w-16 object-cover mr-8"
+            />
+            <div class="flex-1">
+              <h1 class="text-lg font-bold mb-4">John Doe</h1>
+              <p class="text-sm text-gray-600 pr-4">
+                Lorem ipsum dolor sit amet,
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex items-center p-1 hover:bg-gradient-to-tr from-purple-400 rounded-full mx-2"
+          >
+            <img
+              src="https://facts.net/wp-content/uploads/2023/09/9-astounding-facts-about-meme-faces-1695945988.jpg"
+              alt="Profile Image"
+              class="rounded-full h-16 w-16 object-cover mr-8"
+            />
+            <div class="flex-1">
+              <h1 class="text-lg font-bold mb-4">John Doe</h1>
+              <p class="text-sm text-gray-600 pr-4">
+                Lorem ipsum dolor sit amet,
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const signInDiv = document.getElementById("sign-in");
+      const recommendedDiv = document.getElementById("recommended");
+      const signInButton = document.getElementById("signin-btn");
+
+      signInButton.addEventListener("click", () => {
+        signInDiv.classList.add("hidden");
+        recommendedDiv.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>
