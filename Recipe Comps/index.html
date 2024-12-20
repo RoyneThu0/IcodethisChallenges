@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Comps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="h-screen w-screen bg-gradient-to-tl from-purple-300 from-40% to-sky-400 flex items-center justify-center"
+  >
+    <div
+      id="main"
+      class="bg-white pb-7 lg:w-1/5 md:w-1/3 sm:w-1/3 flex flex-col rounded-lg"
+    >
+      <div class="flex w-full h-2/5">
+        <img
+          class="w-full h-full object-cover rounded-t-lg"
+          src="https://thecolorfulkitchen.com/wp-content/uploads/2015/06/Rainbow-Salad-Sweet-Mustard-Dressing-Vegan-Gluten-Free-2.jpg"
+          alt=""
+        />
+      </div>
+      <div class="flex w-full h-full flex-col items-center">
+        <span class="font-sans font-semibold text-xs mt-5"
+          >SUBSCRIBE TODAY</span
+        >
+        <span class="font-semibold">Never miss a recipe</span>
+
+        <div class="w-full flex-col px-5">
+          <input
+            type="text"
+            class="border w-full border-orange-500 py-2 px-7 mt-2 rounded-md"
+            placeholder="Your email address"
+          />
+          <button
+            onclick="subscribe()"
+            class="bg-orange-500 w-full py-2 mt-1 rounded-md flex justify-center text-white"
+          >
+            Subscribe
+          </button>
+        </div>
+        <span class="font-sans text-sm mt-5">We won't send you spam.</span>
+        <span class="font-sans text-sm">Unsubscribe at any time.</span>
+      </div>
+    </div>
+
+    <div
+      id="recipes"
+      style="display: none"
+      class="bg-white pb-3 rounded-lg p-6"
+    >
+      <div class="flex items-center mt-10">
+        <button onclick="moveCarousel(-1)">
+          <i
+            class="fa-solid fa-chevron-left h-10 w-10 p-3 bg-orange-300 rounded-full ml-2"
+          ></i>
+        </button>
+        <div class="flex overflow-hidden w-full justify-center">
+          <div
+            class="carousel-item text-center mx-2 flex items-center justify-center flex-col"
+            data-difficulty="easy"
+            data-description="A fresh and crispy crouton salad perfect for a light meal."
+          >
+            <img
+              class="h-20 w-20 rounded-full flex"
+              src="https://cookingwithbry.com/wp-content/uploads/Rustic-Tomato-Salad-with-Croutons-Recipe-1.jpg?_t=1697248290"
+              alt="Crispy Crouton salad"
+            />
+            <p>Crispy Crouton Salad</p>
+          </div>
+          <div
+            class="carousel-item text-center mx-2 flex items-center justify-center flex-col"
+            data-difficulty="medium"
+            data-description="Delicious pancakes topped with fresh yoghurt and fruits."
+          >
+            <img
+              class="h-20 w-20 rounded-full flex"
+              src="https://grandbaby-cakes.com/wp-content/uploads/2014/06/oreo-pancakes-cookies-and-cream-pancakes-5-500x500.jpg"
+              alt="Pancakes With Yoghurt"
+            />
+            <p>Pancakes With Yoghurt</p>
+          </div>
+          <div
+            class="carousel-item text-center mx-2 flex items-center justify-center flex-col border-2 border-red-500 rounded-full text-wrap"
+            data-difficulty="hard"
+            data-description="These doughnuts are crispy on the outside and creamy on the inside."
+          >
+            <img
+              class="h-20 w-20 rounded-full flex"
+              src="https://cdn-thumbs.ohmyprints.net/1/cb88117d044847cca2598bb524ea67ed/817x600/thumbnail/fit.jpg"
+              alt="Crispy And Creamy Doughnuts"
+            />
+            <p>Crispy And Creamy Doughnuts</p>
+          </div>
+        </div>
+        <button onclick="moveCarousel(1)">
+          <i
+            class="fa-solid fa-chevron-right h-10 w-10 p-3 bg-orange-300 rounded-full mr-2"
+          ></i>
+        </button>
+      </div>
+
+      <div class="mt-3">
+        <span class="font-bold text-lg">Difficulty</span>
+        <div class="flex items-center justify-center gap-5">
+          <button
+            class="difficulty-button bg-gray-200 py-2 px-4 rounded-full"
+            data-difficulty="easy"
+          >
+            Easy
+          </button>
+          <button
+            class="difficulty-button bg-gray-200 py-2 px-4 rounded-full"
+            data-difficulty="medium"
+          >
+            Medium
+          </button>
+          <button
+            class="difficulty-button bg-gray-200 py-2 px-4 rounded-full"
+            data-difficulty="hard"
+          >
+            Hard
+          </button>
+        </div>
+      </div>
+
+      <div class="recipe-details mt-6 p-4 border-t">
+        <img
+          class="h-20 w-20 rounded-full"
+          src="https://cdn-thumbs.ohmyprints.net/1/cb88117d044847cca2598bb524ea67ed/817x600/thumbnail/fit.jpg"
+          alt="Crispy And Creamy Doughnuts"
+        />
+        <h1 class="font-bold text-xl mt-4">Crispy And Creamy Doughnuts</h1>
+        <p class="mt-2 mb-4">
+          A delicious dessert recipe that is perfect for any occasion. These
+          doughnuts are crispy on the outside and creamy on the inside.
+        </p>
+        <button class="favorite-button text-2xl text-red-500">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function subscribe() {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("recipes").style.display = "block";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const carouselItems = document.querySelectorAll(".carousel-item");
+        const difficultyButtons =
+          document.querySelectorAll(".difficulty-button");
+        const recipeDetails = document.querySelector(".recipe-details");
+        const leftArrow = document.querySelector(".fa-chevron-left");
+        const rightArrow = document.querySelector(".fa-chevron-right");
+
+        let selectedRecipeIndex = 1;
+
+        function updateRecipeDetails(index) {
+          const selectedItem = carouselItems[index];
+          const imgSrc = selectedItem.querySelector("img").src;
+          const title = selectedItem.querySelector("p").textContent;
+          const description = selectedItem.getAttribute("data-description");
+          const difficulty = selectedItem.getAttribute("data-difficulty");
+
+          recipeDetails.querySelector("img").src = imgSrc;
+          recipeDetails.querySelector("h1").textContent = title;
+          recipeDetails.querySelector("p").textContent = description;
+
+          carouselItems.forEach((item) =>
+            item.classList.remove("border-2", "border-red-500")
+          );
+          selectedItem.classList.add("border-2", "border-red-500");
+
+          difficultyButtons.forEach((button) =>
+            button.classList.remove("bg-red-500", "text-white")
+          );
+          document
+            .querySelector(
+              `.difficulty-button[data-difficulty="${difficulty}"]`
+            )
+            .classList.add("bg-red-500", "text-white");
+        }
+
+        difficultyButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const difficulty = button.getAttribute("data-difficulty");
+
+            carouselItems.forEach((item, index) => {
+              if (item.getAttribute("data-difficulty") === difficulty) {
+                updateRecipeDetails(index);
+              }
+            });
+          });
+        });
+
+        function moveCarousel(direction) {
+          selectedRecipeIndex =
+            (selectedRecipeIndex + direction + carouselItems.length) %
+            carouselItems.length;
+          updateRecipeDetails(selectedRecipeIndex);
+        }
+
+        leftArrow.addEventListener("click", () => moveCarousel(-1));
+        rightArrow.addEventListener("click", () => moveCarousel(1));
+
+        updateRecipeDetails(selectedRecipeIndex);
+      });
+    </script>
+  </body>
+</html>
