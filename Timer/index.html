@@ -69,7 +69,7 @@
     </div>
 
     <script>
-      let timeLeft = 25 * 60; // 25 minutes in seconds
+      let timeLeft = 25 * 60; // 25 minutes
       let countdown;
       let isPaused = false;
 
@@ -100,7 +100,7 @@
             displayTime(timeLeft);
           } else if (timeLeft <= 0) {
             clearInterval(countdown);
-            countdown = null; // Ensure countdown is set to null when timer ends
+            countdown = null; // Ensures countdown is set to null when timer ends
             alert("Time's up!");
           }
         }, 1000);
