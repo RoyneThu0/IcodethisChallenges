@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Profile</title>
+    <title>Social Profile var</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -39,16 +39,19 @@
     </style>
   </head>
   <body
-    class="h-screen w-screen bg-gradient-to-tl from-blue-300 from-30% to-slate-200 flex items-center justify-center"
+    class="h-screen w-screen bg-cover bg-center flex items-center justify-center"
+    style="
+      background-image: url(https://w0.peakpx.com/wallpaper/491/198/HD-wallpaper-cell-abstract-amoled-blue-cyan-fluid-geometric-green-minimal-neon-oranic.jpg);
+    "
   >
     <div
       id="main"
-      class="bg-slate-50 p-7 lg:w-1/3 md:w-2/3 sm:w-2/3 flex flex-col rounded-lg"
+      class="bg-cyan-400 p-7 lg:w-1/3 md:w-2/3 sm:w-2/3 flex flex-col rounded-lg shadow-lg hover:scale-110 hover:shadow-gray-600 duration-300"
     >
       <div class="flex w-full h-full flex-col items-center">
         <img
           class="w-24 h-24 rounded-full"
-          src="https://wonderaiartgenerator.com/king-include/uploads/2024/04/1861196871.png"
+          src="https://media.allure.com/photos/640f2d9ff9890844dd555d4c/1:1/w_2494,h_2494,c_limit/lady%20gaga%20makeup%20off%20oscars.jpg"
           alt=""
         />
         <p class="font-bold mt-2">Sally Ramos</p>
@@ -56,7 +59,7 @@
 
         <div class="flex gap-2 mt-5">
           <button
-            class="px-7 py-3 text-white rounded-full bg-slate-400 hover:bg-orange-500"
+            class="px-7 py-2 text-white rounded-full bg-slate-400 hover:bg-orange-500 duration-300 active:bg-cyan-400"
             onclick="showFollowing()"
           >
             Following
@@ -66,20 +69,20 @@
     </div>
 
     <div
-      class="bg-slate-50 p-7 w-11/12 max-w-xl rounded-lg flex flex-col items-center justify-center"
+      class="bg-cyan-400 p-7 w-11/12 max-w-xl rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-110 hover:shadow-gray-600 duration-300"
       id="Following"
       style="display: none"
     >
       <div class="flex items-center justify-between w-full">
         <img
-          class="w-24 h-24 rounded-full"
-          src="https://wonderaiartgenerator.com/king-include/uploads/2024/04/1861196871.png"
+          class="w-24 h-24 rounded-full hover:scale-110 border-2 duration-300 hover:border-orange-400"
+          src="https://media.allure.com/photos/640f2d9ff9890844dd555d4c/1:1/w_2494,h_2494,c_limit/lady%20gaga%20makeup%20off%20oscars.jpg"
           alt=""
         />
 
         <button
           id="FollowBtn"
-          class="px-7 mt-3 py-3 rounded-full text-white bg-orange-500 text-nowrap"
+          class="px-7 mt-3 py-3 rounded-full text-white bg-orange-500 active:bg-cyan-400 text-nowrap"
         >
           Follow
         </button>
@@ -104,25 +107,42 @@
         document.getElementById("Following").style.display = "flex";
       }
 
-      document
-        .getElementById("FollowBtn")
-        .addEventListener("click", function () {
-          this.textContent = "Following";
-          this.classList.remove("bg-orange-500");
-          this.classList.add("bg-green-500");
-        });
+      let isFollowing = false;
 
       document
         .getElementById("FollowBtn")
         .addEventListener("click", function () {
-          const toast = document.createElement("div");
-          toast.innerText = "You are now following Sally Ramos!";
-          toast.className = "toast-message";
-          document.getElementById("toastContainer").appendChild(toast);
+          if (!isFollowing) {
+            this.textContent = "Following";
+            this.classList.remove("bg-orange-500");
+            this.classList.add("bg-green-500");
 
-          setTimeout(() => {
-            toast.remove();
-          }, 2500);
+            const toast = document.createElement("div");
+            toast.innerText = "You are now following Sally Ramos!";
+            toast.className = "toast-message";
+            document.getElementById("toastContainer").appendChild(toast);
+
+            setTimeout(() => {
+              toast.remove();
+            }, 2500);
+
+            isFollowing = true;
+          } else {
+            this.textContent = "Follow";
+            this.classList.remove("bg-green-500");
+            this.classList.add("bg-orange-500");
+
+            const toast = document.createElement("div");
+            toast.innerText = "You have unfollowed Sally Ramos!";
+            toast.className = "toast-message";
+            document.getElementById("toastContainer").appendChild(toast);
+
+            setTimeout(() => {
+              toast.remove();
+            }, 2500);
+
+            isFollowing = false;
+          }
         });
     </script>
   </body>
