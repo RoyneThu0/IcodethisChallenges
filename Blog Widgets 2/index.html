@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Widgets</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-gradient-to-tl from-purple-400 flex justify-center items-center"
+  >
+    <div
+      class="h-2/3 w-1/4 bg-gray-100 rounded-xl shadow-xl z-0 relative"
+    ></div>
+    <div
+      class="w-11/12 max-w-xl absolute sm:flex items-center justify-center grid grid-cols-1 p-2 bg-white top-20 z-10 rounded-xl shadow-xl shadow-purple-400"
+    >
+      <div class="w-full bg-purple-300 top-20 z-10 rounded-xl pt-2">
+        <span class="my-24 mx-5 text-lg font-semibold font-serif">Tags</span>
+        <div class="flex flex-wrap gap-2 py-5 px-2">
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            Blender
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            Browser
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            cross-platform
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            HoloLens
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            Microsoft
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            Mixed Reality
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl tag-active"
+          >
+            modelling
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            MR
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            nodejs
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            streamsocket
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            unity
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            unity3D
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            unreal engine
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            VR
+          </p>
+          <p
+            class="tag py-1 hover:bg-pink-400 hover:text-white duration-300 bg-white px-3 rounded-xl"
+          >
+            websockets
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-11/12 max-w-md absolute p-2 bg-white top-72 z-10 right-40 rounded-xl shadow-xl shadow-purple-400"
+    >
+      <div
+        class="w-full p-5 py-6 bg-purple-300 top-60 z-10 right-40 rounded-xl"
+      >
+        <div class="flex items-center gap-1">
+          <input
+            type="text"
+            placeholder=" Search articles, topics, etc."
+            class="w-full p-3 focus:outline-none rounded-lg border-0 focus:ring-0"
+          />
+          <button
+            class="bg-purple-900 hover:bg-fuchsia-500 duration-300 active:bg-indigo-500 text-white p-3 rounded-lg"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="w-11/12 max-w-lg absolute p-2 bg-white bottom-20 z-10 left-48 rounded-xl shadow-xl shadow-purple-400"
+    >
+      <div class="p-5 bg-purple-300 top-60 z-10 right-40 rounded-xl">
+        <h2 class="text-xl font-bold mb-4 font-serif">Recent posts</h2>
+        <ul class="space-y-2 mx-3">
+          <li class="post-active py-2 px-2 font-semibold rounded-xl">
+            Azure Speech Studio for Mixed Reality
+          </li>
+          <li class="post-active py-2 px-2 font-semibold rounded-xl bg-white">
+            HoloLens 2 Unreal Project Template
+          </li>
+          <li class="post-active py-2 px-2 font-semibold rounded-xl">
+            Simplygon in Azure
+          </li>
+          <li class="post-active py-2 px-2 font-semibold rounded-xl">
+            Blender in Azure
+          </li>
+          <li class="post-active py-2 px-2 font-semibold rounded-xl">
+            AAD Login on HoloLens 2
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      function toggleTag(element) {
+        element.classList.toggle("tag-active");
+      }
+    </script>
+  </body>
+</html>
