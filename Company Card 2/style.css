@@ -1,0 +1,160 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://img.freepik.com/free-vector/prickly-juniper-branch-beige-gray-minimal-background_53876-113047.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: aqua;
+}
+.card {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: darkslateblue;
+  padding: 5px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.nav-icon {
+  font-size: 50px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.nav-icon:hover {
+  color: #a0aec0;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.stars {
+  color: gold;
+  padding-top: 20px;
+}
+
+.review {
+  color: white;
+}
+
+.company-info {
+  max-width: 400px;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+.website {
+  color: #ec4899;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.description {
+  color: white;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  background-color: rgba(47, 33, 138, 0.616);
+  width: 100%;
+  padding: 10px;
+}
+
+.stats {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats span {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stats p {
+  font-size: 24px;
+  color: white;
+}
+
+.highlight {
+  color: #ec4899;
+}
+
+.pto {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pto-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pto-bar p {
+  color: white;
+  font-weight: semi-bold;
+  font-size: small;
+  width: 50%;
+}
+
+.bar {
+  width: 60%;
+  background-color: #0f172a;
+  height: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.fill {
+  background-color: #ec4899;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.pto-days {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
