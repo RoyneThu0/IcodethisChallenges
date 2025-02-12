@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Pattern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @layer base {
+        body {
+          height: 100vh;
+          margin: 0;
+          position: relative;
+          background: linear-gradient(
+            -45deg,
+            #71b757,
+            #07666a,
+            #4a9b3d,
+            #0a7b80
+          );
+          background-size: 400% 400%;
+          animation: gradientMotion 15s ease infinite;
+        }
+      }
+
+      @keyframes gradientMotion {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(200, 200, 200, 0.2) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(200, 200, 200, 0.2) 1px, transparent 1px);
+        background-size: 30px 30px;
+        pointer-events: none;
+      }
+
+      .glowing-dot {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: #ffffff;
+        box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
+        border-radius: 50%;
+        filter: blur(0.5px);
+        pointer-events: none;
+        transition: all 0.15s ease-out, opacity 0.5s ease-in-out;
+        will-change: transform, filter, opacity;
+        opacity: 0;
+      }
+
+      .glowing-dot.visible {
+        opacity: 1;
+      }
+
+      .glowing-dot.fade-out {
+        opacity: 0;
+      }
+
+      .glowing-dot:hover {
+        transform: scale(4);
+        filter: blur(0.5px) brightness(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dots-container"></div>
+    <script>
+      let mouseX = 0;
+      let mouseY = 0;
+
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        document.querySelectorAll(".glowing-dot").forEach((dot) => {
+          const rect = dot.getBoundingClientRect();
+          const dotX = rect.left + rect.width / 2;
+          const dotY = rect.top + rect.height / 2;
+
+          const distance = Math.hypot(mouseX - dotX, mouseY - dotY);
+
+          if (distance < 100) {
+            const scale = 3 + (1 - distance / 100) * 3;
+            dot.style.transform = `scale(${scale})`;
+            dot.style.zIndex = "1000";
+            dot.style.filter = "blur(0.5px) brightness(1.5)";
+          } else {
+            dot.style.transform = "scale(1)";
+            dot.style.zIndex = "1";
+            dot.style.filter = "blur(0.5px)";
+          }
+        });
+      });
+
+      function createDot() {
+        const dot = document.createElement("div");
+        dot.className = "glowing-dot";
+
+        const x = Math.floor(Math.random() * (window.innerWidth / 30)) * 30;
+        const y = Math.floor(Math.random() * (window.innerHeight / 30)) * 30;
+
+        dot.style.left = x + "px";
+        dot.style.top = y + "px";
+
+        document.getElementById("dots-container").appendChild(dot);
+
+        requestAnimationFrame(() => {
+          dot.classList.add("visible");
+        });
+
+        setTimeout(() => {
+          dot.classList.add("fade-out");
+          setTimeout(() => {
+            dot.remove();
+          }, 500);
+        }, 3500);
+      }
+
+      setInterval(createDot, 200);
+
+      // Create initial dots
+      for (let i = 0; i < 30; i++) {
+        createDot();
+      }
+    </script>
+  </body>
+</html>
