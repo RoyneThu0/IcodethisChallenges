@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex bg-cover md:items-center md:mt-0 mt-10 justify-center"
+    style="
+      background-image: url(https://images.pexels.com/photos/2693212/pexels-photo-2693212.png?cs=srgb&dl=pexels-anniroenkae-2693212.jpg&fm=jpg);
+    "
+  >
+    <div
+      class="w-11/12 max-w-3xl h-fit border-8 border-white rounded-3xl shadow-sm shadow-slate-200"
+    >
+      <div
+        class="w-full p-7 flex-col backdrop-filter backdrop-blur-lg bg-opacity-50 bg-gray-50 border-8 border-white rounded-2xl grid sm:grid-cols-3 grid-cols-1 gap-5"
+      >
+        <div class="flex items-center justify-center flex-col w-full">
+          <p class="font-semibold w-full text-start text-2xl">
+            Mortgage Calculator
+          </p>
+          <div class="w-full flex items-center justify-between mt-10">
+            <p class="font-semibold text-sm">Purchase price:</p>
+            <p id="purchase-price" class="font-bold text-xs">$450,000</p>
+          </div>
+          <div id="slider" class="mt-2"></div>
+          <input
+            type="range"
+            min="100000"
+            max="1000000"
+            value="450000"
+            step="1000"
+            id="price-slider"
+            class="w-full bg-blue-400"
+          />
+          <p class="text-sm w-full text-start mt-10 font-semibold">
+            Loan amount
+          </p>
+          <p id="loan-amount" class="w-full text-start font-bold text-2xl mt-2">
+            $315,000
+          </p>
+          <button
+            class="w-full text-xs mt-8 bg-blue-500 hover:bg-blue-700 duration-300 text-white py-3 rounded-lg"
+          >
+            Get a mortgage quote
+          </button>
+        </div>
+        <div class="flex items-center justify-center flex-col w-full">
+          <div class="w-full flex items-center justify-between mt-14">
+            <p class="font-semibold text-sm">Equity:</p>
+            <p id="equity" class="font-bold text-xs">$135,000</p>
+          </div>
+          <div id="slider" class="mt-2"></div>
+          <input
+            type="range"
+            min="100000"
+            max="1000000"
+            value="450000"
+            step="1000"
+            id="equity-slider"
+            class="w-full bg-blue-400"
+          />
+          <p class="text-sm w-full text-start mt-10 font-semibold">
+            Estimated pr.month
+          </p>
+          <p
+            id="estimated-monthly"
+            class="w-full text-start font-bold text-2xl mt-2"
+          >
+            $1,300
+          </p>
+          <p class="text-xs w-full text-start mt-2 text-slate-700">
+            2.10% eff ./2.4% nrom. Interest
+          </p>
+        </div>
+        <div class="flex items-start justify-center flex-col w-full mb-16">
+          <div class="w-full flex items-center justify-between">
+            <p class="font-semibold text-sm">Repayment time:</p>
+            <p id="repayment-time" class="font-bold text-xs">25 years</p>
+          </div>
+          <div id="slider" class="mt-2"></div>
+          <input
+            type="range"
+            min="10"
+            max="100"
+            value="100"
+            step="5"
+            id="repayment-slider"
+            class="w-full bg-blue-400"
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      const priceSlider = document.getElementById("price-slider");
+      const equitySlider = document.getElementById("equity-slider");
+      const repaymentSlider = document.getElementById("repayment-slider");
+      const purchasePrice = document.getElementById("purchase-price");
+      const loanAmount = document.getElementById("loan-amount");
+      const equity = document.getElementById("equity");
+      const estimatedMonthly = document.getElementById("estimated-monthly");
+      const repaymentTime = document.getElementById("repayment-time");
+
+      function updateValues() {
+        const price = parseInt(priceSlider.value);
+        const equityValue = parseInt(equitySlider.value);
+        const repaymentValue = parseInt(repaymentSlider.value);
+
+        purchasePrice.textContent = `$${price.toLocaleString()}`;
+        loanAmount.textContent = `$${(price - equityValue).toLocaleString()}`;
+        equity.textContent = `$${equityValue.toLocaleString()}`;
+        estimatedMonthly.textContent = `$${(
+          (price - equityValue) /
+          repaymentValue
+        ).toFixed(2)}`;
+        repaymentTime.textContent = `${repaymentValue} years`;
+      }
+
+      priceSlider.addEventListener("input", updateValues);
+      equitySlider.addEventListener("input", updateValues);
+      repaymentSlider.addEventListener("input", updateValues);
+
+      updateValues();
+    </script>
+  </body>
+</html>
