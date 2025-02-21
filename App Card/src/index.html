@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Card</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-slate-900">
+    <div class="w-11/12 max-w-xs flex flex-col items-center justify-center">
+      <div class="bg-blue-400 w-full rounded-lg">
+        <div class="w-full flex justify-end p-5">
+          <i class="fa-solid text-white cursor-pointer text-xl fa-ellipsis"></i>
+        </div>
+        <div class="w-full flex flex-col items-center justify-center p-5">
+          <img
+            class="w-16"
+            src="https://static-00.iconduck.com/assets.00/intercom-icon-1024x1024-05z0lspx.png"
+            alt=""
+          />
+          <div class="w-full flex items-center justify-center mt-2 gap-2">
+            <p class="font-semibold text-white">Untercom</p>
+            <p
+              class="text-xs py-0.5 px-1 rounded-sm text-white hover:animate-pulse bg-blue-500"
+            >
+              APP
+            </p>
+          </div>
+          <p class="text-white font-semibold font-sans">
+            Convert your hottest leads
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-b-lg w-full p-10 flex flex-col items-center justify-center"
+        >
+          <ul class="space-y-5 flex flex-col items-center">
+            <li
+              class="hover:scale-110 duration-300 font-semibold hover:text-black text-slate-400"
+            >
+              About
+            </li>
+            <li
+              class="hover:scale-110 duration-300 font-semibold hover:text-black text-slate-400"
+            >
+              Settings
+            </li>
+            <li
+              class="hover:scale-110 duration-300 font-semibold hover:text-black text-slate-400"
+            >
+              Help
+            </li>
+          </ul>
+          <button
+            class="mt-5 border w-full py-2 hover:bg-blue-400 hover:text-white duration-300 rounded-lg text-slate-400 border-slate-400"
+          >
+            Go to App
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
