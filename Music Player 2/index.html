@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      .text-blue-500 {
+        color: #3b82f6;
+      }
+      /* Transition for smooth and slow background change */
+      body {
+        transition: background-color 5s ease;
+      }
+      .play-pause-button {
+        font-size: 2.5rem;
+        color: gray; /* 3xl size */
+      }
+
+      .highlight {
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(2rem * var(--tw-space-x-reverse));
+        margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+
+      .my-4 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .text-blue-500 {
+        color: #3b82f6;
+      }
+
+      #playlist {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #playlist li {
+        transition: background-color 0.3s, transform 0.3s;
+        box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+      }
+
+      #playlist li:hover {
+        background-color: #d0d0d0;
+        transform: translateY(-3px);
+      }
+
+      #playlist li.highlight {
+        background-color: #9a9ea5;
+        color: white;
+        box-shadow: 1px 1px 1px #626a7b, -1px -2px 4px #b6c6d7;
+      }
+
+      #playlist li.highlight:hover {
+        background-color: #2a62dc;
+      }
+      .active-icon {
+        color: #3b82f6;
+      }
+    </style>
+  </head>
+  <body
+    class="flex items-center justify-center min-h-screen bg-gray-100"
+    id="body"
+  >
+    <div id="player-container">
+      <div id="track-info"></div>
+      <div
+        class="bg-white w-11/12 max-w-sm rounded-lg shadow-slate-700 shadow-xl p-6"
+      >
+        <div class="text-center">
+          <p class="text-sm text-gray-500">PLAYING NOW</p>
+          <h2 id="track-title" class="text-2xl font-bold font-serif">
+            Track Title
+          </h2>
+          <h3 id="track-artist" class="text-xs text-slate-500 font-semibold">
+            Artist Name
+          </h3>
+        </div>
+
+        <img
+          src="album-cover.jpg"
+          id="album-cover"
+          src="path/to/default-cover.jpg"
+          alt="Album Cover"
+          class="w-full h-72 rounded-lg mb-5 shadow-lg shadow-slate-600"
+        />
+
+        <div class="flex justify-center items-center space-x-4">
+          <span id="currentTime">0:00</span>
+          <input
+            type="range"
+            id="progressBar"
+            class="w-full"
+            min="0"
+            max="100"
+            value="0"
+          />
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="flex justify-center space-x-10">
+          <button
+            onclick="toggleShuffle()"
+            id="shuffleButton"
+            class="text-gray-500 hover:text-gray-800"
+          >
+            <i class="fa-solid fa-random text-2xl"></i>
+          </button>
+          <button
+            onclick="previousTrack()"
+            class="text-gray-500 hover:text-gray-800"
+          >
+            <i class="fa-solid fa-backward text-3xl"></i>
+          </button>
+          <button
+            onclick="togglePlay()"
+            id="playPauseButton"
+            class="play-pause-button text-gray-500 mb-2 hover:text-gray-800"
+          >
+            <i class="fa-solid fa-play text-3xl"></i>
+          </button>
+          <button
+            onclick="nextTrack()"
+            class="text-gray-500 hover:text-gray-800"
+          >
+            <i class="fa-solid fa-forward text-3xl"></i>
+          </button>
+
+          <button
+            onclick="toggleRepeat()"
+            id="repeatButton"
+            class="text-gray-500 hover:text-gray-800"
+          >
+            <i class="fa-solid fa-repeat text-2xl"></i>
+          </button>
+        </div>
+
+        <ul id="playlist" class="text-center">
+          <li
+            onclick="selectTrack(0)"
+            class="text-gray-800 cursor-pointer p-2 rounded-lg duration-200 ease-in-out"
+          >
+            Blind Faith
+          </li>
+          <li
+            onclick="selectTrack(1)"
+            class="text-gray-800 cursor-pointer p-2 rounded-lg duration-200 ease-in-out"
+          >
+            Night Alone
+          </li>
+          <li
+            onclick="selectTrack(2)"
+            class="text-gray-800 cursor-pointer p-2 rounded-lg duration-200 ease-in-out"
+          >
+            Future - TEFLON
+          </li>
+          <li
+            onclick="selectTrack(3)"
+            class="text-gray-800 cursor-pointer p-2 rounded-lg duration-200 ease-in-out"
+          >
+            Don't Care
+          </li>
+          <li
+            onclick="selectTrack(4)"
+            class="text-gray-800 cursor-pointer p-2 rounded-lg duration-200 ease-in-out"
+          >
+            IVOXYGEN - LIKE
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <script>
+      const songs = [
+        {
+          title: "Blind Faith",
+          artist: "Drake ft Billie Eilish",
+          url: "https://github.com/RoyneThu0/Stream-songs/raw/main/Blind%20Faith%20Drake%20ft%20Billie%20Eilish.mp3",
+          gradient: "radial-gradient(circle, #E49E04, #B603DC)",
+
+          cover:
+            "https://i1.sndcdn.com/artworks-dGTdPTaN9BNCRcs1-BcRX2Q-t500x500.jpg",
+          duration: "4:18",
+        },
+        {
+          title: "Alone",
+          artist: "Night Lovell",
+          url: "https://github.com/RoyneThu0/Stream-songs/raw/main/Night-Alone.mp3",
+          gradient: "radial-gradient(circle, #48BED8, #1a5442)",
+
+          cover:
+            "https://i1.sndcdn.com/artworks-0FeU2SzTobiADfLj-uKLEvg-t500x500.jpg",
+          duration: "3:27",
+        },
+        {
+          title: "TEFLON",
+          artist: "Future",
+          url: "https://github.com/RoyneThu0/Stream-songs/raw/main/Future-TEFLON.mp3",
+          gradient: "radial-gradient(circle, #fe5fd8, #000000)",
+          cover: "https://i1.sndcdn.com/artworks-Eb0eOiPUarnu-0-t500x500.jpg",
+          duration: "5:22",
+        },
+        {
+          title: "I Don't Care",
+          artist: "Violent Vira",
+          url: "https://github.com/RoyneThu0/Stream-songs/raw/main/don%E2%80%99t%20care%20-%20vira.mp3",
+          gradient: "radial-gradient(circle, #E40436, #1C1C1C)",
+
+          cover:
+            "https://i1.sndcdn.com/artworks-FOhzrayjIbmKkzxR-MDcXiw-t500x500.jpg",
+          duration: "4:18",
+        },
+        {
+          title: "Life Like this",
+          artist: "IVOXYGEN",
+          url: "https://github.com/RoyneThu0/Stream-songs/raw/main/IVOXYGEN-LIKE.mp3",
+          gradient: "radial-gradient(circle, #04D3E4, #EA86FF)",
+
+          cover:
+            "https://i1.sndcdn.com/artworks-1BaPHthgzBwKSgT3-FnysPA-t500x500.jpg",
+          duration: "3:02",
+        },
+      ];
+
+      let isPlaying = false;
+      let currentTrack = 0;
+      const audioPlayer = document.getElementById("audioPlayer");
+      const playPauseButton = document.getElementById("playPauseButton");
+      const progressBar = document.getElementById("progressBar");
+      const currentTimeElem = document.getElementById("currentTime");
+      const durationElem = document.getElementById("duration");
+
+      audioPlayer.addEventListener("timeupdate", updateProgressBar);
+      progressBar.addEventListener("input", seek);
+
+      function togglePlay() {
+        if (isPlaying) {
+          audioPlayer.pause();
+          playPauseButton.innerHTML =
+            '<i class="fa-solid fa-play text-3xl"></i>';
+        } else {
+          audioPlayer.play();
+          playPauseButton.innerHTML =
+            '<i class="fa-solid fa-pause text-3xl"></i>';
+        }
+        isPlaying = !isPlaying;
+      }
+
+      function updateProgressBar() {
+        const currentTime = audioPlayer.currentTime;
+        const duration = audioPlayer.duration;
+        progressBar.value = (currentTime / duration) * 100;
+        currentTimeElem.textContent = formatTime(currentTime);
+        durationElem.textContent = formatTime(duration);
+      }
+
+      function seek() {
+        const seekTime = (progressBar.value / 100) * audioPlayer.duration;
+        audioPlayer.currentTime = seekTime;
+      }
+
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? "0" + secs : secs}`;
+      }
+
+      function loadTrack(trackIndex) {
+        const track = songs[trackIndex];
+        audioPlayer.src = track.url;
+        document.getElementById("track-title").textContent = track.title;
+        document.getElementById("track-artist").textContent = track.artist;
+        document.getElementById("album-cover").src = track.cover;
+        changeBackgroundColor(trackIndex); // Change background color
+        audioPlayer.addEventListener("loadedmetadata", () => {
+          durationElem.textContent = formatTime(audioPlayer.duration);
+        });
+      }
+
+      function nextTrack() {
+        currentTrack = (currentTrack + 1) % songs.length;
+        loadTrack(currentTrack);
+        togglePlay();
+      }
+
+      function previousTrack() {
+        currentTrack = (currentTrack - 1 + songs.length) % songs.length;
+        loadTrack(currentTrack);
+        togglePlay();
+      }
+
+      function selectTrack(trackIndex) {
+        currentTrack = trackIndex;
+        loadTrack(currentTrack);
+        togglePlay();
+      }
+
+      // Function to change background color
+      function changeBackgroundColor(trackIndex) {
+        const track = songs[trackIndex];
+        document.body.style.background = track.gradient;
+      }
+
+      // Retain user background color functionality
+      function setUserBackgroundColor(color) {
+        document.body.style.backgroundColor = color;
+      }
+
+      // Set a default or user-selected background color initially
+      setUserBackgroundColor("#f0f0f0");
+      loadTrack(currentTrack);
+    </script>
+  </body>
+</html>
