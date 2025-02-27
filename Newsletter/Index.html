@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-gradient-to-b from-black from-50% to-gray-100 to-50%"
+  >
+    <div class="w-11/12 max-w-2xl">
+      <div class="w-full max-w-2xl">
+        <div
+          class="text-white text-center md:flex items-center justify-center grid grid-cols-1 md:grid-cols-3 px-10 gap-4 py-8"
+        >
+          <div>
+            <p class="text-2xl font-bold">1000+</p>
+            <p class="text-sm">UI components</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold">5</p>
+            <p class="text-sm">Software type files</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold">5</p>
+            <p class="text-sm">Weekly uploads</p>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-red-400 to-pink-500 p-8 rounded-xl shadow-lg text-center"
+        >
+          <h2 class="text-white text-2xl font-semibold">Join our newsletter</h2>
+          <p class="text-white text-sm mt-2">
+            Weekly FREE UI resources straight to your inbox
+          </p>
+
+          <form
+            id="newsletterForm"
+            class="mt-4 flex items-center justify-center"
+          >
+            <div class="grid md:flex md:grid-cols-2 grid-cols-1">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your email"
+                class="md:w-2/3 w-full p-3 sm:rounded-l-md rounded-t-md md:rounded-r-none border border-gray-300 focus:outline-none"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-white text-gray-900 px-5 py-3 sm:rounded-r-md md:rounded-l-none rounded-b-md font-semibold hover:bg-gray-500 hover:text-white duration-300"
+              >
+                Sign Up
+              </button>
+            </div>
+          </form>
+
+          <p id="responseMessage" class="text-white text-sm mt-3 hidden"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("newsletterForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const emailInput = document.getElementById("email").value;
+          const responseMessage = document.getElementById("responseMessage");
+
+          if (emailInput.trim() !== "") {
+            responseMessage.textContent = "Thank you for subscribing!";
+            responseMessage.classList.remove("hidden");
+          }
+        });
+    </script>
+  </body>
+</html>
