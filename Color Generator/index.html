@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+      .animate-in {
+        animation-name: animate-in;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+      }
+      @keyframes animate-in {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <title>Color Generator</title>
+  </head>
+  <body
+    class="w-full min-h-screen flex items-center justify-center bg-[#e8ebf3]"
+  >
+    <div
+      class="absolute bg-slate-800 px-4 p-2 text-white rounded-full top-10 hidden animate-in"
+    >
+      <p>Color #SOMOEME copied to your clipboard</p>
+    </div>
+    <div class="w-11/12 max-w-xl space-y-3">
+      <h1 class="text-2xl font-semibold text-center">
+        Color palette generator
+      </h1>
+      <div class="w-full grid grid-cols-2 md:grid-cols-5 gap-5">
+        <div
+          class="w-full rounded-md p-2 bg-white space-y-3 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
+        >
+          <div class="w-full rounded-md h-24 bg-[#eeedef] random-color"></div>
+          <p class="text-xs text-center font-semibold uppercase">#eeedef</p>
+        </div>
+        <div
+          class="w-full rounded-md p-2 bg-white space-y-3 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
+        >
+          <div class="w-full rounded-md h-24 bg-[#a1b6c1] random-color"></div>
+          <p class="text-xs text-center font-semibold uppercase">#a1b6c1</p>
+        </div>
+        <div
+          class="w-full rounded-md p-2 bg-white space-y-3 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
+        >
+          <div class="w-full rounded-md h-24 bg-[#f9aca6] random-color"></div>
+          <p class="text-xs text-center font-semibold uppercase">#f9aca6</p>
+        </div>
+        <div
+          class="w-full rounded-md p-2 bg-white space-y-3 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
+        >
+          <div class="w-full rounded-md h-24 bg-[#67747d] random-color"></div>
+          <p class="text-xs text-center font-semibold uppercase">#67747d</p>
+        </div>
+        <div
+          class="w-full rounded-md p-2 bg-white space-y-3 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
+        >
+          <div class="w-full rounded-md h-24 random-color bg-[#cf365f]"></div>
+          <p class="text-xs text-center font-semibold uppercase">#cf365f</p>
+        </div>
+      </div>
+      <button
+        class="px-8 p-2 flex mx-auto text-sm rounded-md text-white bg-[#7e6ccb] shadow-xl"
+        id="generate-palette"
+      >
+        Generate palette
+      </button>
+      <p class="text-center text-xs font-semibold mt-10">
+        Or jusr press the "Spacebar" to generate new palettes
+      </p>
+      <div
+        class="bg-white p-2 px-3 rounded-full text-xs mx-auto w-fit mt-10 shadow-xl"
+      >
+        <p>Click to copy individual color. Press "C" to copy palette</p>
+      </div>
+    </div>
+    <script>
+      const colors = document.querySelectorAll(".random-color");
+      const generateButton = document.getElementById("generate-palette");
+      const successMessage = document.querySelector(".animate-in");
+
+      function generateRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      function addColourToDiv() {
+        colors.forEach((color) => {
+          const randomColor = generateRandomColor();
+          // Change the background color of the div
+          color.style.backgroundColor = randomColor;
+
+          // Select the <p> tag after the div
+          const paragraph = color.nextElementSibling;
+          paragraph.textContent = randomColor;
+        });
+      }
+
+      generateButton.addEventListener("click", () => {
+        addColourToDiv();
+      });
+
+      colors.forEach((color) => {
+        // Get the parent div
+        const parentDiv = color.parentNode;
+        parentDiv.addEventListener("click", () => {
+          const paragraph = color.nextElementSibling;
+          const colorValue = paragraph.textContent;
+          successMessage.textContent = `Color ${colorValue.toUpperCase()} copied to your clipboard`;
+
+          // Show the success message
+          successMessage.classList.remove("hidden");
+          // Copy the color value to the clipboard
+          navigator.clipboard.writeText(colorValue);
+          // Hide the success message after 1.5 seconds
+          setTimeout(() => {
+            successMessage.classList.add("hidden");
+          }, 1500);
+        });
+      });
+
+      // Listen for the spacebar key to generate new colors
+      document.addEventListener("keypress", (event) => {
+        if (event.code === "Space") {
+          addColourToDiv();
+        }
+      });
+    </script>
+  </body>
+</html>
