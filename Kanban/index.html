@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-start mt-5 min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg w-96">
+      <div
+        class="w-full bg-gradient-to-r from-fuchsia-700 to-sky-500 h-2"
+      ></div>
+      <div class="px-6 pb-6">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4 mt-3">
+          In progress
+        </h2>
+        <div class="space-y-4">
+          <!-- Card 1 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex justify-between items-center mb-2">
+              <div class="flex items-center space-x-2">
+                <img
+                  src="data:image/png;base64,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"
+                  alt="Uber"
+                  class="w-6 h-6 rounded-full"
+                />
+                <span class="text-sm font-medium text-gray-700"
+                  >Prepare structural documentation</span
+                >
+              </div>
+              <span class="text-xs text-gray-500">18 Dec. 2017</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs text-gray-500">Development</span>
+              <span class="text-xs bg-red-100 text-red-500 px-2 py-1 rounded"
+                >High</span
+              >
+            </div>
+            <div
+              class="flex justify-between items-center text-xs text-gray-500"
+            >
+              <span>3 people work on this</span>
+              <span>17 comments</span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex justify-between items-center mb-2">
+              <div class="flex items-center space-x-2">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYu0vsUY1AxV8HCiLahnnda1rn1lCBZLwUcg&s"
+                  alt="Bosch"
+                  class="w-6 h-6 rounded-full"
+                />
+                <span class="text-sm font-medium text-gray-700"
+                  >Update requirements list</span
+                >
+              </div>
+              <span class="text-xs text-gray-500">18 Dec. 2017</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs text-gray-500">Development</span>
+              <span class="text-xs bg-blue-100 text-blue-500 px-2 py-1 rounded"
+                >Medium</span
+              >
+            </div>
+            <div
+              class="flex justify-between items-center text-xs text-gray-500"
+            >
+              <span>2 people work on this</span>
+              <span>8 comments</span>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex justify-between items-center mb-2">
+              <div class="flex items-center space-x-2">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYu0vsUY1AxV8HCiLahnnda1rn1lCBZLwUcg&s"
+                  alt="Bosch"
+                  class="w-6 h-6 rounded-full"
+                />
+                <span class="text-sm font-medium text-gray-700"
+                  >New UI for dashboard</span
+                >
+              </div>
+              <span class="text-xs text-gray-500">18 Dec. 2017</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs text-gray-500">Development</span>
+              <span
+                class="text-xs bg-green-100 text-green-500 px-2 py-1 rounded"
+                >Low</span
+              >
+            </div>
+            <div
+              class="flex justify-between items-center text-xs text-gray-500"
+            >
+              <span>7 people work on this</span>
+              <span>7 comments</span>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex justify-between items-center mb-2">
+              <div class="flex items-center space-x-2">
+                <img
+                  src="https://brandlogos.net/wp-content/uploads/2020/03/Adidas-logo-512x512.png"
+                  alt="Adidas"
+                  class="w-6 h-6 rounded-full"
+                />
+                <span class="text-sm font-medium text-gray-700"
+                  >Initial landing page concepts</span
+                >
+              </div>
+              <span class="text-xs text-gray-500">18 Dec. 2017</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs text-gray-500">Development</span>
+              <span
+                class="text-xs bg-green-100 text-green-500 px-2 py-1 rounded"
+                >Low</span
+              >
+            </div>
+            <div
+              class="flex justify-between items-center text-xs text-gray-500"
+            >
+              <span>4 people work on this</span>
+              <span>2 comments</span>
+            </div>
+          </div>
+        </div>
+        <button
+          class="mt-4 w-full bg-gray-200 text-gray-600 py-2 rounded-lg hover:bg-slate-700 hover:text-white duration-300"
+        >
+          + Add new card
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
