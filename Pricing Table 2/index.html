@@ -14,12 +14,19 @@
     />
   </head>
   <body
-    class="w-screen h-screen flex sm:items-center items-start mt-10 justify-center bg-slate-300"
+    class="w-screen h-screen flex sm:items-center bg-cover items-start mt-10 justify-center bg-slate-900"
+    style="
+      background-image: url(https://cdn.vectorstock.com/i/500p/22/43/abstract-gradient-gray-geometric-background-vector-2652243.jpg);
+    "
   >
-    <div class="w-11/12 max-w-3xl p-10 flex flex-col">
-      <div class="w-full flex items-center justify-between">
+    <div class="w-11/12 max-w-3xl p-5 flex flex-col">
+      <div
+        class="w-full flex-col md:flex-row flex items-center md:justify-between justify-center"
+      >
         <p class="font-bold text-3xl">Choose your plan</p>
-        <div class="inline-flex items-center p-1 bg-gray-200 rounded-full">
+        <div
+          class="inline-flex w-fit items-center p-1 md:mt-0 mt-4 bg-gray-100 rounded-full shadow-inner shadow-slate-600"
+        >
           <button
             class="w-20 py-2 text-gray-500 text-sm focus:outline-none rounded-full transition-colors duration-300 ease-in-out"
             id="monthly"
@@ -41,8 +48,17 @@
           class="w-full h-full flex flex-col p-5 bg-white shadow-lg shadow-slate-600 rounded-lg"
         >
           <p class="text-xl font-semibold">Starter</p>
-          <p class="mt-3 font-semibold">$8.99 / month</p>
-          <p class="text-sm text-slate-500">Billed yearly</p>
+          <p
+            class="mt-3 font-semibold"
+            data-monthly-price="$8.99"
+            data-yearly-price="$107.88"
+            id="starter-price"
+          >
+            $8.99 / month
+          </p>
+          <p class="text-sm text-slate-500" id="starter-billing">
+            Billed yearly
+          </p>
           <p class="mt-5 text-xs text-slate-500">
             Pretium fusce id velit ut tortor pretium. Sit amet consectetur
             adipiscing elit ut. Condimentum mattis pellentesque id nibh. Euismod
@@ -58,8 +74,17 @@
           class="w-full h-full flex flex-col p-5 bg-white shadow-lg shadow-slate-600 rounded-lg"
         >
           <p class="text-xl font-semibold">Professional</p>
-          <p class="mt-3 font-semibold">$21.99 / month</p>
-          <p class="text-sm text-slate-500">Billed yearly</p>
+          <p
+            class="mt-3 font-semibold"
+            data-monthly-price="$21.99"
+            data-yearly-price="$263.88"
+            id="professional-price"
+          >
+            $21.99 / month
+          </p>
+          <p class="text-sm text-slate-500" id="professional-billing">
+            Billed yearly
+          </p>
           <p class="mt-5 text-xs text-slate-500">
             Duis at consectetur lorem donec massa sapien faucibus. Ac placerat
             vestibulum lectus mauris.
@@ -76,6 +101,14 @@
       const monthlyBtn = document.getElementById("monthly");
       const yearlyBtn = document.getElementById("yearly");
 
+      const starterPrice = document.getElementById("starter-price");
+      const professionalPrice = document.getElementById("professional-price");
+
+      const starterBilling = document.getElementById("starter-billing");
+      const professionalBilling = document.getElementById(
+        "professional-billing"
+      );
+
       monthlyBtn.addEventListener("click", () => {
         monthlyBtn.classList.add("bg-white", "text-gray-900");
         monthlyBtn.classList.remove("text-gray-500");
@@ -84,6 +117,14 @@
         yearlyBtn.classList.remove("bg-white", "text-gray-900");
         yearlyBtn.classList.add("text-gray-500");
         yearlyBtn.style.boxShadow = "none";
+
+        starterPrice.textContent =
+          starterPrice.getAttribute("data-monthly-price") + " / month";
+        professionalPrice.textContent =
+          professionalPrice.getAttribute("data-monthly-price") + " / month";
+
+        starterBilling.textContent = "Billed monthly";
+        professionalBilling.textContent = "Billed monthly";
       });
 
       yearlyBtn.addEventListener("click", () => {
@@ -94,6 +135,14 @@
         monthlyBtn.classList.remove("bg-white", "text-gray-900");
         monthlyBtn.classList.add("text-gray-500");
         monthlyBtn.style.boxShadow = "none";
+
+        starterPrice.textContent =
+          starterPrice.getAttribute("data-yearly-price") + " / year";
+        professionalPrice.textContent =
+          professionalPrice.getAttribute("data-yearly-price") + " / year";
+
+        starterBilling.textContent = "Billed yearly";
+        professionalBilling.textContent = "Billed yearly";
       });
     </script>
   </body>
