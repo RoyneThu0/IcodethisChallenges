@@ -153,13 +153,23 @@
           userDiv,
           userList.children[userList.children.length - 1]
         );
+        updateDeleteButtons();
         hideAddUserModal();
+      }
+
+      function updateDeleteButtons() {
+        const users = userList.querySelectorAll("div:not(:last-child)");
+        users.forEach((user, index) => {
+          const deleteButton = user.querySelector(".manage-user");
+          deleteButton.setAttribute("onclick", `deleteUser(${index})`);
+        });
       }
 
       function deleteUser(index) {
         const users = userList.querySelectorAll("div:not(:last-child)");
         if (users[index]) {
           users[index].remove();
+          updateDeleteButtons();
         }
       }
     </script>
