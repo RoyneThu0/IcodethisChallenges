@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Select</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body class="w-screen h-screen bg-[#19182d] flex items-center justify-center">
+    <div
+      class="w-11/12 max-w-lg bg-[#131323] p-3 flex flex-col items-center justify-center"
+    >
+      <p class="text-white font-semibold text-lg">Who is playing now?</p>
+      <div
+        class="w-full px-3 md:flex grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-3"
+        id="user-list"
+      >
+        <div
+          class="bg-[#19182d] p-6 rounded-lg w-full flex flex-col items-center justify-center relative"
+        >
+          <button
+            class="absolute top-2 right-2 text-white hidden manage-user"
+            onclick="deleteUser(0)"
+          >
+            ×
+          </button>
+          <img
+            class="w-16 h-16 rounded-full bg-[#2a293f]"
+            src="https://pngimg.com/d/rockets_PNG13290.png"
+            alt=""
+          />
+          <p class="text-white mt-3">tika-m</p>
+        </div>
+        <div
+          class="bg-[#19182d] p-6 rounded-lg w-full flex flex-col items-center justify-center relative"
+        >
+          <button
+            class="absolute top-2 right-2 text-white hidden manage-user"
+            onclick="deleteUser(1)"
+          >
+            ×
+          </button>
+          <img
+            class="w-16 h-16 rounded-full bg-[#2a293f]"
+            src="https://static.vecteezy.com/system/resources/previews/009/384/696/non_2x/drum-clipart-design-illustration-free-png.png"
+            alt=""
+          />
+          <p class="text-white mt-3">garlic-naan</p>
+        </div>
+        <div
+          class="bg-[#19182d] group hover:bg-indigo-950 p-6 rounded-lg w-full flex flex-col items-center justify-center"
+          onclick="showAddUserModal()"
+        >
+          <div
+            class="w-10 h-10 flex items-center justify-center border-2 border-blue-400/15 rounded-full"
+          >
+            <i class="fa-solid text-blue-400 fa-plus"></i>
+          </div>
+          <p class="text-blue-400/60 mt-6">Add user</p>
+        </div>
+      </div>
+      <div class="w-full flex items-center justify-center">
+        <button
+          class="mt-10 border border-blue-400/30 hover:bg-blue-700 hover:text-white duration-300 rounded-full text-blue-400/60 px-6 py-2"
+          onclick="toggleManageUsers()"
+        >
+          Manage users
+        </button>
+      </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div
+      id="add-user-modal"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+    >
+      <div class="bg-[#19182d] p-6 rounded-lg">
+        <h2 class="text-lg text-white w-full text-center font-semibold mb-4">
+          Add User
+        </h2>
+        <input
+          type="text"
+          id="new-user-name"
+          class="border text-white p-2 focus:outline-none rounded-lg w-full mb-4"
+          placeholder="Enter user name"
+        />
+        <div class="w-full flex items-center justify-center gap-2 flex-col">
+          <button
+            class="bg-blue-500 w-full text-white py-2 rounded"
+            onclick="addUser()"
+          >
+            Add
+          </button>
+          <button
+            class="bg-gray-500 w-full text-white py-2 rounded"
+            onclick="hideAddUserModal()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const userList = document.getElementById("user-list");
+      const addUserModal = document.getElementById("add-user-modal");
+
+      function showAddUserModal() {
+        addUserModal.classList.remove("hidden");
+      }
+
+      function hideAddUserModal() {
+        addUserModal.classList.add("hidden");
+      }
+
+      function toggleManageUsers() {
+        const manageButtons = document.querySelectorAll(".manage-user");
+        manageButtons.forEach((button) => {
+          button.classList.toggle("hidden");
+        });
+      }
+
+      function addUser() {
+        const userName = document.getElementById("new-user-name").value;
+        if (userName.trim() === "") return;
+
+        const svgs = [
+          "https://static.vecteezy.com/system/resources/previews/009/384/696/non_2x/drum-clipart-design-illustration-free-png.png",
+          "https://www.svgrepo.com/show/402543/racing-car.svg",
+          "https://www.clker.com/cliparts/H/E/I/U/J/j/jet.svg",
+        ];
+        const randomSvg = svgs[Math.floor(Math.random() * svgs.length)];
+        const userDiv = document.createElement("div");
+        userDiv.className =
+          "bg-[#19182d] p-6 rounded-lg w-full flex flex-col items-center justify-center relative";
+        userDiv.innerHTML = `
+          <button class="absolute top-2 right-2 text-white hidden manage-user" onclick="deleteUser(${
+            userList.children.length - 1
+          })">×</button>
+          <img class="w-16 h-16 rounded-full bg-[#2a293f]" src="${randomSvg}" alt="" />
+          <p class="text-white mt-3">${userName}</p>
+        `;
+        userList.insertBefore(
+          userDiv,
+          userList.children[userList.children.length - 1]
+        );
+        hideAddUserModal();
+      }
+
+      function deleteUser(index) {
+        const users = userList.querySelectorAll("div:not(:last-child)");
+        if (users[index]) {
+          users[index].remove();
+        }
+      }
+    </script>
+  </body>
+</html>
