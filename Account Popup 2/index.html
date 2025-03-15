@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Popup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      .transition-all {
+        transition: all 0.6s ease-in-out;
+      }
+      .hidden {
+        opacity: 0;
+        transform: scale(0.95);
+        pointer-events: none;
+      }
+      .visible {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 flex items-center justify-center w-screen h-screen bg-cover bg-center"
+    style="
+      background-image: url(https://img.freepik.com/free-vector/white-abstract-background_23-2148804712.jpg);
+    "
+  >
+    <div
+      id="profileCard"
+      class="cursor-pointer flex items-center space-x-3 p-4 bg-white rounded-full shadow-md transition-all visible hover:-translate-y-3 hover:shadow-xl duration-300"
+      onclick="toggleProfile()"
+    >
+      <img
+        src="https://static.wixstatic.com/media/6dbc2c_0a78e47a2c784bc6afde30663b0ae02f~mv2.png/v1/fill/w_640,h_548,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6dbc2c_0a78e47a2c784bc6afde30663b0ae02f~mv2.png"
+        alt="Profile"
+        class="w-14 h-14 rounded-full"
+      />
+      <div>
+        <p class="font-semibold">Annie Ingram</p>
+        <p class="text-gray-500">@anngram</p>
+      </div>
+    </div>
+
+    <div
+      id="profileDropdown"
+      class="hidden flex flex-col items-center w-64 p-6 bg-white rounded-lg shadow-md transition-all"
+    >
+      <img
+        src="https://static.wixstatic.com/media/6dbc2c_0a78e47a2c784bc6afde30663b0ae02f~mv2.png/v1/fill/w_640,h_548,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6dbc2c_0a78e47a2c784bc6afde30663b0ae02f~mv2.png"
+        alt="Profile Picture"
+        class="w-16 h-16 rounded-full hover:scale-110 duration-300 mx-auto mb-3"
+      />
+      <div class="flex items-center justify-center space-x-1 mb-2">
+        <p class="font-semibold text-lg">Annie Ingram</p>
+        <span class="text-green-500"><i class="fa-solid fa-check"></i></span>
+      </div>
+      <p class="text-gray-500 text-sm mb-4">@anngram</p>
+
+      <button
+        class="text-blue-500 hover:bg-blue-500 hover:text-white hover:rounded-full p-2 text-sm mb-4 duration-500"
+      >
+        + Connect other account
+      </button>
+
+      <div class="border-t border-gray-200 mb-4"></div>
+
+      <div class="grid grid-cols-2 gap-4 text-gray-700 text-sm">
+        <button
+          class="flex flex-col items-center duration-300 hover:text-blue-500"
+        >
+          <i class="fa-solid text-lg fa-life-ring"></i>
+
+          <span>Support</span>
+        </button>
+
+        <button
+          class="flex flex-col items-center duration-300 hover:text-blue-500"
+        >
+          <i class="fa-solid text-lg fa-gear"></i>
+          <span>Settings</span>
+        </button>
+
+        <button
+          class="flex flex-col items-center duration-300 hover:text-blue-500"
+        >
+          <i class="fa-regular text-lg fa-star"></i>
+          <span>Upgrade</span>
+        </button>
+
+        <button
+          class="flex flex-col items-center duration-300 hover:text-blue-500"
+          onclick="logout()"
+        >
+          <i class="fa-solid text-lg fa-right-from-bracket"></i>
+          <span>Log out</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function toggleProfile() {
+        const profileCard = document.getElementById("profileCard");
+        const profileDropdown = document.getElementById("profileDropdown");
+
+        profileCard.classList.toggle("visible");
+        profileCard.classList.toggle("hidden");
+        profileDropdown.classList.toggle("visible");
+        profileDropdown.classList.toggle("hidden");
+      }
+
+      function logout() {
+        const profileCard = document.getElementById("profileCard");
+        const profileDropdown = document.getElementById("profileDropdown");
+
+        profileCard.classList.add("visible");
+        profileCard.classList.remove("hidden");
+
+        profileDropdown.classList.add("hidden");
+        profileDropdown.classList.remove("visible");
+      }
+    </script>
+  </body>
+</html>
