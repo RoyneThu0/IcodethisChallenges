@@ -14,57 +14,59 @@
     />
   </head>
   <body
-    class="w-screen h-screen flex items-center justify-center bg-cover bg-center"
+    class="w-screen h-screen flex items-start justify-center bg-cover bg-center"
     style="
-      background-image: url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg');
+      background-image: url('https://c4.wallpaperflare.com/wallpaper/598/719/825/snow-iceberg-clean-sky-winter-wallpaper-preview.jpg');
     "
   >
     <div
       class="w-11/12 max-w-7xl p-10 flex items-center justify-center flex-col"
     >
-      <p class="text-3xl font-serif font-semibold text-slate-200">
+      <p
+        class="text-3xl sm:text-4xl font-serif font-semibold text-blue-800 text-center"
+      >
         Until New Beginnings
       </p>
 
       <div
         id="count"
-        class="flex items-center w-full justify-center sm:grid-cols-5 grid-cols-3 text-slate-200 space-x-16 mt-5"
+        class="grid sm:grid-cols-5 grid-cols-2 gap-x-8 gap-y-6 text-blue-800 mt-5"
       >
         <div
-          class="p-5 m-5 text-3xl font-serif flex items-center flex-col justify-center font-semibold"
+          class="p-5 text-xl sm:text-3xl font-serif flex items-center flex-col justify-center font-semibold"
         >
-          <span id="months" class="text-7xl">00</span>
-          <p class="text-sm">Months</p>
+          <span id="months" class="text-5xl sm:text-7xl">00</span>
+          <p class="text-sm sm:text-base">Months</p>
         </div>
         <div
-          class="p-5 m-5 text-3xl font-serif flex items-center flex-col justify-center font-semibold"
+          class="p-5 text-xl sm:text-3xl font-serif flex items-center flex-col justify-center font-semibold"
         >
-          <span id="days" class="text-7xl">00</span>
-          <p class="text-sm">Days</p>
+          <span id="days" class="text-5xl sm:text-7xl">00</span>
+          <p class="text-sm sm:text-base">Days</p>
         </div>
         <div
-          class="p-5 m-5 text-3xl font-serif flex items-center flex-col justify-center font-semibold"
+          class="p-5 text-xl sm:text-3xl font-serif flex items-center flex-col justify-center font-semibold"
         >
-          <span id="hours" class="text-7xl">00</span>
-          <p class="text-sm">Hours</p>
+          <span id="hours" class="text-5xl sm:text-7xl">00</span>
+          <p class="text-sm sm:text-base">Hours</p>
         </div>
         <div
-          class="p-5 m-5 text-3xl font-serif flex items-center flex-col justify-center font-semibold"
+          class="p-5 text-xl sm:text-3xl font-serif flex items-center flex-col justify-center font-semibold"
         >
-          <span id="minutes" class="text-7xl">00</span>
-          <p class="text-sm">Minutes</p>
+          <span id="minutes" class="text-5xl sm:text-7xl">00</span>
+          <p class="text-sm sm:text-base">Minutes</p>
         </div>
         <div
-          class="p-5 m-5 text-3xl font-serif flex items-center flex-col justify-center font-semibold"
+          class="p-5 text-xl sm:text-3xl font-serif flex items-center flex-col justify-center font-semibold"
         >
-          <span id="seconds" class="text-7xl">00</span>
-          <p class="text-sm">Seconds</p>
+          <span id="seconds" class="text-5xl sm:text-7xl">00</span>
+          <p class="text-sm sm:text-base">Seconds</p>
         </div>
       </div>
     </div>
 
     <script>
-      const targetDate = new Date("2025-01-01T00:00:00").getTime();
+      const targetDate = new Date("2026-01-01T00:00:00").getTime();
 
       const countdown = setInterval(() => {
         const now = new Date().getTime();
