@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex sm:items-center items-start justify-center bg-gradient-to-br from-fuchsia-200 to-purple-200"
+  >
+    <div
+      class="w-11/12 max-w-4xl p-5 rounded-lg bg-gradient-to-r from-slate-100 to-slate-200 flex flex-col items-center justify-center"
+    >
+      <div class="flex w-full items-center justify-between">
+        <p class="text-xl font-serif">MUSIC</p>
+        <div>
+          <input
+            type="text"
+            placeholder="Search"
+            class="rounded-lg focus:outline-none px-5 py-2"
+          />
+        </div>
+      </div>
+      <div class="w-full mt-1 flex flex-col">
+        <div
+          class="w-full flex items-center justify-between gap-5 p-5"
+          style="
+            background-image: url(https://images.stockcake.com/public/0/0/4/004972f6-8886-4ffd-bde9-2bed447424fa_large/dance-party-magic-stockcake.jpg);
+          "
+        >
+          <div class="flex flex-col w-2/6 items-center justify-center">
+            <p class="text-2xl w-full text-start font-bold text-white">
+              Explore
+            </p>
+            <p class="flex text-slate-300 w-full text-xs text-start">
+              Explore the worlds greatest music hits and sensations.
+            </p>
+            <div class="w-full">
+              <button class="w-full bg-white text-xs py-3 mt-5 rounded-sm">
+                Read more
+              </button>
+            </div>
+          </div>
+          <div
+            class="w-full grid sm:grid-cols-4 grid-cols-2 gap-1 items-center justify-center"
+          >
+            <div
+              class="bg-gray-900 flex flex-col items-center hover:-translate-y-3 duration-500 ease-in-out justify-center h-full rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://i.scdn.co/image/ab67616d0000b2736fcd1b6e205d0d19d9efa0cc"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center justify-between">
+                  <p class="text-yellow-500 text-xs gap-1 mt-2">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$15</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Young Thug
+                </p>
+                <p class="w-full text-start text-xs text-slate-500">
+                  So much fun
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex flex-col items-center hover:-translate-y-3 duration-500 ease-in-out justify-center h-full rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://i1.sndcdn.com/artworks-983da09a-3ca0-4562-bff5-ab85c85e150b-0-t500x500.jpg"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$30</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Night lovell
+                </p>
+                <p class="w-full text-start text-xs text-slate-500">
+                  Just say you dont care
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex flex-col items-center hover:-translate-y-3 duration-500 ease-in-out justify-center h-full rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://media.gq.com/photos/62686168e81af41464692a34/1:1/w_1500,h_1500,c_limit/GQ0522_Future_05.jpeg"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$10</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Future
+                </p>
+                <p class="w-full text-start text-xs text-slate-500">
+                  I never liked you
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="bg-gray-900 flex flex-col items-center hover:-translate-y-3 duration-500 ease-in-out justify-center h-full rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://i.scdn.co/image/ab67616d0000b273c213d06355de005be245b29c"
+                alt=""
+              />
+              <div class="w-full p-2 mt-1">
+                <div class="flex items-center justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$13</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Ian
+                </p>
+                <p class="w-full text-start text-xs text-slate-500">
+                  Goodbye Horses
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col w-full">
+          <p class="text-xl font-bold text-black mt-5">Top 3</p>
+
+          <div
+            class="w-full grid sm:grid-cols-3 grid-cols-2 gap-1 items-center justify-center"
+          >
+            <div
+              class="bg-gray-900 flex items-start justify-center hover:-translate-y-3 duration-500 w-full rounded-lg shadow-xl"
+            >
+              <img
+                class="w-3/5 rounded-t-lg"
+                src="https://i.scdn.co/image/ab67616d0000b2730f610b2ce5b8db467dc75524"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-start justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$13</p>
+                </div>
+                <p
+                  class="w-full text-start text-sm text-slate-200 font-semibold mt-3"
+                >
+                  Night lovell
+                </p>
+                <p class="w-full mt-5 text-start text-xs text-slate-500">
+                  I hope you're happy
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex items-center justify-center hover:-translate-y-3 duration-500 w-full rounded-lg shadow-xl"
+            >
+              <img
+                class="w-2/3 rounded-t-lg"
+                src="https://i.scdn.co/image/ab67616d00001e0225b055377757b3cdd6f26b78"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <p
+                  class="w-full text-start text-sm text-slate-200 font-semibold"
+                >
+                  Kanye West
+                </p>
+                <p class="w-full mt-5 text-start text-xs text-slate-500">
+                  The College Dropout
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex items-center justify-center hover:-translate-y-3 duration-500 w-full rounded-lg shadow-xl"
+            >
+              <img
+                class="w-2/3 rounded-t-lg"
+                src="https://i.scdn.co/image/ab67616d0000b273db20089661aff3a8070600ca"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <p
+                  class="w-full text-start text-sm text-slate-200 font-semibold"
+                >
+                  $uicideboy$
+                </p>
+                <p class="w-full mt-5 text-start text-xs text-slate-500">
+                  Sing me a Lullaby, My Sweet Temptation
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col w-full">
+          <div class="w-full flex items-center justify-between">
+            <p class="text-xl font-bold text-black mt-5">Recommended For You</p>
+            <p class="text-xs text-blue-500 cursor-pointer">Load more</p>
+          </div>
+          <div
+            class="w-full grid sm:grid-cols-6 grid-cols-2 gap-1 mt-1 items-center justify-center"
+          >
+            <div
+              class="bg-gray-900 flex flex-col items-center justify-center hover:-translate-y-1 duration-500 rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://e-cdns-images.dzcdn.net/images/artist/e4c79e04a1a9bc94c605b9cf30068724/500x500-000000-80-0-0.jpg"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$31</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Young Thug
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex flex-col items-center justify-center hover:-translate-y-1 duration-500 rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://www.udiscovermusic.com/wp-content/uploads/2019/06/Katy-Perry-Witness-album-cover-820.jpg"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$10</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Katie perry
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex flex-col items-center justify-center hover:-translate-y-1 duration-500 rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKgwe2grQYtiyS5mNqb0COYdPpAu1fb7LCbQ&s"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$12</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  South Strip
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex flex-col items-center justify-center hover:-translate-y-1 duration-500 rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://is1-ssl.mzstatic.com/image/thumb/AMCArtistImages116/v4/b0/d8/7e/b0d87ee7-74bc-3ac5-569a-390f1ac5065b/bfa4c822-5c87-418b-a06e-6d456f0cfe9d_file_cropped.png/486x486bb.png"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$25</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Germ
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex flex-col items-center justify-center hover:-translate-y-1 duration-500 rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://i1.sndcdn.com/avatars-OEUgVokG1y8vbPIM-uTIw1g-t1080x1080.jpg"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$18</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Fat Nick
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-900 flex flex-col items-center justify-center hover:-translate-y-1 duration-500 rounded-lg shadow-xl"
+            >
+              <img
+                class="w-full rounded-t-lg"
+                src="https://images.genius.com/acf70667ef0a748f2ca4485b706fa611.1000x1000x1.jpg"
+                alt=""
+              />
+              <div class="w-full p-2">
+                <div class="flex items-center mt-1 justify-between">
+                  <p class="text-yellow-500 text-xs gap-1">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                  </p>
+                  <p class="text-xs text-white">$17</p>
+                </div>
+                <p
+                  class="w-full text-start text-slate-200 mt-1 font-semibold text-sm"
+                >
+                  Pouya
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
