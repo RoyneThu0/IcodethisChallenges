@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @keyframes translateUp {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-50px);
+        }
+      }
+
+      .animate-up {
+        animation: translateUp 1s ease-in-out forwards;
+      }
+
+      .animate-up:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .animate-up:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+
+      .animate-up:nth-child(3) {
+        animation-delay: 1s;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-sky-300 relative w-screen h-screen flex items-center justify-center"
+  >
+    <div
+      class="absolute flex w-11/12 shadow-lg shadow-slate-900 max-w-sm mb-72 bg-sky-50 p-10 animate-up"
+    ></div>
+    <div
+      class="absolute flex w-11/12 shadow-lg shadow-slate-900 max-w-md mb-64 bg-white mt-10 p-10 animate-up"
+    ></div>
+    <div
+      class="absolute flex w-11/12 shadow-lg shadow-slate-900 max-w-xl mt-52 bg-white flex-col items-center justify-center animate-up"
+    >
+      <div class="w-full flex items-center p-6 px-10 justify-between">
+        <div class="w-full space-x-5">
+          <i class="fa-solid text-2xl font-bold text-lime-400 fa-ellipsis"></i>
+          <i class="fa-solid text-2xl font-bold text-lime-400 fa-plus"></i>
+          <i class="fa-solid text-2xl font-bold text-lime-400 fa-gear"></i>
+        </div>
+        <i class="fa-solid text-3xl font-bold fa-xmark"></i>
+      </div>
+      <div class="w-full flex items-center py-2 px-10 justify-center">
+        <p class="text-3xl text-slate-400">
+          Vis amet conceptam referrentur ea. <br />
+          Quando homero neglegentur usu ea, id <br />
+          per legimus electram vituperatoribus. Pri <br />
+          eu vero evertitur, mei docendi oporteat <br />
+          liberavisse te.
+        </p>
+      </div>
+      <div class="w-full flex items-center m-5 justify-center">
+        <button
+          class="bg-lime-400 shadow-lg shadow-lime-200 px-20 text-xl rounded-full text-white py-3"
+        >
+          SAVE
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
