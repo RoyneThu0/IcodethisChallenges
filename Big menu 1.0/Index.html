@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-slate-900 w-screen h-screen flex items-center justify-center">
+    <div
+      class="w-11/12 max-w-5xl p-10 flex items-center justify-center flex-col"
+    >
+      <div class="w-full flex items-end justify-end space-x-6 text-white">
+        <button class="hover:text-blue-400 active:text-purple-600">
+          Product
+          <i class="fa-solid fa-chevron-down mx-1"></i>
+        </button>
+        <button class="hover:text-blue-400 active:text-purple-600">
+          Features
+          <i class="fa-solid fa-chevron-down mx-1"></i>
+        </button>
+        <button
+          class="hover:text-blue-400 text-blue-400 underline underline-offset-4 active:text-purple-600"
+        >
+          Resources
+          <i class="fa-solid fa-chevron-up mx-1"></i>
+        </button>
+        <button class="hover:text-blue-400 active:text-purple-600">
+          Pricing
+          <i class="fa-solid fa-chevron-down mx-1"></i>
+        </button>
+        <button class="hover:text-blue-400 active:text-purple-600">
+          About
+          <i class="fa-solid fa-chevron-down mx-1"></i>
+        </button>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-3 items-center justify-center w-full mt-5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl shadow-2xl shadow-slate-700 p-10 space-x-5"
+      >
+        <div class="flex-1 w-full">
+          <p class="font-mono text-2xl mb-4">RESOURCES</p>
+          <ul class="space-y-1">
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-solid fa-quote-left mx-2 duration-300"></i>Blog
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-solid fa-display mx-2 duration-300"></i>Reports
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-solid fa-file-zipper mx-2 duration-300"></i> Media
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-regular fa-file mx-2 duration-300"></i> Case studies
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-solid fa-radio mx-2 duration-300"></i>Podcasts
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1 w-full">
+          <p class="font-mono text-2xl mb-4">DEVELOPERS</p>
+          <ul class="space-y-1 border-r border-l border-sky-400">
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-regular fa-copy mx-2 duration-300"></i>Documentation
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-solid fa-code mx-2 duration-300"></i>API
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-solid fa-film mx-2 duration-300"></i> Videos &
+              Tutorials
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-regular fa-comment-dots mx-2 duration-300"></i>Forum
+            </li>
+            <li class="w-full hover:bg-sky-400 p-3 rounded-full">
+              <i class="fa-solid fa-life-ring mx-2 duration-300"></i>Support
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1 w-full flex items-center justify-center flex-col">
+          <img
+            class="w-3/4 object-cover rounded-xl"
+            src="https://cdn01.alison-static.net/courses/3531/alison_courseware_intro_3531.jpg"
+            alt=""
+          />
+          <p class="font-bold mx-10 mt-4">
+            Why and how serverless computing helps teams scale up
+          </p>
+          <p class="font-bold w-full px-10 mt-2">Christopher Gehlot</p>
+          <span class="font-bold w-full px-10 flex"
+            >Sep 7.
+            <p class="mx-2 duration-300 font-normal">4 min read</p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
