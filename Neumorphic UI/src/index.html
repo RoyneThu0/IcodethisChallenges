@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphic UI</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-10 justify-center bg-white"
+  >
+    <div class="w-11/12 max-w-xl">
+      <div
+        class="w-full md:flex grid md:grid-cols-3 grid-cols-1 bg-gray-50 rounded-lg shadow-lg p-3 gap-2"
+      >
+        <div
+          class="w-full rounded-lg flex flex-col items-center justify-center hover:shadow-lg p-6 hover:duration-500 active:shadow-inner active:shadow-gray-300 active:delay-500"
+        >
+          <i
+            class="fa-solid fa-credit-card rounded-full text-white flex-shrink-0 bg-[#fb7070] p-5 text-3xl"
+          ></i>
+          <p class="text-xs text-nowrap mt-5 font-semibold">CREDIT CARD</p>
+        </div>
+        <div
+          class="w-full rounded-lg flex flex-col items-center justify-center hover:shadow-lg p-6 hover:duration-500 active:shadow-inner active:shadow-gray-300 active:delay-500"
+        >
+          <i
+            class="fa-solid fa-gift rounded-full text-white bg-orange-400 shrink-0 p-5 text-3xl"
+          ></i>
+          <p class="text-xs text-nowrap mt-5 font-semibold">CREDIT CARD</p>
+        </div>
+        <div
+          class="w-full rounded-lg flex flex-col items-center justify-center hover:shadow-lg p-6 hover:duration-500 active:shadow-inner active:shadow-gray-300 active:delay-500"
+        >
+          <i
+            class="fa-solid fa-bag-shopping rounded-full text-white bg-orange-400 p-5 text-3xl"
+          ></i>
+          <p class="text-xs text-nowrap mt-5 font-semibold">CREDIT CARD</p>
+        </div>
+      </div>
+      <div class="w-full bg-slate-100 p-3 mt-10 rounded-lg shadow-inner">
+        <p class="text-sm w-full text-center">
+          Stay on top of your order status, deals, new <br />
+          messages and more.
+          <span class="text-blue-500">Enable Notifications</span>
+        </p>
+      </div>
+      <div
+        class="w-full md:flex grid md:grid-cols-2 grid-cols-1 mt-10 items-center gap-5 justify-center"
+      >
+        <button
+          class="w-full bg-blue-500 shadow-xl text-white rounded-full py-3 hover:duration-500 active:shadow-inner active:shadow-blue-600"
+        >
+          Continue
+        </button>
+        <button
+          class="w-full bg-slate-50 shadow-xl text-blue-600 rounded-full py-3 hover:duration-500 active:shadow-inner active:shadow-gray-300"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
