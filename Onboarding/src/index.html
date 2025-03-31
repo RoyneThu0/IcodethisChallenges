@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-5 md:mt-0 justify-center bg-fuchsia-50"
+  >
+    <div class="w-11/12 max-w-md flex flex-col">
+      <div class="w-full bg-white flex flex-col shadow-lg rounded-2xl">
+        <div class="flex flex-col border-b-2 border-slate-300 p-10">
+          <div class="flex items-center justify-between">
+            <p class="text-2xl font-semibold font-serif">Take a quick tour</p>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <p class="mt-3 text-sm w-full">
+            Here are a few steps to help you <br />
+            hit the ground.
+          </p>
+
+          <div class="flex items-center justify-between mt-6 gap-3">
+            <p class="text-xl font-semibold font-serif">40%</p>
+
+            <div class="w-full h-3 bg-slate-200 rounded-full">
+              <div class="w-1/4 bg-black h-full rounded-full"></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-10 flex flex-col space-y-2">
+          <div id="check" class="flex items-center justify-start gap-5">
+            <label class="relative flex items-center justify-center">
+              <input
+                type="checkbox"
+                class="appearance-none w-8 h-8 bg-white border-2 border-gray-400 rounded-full checked:bg-black checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+              />
+              <i
+                class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+              ></i>
+            </label>
+            <p class="text-sm">Experience contextual conversations</p>
+          </div>
+          <div id="check" class="flex items-center justify-start gap-5">
+            <label class="relative flex items-center justify-center">
+              <input
+                type="checkbox"
+                class="appearance-none w-8 h-8 bg-white border-2 border-gray-400 rounded-full checked:bg-black checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+              />
+              <i
+                class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+              ></i>
+            </label>
+            <p class="text-sm">Brand your customer experience</p>
+          </div>
+          <div id="check" class="flex items-center justify-start gap-5">
+            <label class="relative flex items-center justify-center">
+              <input
+                type="checkbox"
+                class="appearance-none w-8 h-8 bg-white border-2 border-gray-400 rounded-full checked:bg-black checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+              />
+              <i
+                class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+              ></i>
+            </label>
+            <p class="text-sm">Offer support beyond your website</p>
+          </div>
+          <div id="check" class="flex items-center justify-start gap-5">
+            <label class="relative flex items-center justify-center">
+              <input
+                type="checkbox"
+                class="appearance-none w-8 h-8 bg-white border-2 border-gray-400 rounded-full checked:bg-black checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+              />
+              <i
+                class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+              ></i>
+            </label>
+            <p class="text-sm">Top customer support with bots</p>
+          </div>
+          <div id="check" class="flex items-center justify-start gap-5">
+            <label class="relative flex items-center justify-center">
+              <input
+                type="checkbox"
+                class="appearance-none w-8 h-8 bg-white border-2 border-gray-400 rounded-full checked:bg-black checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+              />
+              <i
+                class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+              ></i>
+            </label>
+            <p class="text-sm">Build your team</p>
+          </div>
+          <p
+            class="pt-5 cursor-pointer hover:text-blue-400 text-sm text-slate-500"
+          >
+            skip this
+          </p>
+        </div>
+      </div>
+      <div class="w-full mt-4 flex items-center justify-end">
+        <button
+          class="ml-auto w-fit bg-black text-white px-4 p-3 rounded-full flex items-center gap-2"
+        >
+          <span class="text-sm">Get started</span>
+          <div
+            class="w-5 h-5 bg-white rounded-full flex items-center justify-center flex-shrink-0 text-gray-800 text-xs"
+          >
+            <span class="m-auto">5</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelectorAll('#check input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.addEventListener("change", (e) => {
+            const checkIcon = e.target.nextElementSibling;
+            if (e.target.checked) {
+              checkIcon.classList.remove("opacity-0");
+            } else {
+              checkIcon.classList.add("opacity-0");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
