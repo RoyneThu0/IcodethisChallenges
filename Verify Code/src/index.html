@@ -58,22 +58,22 @@
           <input
             type="text"
             maxlength="1"
-            class="w-28 h-40 border rounded-lg text-center text-7xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <input
             type="text"
             maxlength="1"
-            class="w-28 h-40 border rounded-lg text-center text-7xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <input
             type="text"
             maxlength="1"
-            class="w-28 h-40 border rounded-lg text-center text-7xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <input
             type="text"
             maxlength="1"
-            class="w-28 h-40 border rounded-lg text-center text-7xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
         </div>
 
@@ -86,5 +86,39 @@
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const inputs = document.querySelectorAll(".otp-input");
+
+        inputs.forEach((input, index) => {
+          input.addEventListener("input", (e) => {
+            const value = e.target.value;
+            if (value.length === 1 && index < inputs.length - 1) {
+              inputs[index + 1].focus(); // Move to next input
+            }
+          });
+
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" && index > 0 && !e.target.value) {
+              inputs[index - 1].focus(); // Move back if empty
+            }
+          });
+
+          input.addEventListener("paste", (e) => {
+            e.preventDefault();
+            const pasteData = e.clipboardData
+              .getData("text")
+              .replace(/\D/g, "")
+              .split(""); // Remove non-numeric values
+            pasteData.forEach((num, i) => {
+              if (i < inputs.length) {
+                inputs[i].value = num;
+              }
+            });
+            inputs[Math.min(pasteData.length, inputs.length - 1)].focus();
+          });
+        });
+      });
+    </script>
   </body>
 </html>
