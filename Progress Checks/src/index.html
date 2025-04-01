@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-3 md:mt-0 justify-center bg-[#121731] bg-cover bg-center"
+    style="
+      background-image: url(https://img.freepik.com/free-vector/blue-velvety-abstract-wavy-background-dark-background_134830-2226.jpg);
+    "
+  >
+    <div
+      class="w-11/12 max-w-3xl md:gap-5 gap-2 md:flex grid md:grid-cols-2 grid-cols-1 p-3"
+    >
+      <div
+        class="md:w-2/3 h-fit w-full flex flex-col bg-[#1b2143] p-10 rounded-xl"
+      >
+        <p class="text-white font-serif text-xl">Build your page</p>
+        <p class="text-slate-400 text-sm w-full text-start mt-2">
+          Complete actions to unlock new features along the way. On average,
+          completed pages get 30% more traffic.
+        </p>
+        <div class="w-full flex items-center mt-5 justify-center gap-1">
+          <div class="w-full h-2 bg-[#4a63ff] rounded-full"></div>
+          <div class="w-full h-2 bg-[#4a89f9] rounded-full"></div>
+          <div class="w-full h-2 bg-[#45a4f1] rounded-full"></div>
+          <div class="w-full h-2 bg-[#48c0f3] rounded-full"></div>
+          <div class="w-full h-2 bg-[#50d6f2] rounded-full"></div>
+          <div class="w-full h-2 bg-[#4cdad3] rounded-full"></div>
+          <div class="w-full h-2 bg-[#11162f] rounded-full"></div>
+          <div class="w-full h-2 bg-[#11162f] rounded-full"></div>
+          <div class="w-full h-2 bg-[#11162f] rounded-full"></div>
+        </div>
+        <p class="mt-2 text-xs text-slate-400">3 left to complete</p>
+      </div>
+      <div class="md:w-1/3 w-full md:mt-20 mt-5 flex bg-[#479ceb] rounded-xl">
+        <div
+          class="w-full bg-[#1b2143] md:hover:translate-y-5 md:hover:translate-x-3 duration-300 rounded-lg flex flex-col p-5"
+        >
+          <p class="font-serif text-white">Checklist</p>
+          <div class="mt-3 w-full flex flex-col gap-3">
+            <div id="check" class="flex items-center justify-start gap-2">
+              <label class="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  class="appearance-none w-5 h-5 bg-white rounded-full checked:bg-blue-500 checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+                />
+                <i
+                  class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+                ></i>
+              </label>
+              <p class="text-sm text-white">Industry</p>
+            </div>
+            <div id="check" class="flex items-center justify-start gap-2">
+              <label class="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  class="appearance-none w-5 h-5 bg-white rounded-full checked:bg-blue-500 checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+                />
+                <i
+                  class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+                ></i>
+              </label>
+              <p class="text-sm text-white">Website Url</p>
+            </div>
+            <div id="check" class="flex items-center justify-start gap-2">
+              <label class="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  class="appearance-none w-5 h-5 bg-white rounded-full checked:bg-blue-500 checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+                />
+                <i
+                  class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+                ></i>
+              </label>
+              <p class="text-sm text-white">Company size</p>
+            </div>
+            <div id="check" class="flex items-center justify-start gap-2">
+              <label class="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  class="appearance-none w-5 h-5 bg-white rounded-full checked:bg-blue-500 checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+                />
+                <i
+                  class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+                ></i>
+              </label>
+              <p class="text-sm text-white">Description</p>
+            </div>
+            <div id="check" class="flex items-center justify-start gap-2">
+              <label class="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  class="appearance-none w-5 h-5 bg-white rounded-full checked:bg-blue-500 checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+                />
+                <i
+                  class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+                ></i>
+              </label>
+              <p class="text-sm text-white">Logo</p>
+            </div>
+            <div id="check" class="flex items-center justify-start gap-2">
+              <label class="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  class="appearance-none w-5 h-5 bg-white rounded-full checked:bg-blue-500 checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+                />
+                <i
+                  class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+                ></i>
+              </label>
+              <p class="text-sm text-white">Location</p>
+            </div>
+            <div id="check" class="flex items-center justify-start gap-2">
+              <label class="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  class="appearance-none w-5 h-5 bg-white rounded-full checked:bg-blue-500 checked:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+                />
+                <i
+                  class="fa-solid fa-check text-white text-sm absolute opacity-0 pointer-events-none transition-opacity duration-200"
+                ></i>
+              </label>
+              <p class="text-sm text-white">Custom button</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .querySelectorAll('#check input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.addEventListener("change", (e) => {
+            const checkIcon = e.target.nextElementSibling;
+            if (e.target.checked) {
+              checkIcon.classList.remove("opacity-0");
+            } else {
+              checkIcon.classList.add("opacity-0");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
