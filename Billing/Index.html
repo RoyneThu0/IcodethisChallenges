@@ -13,55 +13,71 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="w-screen h-screen flex items-center bg-slate-200 justify-center">
-    <div class="relative w-11/12 max-w-xl rounded-3xl bg-orange-500 p-3"></div>
+  <body
+    class="relative w-screen h-screen flex sm:items-center items-start mt-10 md:mt-0 bg-slate-200 justify-center"
+  >
     <div
-      class="absolute w-11/12 max-w-4xl rounded-xl p-10 bg-slate-50 shadow-xl shadow-slate-600 sm:flex items-start grid sm:grid-cols-3 grid-cols-1"
+      class="absolute w-11/12 max-w-sm rounded-3xl bg-orange-500 p-10 left-72 hidden lg:block h-[600px]"
+    ></div>
+    <div
+      class="absolute w-11/12 max-w-4xl rounded-xl p-10 bg-slate-50 shadow-xl shadow-slate-600 sm:flex items-start justify-start grid sm:grid-cols-3 grid-cols-1 md:space-x-10 space-x-0 space-y-10 md:space-y-0"
     >
-      <div class="w-1/3 h-full flex-col">
+      <div class="w-1/3 h-full flex flex-col">
         <div class="flex w-full items-center justify-start gap-5">
           <img
-            class="w-10 h-10 rounded-lg"
+            class="w-10 h-10 rounded-lg hover:scale-125 duration-300"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1l6fbVIlb9dXMPu06Tnl5wO-v_cEi2a2Yw&s=10"
             alt=""
           />
-          <div class="flex flex-col pl-2">
+          <div
+            class="flex flex-col pl-2 hover:text-blue-400 duration-300 cursor-pointer"
+          >
             <p class="text-xs w-full font-bold">Nina Ford</p>
             <p class="text-xs font-extralight">@niinuuh</p>
           </div>
         </div>
         <div class="w-full mt-10 flex items-center justify-start">
-          <div class="flex items-center text-slate-500 gap-3">
-            <p><i class="fa-regular fa-square"></i></p>
+          <div
+            class="flex items-center text-slate-500 hover:text-blue-400 duration-300 cursor-pointer gap-3"
+          >
+            <p><i class="fa-regular fa-vector-square"></i></p>
             <p class="text-sm">General</p>
           </div>
         </div>
         <div class="w-full mt-2 flex items-center justify-start">
-          <div class="flex items-center text-slate-500 gap-3">
+          <div
+            class="flex items-center text-slate-500 hover:text-blue-400 duration-300 cursor-pointer gap-3"
+          >
             <p><i class="fa-solid fa-lock"></i></p>
             <p class="text-sm">Password</p>
           </div>
         </div>
         <div class="w-full mt-2 flex items-center justify-start">
-          <div class="flex items-center text-slate-500 gap-3">
+          <div
+            class="flex items-center text-slate-500 hover:text-blue-400 duration-300 cursor-pointer gap-3"
+          >
             <p><i class="fa-solid fa-envelope"></i></p>
             <p class="text-sm">Invitations</p>
           </div>
         </div>
         <div class="w-full mt-2 flex items-center justify-start">
-          <div class="flex items-center text-slate-500 gap-3">
+          <div
+            class="flex items-center text-slate-500 hover:text-blue-400 duration-300 cursor-pointer gap-3"
+          >
             <p><i class="fa-solid fa-money-bills"></i></p>
             <p class="text-sm">Billing</p>
           </div>
         </div>
         <div class="w-full mt-2 flex items-center justify-start">
-          <div class="flex items-center text-slate-500 gap-3">
+          <div
+            class="flex items-center text-slate-500 hover:text-blue-400 duration-300 cursor-pointer gap-3"
+          >
             <p><i class="fa-solid fa-table-cells"></i></p>
             <p class="text-sm">Apps</p>
           </div>
         </div>
       </div>
-      <div class="w-full flex flex-col">
+      <div class="w-full flex flex-col items-start justify-start">
         <p class="font-bold text-2xl">Billing</p>
         <p class="font-bold text-xs mt-8">Order History</p>
         <p class="text-xs text-slate-500">
@@ -76,43 +92,55 @@
           </div>
           <div class="w-full">
             <div
-              class="w-full hover:shadow-lg py-1 rounded-lg px-2 hover:shadow-slate-600 grid grid-cols-3"
+              class="w-full hover:shadow-lg duration-300 py-1 rounded-lg px-2 grid grid-cols-3"
             >
-              <p>Oct 21 2021</p>
-              <p>Pro annual</p>
-              <button class="w-2/3 py-1 border rounded-md border-black">
+              <p class="text-xs">Oct 21 2021</p>
+              <p class="text-xs">Pro annual</p>
+              <button
+                class="md:w-2/3 text-xs py-1 border rounded-md border-black hover:bg-orange-600 hover:text-white duration-300"
+              >
                 Download
               </button>
             </div>
             <div
-              class="w-full hover:shadow-lg py-1 rounded-lg px-2 hover:shadow-slate-600 grid grid-cols-3"
+              class="w-full hover:shadow-lg duration-300 py-1 rounded-lg px-2 grid grid-cols-3"
             >
-              <p>Aug 11 2021</p>
-              <p>Pro annual</p>
-              <button class="w-2/3 py-1 border rounded-md border-black">
+              <p class="text-xs">Aug 11 2021</p>
+              <p class="text-xs">Pro annual</p>
+              <button
+                class="md:w-2/3 text-xs py-1 border rounded-md border-black hover:bg-orange-600 hover:text-white duration-300"
+              >
                 Download
               </button>
             </div>
             <div
-              class="w-full hover:shadow-lg py-1 rounded-lg px-2 hover:shadow-slate-600 grid grid-cols-3"
+              class="w-full hover:shadow-lg duration-300 py-1 rounded-lg px-2 grid grid-cols-3"
             >
-              <p>Oct 21 2021</p>
-              <p>Pro annual</p>
-              <button class="w-2/3 py-1 border rounded-md border-black">
+              <p class="text-xs">Oct 21 2021</p>
+              <p class="text-xs">Pro annual</p>
+              <button
+                class="md:w-2/3 text-xs py-1 border rounded-md border-black hover:bg-orange-600 hover:text-white duration-300"
+              >
                 Download
               </button>
             </div>
             <div
-              class="w-full hover:shadow-lg py-1 rounded-lg px-2 hover:shadow-slate-600 grid grid-cols-3"
+              class="w-full hover:shadow-lg duration-300 py-1 rounded-lg px-2 grid grid-cols-3"
             >
-              <p>Jul 21 2021</p>
-              <p>Pro annual</p>
-              <button class="w-2/3 py-1 border rounded-md border-black">
+              <p class="text-xs">Jul 21 2021</p>
+              <p class="text-xs">Pro annual</p>
+              <button
+                class="md:w-2/3 text-xs py-1 border rounded-md border-black hover:bg-orange-600 hover:text-white duration-300"
+              >
                 Download
               </button>
             </div>
           </div>
-          <p class="w-full ml-5 underline text-orange-600">Load more</p>
+          <p
+            class="w-full ml-5 text-xs underline hover:text-blue-400 cursor-pointer duration-200 text-orange-600"
+          >
+            Load more
+          </p>
 
           <div class="mt-10 w-full">
             <p class="w-full text-start font-bold text-sm">Payment Method</p>
@@ -121,22 +149,26 @@
             </p>
             <div class="w-full flex items-center justify-between pr-10 mt-4">
               <div class="w-full flex items-center gap-3">
-                <p><i class="fa-brands fa-cc-visa text-5xl"></i></p>
-                <p class="text-sm">Visa ending in 2255</p>
+                <p><i class="fa-brands fa-cc-visa md:text-5xl text-3xl"></i></p>
+                <p class="text-xs">Visa ending in 2255</p>
               </div>
-              <button class="border rounded-md border-black px-3 py-1">
+              <button
+                class="border md:w-2/3 text-xs rounded-md hover:bg-orange-600 hover:text-white duration-300 border-black px-3 py-2"
+              >
                 Remove
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="w-1/3 max-w-xs py-5 px-4 bg-orange-500 rounded-lg mt-20">
+      <div
+        class="md:w-1/3 md:max-w-lg py-5 px-4 bg-orange-500 flex flex-col items-center rounded-lg mt-20"
+      >
         <p class="text-white text-sm">Your plan</p>
         <p class="font-semibold mt-3 text-xl">Pro annual</p>
         <p class="text-xs text-slate-200">Renews on Nov. 2021</p>
         <button
-          class="w-full mt-2 text-xs border border-slate-200 rounded-md py-1 text-slate-200"
+          class="w-full mt-2 text-xs border border-slate-200 hover:bg-white hover:text-black duration-300 py-2 rounded-md text-slate-200"
         >
           Cancel subscription
         </button>
