@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multi toggle</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -17,8 +19,10 @@
       .selected {
         background-color: pink;
       }
+
       .selected-item {
-        background-color: pink;
+        background-color: rgb(234, 135, 151);
+        color: white;
         padding: 5px;
         margin: 5px 0;
         border-radius: 5px;
@@ -26,81 +30,87 @@
       }
     </style>
   </head>
-  <body class="w-screen h-screen bg-slate-600 flex items-center justify-center">
+
+  <body
+    class="w-screen h-screen bg-slate-600 bg-cover bg-center flex md:items-center items-start mt-10 md:mt-0 justify-center"
+    style="
+      background-image: url(https://img.goodfon.com/wallpaper/big/9/7d/ios-13-grey-dark-background.webp);
+    "
+  >
     <div
       id="main"
       class="w-11/12 max-w-xl py-6 px-6 bg-gray-900 rounded-lg flex-col"
     >
       <div class="w-full flex justify-end">
         <button class="bg-black w-7 h-7 rounded-full">
-          <i class="fa-solid fa-xmark text-slate-400"></i>
+          <i class="fa-solid fa-xmark text-slate-100"></i>
         </button>
       </div>
-      <p class="w-full text-center text-slate-400 text-xl font-semibold">
+      <p class="w-full text-center text-slate-100 text-xl font-semibold">
         Browse by interests
       </p>
-      <p class="w-full text-wrap px-4 text-center mt-5 text-slate-400 text-sm">
+      <p class="w-full text-wrap px-4 text-center mt-5 text-slate-100 text-sm">
         Select some interests to help us personalize your interests on Edmondo
       </p>
       <div
-        class="interests flex-wrap items-center justify-center grid grid-cols-3 gap-5 mt-12 w-full"
+        class="interests flex-wrap items-center justify-center grid md:grid-cols-3 grid-cols-2 gap-5 mt-12 w-full"
       >
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           Html
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           CSS
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           Javascript
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           Rust
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           SCSS
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           Svelte
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           React
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           Next JS
         </button>
         <button
-          class="bg-slate-800 w-full py-3 text-slate-400 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
+          class="bg-slate-800 hover:bg-slate-600 duration-300 w-full py-3 text-slate-100 border-pink-500 shadow-md shadow-pink-600 rounded-sm"
         >
           JQuery
         </button>
       </div>
       <div class="my-10 flex items-center justify-center w-full gap-10">
         <button
-          class="px-10 py-4 bg-slate-900 border border-slate-950 rounded-lg text-slate-400"
+          class="md:px-10 w-full py-4 bg-slate-900 hover:bg-slate-600 duration-300 border border-slate-950 rounded-lg text-slate-100"
         >
           Skip
         </button>
 
         <button
           id="saveButton"
-          class="px-10 py-4 bg-pink-600 rounded-lg text-white"
+          class="md:px-10 w-full py-4 bg-pink-600 hover:bg-fuchsia-500 duration-300 rounded-lg text-white"
         >
           Save
         </button>
@@ -112,17 +122,17 @@
     >
       <div class="w-full flex justify-end">
         <button class="bg-black w-7 h-7 rounded-full">
-          <i class="fa-solid fa-xmark text-slate-400"></i>
+          <i class="fa-solid fa-xmark text-slate-100"></i>
         </button>
       </div>
-      <p class="w-full text-xl font-semibold text-center text-slate-400">
+      <p class="w-full text-xl font-semibold text-center text-slate-100">
         You have selected:
       </p>
       <div
         id="select"
         class="w-full items-center justify-center grid grid-cols-3 gap-5"
       ></div>
-      <p class="w-full text-center text-sm mt-10 text-slate-400">
+      <p class="w-full text-center text-sm mt-10 text-slate-100">
         Click to remove any interests you want removed!
       </p>
     </div>
@@ -133,6 +143,8 @@
         const saveButton = document.getElementById("saveButton");
         const mainDiv = document.getElementById("main");
         const selectContainer = document.getElementById("selectContainer");
+        const selectContainerCloseButton =
+          selectContainer.querySelector("button");
 
         buttons.forEach((button) => {
           button.addEventListener("click", () => {
@@ -147,11 +159,16 @@
           selectContainer.classList.remove("hidden");
         });
 
+        selectContainerCloseButton.addEventListener("click", () => {
+          selectContainer.classList.add("hidden");
+          mainDiv.classList.remove("hidden");
+        });
+
         function updateSelectedItems() {
           const selectedItems = document.querySelectorAll(
             ".interests button.selected"
           );
-          selectedDiv.innerHTML = ""; // Clear previous selections
+          selectedDiv.innerHTML = "";
 
           selectedItems.forEach((item) => {
             const itemText = item.textContent.trim();
@@ -161,7 +178,7 @@
               "selected-item",
               "bg-pink-500",
               "py-3",
-              "text-slate-400",
+              "text-slate-100",
               "rounded-sm",
               "w-full"
             );
