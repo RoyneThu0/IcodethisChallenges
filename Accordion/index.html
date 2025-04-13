@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accordion</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -12,99 +13,109 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <title>Accordion</title>
     <style>
-      .accordion-content {
+      .content {
         display: none;
+      }
+      .content.active {
+        display: block;
       }
     </style>
   </head>
-  <body class="bg-slate-100 h-screen w-screen flex items-center justify-center">
+  <body
+    class="bg-gray-100 bg-cover bg-center h-screen w-screen flex items-center justify-center"
+    style="
+      background-image: url(https://media.istockphoto.com/id/1456634031/photo/4k-technologic-background-white.jpg?b=1&s=612x612&w=0&k=20&c=OQSIXoFYFyRbncYr1lAqxbW1cYVLae_240O335VmddY=);
+    "
+  >
     <div
-      class="w-11/12 max-w-lg p-10 bg-slate-200 rounded-lg shadow-xl flex-col items-center justify-center"
+      class="w-11/12 max-w-lg p-10 bg-white/60 rounded-lg shadow-xl flex-col items-center justify-center"
     >
-      <p class="font-bold text-lg">
-        Coronavirus-Facts, advice and <br />
-        measures
-      </p>
-      <div id="Accordion" class="mt-5 space-y-2">
-        <div class="w-full flex items-center justify-center">
-          <div class="w-1 h-12 rounded-l-xl bg-orange-400"></div>
-          <div
-            class="w-11/12 bg-orange-100 p-3 rounded-r-lg flex items-center justify-start header"
-          >
-            <button class="accordion-toggle mr-4">
-              <i class="fas fa-plus text-slate-500"></i>
-            </button>
+      <h1 class="text-lg font-semibold w-2/3">
+        Coronavirus - facts, advice and measures
+      </h1>
+      <ul class="space-y-2 mt-4">
+        <li
+          class="border-l-4 border-[#f8c691] p-4 rounded-sm w-full bg-[#fff6ee] text-gray-600 cursor-pointer"
+        >
+          <div class="w-full flex items-center gap-2">
+            <i class="fa-solid fa-plus"></i>
             <p class="font-bold">What is Coronavirus?</p>
           </div>
-        </div>
-        <div class="accordion-content">
-          <p>
-            Coronavirus is a type of virus that can cause illness in animals and
-            humans...
-          </p>
-        </div>
-        <div class="w-full flex items-center justify-center">
-          <div class="w-1 h-12 rounded-l-xl bg-purple-400"></div>
-          <div
-            class="w-11/12 bg-purple-100 p-3 rounded-r-lg flex items-center justify-start header"
-          >
-            <button class="accordion-toggle mr-4">
-              <i class="fas fa-plus text-slate-500"></i>
-            </button>
+          <div class="content space-y-2 py-4 text-xs">
+            <p>
+              Coronavirus is a type of virus that can cause illness in animals
+              and humans. In humans, several coronaviruses are known to cause
+              respiratory infections ranging from the common cold to more severe
+              diseases such as Middle East Respiratory Syndrome (MERS)
+            </p>
+          </div>
+        </li>
+        <li
+          class="border-l-4 border-[#bab4f8] p-4 rounded-sm w-full bg-[#fafafe] text-gray-600 cursor-pointer"
+        >
+          <div class="w-full flex items-center gap-2">
+            <i class="fa-solid fa-plus"></i>
             <p class="font-bold">For the Public</p>
           </div>
-        </div>
-        <div class="accordion-content">
-          <p>
-            Information and advice for the public on how to protect
-            themselves...
-          </p>
-        </div>
-        <div class="w-full flex items-center justify-center">
-          <div class="w-1 h-12 rounded-l-xl bg-pink-400"></div>
-          <div
-            class="w-11/12 bg-pink-100 p-3 rounded-r-lg flex items-center justify-start header"
-          >
-            <button class="accordion-toggle mr-4">
-              <i class="fas fa-plus text-slate-500"></i>
-            </button>
+          <div class="content space-y-2 py-4 text-xs">
+            <p>
+              Information and advice for the public on how to protect themselves
+              and others from COVID-19.
+            </p>
+          </div>
+        </li>
+        <li
+          class="border-l-4 border-[#fbb4c0] p-4 rounded-sm w-full bg-[#fef1f3] text-gray-600 cursor-pointer"
+        >
+          <div class="w-full flex items-center gap-2">
+            <i class="fa-solid fa-plus"></i>
             <p class="font-bold">Facts and knowledge about Covid 19</p>
           </div>
-        </div>
-        <div class="accordion-content">
-          <p>
-            Covid-19 is caused by the SARS-CoV-2 virus. It was first identified
-            in Wuhan, China...
-          </p>
-        </div>
-
-        <div class="w-full flex items-center justify-center">
-          <div class="w-1 h-12 rounded-l-xl bg-green-400"></div>
-          <div
-            class="w-11/12 bg-green-100 p-3 rounded-r-lg flex items-center justify-start header"
-          >
-            <button class="accordion-toggle mr-4">
-              <i class="fas fa-plus text-slate-500"></i>
-            </button>
-            <p class="font-bold">Symptoms of Covid-19</p>
+          <div class="content space-y-2 py-4 text-xs">
+            <p>
+              Covid-19 is caused by the SARS-CoV-2 virus. It was first
+              identified in Wuhan, China, in December 2019. The virus spreads
+              primarily through respiratory droplets when an infected person
+              coughs, sneezes, or talks.
+            </p>
           </div>
-        </div>
-        <div class="accordion-content">
-          <p>
-            Common symptoms of Covid-19 include fever, dry cough, and tiredness.
-            Some patients may also experience aches and pains, nasal congestion,
-            sore throat, or diarrhea...
-          </p>
-        </div>
-      </div>
+        </li>
+        <li
+          class="border-l-4 border-[#91f893] p-4 rounded-sm w-full bg-[#91f89322] text-gray-600 cursor-pointer"
+        >
+          <div class="w-full flex items-center gap-2">
+            <i class="fa-solid fa-plus"></i>
+            <p class="font-bold">How to protect yourself</p>
+          </div>
+          <div class="content space-y-2 py-4 text-xs">
+            <p>
+              To protect yourself from COVID-19, wash your hands frequently,
+              wear a mask in crowded places, maintain physical distance, and
+              avoid close contact with sick individuals.
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
     <script>
-      document.querySelectorAll(".accordion-toggle").forEach((button) => {
-        button.addEventListener("click", () => {
-          const content = button.closest(".header").nextElementSibling;
-          content.style.display =
-            content.style.display === "none" ? "block" : "none";
+      const listItems = document.querySelectorAll("li");
+
+      listItems.forEach((listItem) => {
+        listItem.addEventListener("click", () => {
+          const content = listItem.querySelector(".content");
+          const icon = listItem.querySelector("i");
+
+          content.classList.toggle("active");
+
+          if (content.classList.contains("active")) {
+            icon.classList.remove("fa-plus");
+            icon.classList.add("fa-xmark");
+          } else {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-plus");
+          }
         });
       });
     </script>
