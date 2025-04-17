@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Pricing</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="w-screen h-screen bg-gray-200 bg-cover bg-center flex md:items-center items-start mt-5 md:mt-0 justify-center"
+    style="
+      background-image: url(https://img.freepik.com/free-photo/3d-geometric-abstract-background_1048-13291.jpg);
+    "
+  >
+    <div class="w-11/12 max-w-3xl grid p-10 md:grid-cols-2 grid-cols-1 gap-10">
+      <div
+        class="w-full flex flex-col bg-white md:hover:-translate-y-5 duration-500 hover:shadow-xl p-10 rounded-lg shadow-lg h-full"
+      >
+        <p class="font-semibold">Free</p>
+        <p class="mt-2 text-sm">For freelancers</p>
+
+        <p class="mt-5 font-bold text-4xl">$0</p>
+
+        <ul class="mt-14 flex flex-col justify-start space-y-2 flex-grow">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>1 users</p>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>10 downloads per month</p>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>Raster files</p>
+          </li>
+        </ul>
+        <button
+          class="md:mt-auto mt-10 w-full rounded-full bg-blue-950 text-white py-3"
+        >
+          Subscribe
+        </button>
+      </div>
+      <div
+        class="w-full flex flex-col bg-blue-950 md:hover:-translate-y-5 duration-500 hover:shadow-xl p-10 rounded-lg shadow-lg"
+      >
+        <p class="font-semibold text-white">Pro</p>
+        <p class="mt-2 text-sm text-gray-200">For agencies</p>
+
+        <p class="mt-5 font-bold text-4xl text-white">$40</p>
+
+        <ul class="mt-14 flex flex-col justify-start text-white space-y-2">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>3 users</p>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>Unlimited downloads</p>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>Fully-editable files</p>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>Custom packs</p>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid text-xl fa-circle-check"></i>
+            <p>200+ custom icons</p>
+          </li>
+        </ul>
+        <button class="mt-24 w-full rounded-full text-blue-950 bg-white py-3">
+          Subscibe
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
