@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Layout</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-5 md:mt-0 justify-center relative"
+  >
+    <div class="bg-orange-500 w-[430px] h-[350px] absolute top-0 left-0"></div>
+    <div
+      class="absolute bg-red-200 h-[400px] w-[450px] right-0 bottom-0 flex items-center justify-center"
+    >
+      <div class="w-1/4 bg-yellow-400 h-[400px]"></div>
+      <div class="w-3/4 flex flex-col h-[400px]">
+        <div class="h-[300px] w-full bg-purple-800"></div>
+        <div class="h-[100px] w-full bg-orange-500"></div>
+      </div>
+    </div>
+    <div class="w-11/12 max-w-3xl flex flex-col absolute z-10 p-10">
+      <div
+        class="w-full md:flex grid md:grid-cols-2 grid-cols-1 items-start justify-start bg-white rounded-xl shadow-2xl"
+      >
+        <img
+          class="h-72 md:w-72 w-full object-cover md:rounded-l-xl rounded-t-lg md:rounded-t-none shadow-lg"
+          src="https://m.media-amazon.com/images/I/81ec9xcT6BL._AC_UF1000,1000_QL80_.jpg"
+          alt=""
+        />
+        <div class="flex flex-col p-10 w-full items-start justify-center">
+          <p
+            class="text-xs px-4 py-2 bg-slate-100 font-semibold rounded-lg animate-pulse"
+          >
+            Technology
+          </p>
+          <p class="text-xl font-semibold text-gray-800 mt-1">
+            Myspace Layouts The <br />
+            Missing Element
+          </p>
+          <p class="text-xs text-slate-500 mt-1">Sep. 10, 2020</p>
+
+          <p class="text-sm text-slate-500 mt-4">
+            Finding the perfect learning tool for Flash is a <br />
+            daunting task to any novice web developer. <br />
+            One can find help in a number of ways <br />
+            through books, friends and private tutors.
+          </p>
+        </div>
+      </div>
+      <div
+        class="w-full md:flex grid md:grid-cols-2 grid-cols-1 items-start justify-center p-3 mt-2 gap-3"
+      >
+        <div
+          class="md:w-1/3 w-full bg-white p-3 rounded-xl flex flex-col items-center justify-center shadow-2xl"
+        >
+          <img
+            class="object-cover w-full rounded-lg"
+            src="https://www.uni-frankfurt.de/111571299.jpg"
+            alt=""
+          />
+          <p class="text-lg font-semibold text-gray-800 mt-1">
+            Cleaning And Organizing Your Mobile
+          </p>
+          <p class="text-xs w-full text-start text-slate-500 mt-1">
+            Sep. 10, 2020
+          </p>
+          <p class="text-xs text-slate-500 mt-4">
+            Finding the perfect learning tool for Flash is a daunting task to
+            any novice web developer. One can find help in a number of ways
+            through books, friends and private tutors.
+          </p>
+        </div>
+        <div
+          class="md:w-2/3 w-full bg-white p-3 rounded-xl md:flex grid md:grid-cols-2 grid-cols-1 items-start justify-start shadow-2xl"
+        >
+          <img
+            class="object-cover md:w-1/3 w-full rounded-lg"
+            src="https://m.media-amazon.com/images/I/71YGbTRl7BL._AC_UF350,350_QL80_.jpg"
+            alt=""
+          />
+          <div class="w-2/3 flex flex-col items-start justify-center ml-4">
+            <p
+              class="text-xs px-4 py-2 bg-slate-100 font-semibold rounded-lg animate-pulse"
+            >
+              Technology
+            </p>
+            <p class="text-lg font-semibold text-gray-800 mt-1">
+              What's Your Passion
+            </p>
+            <p class="text-xs w-full text-start text-slate-500 mt-1">
+              Sep. 10, 2020
+            </p>
+            <p class="text-xs text-slate-500 mt-4">
+              Finding the perfect learning tool for Flash is a daunting task to
+              any novice web developer. One can find help in a number of ways
+              through books, friends and private tutors.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
