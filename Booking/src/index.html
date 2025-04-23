@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center">
+    <div class="w-11/12 max-w-sm rounded-lg flex flex-col shadow-2xl">
+      <div class="w-full bg-slate-900 p-10 rounded-t-lg flex flex-col">
+        <div class="w-full flex items-start justify-between">
+          <p class="text-white font-semibold text-2xl">
+            Where do you really <br />
+            want to play?
+          </p>
+          <i
+            class="fa-solid fa-xmark bg-purple-950 hover:bg-purple-800 duration-300 rounded-full p-3 text-slate-50"
+          ></i>
+        </div>
+        <div class="w-full flex items-center justify-start mt-10">
+          <div class="flex w-1/2 items-center justify-start">
+            <input
+              type="radio"
+              name="location"
+              id="Bergen"
+              class="m-1 w-5 h-5"
+            />
+            <label for="Bergen" class="text-white">Bergen</label>
+          </div>
+          <div class="flex w-1/2 items-center justify-start">
+            <input type="radio" name="location" id="Oslo" class="m-1 w-5 h-5" />
+            <label for="Oslo" class="text-white">Oslo</label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col items-center justify-center p-10 rounded-b-lg"
+      >
+        <p class="text-2xl w-full text-start font-semibold text-purple-950">
+          Choose the party size
+        </p>
+        <div class="w-full grid grid-cols-3 items-start gap-3 mt-10">
+          <div
+            class="w-full h-full border border-purple-950 p-3 flex flex-col items-center justify-center"
+          >
+            <input
+              type="radio"
+              name="partySize"
+              id="twoPeople"
+              class="hidden peer"
+            />
+            <label
+              for="twoPeople"
+              class="w-full h-full flex flex-col items-center justify-center cursor-pointer peer-checked:text-purple-800"
+            >
+              <div class="w-full flex items-center justify-center gap-4">
+                <i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i>
+              </div>
+              <p
+                class="w-full text-sm font-semibold text-nowrap mt-2 text-center"
+              >
+                2 people
+              </p>
+            </label>
+          </div>
+          <div
+            class="w-full border border-purple-950 p-3 flex flex-col items-center justify-center"
+          >
+            <input
+              type="radio"
+              name="partySize"
+              id="fourPeople"
+              class="hidden peer"
+            />
+            <label
+              for="fourPeople"
+              class="w-full h-full flex flex-col items-center justify-center cursor-pointer peer-checked:text-purple-800"
+            >
+              <div
+                class="w-full grid grid-cols-2 items-center justify-center gap-4"
+              >
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <p
+                class="w-full text-sm font-semibold text-nowrap mt-2 text-center"
+              >
+                4 people
+              </p>
+            </label>
+          </div>
+          <div
+            class="w-full border border-purple-950 p-3 flex flex-col items-center justify-center"
+          >
+            <input
+              type="radio"
+              name="partySize"
+              id="sixPeople"
+              class="hidden peer"
+            />
+            <label
+              for="sixPeople"
+              class="w-full h-full flex flex-col items-center justify-center cursor-pointer peer-checked:text-purple-800"
+            >
+              <div class="w-full grid grid-cols-3 gap-4">
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <p
+                class="w-full text-sm font-semibold text-nowrap mt-2 text-center"
+              >
+                6 people
+              </p>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
