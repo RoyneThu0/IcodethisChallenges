@@ -283,6 +283,9 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
   .text-center {
     text-align: center;
   }
@@ -365,6 +368,13 @@
       @media (hover: hover) {
         --tw-translate-y: calc(var(--spacing) * -12);
         translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .hover\:bg-slate-400 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-slate-400);
       }
     }
   }
