@@ -15,5 +15,107 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body></body>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://images.wallpapersden.com/image/download/black-color-liquid-4k_bGtpbmeUmZqaraWkpJRqZmdlrWdtbWU.jpg);
+    "
+  >
+    <div class="w-11/12 max-w-sm bg-slate-900 p-8 rounded-lg">
+      <div
+        class="w-full bg-slate-800 hover:-translate-y-12 duration-300 flex flex-col rounded-lg p-10"
+      >
+        <p class="w-full text-start text-lg text-white font-bold">
+          Get Email updates when:
+        </p>
+        <div class="w-full flex items-center justify-start mt-6">
+          <input
+            type="checkbox"
+            name="owner"
+            id="owner"
+            class="w-5 h-5 accent-slate-500"
+          />
+          <label for="owner" class="text-white text-sm ml-2">
+            You're the owner
+          </label>
+        </div>
+        <div class="w-full flex items-center justify-start mt-2">
+          <input
+            type="checkbox"
+            name="assignee"
+            id="assignee"
+            class="w-5 h-5 accent-slate-500"
+          />
+          <label for="assignee" class="text-white text-sm ml-2">
+            You're the assignee
+          </label>
+        </div>
+        <div class="w-full flex items-center justify-start mt-2">
+          <input
+            type="checkbox"
+            name="reporter"
+            id="reporter"
+            class="w-5 h-5 accent-slate-500"
+          />
+          <label for="reporter" class="text-white text-sm ml-2">
+            You're the reporter
+          </label>
+        </div>
+        <div class="w-full flex items-center justify-start mt-2">
+          <input
+            type="checkbox"
+            name="mentions"
+            id="mentions"
+            class="w-5 h-5 accent-slate-500"
+          />
+          <label for="mentions" class="text-white text-sm ml-2">
+            Someone mentions you
+          </label>
+        </div>
+        <div class="w-full flex items-center justify-start mt-2">
+          <input
+            type="checkbox"
+            name="assinging"
+            id="assinging"
+            class="w-5 h-5 accent-slate-500"
+          />
+          <label for="assinging" class="text-white text-sm ml-2">
+            Someone is assinging you
+          </label>
+        </div>
+
+        <div class="w-full bg-indigo-950 p-2 mt-7 rounded-lg">
+          <p class="text-white w-full text-xs">
+            You may also receive other email notifications your admin
+            configured.
+            <span
+              class="cursor-pointer text-blue-700 hover:text-blue-500 duration-300 underline"
+              >Learn more</span
+            >
+          </p>
+        </div>
+        <p class="w-full text-start text-lg mt-6 text-white font-bold">
+          Email Format:
+        </p>
+        <div class="w-full flex items-center gap-3 mt-4">
+          <input
+            type="radio"
+            name="format"
+            id="html"
+            class="w-5 h-5 accent-slate-500"
+          />
+          <label for="html" class="text-white">HTML</label>
+        </div>
+        <div class="w-full flex items-center gap-3 mt-2">
+          <input
+            type="radio"
+            name="format"
+            id="text"
+            class="w-5 h-5 accent-slate-500"
+          />
+          <label for="text" class="text-white">Text</label>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
