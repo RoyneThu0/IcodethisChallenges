@@ -15,7 +15,7 @@
   </head>
 
   <body
-    class="relative w-screen h-screen bg-slate-50 flex sm:items-center items-start justify-center"
+    class="relative w-screen h-screen bg-slate-50 flex items-start justify-center"
   >
     <div
       class="absolute z-0 top-20 right-20 rounded-full bg-fuchsia-300 shadow-2xl shadow-fuchsia-300 w-96 h-96 animate-pulse"
@@ -30,15 +30,15 @@
       class="w-screen h-screen absolute items-start z-10 bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-0 border border-gray-100 flex sm:items-center mt-10 justify-center"
     >
       <div
-        class="w-11/12 max-w-5xl border-2 border-white rounded-3xl shadow-sm shadow-slate-200"
+        class="w-11/12 max-w-5xl border-2 border-white rounded-3xl mt-10 md:mt-0 shadow-sm shadow-slate-200"
       >
         <div
-          class="w-full p-7 backdrop-filter backdrop-blur-lg bg-opacity-70 bg-gray-50 border-8 border-white gap-3 rounded-2xl grid sm:grid-cols-2 grid-cols-1"
+          class="w-full p-7 backdrop-filter backdrop-blur-lg bg-opacity-70 bg-gray-50 border-8 border-white gap-3 rounded-2xl grid md:grid-cols-2 grid-cols-1"
         >
-          <div class="w-full grid sm:grid-cols-4 grid-cols-2 items-center">
+          <div class="w-full grid md:grid-cols-4 grid-cols-2 items-center">
             <div class="relative w-full">
               <button
-                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                class="w-full hover:bg-white rounded-md py-3 p-1 text-sm duration-300 ease-in-out dropdown-toggle"
                 onclick="toggleDropdown(this)"
               >
                 FRAMEWORK
@@ -58,7 +58,7 @@
             </div>
             <div class="relative w-full">
               <button
-                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                class="w-full hover:bg-white rounded-md py-3 p-1 text-sm duration-300 ease-in-out dropdown-toggle"
                 onclick="toggleDropdown(this)"
               >
                 DEMOS
@@ -78,7 +78,7 @@
             </div>
             <div class="relative w-full">
               <button
-                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                class="w-full hover:bg-white rounded-md py-3 p-1 text-sm duration-300 ease-in-out dropdown-toggle"
                 onclick="toggleDropdown(this)"
               >
                 RESOURCES
@@ -98,7 +98,7 @@
             </div>
             <div class="relative w-full">
               <button
-                class="w-full hover:bg-slate-300 rounded-md py-3 p-1 duration-300 ease-in-out dropdown-toggle"
+                class="md:w-fit md:ml-2 hover:bg-white rounded-md py-3 p-1 text-sm duration-300 ease-in-out dropdown-toggle"
                 onclick="toggleDropdown(this)"
               >
                 DOCUMENTATION
@@ -118,7 +118,7 @@
             </div>
           </div>
           <div
-            class="w-full flex items-center sm:justify-end justify-center gap-2"
+            class="w-full flex items-center md:justify-end justify-center gap-2"
           >
             <button
               class="sm:w-1/6 w-full text-sm rounded-md flex items-center justify-center hover:bg-slate-900 hover:text-white duration-500 ease-in-out py-3"
