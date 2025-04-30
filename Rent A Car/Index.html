@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rent A car</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -40,8 +40,10 @@
         class="w-full h-10 p-2 mt-1 border border-slate-300 focus:outline-none rounded-md"
       />
       <div class="flex items-center justify-start gap-1 mt-3">
-        <input type="checkbox" name="" id="" class="w-5 h-5" />
-        <p class="text-sm">Deliver the car somewhere else</p>
+        <input type="checkbox" name="deliver" id="deliver" class="w-5 h-5" />
+        <label for="deliver" class="text-sm">
+          Deliver the car somewhere else</label
+        >
       </div>
       <div class="grid sm:grid-cols-2 grid-cols-1 mt-5 gap-2">
         <div class="space-y-4 w-full flex flex-col justify-start">
@@ -131,9 +133,8 @@
       </div>
 
       <div class="flex items-center justify-start gap-1 mt-3">
-        <input type="checkbox" name="" id="" class="w-5 h-5" />
-        <p class="text-sm">The driver's age is between 30 and 65?</p>
-        <p>
+        <input type="checkbox" name="age" id="age" class="w-5 h-5" />
+        <label for="age" class="text-sm">The driver's age is between 30 and 65?</label>
           <i class="fa-solid fa-circle-info hover:bg-blue-500 duration-200"></i>
         </p>
       </div>
@@ -149,7 +150,7 @@
           <i class="fa-solid fa-check"></i> Price Match Guarantee
         </p>
       </div>
-      <button class="w-full bg-orange-500 text-white mt-5 py-6 rounded-3xl">
+      <button class="w-full bg-orange-500 text-white mt-5 py-4 rounded-xl">
         Search
       </button>
     </div>
