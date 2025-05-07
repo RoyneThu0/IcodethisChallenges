@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help Center 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-5 md:mt-0 justify-center"
+  >
+    <div
+      class="w-11/12 max-w-3xl p-10 flex flex-col items-center justify-center"
+    >
+      <div class="w-3/5 bg-white p-3 flex flex-col items-center justify-center">
+        <p class="font-semibold text-xl">How can we help you?</p>
+        <div class="w-full mt-7 flex items-center justify-center shadow-xl">
+          <p>
+            <i class="fa-solid fa-magnifying-glass pl-3 text-slate-400"></i>
+          </p>
+          <input
+            type="text"
+            name=" issue"
+            id="issue"
+            class="pl-3 py-3 w-full focus:outline-none"
+            placeholder=" Describe your issue"
+          />
+        </div>
+        <ul class="w-full mt-5 flex flex-col items-start justify-start">
+          <li
+            class="w-full flex items-center justify-between border-b-2 border-slate-200 py-3 px-2 hover:bg-slate-100 hover:shadow-lg"
+          >
+            <p class="pl-2 text-sm text-slate-500">Popular articles</p>
+            <i class="fa-solid fa-chevron-down text-slate-300"></i>
+          </li>
+          <li
+            class="w-full flex items-center justify-between border-b-2 border-slate-200 py-3 px-2 hover:bg-slate-100 hover:shadow-lg"
+          >
+            <p class="pl-2 text-sm text-slate-500">
+              Fix problems & request removals
+            </p>
+            <i class="fa-solid fa-chevron-down text-slate-300"></i>
+          </li>
+          <li
+            class="w-full flex items-center justify-between border-b-2 border-slate-200 py-3 px-2 hover:bg-slate-100 hover:shadow-lg"
+          >
+            <p class="pl-2 text-sm text-slate-500">Browse the web</p>
+            <i class="fa-solid fa-chevron-down text-slate-300"></i>
+          </li>
+          <li
+            class="w-full flex items-center justify-between py-3 px-2 hover:bg-slate-100 hover:shadow-lg"
+          >
+            <p class="pl-2 text-sm text-slate-500">
+              Search on your phone or tablet
+            </p>
+            <i class="fa-solid fa-chevron-down text-slate-300"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="w-full mt-10 grid md:grid-cols-3 grid-cols-1 gap-5">
+        <div
+          class="flex flex-col w-full bg-white shadow-2xl hover:scale-110 duration-300 hover:shadow-2xl rounded-lg"
+        >
+          <img
+            class="h-28 object-cover rounded-t-lg shadow-lg"
+            src="https://s3.eu-west-2.amazonaws.com/sr-acf-craft/v2/images/_1920x1080_crop_center-center_line/The-Tallest-Mountains-in-the-World.jpg"
+            alt=""
+          />
+          <p class="w-full text-center py-3 text-sm">A friend indeed</p>
+        </div>
+        <div
+          class="flex flex-col w-full bg-white shadow-2xl hover:scale-110 duration-300 hover:shadow-2xl rounded-lg"
+        >
+          <img
+            class="h-28 object-cover rounded-t-lg shadow-lg"
+            src="https://live-production.wcms.abc-cdn.net.au/1258c6dc5260f47d0d8e5810ecdbe98f?impolicy=wcms_crop_resize&cropH=1672&cropW=2974&xPos=0&yPos=342&width=862&height=485"
+            alt=""
+          />
+          <p class="w-full text-center py-3 text-sm">A friend indeed</p>
+        </div>
+        <div
+          class="flex flex-col w-full bg-white shadow-2xl hover:scale-110 duration-300 hover:shadow-2xl rounded-lg"
+        >
+          <img
+            class="h-28 object-cover rounded-t-lg shadow-lg"
+            src="https://dsk4t6ov5vq8n.cloudfront.net/uploads/PBS-Articles/2022/The-Green-Planet/Episode-4-photos/Sized-photos/_1200x630_crop_center-center_82_none/The_Green_Planet_04_004.jpg?mtime=1657053687"
+            alt=""
+          />
+          <p class="w-full text-center py-3 text-sm">Return of the Ridleys</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
