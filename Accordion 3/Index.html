@@ -13,7 +13,12 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="w-screen h-screen bg-slate-200 flex items-center justify-center">
+  <body
+    class="w-screen h-screen bg-slate-200 flex md:items-center items-start justify-center bgcover bg-cover bg-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1646060542093-615e5ae90626?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdoaXRlJTIwc2lsa3xlbnwwfHwwfHx8MA%3D%3D);
+    "
+  >
     <div
       class="w-11/12 max-w-lg bg-white p-10 rounded-lg shadow-lg shadow-slate-400 flex flex-col"
     >
@@ -25,9 +30,10 @@
         The accordion is a graphical control element comprising a vertically
         stacked list of items such as labels or thumbnails.
       </p>
+
       <div class="relative mb-3 mt-3">
         <button
-          class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+          class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
           data-collapse-target="collapse-1"
         >
           <i
@@ -36,13 +42,12 @@
           <i
             class="absolute mx-3 left-0 pt-1 text-lg opacity-0 fa fa-minus group-open:opacity-100"
           ></i>
-
           <span class="mx-8">Why this term?</span>
         </button>
 
         <div
-          data-collapse="collapse-1"
-          class="h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          id="collapse-1"
+          class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
         >
           <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
             We're not always in the position that we want to be at. We're
@@ -51,9 +56,10 @@
           </p>
         </div>
       </div>
+
       <div class="relative mb-3 mt-3">
         <button
-          class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+          class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
           data-collapse-target="collapse-2"
         >
           <i
@@ -62,13 +68,12 @@
           <i
             class="absolute mx-3 left-0 pt-1 text-lg opacity-0 fa fa-minus group-open:opacity-100"
           ></i>
-
           <span class="mx-8">When to use accordion components?</span>
         </button>
 
         <div
-          data-collapse="collapse-2"
-          class="h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          id="collapse-2"
+          class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
         >
           <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
             We're not always in the position that we want to be at. We're
@@ -79,7 +84,7 @@
       </div>
       <div class="relative mb-3 mt-3">
         <button
-          class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+          class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
           data-collapse-target="collapse-3"
         >
           <i
@@ -93,8 +98,8 @@
         </button>
 
         <div
-          data-collapse="collapse-3"
-          class="h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          id="collapse-3"
+          class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
         >
           <div class="flex flex-col">
             <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
@@ -114,7 +119,7 @@
       </div>
       <div class="relative mb-3 mt-3">
         <button
-          class="relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+          class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
           data-collapse-target="collapse-4"
         >
           <i
@@ -128,8 +133,8 @@
         </button>
 
         <div
-          data-collapse="collapse-4"
-          class="h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          id="collapse-4"
+          class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
         >
           <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
             We're not always in the position that we want to be at. We're
@@ -140,5 +145,29 @@
       </div>
     </div>
     <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
+    <script>
+      const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+      accordionHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+          const targetId = header.getAttribute("data-collapse-target");
+          const content = document.getElementById(targetId);
+
+          document
+            .querySelectorAll(".accordion-content")
+            .forEach((otherContent) => {
+              if (otherContent !== content) {
+                otherContent.style.height = "0px";
+              }
+            });
+
+          if (content.style.height === "0px" || !content.style.height) {
+            content.style.height = content.scrollHeight + "px";
+          } else {
+            content.style.height = "0px";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
