@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact card</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @keyframes slideDown {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(120px);
+        }
+      }
+      .slide-down {
+        animation: slideDown 2s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="w-screen h-screen bg-gray-50 flex items-center justify-center">
+    <div
+      class="w-11/12 max-w-2xl h-fit bg-white p-20 rounded-lg flex items-start justify-center"
+    >
+      <div
+        class="w-full relative z-0 max-w-sm bg-gradient-to-br from-sky-400 via-indigo-400 to-purple-500 p-10 rounded-lg flex items-center justify-center flex-col"
+      >
+        <p class="text-white text-xl">Hi George</p>
+        <p class="w-full text-slate-200 text-sm mt-4 mb-10 text-center">
+          You can contact us whenever you need help <br />
+          or just curious about something
+        </p>
+        <div
+          class="slide-down absolute w-9/12 rounded-lg duration-300 translate-y-20 z-10 p-10 bg-white shadow-2xl flex items-center justify-start flex-col"
+        >
+          <p class="w-full text-center text-lg font-semibold">Start chatting</p>
+          <img
+            class="w-16 h-16 rounded-full mt-4 border-2 border-transparent hover:scale-110 duration-300 hover:border-purple-500"
+            src="https://i.pinimg.com/280x280_RS/ce/d9/41/ced941bcd0ce9038a808ffc60c018acd.jpg"
+            alt=""
+          />
+          <p class="mt-2 text-slate-600 text-">Essie Walton</p>
+          <p
+            class="text-slate-500 text-sm mt-2 border animate-pulse border-slate-200 px-2 rounded-full"
+          >
+            <i class="fa-solid fa-circle text-xs text-green-400"></i>
+            Active
+          </p>
+
+          <button
+            class="mt-6 text-sm bg-gradient-to-br from-sky-400 via-indigo-400 to-purple-500 py-2 px-4 rounded-md font-light text-white hover:scale-105 duration-300"
+          >
+            Send a message
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
