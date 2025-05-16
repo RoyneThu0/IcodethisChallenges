@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboards 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-gray-100 flex md:items-center items-start mt-10 md:mt-0 justify-center"
+  >
+    <div
+      class="w-11/12 max-w-3xl bg-white p-10 flex flex-col items-center justify-center rounded-xl shadow-lg"
+    >
+      <p class="w-full text-center text-3xl font-bold">Leaderboard</p>
+      <div
+        class="w-fit bg-slate-200 flex items-center justify-center gap-2 rounded-full px-2 py-2 shadow-inner shadow-slate-400 mt-5"
+      >
+        <label
+          for="30"
+          class="has-checked:bg-white has-checked:shadow-md shadow-slate-400 rounded-full px-3 py-1"
+        >
+          <input
+            type="radio"
+            name="timeframe"
+            id="30"
+            class="peer hidden"
+            checked
+          />
+          <p class="text-sm">Last 30 days</p>
+        </label>
+        <label
+          for="all-time"
+          class="has-checked:bg-white has-checked:shadow-md duration-300 shadow-slate-400 rounded-full px-3 py-1"
+        >
+          <input
+            type="radio"
+            name="timeframe"
+            id="all-time"
+            class="peer hidden"
+          />
+          <p class="text-sm">All time</p>
+        </label>
+      </div>
+      <div class="w-full flex flex-col mt-10 space-y-3">
+        <div
+          class="md:grid-cols-2 grid-cols-1 sm:flex grid items-center justify-between gap-10 rounded-lg p-2 hover:shadow-inner hover:shadow-slate-300 hover:bg-slate-100 duration-300"
+        >
+          <div class="flex w-full items-center justify-center">
+            <div
+              class="md:w-fit shrink-0 border border-slate-300 py-2 px-2 rounded-full flex items-center justify-between gap-7"
+            >
+              <p class="text-4xl font-semibold ml-2">1</p>
+              <img
+                class="w-16 h-16 rounded-full"
+                src="https://i.pinimg.com/originals/73/be/f3/73bef3c9b9548048bbb891e6917df6a9.jpg"
+                alt=""
+              />
+            </div>
+            <div class="md:w-2/3 flex flex-col items-start pl-5">
+              <p class="text-xl font-bold">Cheryl Correa</p>
+              <p class="text-xs text-slate-500">6.23M views</p>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-center justify-center grid-cols-3 gap-5"
+          >
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://c02.purpledshub.com/uploads/sites/40/2023/08/JI230816Cosmos220-6d9254f-edited-scaled.jpg?w=1029&webp=1"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://hips.hearstapps.com/hmg-prod/images/dahlia-1508785047.jpg?crop=1.00xw:0.669xh;0,0.0136xh&resize=980:*"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt5f18c2119ce26485/6668df65db90945e0caf9be6/beautiful-flowers-lotus.jpg?q=70&width=3840&auto=webp"
+              alt=""
+            />
+          </div>
+        </div>
+        <div
+          class="md:grid-cols-2 grid-cols-1 sm:flex grid items-center justify-between gap-10 rounded-lg p-2 hover:shadow-inner hover:shadow-slate-300 hover:bg-slate-100 duration-300"
+        >
+          <div class="flex w-full items-center justify-center">
+            <div
+              class="md:w-fit shrink-0 border border-slate-300 py-2 px-2 rounded-full flex items-center justify-between gap-7"
+            >
+              <p class="text-4xl font-semibold ml-2">2</p>
+              <img
+                class="w-16 h-16 rounded-full"
+                src="https://eurowoman.net/wp-content/uploads/2023/10/DEW_russian-2-1024x1024.jpg"
+                alt=""
+              />
+            </div>
+            <div class="md:w-2/3 flex flex-col items-start pl-5">
+              <p class="text-xl text-nowrap font-bold">Tamika Walker</p>
+              <p class="text-xs text-slate-500">5.1M views</p>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-center justify-center grid-cols-3 gap-5"
+          >
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://www.biogone.com.au/wp-content/uploads/2022/09/Hay-Bale-Net_230524.jpg"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://media.istockphoto.com/id/153403254/photo/golden-sunset-over-farm-field.jpg?s=612x612&w=0&k=20&c=bPIVYASdrhoUR5RFqGGM0J2bh_r09Vb4yMdAgqfVIyQ="
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Xhd_q_lu0wTdTtjreBzCuYJ68ys21wP2jg&s"
+              alt=""
+            />
+          </div>
+        </div>
+        <div
+          class="md:grid-cols-2 grid-cols-1 sm:flex grid items-center justify-between gap-10 rounded-lg p-2 hover:shadow-inner hover:shadow-slate-300 hover:bg-slate-100 duration-300"
+        >
+          <div class="flex w-full items-center justify-center">
+            <div
+              class="md:w-fit shrink-0 border border-slate-300 py-2 px-2 rounded-full flex items-center justify-between gap-7"
+            >
+              <p class="text-4xl font-semibold ml-2">3</p>
+              <img
+                class="w-16 h-16 rounded-full"
+                src="https://i.pinimg.com/736x/68/35/7d/68357d7fe62963e5cbff03bb8bbd019a.jpg"
+                alt=""
+              />
+            </div>
+            <div class="md:w-2/3 flex flex-col items-start pl-5">
+              <p class="text-xl text-nowrap font-bold">Judith Earnhardt</p>
+              <p class="text-xs text-slate-500">4.78M views</p>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-center justify-center grid-cols-3 gap-5"
+          >
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://i.etsystatic.com/18454800/r/il/894854/4457426470/il_1080xN.4457426470_61fg.jpg"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://images.unsplash.com/photo-1561742727-314a43434d6c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JleSUyMGZsb3dlcnxlbnwwfHwwfHx8MA%3D%3D"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://m.media-amazon.com/images/I/81cVRTNMD0L.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div
+          class="md:grid-cols-2 grid-cols-1 sm:flex grid items-center justify-between gap-10 rounded-lg p-2 hover:shadow-inner hover:shadow-slate-300 hover:bg-slate-100 duration-300"
+        >
+          <div class="flex w-full items-center justify-center">
+            <div
+              class="md:w-fit shrink-0 border border-slate-300 py-2 px-2 rounded-full flex items-center justify-between gap-7"
+            >
+              <p class="text-4xl font-semibold ml-2">4</p>
+              <img
+                class="w-16 h-16 rounded-full"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJTIwcHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                alt=""
+              />
+            </div>
+            <div class="md:w-2/3 flex flex-col items-start pl-5">
+              <p class="text-xl font-bold">Edward Pickett</p>
+              <p class="text-xs text-slate-500">4.23M views</p>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-center justify-center grid-cols-3 gap-5"
+          >
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://masterpiecer-images.s3.yandex.net/92e2b552805d11eebc064659bdca6a39:upscaled"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjuyiyBcoYYhKRB5GYvY7a4AmhiW_7btvT_Q&s"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://www.flowerstationdubai.com/cdn/shop/files/500redroses.jpg?v=1720945325"
+              alt=""
+            />
+          </div>
+        </div>
+        <div
+          class="md:grid-cols-2 grid-cols-1 sm:flex grid items-center justify-between gap-10 rounded-lg p-2 hover:shadow-inner hover:shadow-slate-300 hover:bg-slate-100 duration-300"
+        >
+          <div class="flex w-full items-center justify-center">
+            <div
+              class="md:w-fit shrink-0 border border-slate-300 py-2 px-2 rounded-full flex items-center justify-between gap-7"
+            >
+              <p class="text-4xl font-semibold ml-2">5</p>
+              <img
+                class="w-16 h-16 rounded-full"
+                src="https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg"
+                alt=""
+              />
+            </div>
+            <div class="md:w-2/3 flex flex-col items-start pl-5">
+              <p class="text-xl font-bold">Shawn Hanna</p>
+              <p class="text-xs text-slate-500">4.19M views</p>
+            </div>
+          </div>
+          <div
+            class="w-full flex items-center justify-center grid-cols-3 gap-5"
+          >
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://img.pixers.pics/pho_wat(s3:700/FO/38/73/04/75/700_FO38730475_e0de770d33f66dcf8659e8c016e5396d.jpg,684,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,464,650,jpg)/wall-murals-green-marble-texture-background-high-resolution.jpg.jpg"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://ffab.com/cdn/shop/products/65403-702.jpg?v=1675680401&width=2000"
+              alt=""
+            />
+            <img
+              class="md:w-20 h-20 rounded-lg hover:scale-105 duration-300 hover:shadow-lg"
+              src="https://cdn11.bigcommerce.com/s-yrkef1j7/images/stencil/1280x1280/products/34987/153702/Image_20230809011159__93266.1691568796.jpg?c=2"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
