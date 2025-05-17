@@ -15,9 +15,7 @@
     />
   </head>
   <body class="w-screen h-screen flex items-center bg-[#14132d] justify-center">
-    <div
-      class="w-11/12 max-w-2xl bg-slate-500 [#1b1939] rounded-lg flex flex-col"
-    >
+    <div class="w-11/12 max-w-2xl bg-[#1b1939] rounded-lg flex flex-col">
       <div class="w-full flex items-start justify-end">
         <i
           class="fa-solid fa-xmark text-xl hover:bg-[#221d48] duration-300 text-white p-4"
@@ -34,7 +32,12 @@
         </p>
         <ul class="mt-4 w-full flex flex-col gap-2">
           <li class="flex items-start justify-start gap-2">
-            <input type="checkbox" name="vid" id="vid" class="w-5 h-5 mt-1" />
+            <input
+              type="checkbox"
+              name="vid"
+              id="vid"
+              class="w-5 h-5 mt-1 accent-indigo-700"
+            />
 
             <label for="vid" class="flex flex-col">
               <p class="text-slate-200">Video Problem</p>
@@ -49,7 +52,7 @@
               type="checkbox"
               name="sound"
               id="sound"
-              class="w-5 h-5 mt-1"
+              class="w-5 h-5 mt-1 accent-indigo-700"
             />
             <label for="sound" class="flex flex-col">
               <p class="text-slate-200">Sound</p>
@@ -59,7 +62,12 @@
             </label>
           </li>
           <li class="flex items-start justify-start gap-2">
-            <input type="checkbox" name="sub" id="sub" class="w-5 h-5 mt-1" />
+            <input
+              type="checkbox"
+              name="sub"
+              id="sub"
+              class="w-5 h-5 mt-1 accent-indigo-700"
+            />
             <label for="sub" class="flex flex-col">
               <p class="text-slate-200">Subtitles</p>
               <p class="text-slate-100 text-xs">
@@ -69,7 +77,23 @@
             </label>
           </li>
         </ul>
-        <div class="mt-7 flex flex-col"></div>
+        <div class="mt-7 flex flex-col">
+          <p class="text-slate-200">It’s something else</p>
+          <textarea
+            name="other"
+            id="other"
+            class="mt-2 p-2 md:w-2/3 w-full rounded-md bg-[#14132d] placeholder:text-slate-400 text-sm resize-none focus:outline-none"
+            placeholder="Let us know what’s going on"
+            rows="4"
+          ></textarea>
+        </div>
+        <div class="w-full flex justify-center md:justify-start mt-4 pb-10">
+          <button
+            class="px-9 py-3 text-sm rounded-md bg-orange-500/80 hover:bg-yellow-500/80 text-slate-800"
+          >
+            Submit Report
+          </button>
+        </div>
       </div>
     </div>
   </body>
