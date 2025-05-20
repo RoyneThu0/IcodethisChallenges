@@ -12,13 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      .large-checkbox {
-        width: 20px;
-        height: 20px;
-        transform: scale(1.5);
-      }
-    </style>
+ 
   </head>
   <body class="w-screen h-screen bg-slate-100 flex items-center justify-center">
     <div
@@ -29,26 +23,25 @@
         Subscribe to keep up with fresh news and exciting updates
       </p>
       <p>We promise not to spam you!</p>
-      <div class="flex items-center justify-center w-full mt-7 space-x-4">
+      <div class="sm:flex grid md:grid-cols-2 grid-cols-1 items-center justify-center w-full mt-7 gap-2">
         <input
           type="text"
           name=""
           id="email"
-          class="border border-slate-300 py-4 px-2 pr-20"
+          class="border border-slate-300 w-full py-4 px-2 pr-20"
           placeholder="Enter your email address"
         />
         <button
-          class="py-4 bg-sky-500 text-white px-10 shadow-lg shadow-sky-400 rounded-md hover:bg-blue-600 active:bg-purple-400"
+          class="py-4 bg-sky-500 text-white w-full md:w-1/3 shadow-lg shadow-sky-400 rounded-md hover:bg-blue-600 active:bg-purple-400"
         >
           SEND<i class="fa-solid fa-arrow-right mx-2"></i>
         </button>
       </div>
-      <div class="flex items-center justify-start px-28 w-full mt-5 space-x-2">
-        <input type="checkbox" name="" class="large-checkbox" id="" />
-        <p>
-          I agree to my email address being stored and <br />
-          used to recieve the monthly newsletter
-        </p>
+      <div class="flex items-center md:justify-start justify-center  w-full mt-5 space-x-2">
+        <input type="checkbox" name="check" id="check" class="w-9 h-9 " />
+        <label for="check" class="ml-2 w-full">     I agree to my email address being stored and <br />
+          used to recieve the monthly newsletter</label>
+     
       </div>
     </div>
   </body>
