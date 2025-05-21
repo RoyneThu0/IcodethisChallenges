@@ -22,26 +22,29 @@
         height: 100%;
         margin: 0;
       }
+
       body {
         display: flex;
         flex-direction: column;
       }
+
       #your-element-selector {
         flex-grow: 1;
       }
     </style>
   </head>
+
   <body id="your-element-selector" class="flex items-center justify-center">
     <div class="w-full flex justify-center">
       <p
-        class="text-[250px] xs:text-[250px] font-bold font-sans opacity-60 text-blue-600"
+        class="text-[100px] md:text-[250px] font-bold font-sans opacity-60 text-blue-600"
       >
         404
       </p>
     </div>
     <div>
-      <span class="text-center text-slate-600"
-        >The link you clicked may be broken or the
+      <span class="text-center flex-wrap text-slate-600"
+        >Oops, The link you clicked may be broken or the
         <p>page may have been removed</p>
       </span>
       <span class="flex justify-center w-full mt-6 text-nowrap text-slate-600"
