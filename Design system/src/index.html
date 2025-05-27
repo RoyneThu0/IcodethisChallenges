@@ -15,7 +15,9 @@
       referrerpolicy="noreferrer"
     />
   </head>
-  <body class="w-screen h-screen flex items-start md:items-center mt-10 md:mt-0 bg-slate-100 justify-center">
+  <body
+    class="w-screen h-screen flex items-start md:items-center mt-10 md:mt-0 bg-slate-100 justify-center"
+  >
     <div
       class="w-11/12 max-w-2xl bg-white p-10 rounded-lg shadow-xl grid md:grid-cols-2 grid-cols-1 items-start gap-4"
     >
@@ -65,85 +67,115 @@
           <h1 class="text-xl">Page header</h1>
           <h2 class="text-slate-600 mt-3">Section header</h2>
           <p class="text-slate-500 text-sm mt-5 w-full">
-            Default text example vehicula risus integer 
-            mollis ut fringilla, torquent ligula 
-            venenatis autem scelerisque suspendisse,
-            pellentesque nullam, mauris accumsan, 
-            tempor dictumst consectetur a. Duis penatibus.
+            Default text example vehicula risus integer mollis ut fringilla,
+            torquent ligula venenatis autem scelerisque suspendisse,
+            pellentesque nullam, mauris accumsan, tempor dictumst consectetur a.
+            Duis penatibus.
             <span class="text-blue-400 cursor-pointer">Link example</span>
+          </p>
 
-            <p class="text-xs mt-3 text-slate-400">Venenatis autem scelerisque suspendisse, tempor dictumst consectetur a, Duis penatibus. <br>
-               <span class="text-blue-400 cursor-pointer underline">Hovered link example</span></p>
+          <p class="text-xs mt-3 text-slate-400">
+            Venenatis autem scelerisque suspendisse, tempor dictumst consectetur
+            a, Duis penatibus. <br />
+            <span class="text-blue-400 cursor-pointer underline"
+              >Hovered link example</span
+            >
           </p>
         </div>
       </div>
-      <div class="w-full ">
+      <div class="w-full">
         <div class="w-full space-y-3">
-            <div class="grid grid-cols-3 gap-3">
-              <button
-                class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
-              >
-               Secondary
-              </button>
-              <button
-                class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
-              >
-              Secondary<i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
-              </button>
-              <p class="text-xs py-3 italic text-slate-300">DEFAULT</p>
-            </div>
-            <div class="grid grid-cols-3 gap-3">
-              <button
-                class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
-              >
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
+            >
               Secondary
-              </button>
-              <button
-                class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
-              >
+            </button>
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
+            >
+              Secondary<i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <p class="text-xs py-3 italic text-slate-300">DEFAULT</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
+            >
+              Secondary
+            </button>
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-blue-400 text-blue-400 hover:text-white rounded hover:bg-blue-600"
+            >
               Secondary <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
-              </button>
-              <p class="text-xs py-3 italic text-slate-300">HOVER</p>
-            </div>
-            <div class="grid grid-cols-3 gap-3">
-              <button
-                class="flex w-full items-center justify-center text-xs py-3 border border-slate-300 text-slate-300  hover:text-white rounded hover:bg-blue-600"
-              >
-                Secondary
-              </button>
-              <button
-                class="flex w-full items-center justify-center text-xs py-3 border border-slate-300 text-slate-300 hover:text-white rounded hover:bg-blue-600"
-              >
+            </button>
+            <p class="text-xs py-3 italic text-slate-300">HOVER</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-slate-300 text-slate-300 hover:text-white rounded hover:bg-blue-600"
+            >
+              Secondary
+            </button>
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-slate-300 text-slate-300 hover:text-white rounded hover:bg-blue-600"
+            >
               Secondary <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
-              </button>
-              <p class="text-xs py-3 italic text-slate-300">DISABLED</p>
+            </button>
+            <p class="text-xs py-3 italic text-slate-300">DISABLED</p>
+          </div>
+        </div>
+
+        <div class="w-full mt-8">
+          <p class="text-sm text-start text-slate-500">BADGES</p>
+          <div class="grid grid-cols-3 gap-3 mt-2">
+            <p
+              class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-blue-400 rounded-full"
+            >
+              Default
+              <span
+                class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0"
+                >4</span
+              >
+            </p>
+            <p
+              class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-green-400 rounded-full"
+            >
+              Positive
+              <span
+                class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0"
+                >2</span
+              >
+            </p>
+            <p
+              class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-red-400 rounded-full"
+            >
+              Negative
+              <span
+                class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0"
+                >9</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="mt-5 w-full">
+          <p class="text-sm text-start text-slate-500">CARD</p>
+
+          <div class="w-full p-5 shadow-lg mt-2 rounded-lg">
+            <div class="w-full flex items-center justify-between">
+              <h1 class="text-xl">Card Title</h1>
+              <i
+                class="fa-solid fa-star text-slate-400 hover:text-yellow-400 duration-200"
+              ></i>
             </div>
-          </div>
+            <p class="text-slate-500 text-sm mt-3">
+              auris accumsan, venenatis autem scelerisque suspendisse, tempor
+              dictumst consectetur a. Duis penatibus.
+            </p>
 
-          <div class="w-full mt-8">
-            <p class="text-sm text-start text-slate-500 ">BADGES</p>
-            <div class="grid grid-cols-3 gap-3 mt-2">
-              <p class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-blue-400 rounded-full">Default <span class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0">4</span></p>
-              <p class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-green-400 rounded-full">Positive <span class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0">2</span></p>
-              <p class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-red-400 rounded-full">Negative <span class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0">9</span></p>
-            </div>
+            <p class="mt-2 text-sm text-blue-400 cursor-pointer">Link</p>
           </div>
-          <div class="mt-5 w-full">
-            <p class="text-sm text-start text-slate-500 ">CARD</p>
-
-            <div class="w-full p-5 shadow-lg mt-2 rounded-lg">
-          <div class="w-full flex items-center justify-between">
-            <h1 class="text-xl">Card Title</h1>
-            <i class="fa-solid fa-star text-slate-400 hover:text-yellow-400 duration-200"></i>
-          </div>
-                <p class="text-slate-500 text-sm mt-3">
-                    auris accumsan, venenatis autem scelerisque suspendisse, tempor dictumst consectetur a. Duis penatibus.
-
-                </p>
-
-                <p class="mt-2 text-sm text-blue-400 cursor-pointer">Link</p>
-            </div>
-          </div>
+        </div>
       </div>
     </div>
   </body>
