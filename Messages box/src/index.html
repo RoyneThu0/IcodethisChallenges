@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Message</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start md:mt-0 mt-5 justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3QlMjBibHVlfGVufDB8fDB8fHww);
+    "
+  >
+    <div
+      class="w-11/12 max-w-md bg-gray-50/90 p-5 rounded-lg flex-col relative"
+    >
+      <div
+        class="absolute right-8 bottom-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-400 duration-200 active:bg-blue-700 z-10"
+      >
+        <img
+          class="object-cover"
+          src="https://png.pngtree.com/png-clipart/20210311/original/pngtree-quill-gradient-feather-clip-art-png-image_5975913.png"
+          alt=""
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <p class="text-xl font-sans font-semibold">Messages</p>
+        <i
+          class="fa-solid fa-gear text-3xl hover:text-blue-500 duration-200 active:text-purple-400"
+        ></i>
+      </div>
+      <div class="border-b mt-5 border-blue-200"></div>
+      <div class="mt-5 w-full flex items-center relative">
+        <i
+          class="fa-solid fa-magnifying-glass text-xl absolute text-blue-400 ml-3"
+        ></i>
+
+        <input
+          type="text"
+          name=""
+          class="bg-slate-100 focus:outline-none w-full py-4 px-5 rounded-md pl-10"
+          id=""
+          placeholder="Search"
+        />
+      </div>
+
+      <div
+        class="flex flex-col items-center mt-3 justify-center w-full space-y-2"
+      >
+        <div
+          class="flex items-center justify-between w-full hover:bg-white hover:shadow-lg hover:-translate-y-2 duration-300 p-2 rounded-lg"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-16 w-16 rounded-full"
+              src="https://www.ibanet.org/MediaHandler?id=60e01a8d-3959-47de-ae33-850409978aae"
+              alt=""
+            />
+            <div class="mx-4">
+              <p class="font-semibold text-sm">Violet Webb</p>
+              <p class="text-sm">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-between w-full hover:bg-white hover:shadow-lg hover:-translate-y-2 duration-300 p-2 rounded-lg"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-16 w-16 rounded-full"
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJTIwcHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+              alt=""
+            />
+            <div class="mx-4">
+              <p class="font-semibold text-sm">Correy burns</p>
+              <p class="text-sm">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-between w-full hover:bg-white hover:shadow-lg hover:-translate-y-2 duration-300 p-2 rounded-lg"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-16 w-16 rounded-full"
+              src="https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg="
+              alt=""
+            />
+            <div class="mx-4">
+              <p class="font-semibold text-sm">Charlie Aguilar</p>
+              <p class="text-sm">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-between w-full z-0 hover:bg-white hover:shadow-lg hover:-translate-y-2 duration-300 p-2 rounded-lg"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-16 w-16 rounded-full"
+              src="https://womanate.com/wp-content/uploads/2023/07/wate_russian13.jpg"
+              alt=""
+            />
+            <div class="mx-4 w-full">
+              <p class="font-semibold text-sm">Florence Hardy</p>
+              <p class="text-sm">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
