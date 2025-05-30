@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Placed</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-[#161f3a]">
+    <div
+      class="w-11/12 max-w-lg p-10 shadow-inner shadow-slate-950 bg-[#111930] flex flex-col"
+    >
+      <p
+        class="text-green-300/80 text-xs px-2 py-1 bg-slate-800 w-fit rounded-full border border-green-300/20 hover:border-green-600 transition-all duration-300 hover:-translate-y-1"
+      >
+        ORDER SUCCESSFULLY PLACED
+      </p>
+
+      <p class="mt-5 text-slate-400 text-xs">
+        Thank you for your order, you will receive it in
+        <span class="text-green-300 p-1 ml-1 animate-pulse bg-slate-600/70"
+          >45 minutes</span
+        >
+      </p>
+
+      <div class="w-full flex bg-slate-500/10 p-5 mt-5 flex-col">
+        <p class="text-slate-400 text-xs">Here we will deliver your order.</p>
+        <p class="mt-5 text-sm text-slate-400">
+          <i class="fa-solid fa-location-dot mr-2"></i>3711 Schultz Meadow
+        </p>
+        <p class="mt-5 text-sm text-slate-400">
+          <i class="fa-solid fa-phone mr-2"></i>60640582
+        </p>
+        <p class="mt-5 text-sm text-slate-400">
+          <i class="fa-solid fa-envelope mr-2"></i>gorczany.tamara@yahoo.com
+        </p>
+      </div>
+      <div class="w-full flex bg-slate-500/10 p-5 mt-5 flex-col">
+        <p class="text-sm text-slate-400">
+          <i class="fa-solid fa-message mr-2"></i>"No mushrooms, please"
+        </p>
+      </div>
+      <p class="mt-5 text-xs text-slate-400">
+        The payment of $17,95€ you'll make when the courier <br />
+        arrives with your order.
+      </p>
+    </div>
+  </body>
+</html>
