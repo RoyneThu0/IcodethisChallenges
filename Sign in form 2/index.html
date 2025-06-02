@@ -13,56 +13,72 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="w-screen h-screen bg-blue-500 flex items-center justify-center">
+  <body
+    class="w-screen h-screen bg-blue-500/40 flex items-center justify-center"
+  >
     <div
-      class="w-11/12 max-w-6xl bg-white rounded-lg pt-20 flex items-center justify-center flex-col"
+      class="w-11/12 max-w-4xl bg-white rounded-lg pt-20 flex items-center justify-center flex-col"
     >
       <p class="w-full text-center text-xl">Sign in to your Account</p>
 
-      <div class="flex flex-col w-1/3 items-start justify-start mt-5">
-        <label for="email w-full text-start">Username or Email</label>
+      <div
+        class="flex flex-col md:w-1/3 w-full px-5 items-start justify-start mt-10"
+      >
+        <label for="email" class="w-full text-xs font-semibold text-start"
+          >Username or Email</label
+        >
         <input
           type="email"
-          class="border border-slate-500 p-2 w-full"
+          class="border border-slate-300 focus:outline-none rounded-md p-2 w-full"
           name=""
           id="email"
         />
       </div>
 
-      <div class="flex flex-col w-1/3 items-start justify-start mt-5">
+      <div
+        class="flex flex-col md:w-1/3 w-full px-5 text-xs font-semibold items-start justify-start mt-3"
+      >
         <label for="password" class="w-full">Password</label>
         <input
           type="password"
-          class="border border-slate-500 p-2 w-full"
+          class="border border-slate-300 focus:outline-none rounded-md p-3 w-full"
           name=""
           id="password"
         />
       </div>
-      <div class="w-1/3 flex mt-2 items-center justify-between">
+      <div class="md:w-1/3 w-full p-5 flex mt-3 items-center justify-between">
         <div class="flex items-center justify-start">
           <input type="checkbox" name="" id="" />
-          <p class="ml-1">Remember me</p>
+          <p class="ml-1 text-sm">Remember me</p>
         </div>
-        <p class="text-blue-500 italic cursor-pointer text-sm">
+        <p class="text-blue-500 italic cursor-pointer text-xs">
           Forgot Password?
         </p>
       </div>
       <button
-        class="w-1/3 bg-blue-500 text-white p-2 rounded-lg mt-5"
+        class="md:w-1/3 w-full mx-2 bg-blue-500 text-white py-3 rounded-lg mt-5"
         type="submit"
       >
         Sign In
       </button>
-      <p class="mt-5">
+      <p class="mt-5 text-slate-500 text-sm">
         Don't have an account? <a href="#" class="text-blue-500">Sign Up</a>
       </p>
-      <div class="mt-20 mb-10 flex items-center justify-between w-2/4 gap-0">
+      <div
+        class="mt-20 mb-5 grid md:grid-cols-4 grid-cols-2 items-center justify-center w-3/4 gap-2"
+      >
         <p class="w-full text-nowrap text-sm text-slate-600">
           Terms of service
         </p>
-        <p class="w-full text-nowrap text-sm text-slate-600">Privacy Policy</p>
-        <p class="w-full text-nowrap text-sm text-slate-600">Classic</p>
-        <p class="w-full text-nowrap text-sm text-slate-600">@2019myBrand</p>
+        <p class="w-full text-nowrap text-center text-xs text-slate-600">
+          Privacy Policy
+        </p>
+        <p class="w-full text-nowrap text-center text-xs text-slate-600">
+          Classic
+        </p>
+        <p class="w-full text-nowrap text-center text-xs text-slate-600">
+          @2019myBrand
+        </p>
       </div>
     </div>
   </body>
