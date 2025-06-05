@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscription Popup</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-cover bg-center flex items-center justify-center"
+    style="
+      background-image: url(https://videocdn.cdnpk.net/videos/3f9654fe-a874-581f-8c6d-77ecf9e54fa8/horizontal/thumbnails/small.jpg);
+    "
+  >
+    <div
+      class="relative w-11/12 max-w-xl bg-gray-500/40 p-10 flex flex-col items-center rounded-lg shadow-lg overflow-hidden"
+    >
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg "
+        class="absolute -top-40 -left-56 -rotate-100 w-[500px] h-[500px]"
+      >
+        <path
+          fill="#927ff7"
+          d="M25.5,-32.8C35,-28.3,46,-23.4,47.5,-16.1C49,-8.7,41.2,1,39.9,15.4C38.6,29.8,43.9,48.8,38.4,59.3C32.8,69.8,16.4,71.9,6.6,62.7C-3.1,53.6,-6.3,33.2,-11.2,22.5C-16.2,11.8,-23,10.8,-34.7,4.3C-46.4,-2.2,-63,-14,-64.7,-24.8C-66.4,-35.7,-53.3,-45.5,-40,-48.8C-26.8,-52.1,-13.4,-48.9,-2.7,-45.2C8,-41.5,16.1,-37.3,25.5,-32.8Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg "
+        class="absolute -top-44 -left-56 -rotate-102 w-[500px] h-[500px]"
+      >
+        <path
+          fill="#97a9fb"
+          d="M25.5,-32.8C35,-28.3,46,-23.4,47.5,-16.1C49,-8.7,41.2,1,39.9,15.4C38.6,29.8,43.9,48.8,38.4,59.3C32.8,69.8,16.4,71.9,6.6,62.7C-3.1,53.6,-6.3,33.2,-11.2,22.5C-16.2,11.8,-23,10.8,-34.7,4.3C-46.4,-2.2,-63,-14,-64.7,-24.8C-66.4,-35.7,-53.3,-45.5,-40,-48.8C-26.8,-52.1,-13.4,-48.9,-2.7,-45.2C8,-41.5,16.1,-37.3,25.5,-32.8Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg "
+        class="absolute -top-48 -left-60 -rotate-108 w-[500px] h-[500px]"
+      >
+        <path
+          fill="#9cd9ea"
+          d="M25.5,-32.8C35,-28.3,46,-23.4,47.5,-16.1C49,-8.7,41.2,1,39.9,15.4C38.6,29.8,43.9,48.8,38.4,59.3C32.8,69.8,16.4,71.9,6.6,62.7C-3.1,53.6,-6.3,33.2,-11.2,22.5C-16.2,11.8,-23,10.8,-34.7,4.3C-46.4,-2.2,-63,-14,-64.7,-24.8C-66.4,-35.7,-53.3,-45.5,-40,-48.8C-26.8,-52.1,-13.4,-48.9,-2.7,-45.2C8,-41.5,16.1,-37.3,25.5,-32.8Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      <!-- svglower -->
+
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute -bottom-48 -right-52 rotate-75 w-[500px] h-[500px]"
+      >
+        <path
+          fill="#927FF7"
+          d="M37.7,-52.4C43.1,-48.1,37.5,-29.2,35.6,-16C33.7,-2.9,35.5,4.6,32.3,9.3C29.2,14,21,15.8,14.8,21.7C8.5,27.6,4.3,37.5,-1.5,39.5C-7.2,41.5,-14.4,35.6,-17.4,28.7C-20.4,21.7,-19.3,13.8,-31.4,3.8C-43.5,-6.2,-68.8,-18.4,-73.5,-30.1C-78.3,-41.8,-62.4,-53,-46.8,-53.9C-31.1,-54.9,-15.5,-45.6,0.3,-46C16.2,-46.5,32.4,-56.7,37.7,-52.4Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute -bottom-48 -right-54 rotate-78 w-[500px] h-[500px]"
+      >
+        <path
+          fill="#94aafb"
+          d="M37.7,-52.4C43.1,-48.1,37.5,-29.2,35.6,-16C33.7,-2.9,35.5,4.6,32.3,9.3C29.2,14,21,15.8,14.8,21.7C8.5,27.6,4.3,37.5,-1.5,39.5C-7.2,41.5,-14.4,35.6,-17.4,28.7C-20.4,21.7,-19.3,13.8,-31.4,3.8C-43.5,-6.2,-68.8,-18.4,-73.5,-30.1C-78.3,-41.8,-62.4,-53,-46.8,-53.9C-31.1,-54.9,-15.5,-45.6,0.3,-46C16.2,-46.5,32.4,-56.7,37.7,-52.4Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute -bottom-48 -right-60 rotate-78 w-[500px] h-[500px]"
+      >
+        <path
+          fill="#9fd9eb"
+          d="M37.7,-52.4C43.1,-48.1,37.5,-29.2,35.6,-16C33.7,-2.9,35.5,4.6,32.3,9.3C29.2,14,21,15.8,14.8,21.7C8.5,27.6,4.3,37.5,-1.5,39.5C-7.2,41.5,-14.4,35.6,-17.4,28.7C-20.4,21.7,-19.3,13.8,-31.4,3.8C-43.5,-6.2,-68.8,-18.4,-73.5,-30.1C-78.3,-41.8,-62.4,-53,-46.8,-53.9C-31.1,-54.9,-15.5,-45.6,0.3,-46C16.2,-46.5,32.4,-56.7,37.7,-52.4Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      <div class="w-full flex justify-end">
+        <i
+          class="fas fa-xmark text-xl text-gray-400 hover:text-gray-600 cursor-pointer"
+        ></i>
+      </div>
+      <p class="text-xl text-gray-200 z-10 font-semibold text-center mt-5">
+        Syncing your contacts is the <br />
+        fastest way to grow your network
+      </p>
+
+      <p class="text-center z-10 text-xs text-slate-400 mt-2 w-2/3">
+        We’ll periodically import and store your contacts to suggest connections
+        and show you relevant updates. You control who you connect to, and you
+        can manage your contacts anytime.
+      </p>
+      <div
+        class="w-3/5 z-10 mt-5 mb-10 md:flex grid md:grid-cols-2 grid-cols-1items-center justify-center rounded-lg"
+      >
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          class="border border-gray-300 h-full text-sm w-full py-4 px-2 text-white rounded-lg rounded-b-none md:rounded-r-none md:rounded-lg focus:outline-none"
+        />
+        <button
+          class="bg-[#927efa] hover:bg-[#77b7cb] py-4 rounded-lg rounded-t-none text-sm md:rounded-l-none md:rounded-lg text-white md:w-1/3 w-full"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
