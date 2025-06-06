@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video player 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center w-screen h-screen">
+    <div class="bg-white rounded-xl shadow-lg max-w-4xl w-11/12">
+      <div class="relative">
+        <video
+          src="https://myflixerz.to/watch-tv/rick-and-morty-39480.4867501"
+          class="w-full rounded-t-xl object-cover"
+        ></video>
+      </div>
+
+      <div class="px-6 py-4 flex flex-col space-y-4">
+        <div class="flex items-center space-x-4">
+          <div class="flex space-x-4 text-indigo-900">
+            <button>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11 19l-7-7 7-7v14zm2-14v14l7-7-7-7z" />
+              </svg>
+            </button>
+            <button>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+            <button>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 6h4v12H6zm8 0h4v12h-4z" />
+              </svg>
+            </button>
+            <button>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="flex-1 flex items-center space-x-2">
+            <div class="w-full bg-gray-300 rounded-full h-2">
+              <div
+                class="bg-orange-400 h-2 rounded-full"
+                style="width: 60%"
+              ></div>
+            </div>
+            <span class="text-sm text-gray-700">45:32:53</span>
+          </div>
+
+          <!-- Volume + Fullscreen -->
+          <div class="flex items-center space-x-3">
+            <button>
+              <svg
+                class="w-5 h-5 text-indigo-900"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 9v6h4l5 5V4l-5 5H5z" />
+              </svg>
+            </button>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              class="w-20 accent-indigo-600"
+            />
+            <button>
+              <svg
+                class="w-5 h-5 text-indigo-900"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 14h2v3h3v2H7v-5zm0-4h2V7h3V5H7v5zm10 4h-2v3h-3v2h5v-5zm0-4h-2V7h-3V5h5v5z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
