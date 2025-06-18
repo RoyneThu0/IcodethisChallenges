@@ -1,169 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feedback Widgets</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
-    <style>
-      input[type="radio"]:checked + span {
-        background-color: #08449e;
-        color: white;
-        border-radius: 0.5rem; /* Tailwind's rounded-lg */
-        display: inline-block;
-        width: 2.5rem; /* Tailwind's w-10 */
-        height: 2.5rem; /* Tailwind's h-10 */
-        line-height: 2.5rem; /* Center text vertically */
-        text-align: center; /* Center text horizontally */
-      }
-        .selected {
-    color: #0868f7;
-  }
-    </style>
-  </head>
-  <body class="w-screen h-screen bg-slate-300 flex items-center justify-center">
-    <div
-      id="main"
-      class="w-11/12 max-w-lg bg-slate-200 p-10 rounded-xl shadow-slate-600 shadow-xl flex flex-col items-center justify-center"
-    >
-      <i class="fa-solid fa-xmark w-full text-end text-2xl hover:text-sky-600 active:text-purple-500"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Widgets</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-      <p
-        class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4"
-      >
-        1. How likely are you to answer this question?
-      </p>
-      <div class="w-full mt-5 flex space-x-2">
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+  <style>
+    input[type="radio"]:checked+span {
+      background-color: #08449e;
+      color: white;
+      border-radius: 0.5rem;
+      /* Tailwind's rounded-lg */
+      display: inline-block;
+      width: 2.5rem;
+      /* Tailwind's w-10 */
+      height: 2.5rem;
+      /* Tailwind's h-10 */
+      line-height: 2.5rem;
+      /* Center text vertically */
+      text-align: center;
+      /* Center text horizontally */
+    }
+
+    .selected {
+      background-color: #08449e;
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="w-screen h-screen bg-slate-100 flex items-center justify-center">
+  <div id="main"
+    class="w-11/12 max-w-lg bg-white p-10 rounded-xl shadow-slate-300 shadow-xl flex flex-col items-center justify-center">
+    <i class="fa-solid fa-xmark w-full text-end text-2xl hover:text-sky-600 active:text-purple-500"></i>
+
+    <p class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4">
+      1. How likely are you to answer this question?
+    </p>
+    <div class="w-full mt-5 flex space-x-2">
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="0" class="hidden" />
             <span>0</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="1" class="hidden" />
             <span>1</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="2" class="hidden" />
             <span>2</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="3" class="hidden" />
             <span>3</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="4" class="hidden" />
             <span>4</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="5" class="hidden" />
             <span>5</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="6" class="hidden" />
             <span>6</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="7" class="hidden" />
             <span>7</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="8" class="hidden" />
             <span>8</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="9" class="hidden" />
             <span>9</span>
           </label>
-        </div>
       </div>
-      <div class="flex items-center justify-between w-full mt-3">
-        <p class="text-sm text-slate-600">Not likely at all</p>
-        <p class="text-sm text-slate-600">Extremely likely</p>
-      </div>
+    </div>
+    <div class="flex items-center justify-between w-full mt-3">
+      <p class="text-sm text-slate-600">Not likely at all</p>
+      <p class="text-sm text-slate-600">Extremely likely</p>
+    </div>
 
-      <div class="mt-14 w-full flex justify-between">
-        <button class="text-sm hover:text-sky-700">Skip</button>
-        <button
+    <div class="mt-14 w-full flex justify-between">
+      <button class="text-sm hover:text-sky-700">Skip</button>
+      <button
           id="submitBtn"
           class="px-4 bg-blue-600 text-white rounded-md text-sm py-1 hover:bg-blue-900 active:bg-purple-500"
         >
           Submit
         </button>
-      </div>
     </div>
-    <div
-      id="Rate"
-      class="hidden w-11/12 max-w-lg bg-slate-200 p-10 rounded-xl shadow-slate-600 shadow-xl flex-col items-center justify-center"
-    >
-      <button
+  </div>
+  <div id="Rate"
+    class="hidden w-11/12 max-w-lg bg-white p-10 rounded-xl shadow-slate-300 shadow-xl flex-col items-center justify-center">
+    <button
         id="backBtn"
         class="fa-solid fa-xmark w-full text-end text-2xl hover:text-sky-600 active:text-purple-500"
       ></button>
-      <p
-        class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4"
-      >
-        2. How do you rate our services?
-      </p>
- <div id="emoti" class="w-full flex-col mt-10">
-<div class="w-full flex items-center justify-center space-x-4 ">    <label>
+    <p class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4">
+      2. How do you rate our services?
+    </p>
+    <div id="emoti" class="w-full flex-col mt-10">
+      <div class="w-full flex items-center justify-center space-x-4 "> <label>
       <input type="radio" name="rate" value="bad" class="hidden focus:outline-none" />
-      <i class="text-8xl fa-solid hover:text-blue-900 fa-face-frown "></i>
+<p class="text-5xl p-5 border border-blue-400 rounded-lg">😔</p>
     </label>
-    <label>
+        <label>
       <input type="radio" name="rate" value="meh" class="hidden" />
-      <i class="text-8xl fa-solid hover:text-yellow-500 fa-face-meh "></i>
+      <p class="text-5xl p-5 border border-blue-400 rounded-lg">😕</p>
     </label>
-    <label>
+        <label>
       <input type="radio" name="rate" value="good" class="hidden" />
-      <i class="text-8xl fa-solid hover:text-green-500 fa-face-laugh-beam "></i>
-    </label></div>
+      <p class="text-5xl p-5 border border-blue-400 rounded-lg">😁</p>
+    </label>
+      </div>
       <div class="mt-14 w-full flex justify-between">
         <button class="text-sm hover:text-sky-700">Skip</button>
         <button
@@ -173,38 +161,36 @@
           Submit
         </button>
       </div>
-   </div>
-     </div>
     </div>
+  </div>
+  </div>
 
-    <div id="improve" class="hidden w-11/12 max-w-lg bg-slate-200 p-10 rounded-xl shadow-slate-600 shadow-xl flex-col items-center justify-center">
-   <button
+  <div id="improve"
+    class="hidden w-11/12 max-w-lg bg-white p-10 rounded-xl shadow-slate-300 shadow-xl flex-col items-center justify-center">
+    <button
         id="backBtn2"
         class="fa-solid fa-xmark w-full text-end text-2xl hover:text-sky-600 active:text-purple-500"
       ></button>
-      <p
-        class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4"
-      >
-        3. How Likely are you to use our services again?
-      </p>
- <div id="emoti" class="w-full flex-col mt-5">
-<div class="w-full flex items-center justify-center space-x-4 ">    <label>
+    <p class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4">
+      3. How Likely are you to use our services again?
+    </p>
+    <div id="emoti" class="w-full flex-col mt-5">
+      <div class="w-full flex items-center justify-center space-x-4 "> <label>
       <input type="radio" name="rate" value="bad" class="hidden" />
-      <i class="text-5xl fa-solid hover:text-blue-900 fa-face-frown "></i>
+<p class="text-5xl p-5 border border-blue-400 rounded-lg">😔</p>
     </label>
-    <label>
+        <label>
       <input type="radio" name="rate" value="meh" class="hidden" />
-      <i class="text-5xl fa-solid hover:text-yellow-500 fa-face-meh "></i>
+      <p class="text-5xl p-5 border border-blue-400 rounded-lg">😕</p>
     </label>
-    <label>
+        <label>
       <input type="radio" name="rate" value="good" class="hidden" />
-      <i class="text-5xl fa-solid hover:text-green-500 fa-face-laugh-beam "></i>
-    </label></div>
+      <p class="text-5xl p-5 border border-blue-400 rounded-lg">😁</p>
+    </label>
+      </div>
 
-  <p
-        class="w-full text-start font-sans font-semibold text-xl text-wrap mt-4"
-      >
-    How can we improve?
+      <p class="w-full text-start font-sans font-semibold text-xl text-wrap mt-4">
+        How can we improve?
       </p>
       <input type="text" name="" id="" placeholder="Write your message here" class="w-full pb-10 p-4 bg-slate-200 border border-slate-700">
       <div class="mt-14 w-full flex justify-between">
@@ -216,140 +202,125 @@
           Submit
         </button>
       </div>
-   </div>
     </div>
+  </div>
 
-      <div
-      id="reco"
-      class="hidden w-11/12 max-w-lg bg-slate-200 py-5 px-10 rounded-xl shadow-slate-600 shadow-xl  flex-col items-center justify-center"
-    >
-      <button
+  <div id="reco"
+    class="hidden w-11/12 max-w-lg bg-white py-5 px-10 rounded-xl shadow-slate-300 shadow-xl  flex-col items-center justify-center">
+    <button
         id="backBtn3"
         class="fa-solid fa-xmark w-full text-end text-2xl hover:text-sky-600 active:text-purple-500"
       ></button>
 
-      <p
-        class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4"
-      >
-        4. Would you reccomend us?
-      </p>
-      <div class="w-full mt-5 flex space-x-2">
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-       
-          <label>
+    <p class="w-full text-center font-sans font-semibold text-xl text-wrap mt-4">
+      4. Would you reccomend us?
+    </p>
+    <div class="w-full mt-5 flex space-x-2">
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+
+        <label>
             <input type="radio" name="number" value="0" class="hidden" />
             <span>0</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="1" class="hidden" />
             <span>1</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="2" class="hidden" />
             <span>2</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="3" class="hidden" />
             <span>3</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="4" class="hidden" />
             <span>4</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="5" class="hidden" />
             <span>5</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="6" class="hidden" />
             <span>6</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="7" class="hidden" />
             <span>7</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="8" class="hidden" />
             <span>8</span>
           </label>
-        </div>
-        <div
-          class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center"
-        >
-          <label>
+      </div>
+      <div
+        class="w-10 h-10 text-xl cursor-pointer rounded-lg border text-slate-900 hover:text-white hover:bg-sky-500 border-slate-400 flex items-center justify-center">
+        <label>
             <input type="radio" name="number" value="9" class="hidden focus:outline-none"  />
             <span>9</span>
           </label>
-        </div>
       </div>
-      <div class="flex items-center justify-between w-full mt-3">
-        <p class="text-sm text-slate-600">Not likely at all</p>
-        <p class="text-sm text-slate-600">Extremely likely</p>
-      </div>
- <p
-        class="w-full text-start font-sans font-semibold text-xl text-wrap mt-4"
-      >
-    How can we improve?
-      </p>
-      <input type="text" name="" id="" placeholder="Write your message here" class="w-full pb-10 p-4 bg-slate-200 border border-slate-700">
-      <div class="mt-6 w-full flex justify-between">
-        <button class="text-sm hover:text-sky-700">Skip</button>
-        <button
+    </div>
+    <div class="flex items-center justify-between w-full mt-3">
+      <p class="text-sm text-slate-600">Not likely at all</p>
+      <p class="text-sm text-slate-600">Extremely likely</p>
+    </div>
+    <p class="w-full text-start font-sans font-semibold text-xl text-wrap mt-4">
+      How can we improve?
+    </p>
+    <input type="text" name="" id="" placeholder="Write your message here" class="w-full pb-10 p-4 bg-slate-200 border border-slate-700">
+    <div class="mt-6 w-full flex justify-between">
+      <button class="text-sm hover:text-sky-700">Skip</button>
+      <button
           id="submitBtn4"
           class="px-4 bg-blue-600 text-white rounded-md text-sm py-1  hover:bg-blue-900 active:bg-purple-500"
         >
           Submit
         </button>
-      </div>
     </div>
+  </div>
 
-    <div id="thanks"       class=" hidden w-11/12 max-w-lg bg-slate-200 py-10 px-10 rounded-xl shadow-slate-600 shadow-xl  flex-col items-center justify-center"
-> <button
+  <div id="thanks"
+    class=" hidden w-11/12 max-w-lg bg-white py-10 px-10 rounded-xl shadow-slate-300 shadow-xl  flex-col items-center justify-center">
+    <button
         id="backBtn4"
         class="fa-solid fa-xmark w-full text-end text-2xl mb-12 hover:text-sky-600 active:text-purple-500"
       ></button>
     <div class="w-full px-20 ">
-        <p class="w-full text-center font-sans text-4xl text-wrap  ">Thanks for submitting your answers </p>
-        <p class="w-full text-center text-5xl mb-7">😁</p>
+      <p class="w-full text-center font-sans text-4xl text-wrap  ">Thanks for submitting your answers </p>
+      <p class="w-full text-center text-5xl mb-7">😁</p>
     </div>
-</div>
+  </div>
 
-    <script>
-      document
+  <script>
+    document
         .getElementById("submitBtn")
         .addEventListener("click", function () {
           document.getElementById("main").style.display = "none";
@@ -398,6 +369,7 @@
       }
     });
   });
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
