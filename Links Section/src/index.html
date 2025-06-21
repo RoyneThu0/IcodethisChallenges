@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Banking Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-md p-6 w-full max-w-6xl space-y-6">
+      <div class="flex w-full justify-between space-x-4">
+        <div class="flex bg-slate-100">
+          <button
+            class="px-4 py-2 bg-gray-100 text-gray-800 rounded-md font-medium"
+          >
+            Personal
+          </button>
+          <button
+            class="px-4 py-2 bg-white text-gray-600 rounded-md font-medium border"
+          >
+            Business
+          </button>
+        </div>
+        <div class="ml-auto">
+          <button class="text-gray-500 hover:text-gray-700">✕</button>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-6 text-sm text-gray-700"
+      >
+        <div>
+          <h3 class="text-gray-500 font-semibold mb-2 uppercase text-xs">
+            Financing
+          </h3>
+          <ul class="space-y-1">
+            <li>Loans</li>
+            <li>Overdraft facilities</li>
+            <li>Bank guaranties</li>
+            <li>Leasing</li>
+            <li>Factoring</li>
+            <li>Trade Solutions</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-gray-500 font-semibold mb-2 uppercase text-xs">
+            Savings and Investments
+          </h3>
+          <ul class="space-y-1">
+            <li>Saving accounts</li>
+            <li>Asset Management</li>
+            <li>Commercial paper</li>
+            <li>Equities</li>
+            <li>Investment Products</li>
+            <li>Cash Management</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-gray-500 font-semibold mb-2 uppercase text-xs">
+            Transaction Banking
+          </h3>
+          <ul class="space-y-1">
+            <li>Corporate app</li>
+            <li>Internet banking</li>
+            <li>Mobile banking</li>
+            <li>Alert services</li>
+            <li>Accounts</li>
+            <li>Cards</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-gray-500 font-semibold mb-2 uppercase text-xs">
+            Markets
+          </h3>
+          <ul class="space-y-1">
+            <li>Market Reports</li>
+            <li>Equity rates</li>
+            <li>Commodities</li>
+            <li>Equities</li>
+            <li>Foreign Exchange</li>
+            <li>Investment products</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="text-gray-600 font-medium text-sm mb-4">
+          CALCULATORS AND TOOLS
+        </h4>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm"
+        >
+          <div
+            class="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm"
+          >
+            <div class="text-blue-500 text-lg">₿</div>
+            <div>Currency converter</div>
+          </div>
+          <div
+            class="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm"
+          >
+            <div class="text-pink-500 text-lg">⌚</div>
+            <div>Hourly Rate Converter</div>
+          </div>
+          <div
+            class="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm"
+          >
+            <div class="text-rose-500 text-lg">🌐</div>
+            <div>International trade</div>
+          </div>
+          <div
+            class="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm"
+          >
+            <div class="text-green-500 text-lg">🧮</div>
+            <div>IBAN calculator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
