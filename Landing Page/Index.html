@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body
-    class="w-screen h-screen flex flex-col bg-gradient-to-b from-orange-600 from-70% to-pink-400 p-10"
-  >
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<link href="./output.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="noreferrer" />
+</head>
+
+<body class="w-screen h-screen flex flex-col bg-gradient-to-b from-orange-600 from-70% to-pink-400 sm:p-10">
     <div class="relative w-full bg-white">
-      <nav
-        class="absolute z-50 top-0 w-full bg-white bg-opacity-90 p-5 sm:flex grid md:grid-cols-2 grid-cols-1 items-center justify-between"
-      >
-        <div
-          class="sm:w-1/2 w-full rounded-lg flex items-center justify-center"
-        >
-          <div class="relative w-full justify-start inline-block text-left">
-            <div
-              class="w-full flex items-center sm:justify-start justify-center space-x-3"
-            >
-              <button
+        <nav
+            class="absolute z-50 top-0 w-full bg-white bg-opacity-90 p-5 sm:flex grid md:grid-cols-2 grid-cols-1 items-center justify-between rounded-lg">
+            <div class="sm:w-1/2 w-full rounded-lg flex items-center justify-center">
+                <div class="relative w-full justify-start inline-block text-left">
+                    <div class="w-full flex items-center sm:justify-start justify-center space-x-3">
+                        <button
                 type="button"
                 class="inline-flex w-fit text-black items-center justify-center gap-x-1.5 rounded-lg px-3 py-4 text-sm font-semibold shadow-sm hover:text-black hover:bg-gray-50"
                 id="menu-button"
@@ -37,58 +30,29 @@
                 Products
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
-              <p
-                class="text-sm text-slate-500 cursor-pointer hover:text-slate-900"
-              >
-                Collections
-              </p>
-              <p
-                class="text-sm text-slate-500 cursor-pointer hover:text-slate-900"
-              >
-                Gifts
-              </p>
-              <p
-                class="text-sm text-slate-500 cursor-pointer hover:text-slate-900"
-              >
-                Our Magazine
-              </p>
-            </div>
+                        <p class="text-sm text-slate-500 cursor-pointer hover:text-slate-900">
+                            Collections
+                        </p>
+                        <p class="text-sm text-slate-500 cursor-pointer hover:text-slate-900">
+                            Gifts
+                        </p>
+                        <p class="text-sm text-slate-500 cursor-pointer hover:text-slate-900">
+                            Our Magazine
+                        </p>
+                    </div>
 
-            <div
-              id="dropdown-menu"
-              class="hidden absolute left-10 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="menu-button"
-              tabindex="-1"
-            >
-              <div class="py-1" role="none">
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0"
-                  >Account settings</a
-                >
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-1"
-                  >Support</a
-                >
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-2"
-                  >License</a
-                >
-                <form method="POST" action="#" role="none">
-                  <button
+                    <div id="dropdown-menu"
+                        class="hidden absolute left-10 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div class="py-1" role="none">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="menu-item-0">Account settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="menu-item-1">Support</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="menu-item-2">License</a>
+                            <form method="POST" action="#" role="none">
+                                <button
                     type="submit"
                     class="block w-full px-4 py-2 text-left text-sm text-gray-700"
                     role="menuitem"
@@ -97,116 +61,102 @@
                   >
                     Sign out
                   </button>
-                </form>
-              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div
-          class="flex w-full items-center sm:justify-end justify-center gap-2"
-        >
-          <p>
-            <i
+            <div class="flex w-full items-center sm:justify-end mt-5 md:mt-0 justify-center gap-2">
+                <p>
+                    <i
               class="fa-solid fa-magnifying-glass text-xl text-slate-500 hover:text-slate-900 cursor-pointer mr-2"
             ></i>
-          </p>
-          <p
-            class="border-slate-800 border text-sm text-black px-5 py-3 rounded-xl hover:bg-white hover:text-slate-800 duration-500 ease-in-out hover:-translate-y-3 active:bg-pink-400"
-          >
-            Login<i class="fa-solid fa-wand-sparkles ml-2"></i>
-          </p>
+                </p>
+                <p
+                    class="border-slate-800 border text-sm text-black px-5 py-3 rounded-xl hover:bg-white hover:text-slate-800 duration-500 ease-in-out hover:-translate-y-3 active:bg-pink-400">
+                    Login<i class="fa-solid fa-wand-sparkles ml-2"></i>
+                </p>
 
-          <p
-            class="border-slate-800 border text-sm text-black px-5 py-3 rounded-xl hover:text-white hover:bg-orange-500 duration-500 ease-in-out hover:-translate-y-3 active:bg-pink-400"
-          >
-            Sign Up<i class="fa-solid fa-user-plus ml-2"></i>
-          </p>
-        </div>
-      </nav>
-      <div
-        class="w-full h-[500px] bg-cover bg-center flex items-center justify-center"
-        style="
+                <p
+                    class="border-slate-800 border text-sm text-black px-5 py-3 rounded-xl hover:text-white hover:bg-orange-500 duration-500 ease-in-out hover:-translate-y-3 active:bg-pink-400">
+                    Sign Up<i class="fa-solid fa-user-plus ml-2"></i>
+                </p>
+            </div>
+        </nav>
+        <div class="w-full h-[500px] bg-cover bg-center flex items-center justify-center" style="
           background-image: url(https://richtexturescrochet.com/wp-content/uploads/2023/12/473DC358-3B44-4200-B50C-60C9EE1BCAC0_1_201_a-1024x683.jpeg);
-        "
-      >
-        <div
-          class="w-11/12 max-w-2xl p-10 bg-indigo-900 bg-opacity-50 mt-20 backdrop-blur-xs flex flex-col rounded-md"
-        >
-          <p class="w-full text-center font-semibold text-4xl text-white">
-            The gift of happiness
-          </p>
-          <p class="w-full text-center text-white mt-8">
-            Show your gratitude with one of our gift sets large and small,
-            specially designed to show joy to someone you love
-          </p>
+        ">
+            <div
+                class="w-11/12 max-w-2xl p-10 bg-indigo-900 bg-opacity-50 mt-20 backdrop-blur-xs flex flex-col rounded-md">
+                <p class="w-full text-center font-semibold text-4xl text-white">
+                    The gift of happiness
+                </p>
+                <p class="w-full text-center text-white mt-8">
+                    Show your gratitude with one of our gift sets large and small,
+                    specially designed to show joy to someone you love
+                </p>
 
-          <div class="w-full flex items-center justify-center mt-5">
-            <button
+                <div class="w-full flex items-center justify-center mt-5">
+                    <button
               class="bg-gradient-to-r from-pink-400 to-orange-500 px-4 rounded-full py-2 text-sm text-white"
             >
               SHOP NOW
             </button>
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div
-        class="w-full grid md:grid-cols-2 grid-cols-1 sm:flex gap-10 items-center justify-center p-10"
-      >
-        <div
-          class="w-full sm:w-1/3 flex bg-slate-300 flex-col items-center justify-center rounded-md"
-        >
-          <p class="w-2/3 pt-10 text-center font-semibold text-3xl font-serif">
-            Ready for Autumn collection
-          </p>
-          <p class="w-2/3 text-center mt-5">
-            Treat yourself to some of our brand new autumn collection - all with
-            the wonderful colors surrounding you.
-          </p>
-          <div class="w-1/2 flex justify-center mt-5">
-            <button
+        <div class="w-full grid md:grid-cols-2 grid-cols-1 sm:flex gap-10 items-center justify-center p-10">
+            <div class="w-full sm:w-1/3 flex bg-slate-100 flex-col items-center justify-center rounded-md">
+                <p class="w-2/3 pt-10 text-center font-semibold text-3xl font-serif">
+                    Ready for Autumn collection
+                </p>
+                <p class="w-2/3 text-center mt-5">
+                    Treat yourself to some of our brand new autumn collection - all with
+                    the wonderful colors surrounding you.
+                </p>
+                <div class="w-1/2 flex justify-center mt-5">
+                    <button
               class="border border-black hover:-translate-y-4 duration-500 ease-in-out hover:bg-orange-500 py-2 px-5 text-sm rounded-full"
             >
               PURCHASE NOW
             </button>
-          </div>
-          <div class="w-full flex">
-            <img
+                </div>
+                <div class="w-full flex">
+                    <img
               class="w-full mt-10 rounded-b-md"
               src="https://photography.roytanck.com/wp-content/uploads/2017/11/DSCF6464-2250x1500.jpg"
               alt=""
             />
-          </div>
-        </div>
-        <div
-          class="w-full sm:w-1/3 flex bg-slate-300 flex-col items-center justify-center rounded-md group"
-        >
-          <p class="w-2/3 pt-10 text-center font-semibold text-3xl font-serif">
-            Ready for Autumn collection
-          </p>
-          <p class="w-2/3 text-center mt-5">
-            Treat yourself to some of our brand new autumn collection - all with
-            the wonderful colors surrounding you.
-          </p>
-          <div class="w-1/2 flex justify-center mt-5">
-            <button
+                </div>
+            </div>
+            <div class="w-full sm:w-1/3 flex bg-slate-100 flex-col items-center justify-center rounded-md group">
+                <p class="w-2/3 pt-10 text-center font-semibold text-3xl font-serif">
+                    Ready for Autumn collection
+                </p>
+                <p class="w-2/3 text-center mt-5">
+                    Treat yourself to some of our brand new autumn collection - all with
+                    the wonderful colors surrounding you.
+                </p>
+                <div class="w-1/2 flex justify-center mt-5">
+                    <button
               class="border border-black hover:-translate-y-4 duration-500 ease-in-out hover:bg-orange-500 py-2 px-5 text-sm rounded-full"
             >
               PURCHASE NOW
             </button>
-          </div>
-          <div class="w-full flex">
-            <img
+                </div>
+                <div class="w-full flex">
+                    <img
               class="w-full mt-10 rounded-b-md"
               src="https://photography.roytanck.com/wp-content/uploads/2017/11/DSCF6464-2250x1500.jpg"
               alt=""
             />
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
         const menuButton = document.getElementById("menu-button");
         const dropdownMenu = document.getElementById("dropdown-menu");
 
@@ -229,5 +179,6 @@
         });
       });
     </script>
-  </body>
+</body>
+
 </html>
