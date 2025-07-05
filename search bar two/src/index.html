@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search with Filters</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <div class="relative w-full max-w-md">
+      <div class="flex shadow rounded-md overflow-hidden bg-white">
+        <button
+          id="toggleFilters"
+          class="px-4 text-gray-600 hover:text-gray-800 focus:outline-none"
+        >
+          <svg
+            id="arrowIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 transition-transform transform rotate-180"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 3a1 1 0 01.707.293l6 6a1 1 0 01-1.414 1.414L10 5.414 4.707 10.707a1 1 0 01-1.414-1.414l6-6A1 1 0 0110 3z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <input
+          type="text"
+          placeholder="Search"
+          class="flex-grow px-4 py-2 focus:outline-none"
+        />
+        <button
+          class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        id="filterPanel"
+        class="absolute left-0 w-full bg-white mt-2 shadow rounded-md p-4 space-y-2 hidden"
+      >
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" class="form-checkbox text-blue-500" />
+          <span class="text-gray-700">Articles</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" class="form-checkbox text-blue-500" checked />
+          <span class="text-gray-700">Products</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" class="form-checkbox text-blue-500" />
+          <span class="text-gray-700">Services</span>
+        </label>
+      </div>
+    </div>
+
+    <script>
+      const toggleBtn = document.getElementById("toggleFilters");
+      const filterPanel = document.getElementById("filterPanel");
+      const arrowIcon = document.getElementById("arrowIcon");
+
+      toggleBtn.addEventListener("click", () => {
+        filterPanel.classList.toggle("hidden");
+        arrowIcon.classList.toggle("rotate-180");
+      });
+    </script>
+  </body>
+</html>
