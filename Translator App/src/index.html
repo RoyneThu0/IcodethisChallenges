@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Translator app</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-[#0e0e23] text-white w-screen h-screen flex items-center justify-center p-4"
+  >
+    <div
+      id="uploadScreen"
+      class="w-full max-w-md p-6 bg-[#1a1a3d] rounded-lg shadow text-center"
+    >
+      <div class="border-2 border-dashed border-gray-600 p-6 rounded mb-4">
+        <p>Drag and Drop your .json file<br />OR</p>
+      </div>
+      <input
+        type="file"
+        id="fileInput"
+        accept="application/JSON"
+        class="hidden"
+      />
+      <button
+        onclick="document.getElementById('fileInput').click()"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      >
+        Select files to Upload
+      </button>
+    </div>
+
+    <div
+      id="invalidScreen"
+      class="hidden w-full max-w-md p-6 bg-[#1a1a3d] rounded-lg shadow text-center"
+    >
+      <p class="mb-4 text-red-400 font-semibold">Invalid JSON file provided.</p>
+      <p class="mb-4 text-sm">
+        Check if the selected file was a JSON file format or explain why a file
+        can be wrong.
+      </p>
+      <button
+        onclick="goBack()"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      >
+        Try Again
+      </button>
+    </div>
+
+    <div
+      id="validScreen"
+      class="hidden w-full max-w-md p-6 bg-[#1a1a3d] rounded-lg shadow text-center"
+    >
+      <p class="mb-4 text-green-400 font-semibold">Valid JSON file</p>
+      <p class="mb-4 text-sm">
+        Your source language will be detected automatically.
+      </p>
+      <select id="languageSelect" class="w-full mb-4 p-2 rounded text-black">
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="en">English</option>
+      </select>
+      <button
+        onclick="startTranslation()"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      >
+        Translate
+      </button>
+    </div>
+
+    <div
+      id="progressScreen"
+      class="hidden w-full max-w-md p-6 bg-[#1a1a3d] rounded-lg shadow text-center"
+    >
+      <p class="mb-4">Translation in progress...</p>
+      <div class="relative w-24 h-24 mx-auto">
+        <svg class="w-full h-full" viewBox="0 0 36 36">
+          <path
+            fill="none"
+            stroke="#2d3748"
+            stroke-width="4"
+            d="M18 2a16 16 0 100 32 16 16 0 000-32z"
+          />
+          <path
+            id="progressArc"
+            fill="none"
+            stroke="#3b82f6"
+            stroke-width="4"
+            stroke-linecap="round"
+            d="M18 2a16 16 0 0114.72 10.28"
+          />
+        </svg>
+        <div
+          class="absolute inset-0 flex items-center justify-center text-xl font-semibold"
+          id="progressText"
+        >
+          0%
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="successScreen"
+      class="hidden w-full max-w-md p-6 bg-[#1a1a3d] rounded-lg shadow text-center"
+    >
+      <p class="mb-4 text-green-400 font-semibold">Translation Successful!</p>
+      <p class="mb-4 text-sm">
+        Your file has been successfully translated to the selected language.
+      </p>
+      <button
+        class="bg-lime-500 hover:bg-lime-600 text-white px-4 py-2 rounded"
+      >
+        Save File
+      </button>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const progressText = document.getElementById("progressText");
+
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        const isValidJson = file && file.name.endsWith(".json");
+        document.getElementById("uploadScreen").classList.add("hidden");
+        document
+          .getElementById(isValidJson ? "validScreen" : "invalidScreen")
+          .classList.remove("hidden");
+      });
+
+      function goBack() {
+        document.getElementById("invalidScreen").classList.add("hidden");
+        document.getElementById("uploadScreen").classList.remove("hidden");
+      }
+
+      function startTranslation() {
+        document.getElementById("validScreen").classList.add("hidden");
+        document.getElementById("progressScreen").classList.remove("hidden");
+
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 4;
+          progressText.textContent = `${progress}%`;
+          if (progress >= 100) {
+            clearInterval(interval);
+            document.getElementById("progressScreen").classList.add("hidden");
+            document.getElementById("successScreen").classList.remove("hidden");
+          }
+        }, 100);
+      }
+    </script>
+  </body>
+</html>
