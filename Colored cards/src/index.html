@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colored cards</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-gray-300 flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://img.freepik.com/free-vector/bright-abstract-fluid-wallpaper_23-2148484412.jpg?semt=ais_hybrid&w=740);
+    "
+  >
+    <div
+      class="w-11/12 max-w-3xl rounded-lg shadow-2xl grid md:grid-cols-3 grid-cols-1"
+    >
+      <div
+        class="bg-[#8d7cfd] md:hover:scale-110 duration-300 ease-in-out md:rounded-l-lg rounded-t-lg sm:rounded-none p-10 flex flex-col justify-start"
+      >
+        <p class="text-xs text-gray-300">Featured</p>
+        <p class="text-white font-semibold text-xl">Challenge</p>
+        <p class="mt-2 text-sm text-gray-200">
+          Design an icon set with your favorite hobbies.
+        </p>
+        <div>
+          <button
+            class="mt-10 text-sm text-white font-semibold py-2 rounded-lg hover:text-blue-200 hover:underline"
+          >
+            View Details <i class="fa-solid fa-chevron-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-[#c679fe] md:hover:scale-110 duration-300 ease-in-out p-10 flex flex-col justify-start"
+      >
+        <p class="text-xs text-gray-300">Blog</p>
+        <p class="text-white font-semibold text-xl">Interviews</p>
+        <p class="mt-2 text-sm text-gray-200">
+          8 examples of interviews with people who traveled trough Europe.
+        </p>
+        <div>
+          <button
+            class="mt-6 text-sm text-white font-semibold py-2 rounded-lg hover:text-blue-200 hover:underline"
+          >
+            Read Post <i class="fa-solid fa-chevron-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-[#ff74bc] md:hover:scale-110 duration-300 ease-in-out md:rounded-r-lg rounded-b-lg sm:rounded-none p-10 flex flex-col justify-start"
+      >
+        <p class="text-xs text-gray-300">Daily</p>
+        <p class="text-white font-semibold text-xl">Practice</p>
+        <p class="mt-2 text-sm text-gray-200">
+          Generate daily exercices to improve your skills.
+        </p>
+        <div>
+          <button
+            class="mt-10 text-sm text-white font-semibold py-2 rounded-l hover:text-blue-200 hover:underline"
+          >
+            Generate exercise <i class="fa-solid fa-chevron-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
