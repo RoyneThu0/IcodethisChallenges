@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music app</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://c4.wallpaperflare.com/wallpaper/413/925/249/minimalism-abstract-pattern-digital-art-wallpaper-preview.jpg);
+    "
+  >
+    <div
+      class="w-11/12 max-w-sm py-5 px-3 bg-gray-800 rounded-lg flex flex-col relative"
+    >
+      <p class="text-gray-300 text-2xl font-semibold">Browse</p>
+      <ul
+        class="flex overflow-y-scroll gap-5 justify-start scrollbar-thumb-gray-600 scrollbar-track-gray-800"
+      >
+        <li
+          class="min-w-max p-2 hover:underline hover:text-gray-200 text-gray-500 rounded-lg"
+        >
+          New music
+        </li>
+        <li
+          class="min-w-max p-2 hover:underline hover:text-gray-200 text-gray-500 rounded-lg"
+        >
+          Playlists
+        </li>
+        <li
+          class="min-w-max p-2 hover:underline hover:text-gray-200 text-gray-500 rounded-lg"
+        >
+          Top Charts
+        </li>
+        <li
+          class="min-w-max p-2 hover:underline hover:text-gray-200 text-gray-500 rounded-lg"
+        >
+          Genres
+        </li>
+        <li
+          class="min-w-max p-2 hover:underline hover:text-gray-200 text-gray-500 rounded-lg"
+        >
+          Favourites
+        </li>
+      </ul>
+
+      <div
+        class="w-full mt-2 border-t flex overflow-scroll overflow-y-scroll border-gray-600 p-3"
+      >
+        <div
+          class="hover:bg-gray-600 duration-300 p-3 rounded-lg w-10/12 min-w-xs"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-gray-400">Molly Santana</p>
+            <p
+              class="text-xs border-2 text-gray-400 animate-pulse border-red-400 rounded-full py-1 px-2"
+            >
+              NEW ALBUM
+            </p>
+          </div>
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/6144d106ee0f834ae92b4f60/1714083207550-OF27Q5PX4AMCYB44AP19/Ready+for+some+new+tunes+to+burst+into+your+Friday+goals%3F+Look+no+further+than+hip-hop+artist+Molly+Santana+preparing+to+ignite+audio+flames+to+the+masses+courtesy+of+her+much-needed+self-titled+new+LP..jpg"
+            alt=""
+            class="w-full h-40 object-cover rounded-lg mt-3"
+          />
+        </div>
+        <div
+          class="hover:bg-gray-600 duration-300 p-3 rounded-lg w-10/12 min-w-xs"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-gray-400">Future</p>
+            <p
+              class="text-xs border-2 text-gray-400 animate-pulse border-red-400 rounded-full py-1 px-2"
+            >
+              NEW SONG
+            </p>
+          </div>
+          <img
+            src="https://i.pinimg.com/736x/70/cb/a8/70cba80c1a11d86ac8bd2a0e08a7fd04.jpg"
+            alt=""
+            class="w-full h-40 object-cover rounded-lg mt-3"
+          />
+        </div>
+        <div
+          class="hover:bg-gray-600 duration-300 p-3 rounded-lg w-10/12 min-w-xs"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-gray-400">Travis Scott</p>
+            <p
+              class="text-xs border-2 text-gray-400 animate-pulse border-red-400 rounded-full py-1 px-2"
+            >
+              TOP TRENDING
+            </p>
+          </div>
+          <img
+            src="https://www.chromethemer.com/download/hd-wallpapers/travis-scott-3840x2160.jpg"
+            alt=""
+            class="w-full h-40 object-cover rounded-lg mt-3"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col h-72 overflow-x-scroll">
+        <p class="text-gray-500 text-xl font-semibold">Hot Songs</p>
+        <ul>
+          <li
+            class="flex items-center hover:bg-gray-600 hover:-translate-y-2 duration-300 ease-in-out rounded-lg p-2 justify-between mt-2"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-gray-400 font-semibold">What did I miss</p>
+                <p class="text-gray-400 text-sm">Drake</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-red-400 text-2xl"></i>
+          </li>
+          <li
+            class="flex items-center hover:bg-gray-600 hover:-translate-y-2 duration-300 ease-in-out rounded-lg p-2 justify-between mt-2"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2736cfd9a7353f98f5165ea6160"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-gray-400 font-semibold">Mariah i'm drunk</p>
+                <p class="text-gray-400 text-sm">Travis Scott</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-red-400 text-2xl"></i>
+          </li>
+          <li
+            class="flex items-center hover:bg-gray-600 hover:-translate-y-2 duration-300 ease-in-out rounded-lg p-2 justify-between mt-2"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://media.pitchfork.com/photos/6647781e5e7496a0e98d7a9c/1:1/w_450%2Cc_limit/Ian-%2520Valedictorian.jpeg"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-gray-400 font-semibold">Magic Johnson</p>
+                <p class="text-gray-400 text-sm">Ian</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-red-400 text-2xl"></i>
+          </li>
+          <li
+            class="flex items-center hover:bg-gray-600 hover:-translate-y-2 duration-300 ease-in-out rounded-lg p-2 justify-between mt-2 mb-28"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://cdn-images.dzcdn.net/images/cover/6ded031c1b728f080b25ff9ca3643358/1900x1900-000000-80-0-0.jpg"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-gray-400 font-semibold">2 Rich</p>
+                <p class="text-gray-400 text-sm">Molly Santana</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-red-400 text-2xl"></i>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="flex flex-col items-center bg-gray-800 rounded-lg p-2 justify-between absolute bottom-0 left-3 right-3"
+      >
+        <div class="flex items-center justify-between w-full">
+          <div class="bg-gray-300 h-1 absolute bottom-36 left-3 right-3">
+            <div class="bg-orange-600 animate-pulse w-2/3 h-1"></div>
+          </div>
+          <div class="w-full flex items-center mx-auto gap-3">
+            <img
+              src="https://i.scdn.co/image/ab67616d00001e0299d858ce7de823cb7c88304f"
+              alt=""
+              class="w-16 h-16 object-cover rounded-full"
+            />
+            <div class="flex flex-col gap-0">
+              <p class="text-gray-400 font-semibold">Chain swangin</p>
+              <p class="text-gray-400 text-sm">Molly Santana</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fa-solid fa-pause text-3xl text-gray-400"></i>
+            <i class="fa-solid fa-play text-3xl text-gray-400"></i>
+          </div>
+        </div>
+
+        <ul
+          class="grid grid-cols-4 w-full items-center justify-center gap-2 mt-2 bg-gray-800 p-2"
+        >
+          <li class="flex flex-col items-center">
+            <i class="fa-solid fa-house text-xl text-gray-300"></i>
+            <span class="text-gray-400 text-sm">Home</span>
+          </li>
+          <li class="flex flex-col items-center">
+            <i class="fa-solid fa-fire-flame-curved text-xl text-gray-300"></i>
+            <span class="text-gray-400 text-sm">Trending</span>
+          </li>
+          <li class="flex flex-col items-center">
+            <i class="fa-solid fa-magnifying-glass text-xl text-gray-300"></i>
+            <span class="text-gray-400 text-sm">Search</span>
+          </li>
+          <li class="flex flex-col items-center">
+            <i class="fa-solid fa-folder-open text-xl text-gray-300"></i>
+            <span class="text-gray-400 text-sm">Library</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
