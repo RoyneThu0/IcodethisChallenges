@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://thumbs.dreamstime.com/b/d-papercut-layers-paper-cut-vector-art-background-texture-website-template-design-abstract-topography-concept-smooth-origami-95832602.jpg);
+    "
+  >
+    <div
+      class="w-11/12 max-w-sm flex flex-col bg-white rounded-lg shadow-xl p-5"
+    >
+      <div class="flex items-center justify-between">
+        <div class="w-full flex justify-start p-1">
+          <div class="flex items-center justify-between bg-white rounded-full">
+            <div
+              class="w-full hover:bg-gray-100 group flex items-center duration-300 ease-in-out shadow-lg hover:shadow-inner hover:shadow-gray-400 border-r rounded-l-full border-gray-100 px-4 py-2 justify-center"
+            >
+              <i
+                class="fa-solid fa-envelope text-2xl text-purple-300 group-hover:text-purple-500"
+              ></i>
+            </div>
+
+            <div
+              class="w-full hover:bg-gray-100 group flex items-center duration-300 ease-in-out shadow-lg hover:shadow-inner hover:shadow-gray-400 rounded-r-full px-4 py-2 justify-center"
+            >
+              <i
+                class="fa-solid fa-bell text-2xl text-purple-300 group-hover:text-purple-500"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full flex items-center justify-end">
+          <div
+            class="w-10 h-10 rounded-full flex items-center justify-center duration-300 ease-in-out hover:bg-gray-100 group hover:shadow-gray-400 bg-white shadow-xl hover:shadow-inner"
+          >
+            <i
+              class="fa-solid text-2xl fa-plus text-purple-300 group-hover:text-purple-500"
+            ></i>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full flex items-center justify-between mt-4 gap-2 border-b border-gray-100 py-4"
+      >
+        <img
+          src="https://img.freepik.com/premium-photo/photo-wooden-elements-combined-with-abstract-organic-patterns_743855-67303.jpg?semt=ais_hybrid&w=740"
+          alt=""
+          class="w-24 h-24 rounded-full object-cover shadow-lg border-4 border-slate-300 hover:border-purple-500 duration-300 ease-in-out"
+        />
+        <div class="w-full flex justify-start flex-col mt-4">
+          <span class="text-lg font-semibold text-purple-500"
+            >Mfwooddesign</span
+          >
+          <span class="text-gray-500 text-sm"
+            >Hand painted unique decorations for your home. Send us your ideas
+            and we'll bring them to life</span
+          >
+        </div>
+      </div>
+      <div class="flex items-center justify-between mt-5">
+        <div class="flex w-full justify-center flex-col">
+          <p class="text-gray-400 text-center text-sm">Likes</p>
+          <p class="text-2xl font-semibold text-center text-purple-700">
+            2,395
+          </p>
+        </div>
+        <div class="flex w-full justify-center flex-col">
+          <p class="text-gray-400 text-center text-sm">Post Engagements</p>
+          <p class="text-2xl font-semibold text-center text-purple-700">
+            34,024
+          </p>
+        </div>
+      </div>
+      <div class="mt-5 bg-gray-100 shadow-inner shadow-gray-300 rounded-xl p-5">
+        <p class="text-end"><i class="fa-solid text-gray-400 fa-xmark"></i></p>
+        <p class="text-xs text-gray-400">
+          Say more about your mission and goals on your page.It may help people
+          find it more easily
+        </p>
+        <div class="flex items-center justify-center">
+          <button
+            class="text-purple-500 text-xs font-semibold mt-5 bg-white shadow-lg px-4 py-2 rounded-full hover:shadow-inner hover:shadow-gray-400 duration-300 ease-in-out"
+          >
+            Update Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
