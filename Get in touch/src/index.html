@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-blue-900 dark:bg-white flex flex-col items-center justify-center transition-colors duration-500"
+  >
+    <div
+      class="w-11/12 max-w-md flex items-center justify-center flex-col bg-blue-900 dark:bg-white border-5 border-white dark:border-blue-900 rounded-xl shadow-2xl transition-colors duration-500"
+    >
+      <div
+        class="w-fit bg-white dark:bg-blue-900 px-2 rounded-b-lg transition-colors duration-500"
+      >
+        <p class="text-gray-700 dark:text-gray-300">
+          Created with <i class="fa-solid fa-heart"></i> by
+          <span class="text-yellow-500">FlorinPop</span>
+        </p>
+      </div>
+      <div class="flex w-full justify-end px-2">
+        <i
+          class="fa-solid fa-xmark text-gray-300 dark:text-gray-400 text-xl hover:text-white dark:hover:text-gray-700 cursor-pointer transition-colors duration-300"
+        ></i>
+      </div>
+      <p class="text-xl text-gray-300 dark:text-gray-400">GET IN TOUCH ON</p>
+
+      <div class="flex w-full justify-center gap-3 mt-5 mb-8">
+        <div
+          class="w-14 h-14 rounded-full bg-blue-700 dark:bg-slate-200 hover:bg-white dark:hover:bg-sky-500 shadow-inner shadow-blue-300 dark:shadow-slate-800 duration-700 p-1 transition-colors border border-white dark:border-slate-800"
+        >
+          <div
+            class="w-full h-full rounded-full bg-blue-900 dark:bg-white flex items-center hover:shadow-inner duration-300 shadow-md shadow-blue-300 dark:shadow-slate-800 justify-center transition-colors"
+          >
+            <i
+              class="fa-brands fa-twitter text-2xl text-white dark:text-blue-500"
+            ></i>
+          </div>
+        </div>
+        <div
+          class="w-14 h-14 rounded-full bg-blue-700 dark:bg-slate-200 hover:bg-white dark:hover:bg-pink-500 shadow-inner shadow-blue-300 dark:shadow-slate-800 duration-700 p-1 transition-colors border border-white dark:border-slate-800"
+        >
+          <div
+            class="w-full h-full rounded-full bg-blue-900 dark:bg-white flex items-center hover:shadow-inner duration-300 shadow-md shadow-blue-300 dark:shadow-slate-800 justify-center transition-colors"
+          >
+            <i
+              class="fa-brands fa-instagram text-2xl text-white dark:text-pink-500"
+            ></i>
+          </div>
+        </div>
+        <div
+          class="w-14 h-14 rounded-full bg-blue-700 dark:bg-slate-200 hover:bg-white dark:hover:bg-blue-500 shadow-inner shadow-blue-300 dark:shadow-slate-800 duration-700 p-1 transition-colors border border-white dark:border-slate-800"
+        >
+          <div
+            class="w-full h-full rounded-full bg-blue-900 dark:bg-white flex items-center hover:shadow-inner duration-300 shadow-md shadow-blue-300 dark:shadow-slate-800 justify-center transition-colors"
+          >
+            <i
+              class="fa-brands fa-facebook text-2xl text-white dark:text-blue-700"
+            ></i>
+          </div>
+        </div>
+        <div
+          class="w-14 h-14 rounded-full bg-blue-700 dark:bg-slate-200 hover:bg-white dark:hover:bg-blue-400 shadow-inner shadow-blue-300 dark:shadow-slate-800 duration-700 p-1 transition-colors border border-white dark:border-slate-800"
+        >
+          <div
+            class="w-full h-full rounded-full bg-blue-900 dark:bg-white flex items-center hover:shadow-inner duration-300 shadow-lg shadow-blue-300 dark:shadow-slate-800 justify-center transition-colors"
+          >
+            <i
+              class="fa-brands fa-linkedin text-2xl text-white dark:text-blue-600"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 w-11/12 max-w-md flex justify-end">
+      <button
+        id="toggleTheme"
+        class="bg-white dark:bg-blue-900 text-blue-900 dark:text-white py-4 px-5 rounded-full shadow-xl hover:bg-gray-100 dark:hover:bg-blue-700 transition-colors duration-500 border-2 border-blue-900 dark:border-white"
+      >
+        <span id="buttonText">🌙 Dark Mode</span>
+      </button>
+    </div>
+
+    <script>
+      // Wait for DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.getElementById("toggleTheme");
+        const buttonText = document.getElementById("buttonText");
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem("theme") || "light";
+
+        console.log("Current theme:", currentTheme);
+        console.log("HTML element:", html);
+        console.log("Toggle button:", toggleButton);
+
+        function applyTheme(theme) {
+          if (theme === "dark") {
+            html.classList.add("dark");
+            buttonText.textContent = "☀️ Light Mode";
+            console.log("Applied dark mode");
+          } else {
+            html.classList.remove("dark");
+            buttonText.textContent = "🌙 Dark Mode";
+            console.log("Applied light mode");
+          }
+        }
+
+        // Apply initial theme
+        applyTheme(currentTheme);
+
+        toggleButton.addEventListener("click", () => {
+          console.log("Button clicked");
+
+          const isDark = html.classList.contains("dark");
+
+          if (isDark) {
+            html.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            buttonText.textContent = "🌙 Dark Mode";
+            console.log("Switched to light mode");
+          } else {
+            html.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            buttonText.textContent = "☀️ Light Mode";
+            console.log("Switched to dark mode");
+          }
+
+          console.log("Classes after toggle:", html.classList.toString());
+        });
+      });
+    </script>
+  </body>
+</html>
