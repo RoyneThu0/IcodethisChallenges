@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen bg-white">
+    <div
+      class="bg-white hover:shadow-md duration-200 px-5 flex items-center justify-between"
+    >
+      <div class="flex items-center space-x-4 py-2">
+        <div
+          class="bg-gray-200 text-gray-400 py-2 px-10 m-2 flex items-center justify-center rounded"
+        >
+          LOGO
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button
+          class="bg-blue-950 text-white rounded-b-2xl w-12 h-16 flex items-center justify-center text-xl"
+        >
+          +
+        </button>
+        <div class="flex items-center justify-center">
+          <i class="fa-solid fa-circle-user text-5xl text-gray-300 mr-2"></i>
+          <div class="text-gray-700">Anthony Webb</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-start mt-10 ml-10">
+      <img
+        src="https://w0.peakpx.com/wallpaper/795/132/HD-wallpaper-nature-beautiful-colorful-full-lake-mountain-sky.jpg"
+        alt=""
+        class="w-24 h-24 rounded-2xl border-4 border-gray-300 shadow-md hover:border-blue-500 duration-200 cursor-pointer"
+      />
+      <div class="flex items-start flex-col ml-4">
+        <div class="flex items-center gap-3 justify-center">
+          <i class="fa-solid fa-ellipsis text-lg text-gray-400"></i>
+          <p class="text-sm text-gray-400">6 boards . 56 tasks</p>
+        </div>
+        <p class="mt-5 text-2xl font-semibold text-gray-800">
+          Benjamin Franklin’s Method Of Habit Formation
+        </p>
+      </div>
+    </div>
+    <div class="p-6 w-full flex-wrap md:px-32 mt-10 overflow-x-auto">
+      <div class="flex space-x-6 min-w-full">
+        <div class="bg-white w-80 md:w-full rounded-lg shadow-md">
+          <div class="bg-indigo-500 text-white font-semibold p-4 rounded-t-lg">
+            TO DO
+          </div>
+          <div class="p-4 space-y-4">
+            <div class="bg-gray-100 p-4 rounded">
+              <h3 class="font-semibold text-gray-800">
+                You can learn so much about life and a self-improvement audio
+                book
+              </h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Here is the ultimate recipe for a very sad and short life.
+              </p>
+              <p class="text-sm text-gray-600">
+                You can learn so much about life and a self-improvement audio
+                book
+              </p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded">
+              <h3 class="font-semibold text-gray-800">
+                You can learn so much about life and a self-improvement audio
+                book
+              </h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Here is the ultimate recipe for a very sad and short life.
+              </p>
+              <p class="text-sm text-gray-600">
+                You can learn so much about life and a self-improvement audio
+                book
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white w-80 md:w-full rounded-lg shadow-md">
+          <div class="bg-blue-600 text-white font-semibold p-4 rounded-t-lg">
+            IN PROGRESS
+          </div>
+          <div class="p-4 space-y-4">
+            <div class="bg-gray-100 p-4 rounded">
+              <h3 class="font-semibold text-gray-800">The A Z Of Motivation</h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Many studies have been done to research the effects of
+                motivation and mental health.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded">
+              <h3 class="font-semibold text-gray-800">
+                Dream Interpretation Common Symbols And Their Meanings
+              </h3>
+              <p class="text-sm text-gray-600 mt-2">
+                As the implications of helping those with negative self-esteem,
+                depression and anxiety are immense...
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white w-80 md:w-full rounded-lg shadow-md">
+          <div class="bg-green-500 text-white font-semibold p-4 rounded-t-lg">
+            DONE
+          </div>
+          <div class="p-4 space-y-4">
+            <div class="bg-gray-100 p-4 rounded">
+              <h3 class="font-semibold text-gray-800">
+                How To Set Intentions That Energize You
+              </h3>
+              <p class="text-sm text-gray-600 mt-2">
+                This positive behavior helps them to achieve goals and find
+                personal contentment...
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white w-80 md:w-full h-30 rounded-lg shadow-md flex items-center justify-center text-gray-400 border-2 border-dashed"
+        >
+          <div class="text-center">
+            <button class="text-2xl font-bold">+</button>
+            <p class="text-sm">Add New Column</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
