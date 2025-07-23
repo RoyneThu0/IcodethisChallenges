@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notification Cards</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-gray-100">
+    <div class="flex flex-col w-11/12 max-w-2xl p-5 gap-3">
+      <div
+        class="relative overflow-hidden w-full rounded-lg bg-white flex flex-col p-5"
+      >
+        <div class="flex justify-end">
+          <i class="fa-solid fa-xmark bg-gray-200 rounded-full p-3"></i>
+        </div>
+        <div class="flex z-10 items-start justify-start">
+          <div class="">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/034/794/812/non_2x/gradient-bright-green-rounded-square-check-mark-shiny-button-3d-free-png.png"
+              alt=""
+              class="w-24"
+            />
+          </div>
+          <div
+            class="w-full flex flex-col mb-10 items-start justify-start mt-2"
+          >
+            <p class="font-semibold text-xl">Thank you for subscribing!</p>
+            <p>You will recieve an email to confirm your subscription.</p>
+          </div>
+        </div>
+        <div
+          class="absolute -left-28 -top-5 z-5 rounded-full w-52 h-52 bg-green-300/70"
+        ></div>
+      </div>
+      <div
+        class="relative overflow-hidden w-full rounded-lg bg-white flex flex-col p-5"
+      >
+        <div class="flex justify-end">
+          <i class="fa-solid fa-xmark bg-gray-200 rounded-full p-3"></i>
+        </div>
+        <div class="flex z-10 items-start justify-start">
+          <div class="">
+            <img
+              src="https://freesvg.org/img/Red-X-Icon.png"
+              alt=""
+              class="w-22"
+            />
+          </div>
+          <div
+            class="w-full ml-2 flex flex-col mb-10 items-start justify-start mt-2"
+          >
+            <p class="font-semibold text-xl">Oops! an error occured.</p>
+            <p>Apologies for the inconvenience. Please try again.</p>
+          </div>
+        </div>
+        <div
+          class="absolute -left-28 -top-5 z-5 rounded-full w-52 h-52 bg-red-300/70"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>
