@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Summary</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-[#fd9b64]">
+    <div class="bg-white rounded-lg shadow-xl w-11/12 max-w-lg flex flex-col">
+      <div
+        class="relative w-full bg-cover bg-center h-44 rounded-t-lg"
+        style="background-image: url(https://i.redd.it/bokukpjodg8z.jpg)"
+      >
+        <div class="absolute w-full -bottom-20 flex justify-center">
+          <div class="w-32 h-32 rounded-full">
+            <img
+              src="https://res.cloudinary.com/teepublic/image/private/s--mloTsegq--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_c8e0ec,e_outline:48/co_c8e0ec,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1542507929/production/designs/3524997_0.jpg"
+              alt=""
+              class="w-full h-full object-cover rounded-full shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col p-10">
+        <p class="mt-2 text-center text-gray-600">Your order from</p>
+        <p class="text-lg text-center font-semibold">Krusty Krab</p>
+      </div>
+      <div class="space-y-2 px-7">
+        <div class="grid grid-cols-3">
+          <div class="flex items-center justify-start">
+            <p class="text-sm font-semibold text-nowrap">
+              British Pizza | Medium
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p class="px-2 py-1 border border-gray-300">
+              <i class="fa-solid fa-minus"></i>
+            </p>
+            <p class="mx-3">1</p>
+            <p class="px-2 py-1 border border-gray-300">
+              <i class="fa-solid fa-plus"></i>
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p class="text-lg font-bold ml-2">£10.99</p>
+            <p
+              class="ml-2 w-5 h-5 flex items-center justify-center bg-gray-200 group hover:bg-gray-200 rounded-full"
+            >
+              <i
+                class="fa-solid text-gray-400 group-hover:text-orange-500 fa-xmark"
+              ></i>
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-3">
+          <div class="flex items-center justify-start">
+            <p class="text-sm font-semibold text-nowrap">
+              Krabby patty | no mayo
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p class="px-2 py-1 border border-gray-300">
+              <i class="fa-solid fa-minus"></i>
+            </p>
+            <p class="mx-3">2</p>
+            <p class="px-2 py-1 border border-gray-300">
+              <i class="fa-solid fa-plus"></i>
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p class="text-lg font-bold ml-2">£50.99</p>
+            <p
+              class="ml-2 w-5 h-5 flex items-center justify-center bg-gray-200 group hover:bg-gray-200 rounded-full"
+            >
+              <i
+                class="fa-solid text-gray-400 group-hover:text-orange-500 fa-xmark"
+              ></i>
+            </p>
+          </div>
+        </div>
+        <div class="flex mt-3 items-center justify-start">
+          <button
+            class="border border-gray-600 px-3 py-2 rounded-lg text-gray-600 hover:bg-orange-400/70 hover:text-white hover:border-white transition-colors duration-200"
+          >
+            <i class="fa-solid fa-martini-glass-citrus mr-1"></i>Add beverage
+          </button>
+        </div>
+      </div>
+      <div class="mt-8 px-5">
+        <div class="w-full bg-gray-200 p-10 rounded-lg">
+          <div class="flex items-center justify-between">
+            <p class="text-gray-600">Subtotal</p>
+            <p class="text-lg font-bold">£61.98</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-gray-600">Shipping</p>
+            <p class="text-lg font-bold">£5.00</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-gray-600">Total (inc. VAT)</p>
+            <p class="text-lg font-bold">£66.98</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 px-7 mb-5">
+        <button class="w-full bg-orange-500 text-white py-4 rounded-lg">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
