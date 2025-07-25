@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Flight</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center">
+    <div
+      class="max-w-4xl mx-auto bg-white rounded-lg shadow-md mt-10 overflow-hidden"
+    >
+      <div
+        class="text-center flex flex-col items-center justify-center px-6 py-6"
+      >
+        <div
+          class="flex items-center justify-center w-14 h-14 rounded-full border mb-4 border-gray-300"
+        >
+          <i class="fa-solid fa-plane"></i>
+        </div>
+        <div class="flex items-center justify-center space-x-3">
+          <h2 class="text-xl font-semibold">Bucharest | OTP</h2>
+          <span class="text-xl">→</span>
+          <h2 class="text-xl font-semibold">Tenerife (Canary Islands) | TFS</h2>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-between px-4 overflow-x-auto space-x-2 mb-6"
+      >
+        <button
+          class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500"
+        >
+          ←
+        </button>
+
+        <div class="flex space-x-3 text-center">
+          <div class="px-4 py-2 bg-gray-100 rounded-md text-gray-400">
+            <div class="font-medium">Tue 30, Apr</div>
+            <div class="text-sm">No flights</div>
+          </div>
+          <div class="px-4 py-2 bg-gray-100 rounded-md text-gray-400">
+            <div class="font-medium">Wed 01, May</div>
+            <div class="text-sm">No flights</div>
+          </div>
+          <div
+            class="px-4 py-2 border-2 border-yellow-400 rounded-md shadow text-gray-800"
+          >
+            <div class="font-semibold">Thu 02, May</div>
+            <div class="text-sm">From <strong>$264</strong></div>
+          </div>
+          <div class="px-4 py-2 bg-gray-100 rounded-md text-gray-400">
+            <div class="font-medium">Fri 03, May</div>
+            <div class="text-sm">No flights</div>
+          </div>
+          <div
+            class="px-4 py-2 border border-gray-300 rounded-md text-gray-800"
+          >
+            <div class="font-semibold">Sat 04, May</div>
+            <div class="text-sm">From <strong>$254</strong></div>
+          </div>
+          <div class="px-4 py-2 bg-gray-100 rounded-md text-gray-400">
+            <div class="font-medium">Sun 05, May</div>
+            <div class="text-sm">No flights</div>
+          </div>
+        </div>
+
+        <button
+          class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500"
+        >
+          →
+        </button>
+      </div>
+
+      <div class="text-center mb-6">
+        <div class="text-sm font-medium text-gray-500 mb-2">
+          Thu 02, May 2019
+        </div>
+        <div
+          class="flex items-center justify-center space-x-12 text-xl font-bold text-gray-800"
+        >
+          <div>
+            <div>13:40</div>
+            <div class="text-sm font-normal text-gray-500">BUCHAREST</div>
+          </div>
+          <div class="text-sm text-gray-400">6h 15m</div>
+          <div>
+            <div>17:55</div>
+            <div class="text-sm font-normal text-gray-500">
+              TENERIFE (CANARY ISLANDS)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="px-6 pb-8 text-center">
+        <button
+          class="bg-yellow-400 text-white font-semibold py-3 px-6 rounded hover:bg-yellow-500 transition"
+        >
+          SELECT BUNDLE
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
