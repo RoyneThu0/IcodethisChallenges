@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arya Targets</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-gray-200">
+    <!-- Login Screen (First Div) -->
+    <div
+      id="loginScreen"
+      class="w-11/12 max-w-md p-10 rounded-lg shadow-xl bg-white transition-all duration-500 ease-in-out"
+    >
+      <div class="flex justify-end">
+        <p class="text-sm">
+          CHANGE ACCOUNT <i class="fa-solid fa-chevron-down ml-1"></i>
+        </p>
+      </div>
+      <div class="mt-10 flex flex-col items-center">
+        <img
+          src="https://image.api.playstation.com/cdn/UP1018/CUSA00133_00/XlkEcZSBzuJPIJo8BI7l0KuY0hBYrO8c.png?w=440&thumb=false"
+          alt=""
+          class="w-24 h-24 rounded-full border-4 duration-300 border-transparent hover:border-red-500 shadow-xl hover:scale-110 mb-4"
+        />
+        <p class="text-center text-gray-700 text-2xl">
+          Welcome back, <br />
+          <span class="font-bold text-2xl"> Batman</span>
+        </p>
+        <input
+          id="passwordInput"
+          type="password"
+          placeholder="Enter your password"
+          class="mt-10 px-3 py-4 border border-gray-300 rounded-lg w-full"
+        />
+        <button
+          id="loginBtn"
+          class="w-full py-3 bg-black text-white mt-3 rounded-lg"
+        >
+          LOG IN
+        </button>
+
+        <p class="mt-24 text-blue-400 text-sm cursor-pointer hover:underline">
+          Unable to log in?
+        </p>
+      </div>
+    </div>
+
+    <!-- Dashboard Screen (Second Div) -->
+    <div
+      id="dashboardScreen"
+      class="w-11/12 max-w-md m-5 bg-gray-100 rounded-lg shadow-xl hidden transition-all duration-500 ease-in-out"
+    >
+      <div
+        class="flex p-5 rounded-t-lg items-center shadow-lg bg-white justify-between"
+      >
+        <div class="flex items-center justify-start">
+          <img
+            src="https://image.api.playstation.com/cdn/UP1018/CUSA00133_00/XlkEcZSBzuJPIJo8BI7l0KuY0hBYrO8c.png?w=440&thumb=false"
+            alt=""
+            class="w-16 h-16 rounded-full border-4 duration-300 border-transparent hover:border-red-500 shadow-xl hover:scale-110 mb-4"
+          />
+          <p class="ml-3 text-lg">Batman</p>
+        </div>
+        <p class="text-2xl"><i class="fa-solid fa-magnifying-glass"></i></p>
+      </div>
+      <div
+        id="targetsDiv"
+        class="mt-10 w-11/12 mx-4 bg-white shadow-xl p-10 flex items-center justify-between cursor-pointer hover:shadow-2xl transition-shadow"
+      >
+        <p class="text-2xl font-semibold">Targets</p>
+        <div
+          class="w-14 h-14 bg-red-400 flex items-center justify-center rounded-full p-1"
+        >
+          <div
+            class="w-full h-full flex items-center justify-center bg-white rounded-full"
+          >
+            <p class="text-xl animate-pulse font-semibold">4</p>
+          </div>
+        </div>
+      </div>
+      <p
+        class="mt-5 pb-40 mx-4 text-blue-400 text-xl cursor-pointer hover:underline"
+      >
+        <i class="fa-solid fa-plus mr-2"></i>Add New to List
+      </p>
+    </div>
+
+    <!-- Targets List Screen (Third Div) -->
+    <div
+      id="targetsScreen"
+      class="w-11/12 max-w-md m-5 bg-gray-100 rounded-lg shadow-xl p-10 hidden transition-all duration-500 ease-in-out"
+    >
+      <div class="flex p-2 rounded-t-lg items-center justify-between">
+        <div class="flex items-center justify-start">
+          <p
+            id="backArrow"
+            class="ml-3 text-xl font-semibold cursor-pointer hover:text-blue-500 transition-colors"
+          >
+            <i class="fa-solid fa-arrow-left mr-2"></i>Targets
+          </p>
+        </div>
+        <p class="text-2xl"><i class="fa-solid fa-ellipsis"></i></p>
+      </div>
+      <ul>
+        <li
+          class="flex items-center justify-between p-4 bg-white mt-4 rounded-lg shadow-lg"
+        >
+          <label for="gorilla-grod" class="font-semibold">Gorilla Grod</label>
+          <input type="checkbox" name="gorilla-grod" id="gorilla-grod" />
+        </li>
+        <li
+          class="flex items-center justify-between p-4 bg-white mt-4 rounded-lg shadow-lg"
+        >
+          <label for="the-joker" class="font-semibold">The Joker</label>
+          <input type="checkbox" name="the-joker" id="the-joker" />
+        </li>
+        <li
+          class="flex items-center justify-between p-4 bg-white mt-4 rounded-lg shadow-lg"
+        >
+          <label for="bane" class="font-semibold">Bane</label>
+          <input type="checkbox" name="bane" id="bane" />
+        </li>
+        <li
+          class="flex items-center justify-between p-4 bg-white mt-4 rounded-lg shadow-lg"
+        >
+          <label for="harley-quinn" class="font-semibold">Harley Quinn</label>
+          <input type="checkbox" name="harley-quinn" id="harley-quinn" />
+        </li>
+        <li
+          class="flex items-center justify-between p-4 bg-white mt-4 rounded-lg shadow-lg"
+        >
+          <label for="poison-ivy" class="font-semibold">Poison Ivy</label>
+          <input type="checkbox" name="poison-ivy" id="poison-ivy" />
+        </li>
+      </ul>
+      <div class="mt-10 flex items-center justify-between">
+        <button class="w-full py-3 bg-red-400 text-white text-xl rounded-lg">
+          <i class="fa-solid fa-plus mr-2"></i>Add New
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Get references to all screens and interactive elements
+      const loginScreen = document.getElementById("loginScreen");
+      const dashboardScreen = document.getElementById("dashboardScreen");
+      const targetsScreen = document.getElementById("targetsScreen");
+      const passwordInput = document.getElementById("passwordInput");
+      const loginBtn = document.getElementById("loginBtn");
+      const targetsDiv = document.getElementById("targetsDiv");
+      const backArrow = document.getElementById("backArrow");
+
+      // Function to show a specific screen and hide others
+      function showScreen(screenToShow) {
+        // Hide all screens
+        [loginScreen, dashboardScreen, targetsScreen].forEach((screen) => {
+          screen.classList.add("hidden");
+          screen.classList.remove("block");
+        });
+
+        // Show the selected screen with animation
+        setTimeout(() => {
+          screenToShow.classList.remove("hidden");
+          screenToShow.classList.add("block");
+        }, 100);
+      }
+
+      // Handle login functionality
+      function handleLogin() {
+        const password = passwordInput.value;
+        const correctPassword = "alfreddabuttler";
+
+        if (password === correctPassword) {
+          showScreen(dashboardScreen);
+        } else {
+          // Add error styling for incorrect password
+          passwordInput.classList.add("border-red-500");
+          passwordInput.placeholder = "Incorrect password. Try again.";
+          passwordInput.value = "";
+
+          // Remove error styling after 3 seconds
+          setTimeout(() => {
+            passwordInput.classList.remove("border-red-500");
+            passwordInput.placeholder = "Enter your password";
+          }, 3000);
+        }
+      }
+
+      // Event listeners
+      loginBtn.addEventListener("click", handleLogin);
+
+      // Allow Enter key to trigger login
+      passwordInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          handleLogin();
+        }
+      });
+
+      // Handle transition to targets screen
+      targetsDiv.addEventListener("click", function () {
+        showScreen(targetsScreen);
+      });
+
+      // Handle back arrow click to return to dashboard
+      backArrow.addEventListener("click", function () {
+        showScreen(dashboardScreen);
+      });
+
+      // Handle target selection (checkboxes)
+      function handleTargetSelection() {
+        const targetsList = document.querySelector("#targetsScreen ul");
+        const checkboxes = targetsList.querySelectorAll(
+          'input[type="checkbox"]'
+        );
+
+        checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener("change", function () {
+            const listItem = this.closest("li");
+            const label = listItem.querySelector("label");
+
+            if (this.checked) {
+              // Move to bottom of the list
+              targetsList.appendChild(listItem);
+
+              // Remove background and add strikethrough
+              listItem.classList.remove("bg-white", "shadow-lg");
+              listItem.classList.add("bg-transparent");
+              label.classList.add("line-through", "text-gray-500");
+            } else {
+              // If unchecked, restore original styling
+              listItem.classList.add("bg-white", "shadow-lg");
+              listItem.classList.remove("bg-transparent");
+              label.classList.remove("line-through", "text-gray-500");
+            }
+          });
+        });
+      }
+
+      // Initialize - show login screen first
+      showScreen(loginScreen);
+
+      // Initialize target selection handlers
+      handleTargetSelection();
+    </script>
+  </body>
+</html>
