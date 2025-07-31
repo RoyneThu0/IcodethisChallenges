@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-[#f4f7fb] w-screen h-screen flex items-center justify-center font-sans"
+  >
+    <div
+      class="bg-white max-w-4xl w-full rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-8"
+    >
+      <div class="w-full md:w-2/3 flex justify-center">
+        <img
+          src="https://pngemoji.com/wp-content/uploads/2025/07/green-beer-cheers-emoji-3d-mugs-toast-celebration.png"
+          alt="cheers"
+          class="w-60 h-60 object-contain"
+        />
+      </div>
+
+      <div class="w-full md:w-1/2">
+        <p class="text-sm text-gray-500 mb-1">4/4</p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-1">Last step!</h2>
+        <p class="text-gray-500 mb-6">Enter your payment info below.</p>
+
+        <div class="flex space-x-4 mb-6">
+          <div
+            class="flex items-center border-2 border-blue-400 rounded-md p-3 w-1/2 justify-between bg-white shadow-sm"
+          >
+            <div class="flex items-center space-x-2">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/009/338/810/non_2x/3d-illustration-credit-card-png.png"
+                class="w-6 h-6"
+              />
+              <span class="text-sm font-semibold text-blue-900"
+                >Credit Card</span
+              >
+            </div>
+            <p class="text-xl">
+              <i class="fa-solid fa-check text-green-400"></i>
+            </p>
+          </div>
+          <div
+            class="flex items-center border border-gray-300 rounded-md p-3 w-1/2 justify-between"
+          >
+            <div class="flex items-center space-x-2">
+              <img
+                src="https://img.icons8.com/color/48/paypal.png"
+                class="w-6 h-6"
+              />
+              <span class="text-sm font-semibold text-blue-900">PayPal</span>
+            </div>
+            <div class="w-5 h-5 border border-gray-400 rounded-full"></div>
+          </div>
+        </div>
+
+        <input
+          type="text"
+          placeholder="123 4567 8912 3456"
+          class="w-full px-4 py-3 rounded border border-gray-300 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+
+        <div class="flex space-x-4 mb-4">
+          <select
+            class="w-1/3 px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            <option>Month</option>
+          </select>
+          <select
+            class="w-1/3 px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            <option>Day</option>
+          </select>
+          <input
+            type="text"
+            placeholder="123"
+            class="w-1/3 px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <p class="text-xs text-gray-500 mb-6">
+          By creating an account, you agree to Study.com's
+          <a href="#" class="text-blue-600 underline">Terms of Use</a> and
+          <a href="#" class="text-blue-600 underline">Privacy Policy</a>.
+        </p>
+
+        <button
+          class="w-full bg-blue-900 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition"
+        >
+          Join Now
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
