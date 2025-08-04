@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Method</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-[#85dff9] w-screen min-h-screen flex items-center justify-center"
+  >
+    <div class="bg-white p-10 w-11/12 max-w-5xl">
+      <div class="flex items-center justify-center gap-3">
+        <div class="flex items-center justify-center flex-col">
+          <img
+            src="https://pngimg.com/d/shopping_cart_PNG70.png"
+            alt=""
+            class="h-12"
+          />
+          <p class="text-center text-sm mt-2 font-semibold text-blue-900">
+            Shopping Cart
+          </p>
+        </div>
+        <div class="w-full h-0.5 bg-gray-400"></div>
+        <div class="flex items-center justify-center flex-col">
+          <img
+            src="https://www.freeiconspng.com/uploads/location-icon-map-png-15.png"
+            alt=""
+            class="h-12"
+          />
+          <p class="text-center text-sm mt-2 font-semibold text-blue-900">
+            Delivery Address
+          </p>
+        </div>
+        <div class="w-full h-0.5 bg-gray-400"></div>
+        <div class="flex items-center justify-center flex-col">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/10473/10473692.png"
+            alt=""
+            class="h-12"
+          />
+          <p class="text-center text-sm mt-2 font-semibold text-blue-900">
+            Payment Method
+          </p>
+        </div>
+        <div class="w-full h-0.5 bg-gray-400"></div>
+        <div class="flex items-center justify-center flex-col">
+          <img
+            src="https://www.freeiconspng.com/uploads/document-icon-28.png"
+            alt=""
+            class="h-12"
+          />
+          <p class="text-center text-sm mt-2 font-semibold text-blue-900">
+            Preview Order
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 p-8">
+        <p class="text-xl text-gray-500 mb-1">PAYMENT METHOD</p>
+        <div
+          class="w-full flex items-start justify-start md:flex-nowrap flex-wrap gap-4 mt-5"
+        >
+          <div class="w-full md:w-1/5 flex items-center flex-col space-y-5">
+            <div
+              class="w-10/12 border-2 border-blue-400 rounded-lg p-5 bg-white shadow-xl"
+            >
+              <img
+                src="https://logos-world.net/wp-content/uploads/2020/06/Visa-Logo-2006.png"
+                alt=""
+                class="w-full mx-auto"
+              />
+            </div>
+            <div
+              class="w-10/12 border-2 border-blue-400 rounded-lg p-5 bg-white shadow-xl"
+            >
+              <img
+                src="https://www.top-bank.ch/images/logo_540/paypal.png"
+                alt=""
+                class="w-full mx-auto"
+              />
+            </div>
+            <div
+              class="w-10/12 border-2 border-blue-400 rounded-lg p-5 bg-white shadow-xl"
+            >
+              <img
+                src="https://images.vexels.com/media/users/3/144838/isolated/preview/0e8ecc882dcf98521ef01d2163416fc9-bitcoin-logo.png"
+                alt=""
+                class="w-full mx-auto"
+              />
+            </div>
+          </div>
+          <div class="w-full md:4/5 bg-gray-100 rounded-lg shadow-xl p-5">
+            <p class="text-xl text-gray-500 mb-1">PAYMENT METHOD</p>
+
+            <label for="cardNumber">Card Number</label>
+            <input
+              id="cardNumber"
+              type="text"
+              placeholder="123 4567 8912 3456"
+              class="w-full px-4 py-3 rounded border border-gray-300 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <div class="flex space-x-4 mb-6">
+              <div
+                class="flex items-center rounded-md p-1 w-1/2 justify-between shadow-sm"
+              >
+                <div class="flex flex-col items-start">
+                  <label for="Expiration Date"> Expiration Date</label>
+                  <input
+                    id="Expiration Date"
+                    type="text"
+                    placeholder="MM/YY"
+                    class="w-full px-2 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+                <p class="text-xl">
+                  <i class="fa-solid fa-check text-green-400"></i>
+                </p>
+              </div>
+              <div
+                class="flex items-center rounded-md p-1 w-1/2 justify-between shadow-sm"
+              >
+                <div class="flex flex-col items-start">
+                  <label for="cvv"> CVV</label>
+                  <input
+                    id="cvv"
+                    type="text"
+                    placeholder="123"
+                    class="w-full px-2 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+                <p class="text-xl">
+                  <i class="fa-solid fa-check text-green-400"></i>
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col space-x-4 mb-4">
+              <label for="cardHolderName">Card Holder Name</label>
+              <input
+                id="cardHolderName"
+                type="text"
+                placeholder="John Doe"
+                class="w-full px-2 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+
+            <button
+              class="w-full bg-blue-400 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition"
+            >
+              Confirm Payment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
