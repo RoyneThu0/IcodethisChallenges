@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-white text-[#1A2950] p-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="border-l-2 border-slate-200">
+        <h2
+          class="text-lg bg-gray-200 w-fit pl-10 px-3 rounded-r-full font-bold mb-2"
+        >
+          Buttons
+        </h2>
+        <div class="flex pl-6 items-center justify-start gap-5 mb-6">
+          <div class="mb-6 flex w-full flex-col mt-10 gap-3">
+            <p class="text-sm text-gray-400 italic text-center">Default</p>
+            <button
+              class="bg-[#242E4C] text-sm text-white w-full py-2 rounded shadow hover:brightness-110"
+            >
+              Primary Button
+            </button>
+            <button
+              class="bg-[#E9EAED] text-sm text-[#242E4C] w-full px-2 py-2 rounded shadow hover:brightness-110"
+            >
+              Secondary Button
+            </button>
+          </div>
+          <div class="mb-6 flex w-full flex-col mt-10 gap-3">
+            <p class="text-sm text-gray-400 italic text-center">Hovered</p>
+
+            <button
+              class="bg-[#242E4C] text-sm text-white w-full py-2 rounded shadow hover:brightness-110"
+            >
+              Primary Button
+            </button>
+            <button
+              class="bg-[#E9EAED] text-sm text-[#242E4C] w-full px-2 py-2 rounded shadow hover:brightness-110"
+            >
+              Secondary Button
+            </button>
+          </div>
+        </div>
+
+        <h2
+          class="text-lg bg-gray-200 w-fit pl-10 px-3 rounded-r-full font-bold mb-2"
+        >
+          Inputs
+        </h2>
+        <div class="space-y-4 pl-6">
+          <div>
+            <label class="block font-semibold mb-1">Full Name</label>
+            <div class="flex gap-4">
+              <input
+                type="text"
+                placeholder="ex. Lida Owen"
+                class="w-10/12 border rounded px-3 py-2 text-sm text-[#1A2950] placeholder-[#767E96]"
+              />
+              <p class="text-sm italic text-[#767E96] mt-1">Default</p>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Your Name</label>
+            <div class="flex gap-4">
+              <input
+                type="text"
+                value="Anthony Webb"
+                class="w-10/12 border rounded px-3 py-2 text-sm text-[#1A2950]"
+              />
+              <p class="text-sm italic text-[#767E96] mt-1">Filled</p>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Password</label>
+            <div class="flex gap-4">
+              <input
+                type="text"
+                value="5+ characters"
+                class="w-10/12 shrink-0 border border-[#738BFD] rounded px-3 py-2 text-sm"
+              />
+              <p class="text-sm italic text-[#767E96] mt-1">
+                Focused with error message
+              </p>
+            </div>
+            <p class="text-sm text-[#FF5623] mt-1">
+              Your password must be at least
+              <span class="font-bold">6 characters</span> long.
+            </p>
+          </div>
+
+          <div>
+            <label class="block font-medium mb-1">Email Address</label>
+            <div class="flex gap-4">
+              <input
+                type="text"
+                value="myemail@address.com"
+                class="w-10/12 shrink-0 bg-[#F3F4F6] border rounded px-3 py-2 text-sm text-[#1A2950]"
+              />
+              <p class="text-sm text-[#767E96] italic mt-1">Inactive</p>
+            </div>
+          </div>
+        </div>
+
+        <h2
+          class="text-lg mt-10 bg-gray-200 w-fit pl-10 px-3 rounded-r-full font-bold mb-2"
+        >
+          Cards
+        </h2>
+        <div class="flex mt-5 w-full p-5 gap-6">
+          <div>
+            <p class="text-sm text-[#767E96] italic mt-1">
+              Default Card Background
+            </p>
+            <div class="w-40 h-24 bg-white shadow-sm rounded mt-2"></div>
+          </div>
+          <div>
+            <p class="text-sm text-[#767E96] italic mt-1">
+              Hovered Card Background
+            </p>
+            <div
+              class="w-40 h-24 bg-white shadow-lg shadow-gray-300 mt-2 rounded"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full border-l-2 border-slate-200">
+        <h2
+          class="text-lg mt-10 bg-gray-200 w-fit pl-10 px-3 rounded-r-full font-bold mb-2"
+        >
+          Colors
+        </h2>
+        <div class="flex gap-7 w-full mb-6 ml-6 mt-5">
+          <div
+            class="w-20 h-20 rounded flex items-center justify-center bg-[#242E4C]"
+          >
+            <p class="text-xs text-[#767E96]">#242E4C</p>
+          </div>
+          <div
+            class="w-20 h-20 rounded flex items-center justify-center bg-[#738BFD]"
+          >
+            <p class="text-xs text-white">#738BFD</p>
+          </div>
+          <div
+            class="w-20 h-20 rounded flex items-center justify-center bg-[#FF5623]"
+          >
+            <p class="text-xs text-white">#FF5623</p>
+          </div>
+          <div
+            class="w-20 h-20 rounded flex items-center justify-center bg-[#767E96]"
+          >
+            <p class="text-xs text-white">#767E96</p>
+          </div>
+          <div class="flex items-center justify-center flex-col">
+            <div
+              class="w-20 h-20 rounded bg-[#E9EAED] flex items-center justify-center text-xs text-[#767E96] text-center"
+            >
+              <p>#E9EAED</p>
+            </div>
+            <p class="text-xs italic text-center mt-1 text-[#767E96]">
+              Only secondary <br />
+              btn background <br />
+              color
+            </p>
+          </div>
+          <div
+            class="w-20 h-20 rounded flex items-center justify-center bg-[#F3F4F6]"
+          >
+            <p class="text-xs">#F3F4F6</p>
+          </div>
+        </div>
+
+        <h2
+          class="text-lg mt-10 bg-gray-200 w-fit pl-10 px-3 rounded-r-full font-bold mb-2"
+        >
+          Fonts - Montserrat
+        </h2>
+        <div class="space-y-4 mt-10 ml-6">
+          <p class="text-[28px] font-bold text-[#1E1A50]">
+            Page Title | 28px Bold #1E1A50
+          </p>
+          <p class="text-[16px] font-bold text-[#1E1A50]">
+            Secondary Title | 16px Bold #1E1A50
+          </p>
+          <p class="text-[14px] font-bold text-[#1A2950]">
+            Tertiary Title | 14px Bold #1A2950
+          </p>
+          <p class="text-[14px] text-[#738BFD]">
+            Link | Montserrat 14px Medium #738BFD
+          </p>
+          <p class="text-[14px] text-[#767E96]">
+            Input Placeholder | 14px Medium #767E96
+          </p>
+          <p class="text-[12px] text-[#1A2950]">
+            Basic Paragraph | 12px Medium #1A2950
+          </p>
+          <p class="text-[12px] text-[#767E96]">
+            Board Summary Label | 12px Medium #767E96
+          </p>
+          <p class="text-[12px] text-[#FF5623]">
+            Alert Message | 12px Medium #FF5623
+          </p>
+        </div>
+
+        <h2
+          class="text-lg mt-10 bg-gray-200 w-fit pl-10 px-3 rounded-r-full font-bold mb-2"
+        >
+          Icons
+        </h2>
+        <div class="flex gap-6 mt-6 pl-6 text-2xl text-[#1A2950]">
+          <span>📅</span>
+          <span>✏</span>
+          <span>🔍</span>
+          <span>🗒</span>
+          <span>➕</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
