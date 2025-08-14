@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events app</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen min-h-screen flex items-center justify-center">
+    <div
+      class="w-11/12 max-w-lg bg-gradient-to-br from-60% from-teal-400 to-lime-300 shadow-xl rounded-xl"
+    >
+      <div class="grid grid-cols-3 p-5">
+        <div class="flex items-center gap-2 justify-start">
+          <i class="fa-solid text-xs fa-signal"></i>
+          <p class="text-xs">Sketch</p>
+          <i class="fa-solid text-xs fa-wifi"></i>
+        </div>
+        <div class="flex items-center justify-center">
+          <p class="text-xs">9.41 am</p>
+        </div>
+        <div class="flex items-center gap-2 justify-end">
+          <i class="fa-brands text-xs fa-bluetooth-b"></i>
+          <p class="text-xs">100%</p>
+          <i class="fa-solid text-lg fa-battery-half"></i>
+        </div>
+      </div>
+      <div class="w-full flex items-center px-5 justify-between mt-10">
+        <button
+          class="text-white cursor-pointer p-2 text-2xl hover:text-blue-400 duration-300"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <button
+          class="text-white p-2 cursor-pointer text-2xl hover:text-blue-400 duration-300"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <p class="mb-5 text-2xl text-white text-center font-semibold">
+        Event Highlights
+      </p>
+
+      <div
+        class="flex px-5 space-x-4 overflow-x-auto overflow-visible scrollbar-hide"
+      >
+        <div class="min-w-[200px] h-40 rounded-lg overflow-hidden relative">
+          <img
+            src="https://img.freepik.com/premium-photo/close-up-indian-bangles-golden-red-bangles_1124573-52061.jpg"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2"
+          >
+            <p class="text-white text-xs font-semibold">13 Jul - 18 Jul</p>
+            <p class="text-white text-sm">Rainforest World Music Festival</p>
+          </div>
+        </div>
+
+        <div class="min-w-[200px] h-40 rounded-lg overflow-hidden relative">
+          <img
+            src="https://frostprints.com/wp-content/uploads/2020/08/Tribe-Decor-Print-3.jpg"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2"
+          >
+            <p class="text-white text-xs font-semibold">17 Jul - 24 Jul</p>
+            <p class="text-white text-sm">Kuala Lumpur Fashion Week 2018</p>
+          </div>
+        </div>
+
+        <div class="min-w-[200px] h-40 rounded-lg overflow-hidden relative">
+          <img
+            src="https://cdn.shopify.com/s/files/1/2676/6838/files/barista-pour-over-coffee-from-copper-kettle_1024x1024.jpg?v=1564614220"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2"
+          >
+            <p class="text-white text-xs font-semibold">14 Aug - 18 Aug</p>
+            <p class="text-white text-sm">Malaysia Coffee Fest</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full p-5 bg-white">
+        <div class="flex items-center justify-between">
+          <p class="text-gray-600 text-wrap font-semibold text-2xl">
+            World Puppet carnival in Kuching
+          </p>
+          <p class="font-semibold text-sm text-gray-500">16 Aug - 21 Aug</p>
+        </div>
+        <img
+          src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTdglqydtWTQ68oUWy-aUyCCoZlfyMfp3OKDtuRSRXf4KLRf5eu"
+          alt=""
+          class="w-full h-52 object-cover rounded-lg mt-4 shadow-lg shadow-gray-600/30"
+        />
+        <div class="flex items-center mt-5 justify-between">
+          <p class="text-gray-600 text-wrap font-semibold text-2xl">
+            33rd Sabah Annual Art
+          </p>
+          <p class="font-semibold text-sm text-gray-500">16 Aug - 21 Aug</p>
+        </div>
+        <img
+          src="https://www.umbrellaworkshop.com/wp-content/uploads/2020/01/5-unusual-ways-to-use-an-umbrella.jpg"
+          alt=""
+          class="w-full h-52 object-cover rounded-lg mt-4 shadow-lg shadow-gray-600/30"
+        />
+      </div>
+    </div>
+  </body>
+</html>
