@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linked Filter Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-pink-50 w-screen min-h-screen flex justify-center items-center gap-12 py-12 bg-cover bg-center"
+    style="
+      background-image: url('https://img.freepik.com/premium-vector/pink-paper-cut-abstract-background_474888-6360.jpg');
+    "
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <a
+        id="card1"
+        href="#card2"
+        class="bg-white rounded-xl shadow-lg p-4 w-64 hover:scale-105 transition-transform duration-300"
+      >
+        <h2 class="font-semibold mb-4">Days</h2>
+        <div class="flex flex-col gap-5">
+          <label class="flex items-center gap-2"
+            ><input type="checkbox" /> Monday</label
+          >
+          <label class="flex items-center gap-2 bg-pink-100 rounded p-1"
+            ><input type="checkbox" checked /> Tuesday</label
+          >
+          <label class="flex items-center gap-2 text-pink-500"
+            ><input type="checkbox" checked /> Wednesday</label
+          >
+          <label class="flex items-center gap-2"
+            ><input type="checkbox" /> Thursday</label
+          >
+          <label class="flex items-center gap-2 text-pink-500"
+            ><input type="checkbox" checked /> Friday</label
+          >
+          <label class="flex items-center gap-2"
+            ><input type="checkbox" /> Saturday</label
+          >
+          <label class="flex items-center gap-2"
+            ><input type="checkbox" /> Sunday</label
+          >
+        </div>
+        <button class="bg-black text-white py-2 px-4 rounded mt-4 w-full">
+          Remove all filters
+        </button>
+      </a>
+
+      <div class="flex flex-col gap-8">
+        <a
+          id="card2"
+          href="#card3"
+          class="bg-white rounded-xl shadow-lg p-4 w-64 hover:scale-105 transition-transform duration-300"
+        >
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-semibold">← Settings</span>
+          </div>
+          <div class="flex justify-between items-center mb-3">
+            <span>Smart sorting</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" checked />
+              <div
+                class="w-10 h-5 bg-pink-300 rounded-full peer-checked:bg-pink-500 transition"
+              ></div>
+              <div
+                class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition peer-checked:translate-x-5"
+              ></div>
+            </label>
+          </div>
+          <div class="flex justify-between items-center mb-3">
+            <span>Toggle theme</span>
+            <select class="border rounded px-2 py-1">
+              <option>Light</option>
+              <option>Dark</option>
+            </select>
+          </div>
+          <div>
+            <span>Choose language</span>
+            <select class="border rounded px-2 py-1 mt-1 w-full">
+              <option>English</option>
+              <option>French</option>
+              <option>Spanish</option>
+            </select>
+          </div>
+        </a>
+
+        <a
+          id="card3"
+          href="#card1"
+          class="bg-white rounded-xl shadow-lg p-4 w-64 hover:scale-105 transition-transform duration-300"
+        >
+          <select class="border rounded px-2 py-1 w-full mb-3">
+            <option>All types</option>
+            <option>Product Discovery</option>
+            <option>Software</option>
+          </select>
+          <div class="flex flex-col gap-2">
+            <label class="flex items-center gap-2"
+              ><input type="checkbox" /> Product Discovery</label
+            >
+            <label class="flex items-center gap-2 text-pink-500"
+              ><input type="checkbox" checked /> Software</label
+            >
+            <label class="flex items-center gap-2 bg-pink-100 rounded p-1"
+              ><input type="checkbox" /> Service Management</label
+            >
+            <label class="flex items-center gap-2"
+              ><input type="checkbox" /> Business</label
+            >
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
