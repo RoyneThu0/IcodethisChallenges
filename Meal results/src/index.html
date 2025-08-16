@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gray-100 p-6"
+  >
+    <div class="w-full max-w-5xl px-6 bg-white shadow-lg p-5 rounded-lg">
+      <div class="flex flex-col gap-3 mb-6">
+        <h1 class="text-2xl font-semibold">
+          Results for <span class="text-gray-800">“Avocado”</span>
+        </h1>
+        <p class="text-gray-500">3 results found</p>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-3 mb-6">
+        <button
+          class="flex items-center gap-2 px-3 py-1 border border-gray-300 rounded-lg bg-white text-sm shadow-sm"
+        >
+          <span>Filters</span>
+          <span class="text-xs bg-gray-200 px-2 py-0.5 rounded-full">3</span>
+        </button>
+        <div class="flex gap-2 flex-wrap">
+          <span
+            class="bg-blue-500 text-white text-sm px-3 py-1 rounded-full flex items-center gap-2"
+          >
+            Vegetarian <button class="text-white">✕</button>
+          </span>
+          <span
+            class="bg-blue-500 text-white text-sm px-3 py-1 rounded-full flex items-center gap-2"
+          >
+            Protein <button class="text-white">✕</button>
+          </span>
+          <span
+            class="bg-blue-500 text-white text-sm px-3 py-1 rounded-full flex items-center gap-2"
+          >
+            Dinner <button class="text-white">✕</button>
+          </span>
+        </div>
+        <div class="ml-auto flex items-center gap-2">
+          <span class="text-gray-500 text-sm">Choose display</span>
+          <div class="flex gap-2">
+            <button class="p-2 border rounded-md px-3">☰</button>
+            <button class="p-2 border bg-blue-100 rounded-md">⬜</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="border rounded-lg bg-white shadow-sm p-3">
+          <img
+            src="https://www.indianhealthyrecipes.com/wp-content/uploads/2023/09/avocado-sandwich-recipe.jpg"
+            alt="Avocado Sandwich"
+            class="rounded-lg mb-3 w-full h-40 object-cover"
+          />
+          <div class="flex justify-between items-start">
+            <h2 class="font-semibold">Avocado sandwitch with boiled egg</h2>
+            <button>🔖</button>
+          </div>
+          <p class="text-gray-500 text-sm mt-1">⏰ Under 1 hour</p>
+        </div>
+
+        <div class="border rounded-lg bg-white shadow-sm p-3">
+          <img
+            src="https://somethingaboutsandwiches.com/wp-content/uploads/2021/01/avocado-egg-sandwich.jpg"
+            alt="Avocado Salad"
+            class="rounded-lg mb-3 w-full h-40 object-cover"
+          />
+          <div class="flex justify-between items-start">
+            <h2 class="font-semibold">Fresh avocado salad with broccoli</h2>
+            <button>🔖</button>
+          </div>
+          <p class="text-gray-500 text-sm mt-1">⏰ Under 1 hour</p>
+        </div>
+
+        <div class="border rounded-lg bg-white shadow-sm p-3">
+          <img
+            src="https://www.lavenderandmacarons.com/wp-content/uploads/2020/06/vegan-avocado-radish-toast.jpg"
+            alt="Avocado Spaghetti"
+            class="rounded-lg mb-3 w-full h-40 object-cover"
+          />
+          <div class="flex justify-between items-start">
+            <h2 class="font-semibold">Avocado and spinach pesto spagetti</h2>
+            <button>🔖</button>
+          </div>
+          <p class="text-gray-500 text-sm mt-1">⏰ Under 1 hour</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
