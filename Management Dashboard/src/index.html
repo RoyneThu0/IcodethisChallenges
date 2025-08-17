@@ -15,24 +15,43 @@
     />
   </head>
   <body
-    class="h-screen bg-gray-300 p-5 bg-cover bg-center"
+    class="md:h-screen h-fit bg-gray-300 p-5 bg-cover bg-center"
     style="
       background-image: url(https://img.pikbest.com/wp/202405/blue-gradient-website-soothing-background-with-gradients-perfect-for-websites-3d-render_9849853.jpg!sw800);
     "
   >
-    <div class="flex bg-white rounded-lg shadow-xl p-3 h-full">
+    <div
+      class="flex flex-col md:flex-row bg-white rounded-lg shadow-xl p-1 md:p-3 h-full min-h-[90vh]"
+    >
+      <div class="md:hidden flex justify-between items-center p-4">
+        <div class="p-2 font-bold text-2xl">S</div>
+        <button id="menu-toggle" class="text-2xl focus:outline-none">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
       <div
-        class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between"
+        id="sidebar"
+        class="w-full md:w-64 bg-white border-r border-gray-200 flex-col justify-between fixed md:static top-0 left-0 h-full z-30 md:flex transition-transform duration-300 -translate-x-full md:translate-x-0 hidden md:flex"
       >
         <div>
-          <div class="p-4 font-bold text-3xl">S</div>
+          <div class="hidden md:block p-4 font-bold text-3xl">S</div>
           <nav class="mt-6">
             <ul class="space-y-2">
-              <li class="px-4 py-2 hover:bg-gray-100 rounded">Dashboard</li>
-              <li class="px-4 py-2 hover:bg-gray-100 rounded">Folders</li>
-              <li class="px-4 py-2 hover:bg-gray-100 rounded">Projects</li>
-              <li class="px-4 py-2 hover:bg-gray-100 rounded">Tasks</li>
-              <li class="px-4 py-2 hover:bg-gray-100 rounded">Settings</li>
+              <li class="px-4 py-2 hover:bg-gray-100 rounded cursor-pointer">
+                Dashboard
+              </li>
+              <li class="px-4 py-2 hover:bg-gray-100 rounded cursor-pointer">
+                Folders
+              </li>
+              <li class="px-4 py-2 hover:bg-gray-100 rounded cursor-pointer">
+                Projects
+              </li>
+              <li class="px-4 py-2 hover:bg-gray-100 rounded cursor-pointer">
+                Tasks
+              </li>
+              <li class="px-4 py-2 hover:bg-gray-100 rounded cursor-pointer">
+                Settings
+              </li>
             </ul>
           </nav>
         </div>
@@ -40,13 +59,13 @@
         <div
           class="flex items-center justify-between gap-2 p-4 border-t border-gray-200"
         >
-          <div>
+          <div class="flex items-center gap-2">
             <img
               src="https://www.shutterstock.com/image-photo/beauty-black-woman-profile-skincare-600nw-2260382807.jpg"
               alt="User Avatar"
               class="w-8 h-8 bg-gray-300 rounded-full"
             />
-            <span>Devin Lee</span>
+            <span class="hidden sm:inline">Devin Lee</span>
           </div>
           <div>
             <p
@@ -61,60 +80,66 @@
       </div>
 
       <main class="flex-1 flex flex-col">
-        <header class="flex justify-between items-center p-4 bg-white">
-          <div class="w-1/2">
+        <header
+          class="flex flex-col sm:flex-row justify-between items-center p-2 sm:p-4 bg-white gap-2"
+        >
+          <div class="w-full sm:w-1/2 mb-2 sm:mb-0">
             <input
               type="text"
               placeholder="Search"
-              class="w-full border border-gray-200 rounded-full px-4 py-2"
+              class="w-full border border-gray-200 rounded-full px-4 py-2 text-sm sm:text-base"
             />
           </div>
-          <div class="flex items-center gap-5">
-            <p><i class="fa-solid fa-envelope text-2xl"></i></p>
-            <p><i class="fa-solid fa-bell text-2xl"></i></p>
+          <div
+            class="flex items-center gap-3 sm:gap-5 w-full sm:w-auto justify-end"
+          >
+            <p><i class="fa-solid fa-envelope text-xl sm:text-2xl"></i></p>
+            <p><i class="fa-solid fa-bell text-xl sm:text-2xl"></i></p>
             <div class="text-right">
-              <div class="font-light text-4xl font-sans">17:30</div>
-              <div class="text text-gray-500">18 August</div>
+              <div class="font-light text-2xl sm:text-4xl font-sans">17:30</div>
+              <div class="text text-gray-500 text-xs sm:text-base">
+                18 August
+              </div>
             </div>
           </div>
         </header>
 
-        <div class="flex flex-1 p-4 gap-4">
+        <div class="flex flex-col lg:flex-row flex-1 p-2 sm:p-4 gap-4">
           <div class="flex-1 flex flex-col gap-4">
-            <div class="bg-white p-4 flex-1">
-              <h2 class="font-bold text-xl mb-2">Recent Folders</h2>
-              <div class="flex gap-4 mt-5">
+            <div class="bg-white p-2 sm:p-4 flex-1">
+              <h2 class="font-bold text-lg sm:text-xl mb-2">Recent Folders</h2>
+              <div class="flex flex-col sm:flex-row gap-4 mt-5">
                 <div
-                  class="w-32 h-32 rounded-lg bg-blue-300/20 flex flex-col items-center justify-center"
+                  class="w-full sm:w-32 h-24 sm:h-32 rounded-lg bg-blue-300/20 flex flex-col items-center justify-center mb-2 sm:mb-0"
                 >
                   <img
                     src="https://static.vecteezy.com/system/resources/previews/028/602/246/non_2x/folder-3d-rendering-icon-illustration-free-png.png"
                     alt=""
-                    class="w-20"
+                    class="w-12 sm:w-20"
                   />
                   <p>Invoices</p>
                 </div>
                 <div
-                  class="w-32 h-32 rounded-lg bg-blue-300/20 flex flex-col items-center justify-center"
+                  class="w-full sm:w-32 h-24 sm:h-32 rounded-lg bg-blue-300/20 flex flex-col items-center justify-center"
                 >
                   <img
                     src="https://static.vecteezy.com/system/resources/previews/028/602/246/non_2x/folder-3d-rendering-icon-illustration-free-png.png"
                     alt=""
-                    class="w-20"
+                    class="w-12 sm:w-20"
                   />
                   <p>Customers</p>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white p-4 flex-1">
-              <h2 class="font-bold mb-2">Projects</h2>
-              <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-2 sm:p-4 flex-1">
+              <h2 class="font-bold mb-2 text-lg sm:text-xl">Projects</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div
-                  class="rounded-lg bg-blue-300/20 flex items-start p-5 justify-start"
+                  class="rounded-lg bg-blue-300/20 flex items-start p-3 sm:p-5 justify-start"
                 >
                   <div
-                    class="w-10 h-10 flex items-center justify-center rounded-full bg-white"
+                    class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center rounded-full bg-white"
                   >
                     <p class="font-semibold text-purple-400">S</p>
                   </div>
@@ -132,10 +157,10 @@
                 </div>
 
                 <div
-                  class="rounded-lg bg-blue-300/20 flex items-start p-5 justify-start"
+                  class="rounded-lg bg-blue-300/20 flex items-start p-3 sm:p-5 justify-start"
                 >
                   <div
-                    class="w-10 h-10 flex items-center justify-center rounded-full bg-white"
+                    class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center rounded-full bg-white"
                   >
                     <p class="font-semibold text-red-400">T</p>
                   </div>
@@ -152,10 +177,10 @@
                   </div>
                 </div>
                 <div
-                  class="rounded-lg bg-blue-300/20 flex items-start p-5 justify-start"
+                  class="rounded-lg bg-blue-300/20 flex items-start p-3 sm:p-5 justify-start"
                 >
                   <div
-                    class="w-10 h-10 flex items-center justify-center rounded-full bg-white"
+                    class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center rounded-full bg-white"
                   >
                     <p class="font-semibold text-green-400">P</p>
                   </div>
@@ -172,25 +197,34 @@
                   </div>
                 </div>
                 <div
-                  class="rounded-lg border border-gray-200 flex flex-col items-center p-5 justify-center"
+                  class="rounded-lg border border-gray-200 flex flex-col items-center p-3 sm:p-5 justify-center"
                 >
-                  <i class="fa-solid fa-plus text-3xl text-gray-400"></i>
+                  <i
+                    class="fa-solid fa-plus text-2xl sm:text-3xl text-gray-400"
+                  ></i>
                   <p class="mt-2 text-gray-400">Add new</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="flex-1 max-w-lg bg-white p-4">
-            <h2 class="font-bold mb-2">Your Tasks</h2>
-            <div class="bg-blue-300/20 rounded-lg p-5">
+          <div
+            class="flex-1 max-w-full lg:max-w-lg bg-white p-2 sm:p-4 mt-4 lg:mt-0"
+          >
+            <h2 class="font-bold mb-2 text-lg sm:text-xl">Your Tasks</h2>
+            <div class="bg-blue-300/20 rounded-lg p-3 sm:p-5">
               <ul class="space-y-3">
                 <li
-                  class="p-5 flex items-center gap-2 justify-start bg-white rounded-lg shadow-lg"
+                  class="p-3 sm:p-5 flex items-center gap-2 justify-start bg-white rounded-lg shadow-lg"
                 >
-                  <input type="checkbox" name="" id="" class="w-8 h-8" />
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    class="w-6 sm:w-8 h-6 sm:h-8"
+                  />
                   <div class="flex flex-col">
-                    <p>Better quality favicon</p>
+                    <p class="text-sm sm:text-base">Better quality favicon</p>
                     <p
                       class="text-white bg-orange-500 rounded-full animate-pulse w-fit px-2 py-1 text-xs"
                     >
@@ -199,11 +233,16 @@
                   </div>
                 </li>
                 <li
-                  class="p-5 flex items-center gap-2 justify-start bg-white rounded-lg shadow-lg"
+                  class="p-3 sm:p-5 flex items-center gap-2 justify-start bg-white rounded-lg shadow-lg"
                 >
-                  <input type="checkbox" name="" id="" class="w-8 h-8" />
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    class="w-6 sm:w-8 h-6 sm:h-8"
+                  />
                   <div class="flex w-full flex-col">
-                    <p>Social accounts setup</p>
+                    <p class="text-sm sm:text-base">Social accounts setup</p>
                     <div class="w-full flex items-center justify-between">
                       <p
                         class="text-white bg-green-500 rounded-full animate-pulse w-fit px-2 py-1 text-xs"
@@ -212,23 +251,23 @@
                       </p>
                       <div class="flex items-center justify-end gap-2">
                         <i class="fa-solid fa-clock"></i>
-                        <p>12:30</p>
+                        <p class="text-xs sm:text-base">12:30</p>
                       </div>
                     </div>
                   </div>
                 </li>
                 <li
-                  class="p-5 flex items-center gap-2 justify-start rounded-lg"
+                  class="p-3 sm:p-5 flex items-center gap-2 justify-start rounded-lg"
                 >
                   <input
                     type="checkbox"
                     name=""
                     id=""
-                    class="w-8 h-8"
+                    class="w-6 sm:w-8 h-6 sm:h-8"
                     checked
                   />
                   <div class="flex w-full flex-col">
-                    <p>Upgrade plan page</p>
+                    <p class="text-sm sm:text-base">Upgrade plan page</p>
                     <div class="w-full flex items-center justify-between">
                       <p
                         class="text-white bg-purple-500 rounded-full w-fit px-2 py-1 text-xs"
@@ -237,23 +276,23 @@
                       </p>
                       <div class="flex items-center justify-end gap-2">
                         <i class="fa-solid fa-clock"></i>
-                        <p>14:30</p>
+                        <p class="text-xs sm:text-base">14:30</p>
                       </div>
                     </div>
                   </div>
                 </li>
                 <li
-                  class="p-5 flex items-center gap-2 justify-start rounded-lg"
+                  class="p-3 sm:p-5 flex items-center gap-2 justify-start rounded-lg"
                 >
                   <input
                     type="checkbox"
                     name=""
                     id=""
-                    class="w-8 h-8"
+                    class="w-6 sm:w-8 h-6 sm:h-8"
                     checked
                   />
                   <div class="flex w-full flex-col">
-                    <p>Email templates</p>
+                    <p class="text-sm sm:text-base">Email templates</p>
                     <div class="w-full flex items-center justify-between">
                       <p
                         class="text-white bg-orange-500 rounded-full w-fit px-2 py-1 text-xs"
@@ -262,7 +301,7 @@
                       </p>
                       <div class="flex items-center justify-end gap-2">
                         <i class="fa-solid fa-paperclip"></i>
-                        <p>6</p>
+                        <p class="text-xs sm:text-base">6</p>
                       </div>
                     </div>
                   </div>
@@ -273,5 +312,16 @@
         </div>
       </main>
     </div>
+    <script>
+      // Sidebar toggle for mobile
+      const menuToggle = document.getElementById("menu-toggle");
+      const sidebar = document.getElementById("sidebar");
+      if (menuToggle && sidebar) {
+        menuToggle.addEventListener("click", () => {
+          sidebar.classList.toggle("hidden");
+          sidebar.classList.toggle("-translate-x-full");
+        });
+      }
+    </script>
   </body>
 </html>
