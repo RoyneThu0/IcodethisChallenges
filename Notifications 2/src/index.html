@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notification 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center bg-gray-100 justify-center"
+  >
+    <div class="flex items-center flex-col w-11/12 max-w-2xl">
+      <div
+        class="w-full rounded-full bg-gradient-to-r from-gray-400 via-gray-700 to-gray-900 p-5 flex items-center justify-between shadow-xl"
+      >
+        <div class="flex w-full items-center justify-start">
+          <img
+            src="https://i.pinimg.com/736x/5c/fb/1b/5cfb1bec148fb4d026a68345cee2d397.jpg"
+            alt=""
+            class="w-20 h-20 shrink-0 rounded-full border-4 border-gray-400 shadow-xl hover:border-green-300 duration-300 ease-in-out"
+          />
+          <div class="w-full ml-5">
+            <p class="font-bold text-white">
+              Lela hale <span class="font-normal">commented on your post</span>
+            </p>
+            <p class="text-gray-200 text-sm">2 HOURS AGO</p>
+          </div>
+        </div>
+        <p class="pr-5">
+          <i class="fa-solid fa-chevron-right text-white text-xl"></i>
+        </p>
+      </div>
+      <div
+        class="w-full max-w-sm p-10 bg-white mt-5 rounded-lg flex justify-center items-center flex-col shadow-xl"
+      >
+        <p class="text-center text-gray-500">INCOMING CALL</p>
+
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYgys3qAvS7eP7vzXmRqHcYnbMHyokIfsyBIneZEW26ZreL2CXaxR7cnpaSruzB_Pt_0&usqp=CAU"
+          alt=""
+          class="w-32 h-32 mt-5 shrink-0 rounded-full border-8 border-gray-800 shadow-xl shadow-gray-600/50 hover:border-green-500 hover:scale-115 hover:animate-none duration-300 ease-in-out animate-pulse"
+        />
+        <p class="mt-3 text-xl font-semibold">Jessie Burke</p>
+        <div class="mt-3 w-full flex items-center justify-center gap-14">
+          <div
+            class="bg-red-600 px-5 py-3 rounded-full p-5 border-4 border-red-400/90"
+          >
+            <p class="text-white font-semibold">Decline</p>
+          </div>
+          <div
+            class="bg-green-600 px-5 py-3 rounded-full p-5 border-4 border-green-400/90"
+          >
+            <p class="text-white font-semibold">Accept</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full max-w-sm p-10 bg-white mt-5 rounded-lg flex justify-center items-center flex-col shadow-xl"
+      >
+        <img
+          src="https://www.freeiconspng.com/uploads/sms-icon-16.png"
+          alt=""
+          class="w-32 h-32 shrink-0"
+        />
+        <p class="mt-3 text-xl text-center">
+          Do you want to allow push notifications?
+        </p>
+        <div class="mt-3 w-full flex items-center justify-center gap-16">
+          <div
+            class="hover:bg-red-600 duration-300 px-8 py-3 rounded-full p-5 border-4 border-gray-300"
+          >
+            <p class="text-black font-semibold">No</p>
+          </div>
+          <div
+            class="hover:bg-green-500 duration-300 bg-gray-800 px-8 py-3 rounded-full p-5 shadow-lg"
+          >
+            <p class="text-white font-semibold">Yes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
