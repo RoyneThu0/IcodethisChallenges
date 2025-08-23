@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphic UI</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+
+    <style>
+      .neumorphic {
+        background: #e0e5ec;
+        box-shadow: 7px 7px 15px #a3b1c6, -7px -7px 15px #ffffff;
+      }
+      .neumorphic-inset {
+        background: #e0e5ec;
+        box-shadow: inset 4px 4px 6px #a3b1c6, inset -4px -4px 6px #ffffff;
+      }
+      .neumorphic:hover,
+      .neumorphic:focus {
+        box-shadow: inset 4px 4px 6px #a3b1c6, inset -4px -4px 6px #ffffff;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#e0e5ec] flex flex-col items-center justify-center min-h-screen space-y-10 bg-cover bg-center"
+    style="
+      background-image: url(https://media.istockphoto.com/id/1352147460/photo/tropical-paper-palm-leaves-and-branches-frame-summer-tropical-leaf-origami-exotic-summertime.jpg?s=612x612&w=0&k=20&c=ruuzqR17nn08fmh8IW5TgJme4AEbdZ65XzpJ1092VU4=);
+    "
+  >
+    <div class="flex space-x-10">
+      <div
+        class="neumorphic w-20 h-20 flex flex-col items-center justify-center rounded-full"
+      >
+        <span class="text-gray-600">📦</span>
+        <span class="text-sm text-gray-600 mt-2">History</span>
+      </div>
+      <div
+        class="neumorphic w-20 h-20 flex flex-col items-center justify-center rounded-full"
+      >
+        <span class="text-gray-600">🏅</span>
+        <span class="text-sm text-gray-600 mt-2">Awards</span>
+      </div>
+      <div
+        class="neumorphic w-20 h-20 flex flex-col items-center justify-center rounded-full"
+      >
+        <span class="text-gray-600">💡</span>
+        <span class="text-sm text-gray-600 mt-2">Ideas</span>
+      </div>
+    </div>
+
+    <div
+      class="flex items-center shadow-inner shadow-gray-400 rounded-full px-4 py-2 w-96"
+    >
+      <span class="text-gray-500">🔍</span>
+      <input
+        type="text"
+        placeholder="Search"
+        class="bg-transparent outline-none ml-2 flex-grow text-gray-600"
+      />
+      <button
+        class="ml-4 neumorphic px-4 py-2 rounded-full text-sm text-gray-700"
+      >
+        Search
+      </button>
+    </div>
+
+    <div
+      class="relative neumorphic rounded-xl px-4 py-2 flex items-center justify-between w-40 cursor-pointer group"
+    >
+      <span class="text-gray-600">Sort</span>
+      <span><i class="fa-solid fa-chevron-down"></i></span>
+      <div
+        class="absolute left-0 top-14 neumorphic rounded-xl w-48 p-3 hidden group-hover:block"
+      >
+        <div class="flex items-center space-x-2 text-gray-600 mb-2">
+          📅 <span>Sort by date</span>
+        </div>
+        <div class="flex items-center space-x-2 text-gray-600">
+          🔠 <span>Sort alphabetically</span>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="neumorphic px-6 py-3 rounded-full text-blue-600 font-medium flex items-center space-x-2"
+    >
+      <span>📥</span>
+      <span>Import your data</span>
+    </button>
+
+    <div class="flex space-x-6 text-gray-500 text-sm">
+      <span>About</span>
+      <span>•</span>
+      <span>Privacy</span>
+      <span>•</span>
+      <span>Terms</span>
+      <span>•</span>
+      <span>Software and License </span>
+    </div>
+  </body>
+</html>
