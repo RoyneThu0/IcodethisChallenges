@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editable Components</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20201009/pngtree-tosca-shade-papercut-abstract-background-illustration-image_405085.jpg);
+    "
+  >
+    <div class="w-11/12 max-w-3xl rounded-xl">
+      <div
+        class="w-full grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-white gap-5 rounded-lg shadow-xl"
+      >
+        <div
+          class="hover:bg-teal-500 duration-300 ease-in-out p-10 w-full rounded-xl group hover:shadow-xl hover:-translate-y-3 flex flex-col"
+        >
+          <p
+            class="text-center text-gray-400 group-hover:text-white duration-300 ease-in-out text-3xl"
+          >
+            <i class="fa-solid fa-house"></i>
+          </p>
+          <p
+            class="text-sm mt-2 text-center group-hover:text-white duration-300 ease-in-out text-gray-400"
+          >
+            TYPE OF DWELLING
+          </p>
+          <p
+            class="text-sm mt-2 text-center group-hover:text-white duration-300 ease-in-out text-black font-semibold"
+          >
+            Detached
+          </p>
+        </div>
+
+        <div
+          class="hover:bg-teal-500 duration-300 ease-in-out p-10 w-full rounded-xl group hover:shadow-xl hover:-translate-y-3 flex flex-col"
+        >
+          <p
+            class="text-center text-gray-400 group-hover:text-white duration-300 ease-in-out text-3xl"
+          >
+            <i class="fa-solid fa-crop-simple"></i>
+          </p>
+          <p
+            class="text-sm mt-2 text-center group-hover:text-white duration-300 ease-in-out text-gray-400"
+          >
+            LIVING AREA
+          </p>
+          <p
+            class="text-sm mt-2 text-center group-hover:text-white duration-300 ease-in-out text-black font-semibold"
+          >
+            147 m2
+          </p>
+        </div>
+        <div
+          class="hover:bg-teal-500 duration-300 ease-in-out p-10 w-full rounded-xl group hover:shadow-xl hover:-translate-y-3 flex flex-col"
+        >
+          <p
+            class="text-center text-gray-400 group-hover:text-white duration-300 ease-in-out text-3xl"
+          >
+            <i class="fa-solid fa-dollar-sign"></i>
+          </p>
+          <p
+            class="text-xs text-nowrap mt-2 text-center group-hover:text-white duration-300 ease-in-out text-gray-400"
+          >
+            CONSIDERED TO SOLD WITHIN
+          </p>
+          <p
+            class="text-sm mt-2 text-center group-hover:text-white duration-300 ease-in-out text-black font-semibold"
+          >
+            1 year
+          </p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <div
+          class="bg-teal-500 hover:bg-teal-600 duration-300 ease-in-out shadow-lg shadow-gray-600/60 -translate-y-10 text-white font-semibold w-16 h-16 rounded-full flex items-center justify-center"
+        >
+          <p><i class="fa-solid fa-pen group-hover:text-teal-300"></i></p>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col items-center justify-center bg-black/70 p-10 rounded-lg"
+      >
+        <p class="text-gray-300 text-center font-semibold text-xl">Edit</p>
+        <p class="text-sm mt-2 text-gray-300 text-center">
+          Edit details and let other users know when you are considering selling
+          the property.
+        </p>
+
+        <div
+          class="w-full grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 gap-5 shadow-xl"
+        >
+          <div
+            class="duration-300 ease-in-out p-10 w-full rounded-xl group hover:shadow-xl hover:-translate-y-3 flex flex-col"
+          >
+            <p
+              class="text-center text-gray-400 duration-300 ease-in-out text-3xl"
+            >
+              <i class="fa-solid fa-house"></i>
+            </p>
+            <p
+              class="text-sm mt-2 text-center g duration-300 ease-in-out text-gray-400"
+            >
+              TYPE OF DWELLING
+            </p>
+            <select
+              name="type_of_dwelling"
+              id="type_of_dwelling"
+              class="mt-4 bg-gray-400 h-9 rounded-lg"
+            >
+              <option value="detached">Detached</option>
+              <option value="semi-detached">Semi-Detached</option>
+              <option value="terraced">Terraced</option>
+              <option value="flat">Flat</option>
+            </select>
+          </div>
+
+          <div
+            class="duration-300 ease-in-out p-10 w-full rounded-xl group hover:shadow-xl hover:-translate-y-3 flex flex-col"
+          >
+            <p
+              class="text-center text-gray-400 duration-300 ease-in-out text-3xl"
+            >
+              <i class="fa-solid fa-crop-simple"></i>
+            </p>
+            <p
+              class="text-sm mt-2 text-center duration-300 ease-in-out text-gray-400"
+            >
+              LIVING AREA
+            </p>
+            <div class="w-full flex items-center bg-gray-300 mt-4 rounded-md">
+              <input
+                type="text"
+                name="living_area"
+                id="living_area"
+                class="w-full p-1"
+                placeholder=" 130"
+              />
+              <p class="mx-2 text-gray-600">m2</p>
+            </div>
+          </div>
+          <div
+            class="duration-300 ease-in-out p-10 w-full rounded-xl group hover:shadow-xl hover:-translate-y-3 flex flex-col"
+          >
+            <p
+              class="text-center text-gray-400 duration-300 ease-in-out text-3xl"
+            >
+              <i class="fa-solid fa-dollar-sign"></i>
+            </p>
+            <p
+              class="text-xs text-nowrap mt-2 text-center duration-300 ease-in-out text-gray-400"
+            >
+              CONSIDERED TO SOLD WITHIN
+            </p>
+            <select
+              name="considered_to_sold_within"
+              id="considered_to_sold_within"
+              class="mt-2 bg-gray-400 h-9 rounded-lg w-full"
+            >
+              <option value="1_year">1 year</option>
+              <option value="2_years">2 years</option>
+              <option value="3_years">3 years</option>
+              <option value="4_years">4 years</option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="w-full grid md:grid-cols-2 grid-cols-1 items-center justify-center gap-5"
+        >
+          <button
+            class="border border-gray-400 hover:border-gray-100 hover:text-gray-100 hover:bg-red-400 duration-300 ease-in-out text-gray-400 font-semibold px-10 py-4 rounded-lg"
+          >
+            Cancel
+          </button>
+          <button
+            class="bg-teal-500 hover:bg-teal-600 duration-300 ease-in-out text-white font-semibold px-10 py-4 rounded-lg"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <div
+          class="bg-white hover:bg-teal-600 hover:text-white duration-300 ease-in-out shadow-lg shadow-gray-600/60 -translate-y-8 text-black font-semibold w-16 h-16 rounded-full flex items-center justify-center"
+        >
+          <i class="fa-solid fa-xmark text-3xl"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
