@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Share</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen p-5 flex items-center justify-center bg-blue-900"
+  >
+    <div class="w-11/12 max-w-3xl bg-blue-950 p-10 rounded-xl shadow-xl">
+      <div class="w-full flex items-center justify-between">
+        <p
+          class="bg-white w-14 h-14 rounded-full flex items-center justify-center text-blue-950 font-bold"
+        >
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+        </p>
+        <div class="flex items-center justify-end">
+          <p class="text-white">Settings</p>
+          <p class="text-white text-xl ml-2">
+            <i class="fa-solid fa-gear"></i>
+          </p>
+        </div>
+      </div>
+      <div class="mt-5">
+        <p class="text-white text-3xl">
+          Share with people <br />
+          and groups
+        </p>
+      </div>
+      <div class="w-full border border-white/20 mt-5 p-5 rounded-full">
+        <input
+          type="text"
+          class="w-full border-none outline-none bg-transparent text-white placeholder:text-white/50"
+          placeholder="Search here"
+        />
+      </div>
+      <div class="flex items-center justify-start mt-5 gap-0">
+        <input
+          type="checkbox"
+          name="notify"
+          id="notify"
+          class="bg-blue-950 w-5 h-5"
+        />
+        <label for="notify" class="text-white ml-2">Notify people</label>
+      </div>
+      <div class="w-full mt-5 flex items-center justify-between">
+        <p class="text-blue-500 hover:text-blue-300 hover:underline">
+          Send feedback
+        </p>
+        <div class="justify-end gap-5">
+          <button class="bg-indigo-950 text-white px-10 py-4 rounded-lg">
+            Cancel
+          </button>
+
+          <button class="bg-indigo-500 text-white px-10 py-4 rounded-lg">
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
