@@ -17,8 +17,150 @@
   <body
     class="w-screen min-h-screen bg-gray-100 flex items-center justify-center p-5"
   >
-    <div class="container mx-auto">
-      <h1 class="text-3xl font-bold">Product Review</h1>
+    <div
+      class="relative mx-auto bg-red-200 p-10 min-h-96 rounded-xl w-11/12 max-w-3xl flex items-center justify-center"
+    >
+      <div class="absolute w-11/12 max-w-xl bg-white rounded-xl p-10">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-bold">Overall Rating</h2>
+          <button
+            class="text-gray-500 hover:bg-gray-700 hover:text-white duration-300 ease-in-out w-10 h-10 bg-gray-200 rounded-full"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="flex justify-start mt-3">
+          <ul class="flex items-center gap-1">
+            <li
+              class="w-10 h-10 rounded-sm text-xl border-2 border-gray-100 flex items-center justify-center"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </li>
+            <li
+              class="w-10 h-10 rounded-sm text-xl border-2 border-gray-100 flex items-center justify-center"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </li>
+            <li
+              class="w-10 h-10 rounded-sm text-xl border border-gray-100 flex items-center justify-center"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </li>
+            <li
+              class="w-10 h-10 rounded-sm text-xl border-2 border-gray-100 flex items-center justify-center"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </li>
+
+            <li
+              class="w-10 h-10 rounded-sm text-xl border-2 border-gray-100 flex items-center justify-center"
+            >
+              <i class="fa-solid fa-star text-gray-300"></i>
+            </li>
+          </ul>
+        </div>
+        <p class="text-xs mt-1">Click to rate</p>
+
+        <div class="w-full mt-4">
+          <label for="title" class="block text-sm font-semibold text-gray-700"
+            >Review title</label
+          >
+          <input
+            type="text"
+            id="title"
+            class="mt-1 block w-full h-10 p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500"
+            placeholder="Example: Easy to use"
+          />
+        </div>
+
+        <p class="mt-5 font-semibold">
+          Would you recommend this product to a friend?
+        </p>
+        <div class="w-40 flex justify-start gap-2 mt-2">
+          <div class="w-full">
+            <input
+              type="radio"
+              id="recommend-yes"
+              name="recommend"
+              value="yes"
+              class="hidden peer"
+            />
+            <label
+              for="recommend-yes"
+              class="cursor-pointer inline-flex items-center justify-center w-full h-10 border border-gray-200 rounded-md text-gray-700 font-semibold peer-checked:bg-blue-500 peer-checked:text-white"
+            >
+              Yes
+            </label>
+          </div>
+          <div class="w-full">
+            <input
+              type="radio"
+              id="recommend-no"
+              name="recommend"
+              value="no"
+              class="hidden peer"
+            />
+            <label
+              for="recommend-no"
+              class="cursor-pointer inline-flex items-center justify-center w-full h-10 border border-gray-200 rounded-md text-gray-700 font-semibold peer-checked:bg-blue-500 peer-checked:text-white"
+            >
+              No
+            </label>
+          </div>
+        </div>
+        <div class="mt-5">
+          <label for="review" class="font-semibold text-sm text-gray-700"
+            >Product review</label
+          >
+          <textarea
+            id="review"
+            class="block w-full p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500"
+            placeholder="Write your review here..."
+          ></textarea>
+        </div>
+
+        <div class="w-full flex items-center justify-between mt-3 gap-2">
+          <div class="w-full">
+            <label for="nickname" class="font-semibold text-xs text-gray-700"
+              >Nickname</label
+            >
+            <input
+              type="text"
+              id="nickname"
+              class="mt-1 block w-full h-10 p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Example: bob27"
+            />
+          </div>
+          <div class="w-full">
+            <label for="email" class="font-semibold text-xs text-gray-700"
+              >Email Address (will not be published)</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="mt-1 block w-full h-10 p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Example: your@email.com"
+            />
+          </div>
+        </div>
+        <div class="mt-5 flex items-center justify-start gap-2">
+          <input type="checkbox" name="t&c" id="t&c" class="w-5 h-5" />
+          <label for="t&c" class="text-sm text-gray-700"
+            >I agree to the terms and conditions</label
+          >
+        </div>
+        <p class="text-xs text-gray-400 mt-4">
+          You will be able to recieve emails in connection to this review(e.g if
+          others comment on your review). All emails contain the option to
+          unsubscribe. We can use the text and star rating from your review in
+          other marketing.
+        </p>
+        <div class="flex items-center w-full justify-start mt-4">
+          <button class="px-7 py-3 bg-black text-white rounded-md">
+            Submit product review
+          </button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
