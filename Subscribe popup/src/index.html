@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscribe popup</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center p-6 bg-cover bg-center"
+    style="
+      background-image: url(https://static.vecteezy.com/system/resources/previews/010/833/420/non_2x/abstract-art-vibrant-color-liquid-blurred-background-with-lines-wave-pattern-texture-vector.jpg);
+    "
+  >
+    <div
+      class="w-11/12 max-w-2xl bg-gray-200/40 hover:bg-white duration-300 ease-in-out backdrop-blur-md p-10 rounded-xl shadow-lg shadow-gray-800/60"
+    >
+      <div class="w-full flex justify-end">
+        <p>
+          <i
+            class="fa-solid fa-xmark text-2xl hover:text-blue-500 duration-300 cursor-pointer"
+          ></i>
+        </p>
+      </div>
+      <div class="flex flex-col px-8">
+        <img
+          src="https://www.freeiconspng.com/uploads/cartoon-fire-flames-transparent-3.png"
+          alt=""
+          class="w-12"
+        />
+        <p class="mt-2 text-4xl font-semibold">
+          Don't miss <br />
+          our hottest news !
+        </p>
+        <p class="text-sm mt-3">
+          Enter your email to receive daily round-up of <br />
+          the hottest news
+        </p>
+        <div class="mt-4 md:flex grid md:grid-cols-2 grid-cols-1 w-full">
+          <input
+            type="email"
+            placeholder="Enter your email here"
+            class="md:w-2/3 w-full p-2 border border-gray-400 rounded-sm md:rounded-r-none"
+          />
+          <button
+            class="md:w-1/3 w-full bg-blue-500 text-white px-5 py-2 rounded-sm md:rounded-l-none"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
