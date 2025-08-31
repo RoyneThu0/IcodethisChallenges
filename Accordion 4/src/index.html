@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion 4</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-gray-200/50"
+  >
+    <div
+      class="w-11/12 bg-white max-w-2xl rounded-xl shadow-lg shadow-gray-500/40 p-20"
+    >
+      <p class="text-2xl font-semibold">The Accordion</p>
+
+      <p>
+        The accordion is a graphical control element comprising a vertically
+        stacked list of items, such as labels or thumbnails. Each item can be
+        "expanded" or "collapsed" to reveal the content associated with that
+        item.
+      </p>
+      <div class="">
+        <div class="relative mb-3 mt-3">
+          <button
+            class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+            data-collapse-target="collapse-1"
+          >
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-plus icon-plus"
+            ></i>
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-minus icon-minus opacity-0"
+            ></i>
+            <span class="mx-8">When and how it should be used</span>
+          </button>
+
+          <div
+            id="collapse-1"
+            class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          >
+            <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
+              Accordions organize related information into smaller sections,
+              reduce visual clutter, and save screen space, especially on mobile
+              devices or side panels. They’re ideal for presenting content like
+              FAQs, complex procedures, or dashboards, allowing users to reveal
+              information gradually. Avoid using accordions when users need to
+              see all content, when content is simple or non-hierarchical, or if
+              it obscures important elements.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative mb-3 mt-3">
+          <button
+            class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+            data-collapse-target="collapse-2"
+          >
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-plus icon-plus"
+            ></i>
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-minus icon-minus opacity-0"
+            ></i>
+            <span class="mx-8">What is an accordion</span>
+          </button>
+
+          <div
+            id="collapse-2"
+            class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          >
+            <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
+              An accordion is an interactive user interface element that
+              organizes content into stacked, collapsible sections. Users click
+              on a heading or title to expand or collapse the content panel
+              beneath it, allowing for a more compact and manageable display of
+              information.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative mb-3 mt-3">
+          <button
+            class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+            data-collapse-target="collapse-3"
+          >
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-plus icon-plus"
+            ></i>
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-minus icon-minus opacity-0"
+            ></i>
+            <span class="mx-8"
+              >What if the user clicks on a collapsed card while another card is
+              open?</span
+            >
+          </button>
+
+          <div
+            id="collapse-3"
+            class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          >
+            <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
+              In most designs, clicking a collapsed card will trigger the
+              currently open card to collapse, and then the clicked card will
+              expand. This creates a smooth, focused user experience.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative mb-3 mt-3">
+          <button
+            class="accordion-header relative flex items-center w-full p-4 font-semibold text-left transition-all ease-in border-b border-solid cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-dark-500"
+            data-collapse-target="collapse-4"
+          >
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-plus icon-plus"
+            ></i>
+            <i
+              class="absolute mx-3 left-0 pt-1 text-lg fa fa-minus icon-minus opacity-0"
+            ></i>
+            <span class="mx-8"
+              >How to choose an icon to indicate expansion</span
+            >
+          </button>
+
+          <div
+            id="collapse-4"
+            class="accordion-content h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          >
+            <p class="p-4 text-sm leading-normal text-blue-gray-500/80">
+              To choose an accordion expansion icon, select familiar icons like
+              a plus sign (+) for expansion or a caret/chevron (down arrow for
+              collapse, up arrow for expand) to indicate direction. The most
+              crucial factor is a clear affordance that tells users the item is
+              clickable and will expand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const accordionHeaders = document.querySelectorAll(".accordion-header");
+      const accordionContents = document.querySelectorAll(".accordion-content");
+
+      accordionContents.forEach((content) => {
+        content.style.height = "0px";
+        const header = content.parentElement.querySelector(".accordion-header");
+        if (header) header.classList.remove("open");
+      });
+
+      function updateIcons() {
+        accordionHeaders.forEach((header) => {
+          const plus = header.querySelector(".icon-plus");
+          const minus = header.querySelector(".icon-minus");
+          if (header.classList.contains("open")) {
+            plus.classList.add("opacity-0");
+            minus.classList.remove("opacity-0");
+          } else {
+            plus.classList.remove("opacity-0");
+            minus.classList.add("opacity-0");
+          }
+        });
+      }
+
+      accordionHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+          const targetId = header.getAttribute("data-collapse-target");
+          const content = document.getElementById(targetId);
+
+          accordionContents.forEach((otherContent) => {
+            if (otherContent !== content) {
+              otherContent.style.height = "0px";
+              const otherHeader =
+                otherContent.parentElement.querySelector(".accordion-header");
+              if (otherHeader) otherHeader.classList.remove("open");
+            }
+          });
+
+          if (!content.style.height || content.style.height === "0px") {
+            content.style.height = content.scrollHeight + "px";
+            header.classList.add("open");
+          } else {
+            content.style.height = "0px";
+            header.classList.remove("open");
+          }
+          updateIcons();
+        });
+      });
+
+      updateIcons();
+    </script>
+  </body>
+</html>
