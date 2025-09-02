@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div
+      class="bg-white shadow-lg rounded-xl w-full max-w-5xl grid grid-cols-1 md:grid-cols-2"
+    >
+      <div class="bg-gray-800 text-white p-6 rounded-l-xl">
+        <div class="flex justify-between items-center mb-4">
+          <button id="prevMonth" class="text-lg">◀</button>
+          <h2 id="monthYear" class="text-xl font-bold">February 2016</h2>
+          <button id="nextMonth" class="text-lg">▶</button>
+        </div>
+        <div class="grid grid-cols-7 text-center font-semibold">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span
+          ><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div
+          id="calendarDays"
+          class="grid grid-cols-7 text-center gap-2 mt-2"
+        ></div>
+      </div>
+
+      <div class="bg-orange-400 rounded-r-xl p-6">
+        <h2 class="text-xl font-bold text-center mb-4">Events of the Month</h2>
+        <ul id="eventList" class="space-y-3"></ul>
+        <button
+          id="addEventBtn"
+          class="mt-6 bg-gray-800 text-white px-4 py-2 rounded-lg w-full"
+        >
+          ➕ Add Event
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="eventModal"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+    >
+      <div class="bg-white p-6 rounded-lg w-96">
+        <h3 id="modalTitle" class="text-lg font-bold mb-4">Add Event</h3>
+        <input
+          id="eventTitle"
+          type="text"
+          placeholder="Event Title"
+          class="w-full p-2 border rounded mb-3"
+        />
+        <input
+          id="eventDate"
+          type="date"
+          class="w-full p-2 border rounded mb-3"
+        />
+        <input
+          id="eventTime"
+          type="time"
+          class="w-full p-2 border rounded mb-3"
+        />
+        <div class="flex justify-end space-x-2">
+          <button id="cancelBtn" class="px-4 py-2 bg-gray-300 rounded">
+            Cancel
+          </button>
+          <button
+            id="saveEventBtn"
+            class="px-4 py-2 bg-orange-500 text-white rounded"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const calendarDays = document.getElementById("calendarDays");
+      const monthYear = document.getElementById("monthYear");
+      const eventList = document.getElementById("eventList");
+      const eventModal = document.getElementById("eventModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const eventTitle = document.getElementById("eventTitle");
+      const eventDate = document.getElementById("eventDate");
+      const eventTime = document.getElementById("eventTime");
+      const saveEventBtn = document.getElementById("saveEventBtn");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const addEventBtn = document.getElementById("addEventBtn");
+
+      let events = [];
+      let editIndex = null;
+      let currentDate = new Date();
+
+      function renderCalendar() {
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const firstDay = new Date(year, month, 1).getDay();
+        const lastDate = new Date(year, month + 1, 0).getDate();
+
+        monthYear.textContent =
+          currentDate.toLocaleString("default", { month: "long" }) + " " + year;
+        calendarDays.innerHTML = "";
+
+        for (let i = 0; i < firstDay; i++) {
+          calendarDays.innerHTML += `<div></div>`;
+        }
+
+        for (let day = 1; day <= lastDate; day++) {
+          calendarDays.innerHTML += `
+          <div class="p-2 rounded-full cursor-pointer hover:bg-orange-300"
+               onclick="openAddEvent('${year}-${String(month + 1).padStart(
+            2,
+            "0"
+          )}-${String(day).padStart(2, "0")}')">
+            ${day}
+          </div>`;
+        }
+      }
+
+      function renderEvents() {
+        eventList.innerHTML = "";
+        events.forEach((event, index) => {
+          eventList.innerHTML += `
+          <li class="bg-orange-500 text-white p-3 rounded flex justify-between items-center">
+            <div>
+              <div class="font-bold">${event.title}</div>
+              <div class="text-sm">${event.date} ${event.time}</div>
+            </div>
+            <div class="space-x-2">
+              <button onclick="editEvent(${index})" class="px-2">✏️</button>
+              <button onclick="deleteEvent(${index})" class="px-2">🗑️</button>
+            </div>
+          </li>`;
+        });
+      }
+
+      function openAddEvent(date = "") {
+        modalTitle.textContent = "Add Event";
+        eventTitle.value = "";
+        eventDate.value = date;
+        eventTime.value = "";
+        editIndex = null;
+        eventModal.classList.remove("hidden");
+      }
+
+      function editEvent(index) {
+        modalTitle.textContent = "Edit Event";
+        eventTitle.value = events[index].title;
+        eventDate.value = events[index].date;
+        eventTime.value = events[index].time;
+        editIndex = index;
+        eventModal.classList.remove("hidden");
+      }
+
+      function deleteEvent(index) {
+        events.splice(index, 1);
+        renderEvents();
+      }
+
+      saveEventBtn.addEventListener("click", () => {
+        const newEvent = {
+          title: eventTitle.value,
+          date: eventDate.value,
+          time: eventTime.value,
+        };
+        if (editIndex !== null) {
+          events[editIndex] = newEvent;
+        } else {
+          events.push(newEvent);
+        }
+        renderEvents();
+        eventModal.classList.add("hidden");
+      });
+
+      cancelBtn.addEventListener("click", () => {
+        eventModal.classList.add("hidden");
+      });
+
+      addEventBtn.addEventListener("click", () => openAddEvent());
+
+      document.getElementById("prevMonth").addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+      });
+
+      document.getElementById("nextMonth").addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+      });
+
+      renderCalendar();
+      renderEvents();
+    </script>
+  </body>
+</html>
