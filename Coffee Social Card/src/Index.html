@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Social Card</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen p-5 flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://media.istockphoto.com/id/693255608/photo/image-of-night-stormy-sea-with-big-waves-and-lightning.jpg?s=612x612&w=0&k=20&c=nbqfrYj6d9EXB5hhL5nydYeEkg3723bugAJnQf73vYU=);
+    "
+  >
+    <div class="fixed inset-0 bg-black/40 z-0 pointer-events-none"></div>
+    <div
+      class="w-screen h-screen flex items-center justify-center relative z-10"
+    >
+      <div class="w-11/12 max-w-xl bg-white rounded-t-md shadow-2xl">
+        <div class="relative w-full h-fit overflow-hidden">
+          <img
+            src="https://dg6qn11ynnp6a.cloudfront.net/wp-content/uploads/2022/08/29101953/Death_Wish_Coffee_New.jpeg"
+            alt=""
+            class="w-full h-64 object-cover rounded-t-md mb-5"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent rounded-t-md"
+          ></div>
+          <div class="absolute w-60 top-12 -right-14 rotate-45 bg-red-500">
+            <p class="text-center font-semibold text-2xl text-white">$19.99</p>
+          </div>
+          <div
+            class="absolute top-20 w-full items-center text-white flex flex-col gap-2"
+          >
+            <h3 class="font-semibold text-4xl">Death Wish Coffee</h3>
+            <p class="text-gray-200 text-xl">The world's strongest coffee</p>
+          </div>
+        </div>
+        <div class="w-full -translate-y-20">
+          <div class="w-full flex items-center justify-center">
+            <div
+              class="w-44 h-44 rounded-full bg-white flex items-center justify-center hover:shadow-2xl duration-300 shadow-red-300"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Death_Wish_Coffee_Logo.svg/1200px-Death_Wish_Coffee_Logo.svg.png"
+                alt=""
+                class="border-6 border-white hover:border-red-500 transition-all duration-300 rounded-full object-cover w-full h-full"
+              />
+            </div>
+          </div>
+          <div class="-translate-y-20">
+            <div class="flex justify-between items-center px-10">
+              <button
+                class="w-1/4 py-2 border-2 text-red-700 hover:bg-red-400 hover:text-white hover:border-white duration-300 ease-in-out border-red-400"
+              >
+                <i class="fa-solid fa-comment mr-2"></i>
+                Message
+              </button>
+              <button
+                class="w-1/4 py-2 border-2 text-red-700 hover:bg-red-400 hover:text-white hover:border-white duration-300 ease-in-out border-red-400"
+              >
+                <i class="fa-solid fa-plus mr-2"></i>
+                Follow
+              </button>
+            </div>
+            <div class="grid grid-cols-3 mt-4">
+              <div class="w-full flex flex-col items-center p-5">
+                <p class="text-2xl font-semibold">38.9K</p>
+                <p class="text-xl">Followers</p>
+              </div>
+              <div class="w-full flex flex-col items-center p-5">
+                <p class="text-2xl font-semibold">38.9K</p>
+                <p class="text-xl">Followers</p>
+              </div>
+              <div class="w-full flex flex-col items-center p-5">
+                <p class="text-2xl font-semibold">38.9K</p>
+                <p class="text-xl">Followers</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-center gap-10">
+            <p class="text-xl">
+              <i class="fa-solid fa-location-dot mr-4"></i>Round Lake, NY
+            </p>
+            <p class="text-xl">
+              <i class="fa-solid fa-credit-card mr-4"></i>deathwishcoffee.com
+            </p>
+          </div>
+        </div>
+        <button
+          class="w-full py-6 text-xl font-bold bg-red-500 text-white hover:bg-red-400 duration-300 ease-in-out"
+        >
+          BUY NOW
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
