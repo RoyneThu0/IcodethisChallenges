@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Landing</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <nav
+      class="w-full bg-white shadow-sm px-8 py-2 flex items-center justify-between text-sm"
+    >
+      <ul class="flex gap-8 text-gray-600 font-medium">
+        <li class="hover:text-pink-500 cursor-pointer">NEW</li>
+        <li class="hover:text-pink-500 cursor-pointer">GIFT GUIDE</li>
+        <li
+          class="text-pink-500 border-b-2 border-pink-500 pb-1 cursor-pointer"
+        >
+          PROMO
+        </li>
+        <li class="hover:text-pink-500 cursor-pointer">TRENDS</li>
+        <li class="hover:text-pink-500 cursor-pointer">SOCIAL</li>
+      </ul>
+      <div class="flex items-center gap-6">
+        <span class="text-gray-500">Log in</span>
+        <button
+          class="bg-pink-500 text-white px-4 py-2 rounded-full font-semibold text-xs hover:bg-pink-600"
+        >
+          Sign Up
+        </button>
+        <div class="relative">
+          <i class="fa-solid fa-cart-shopping text-xl text-gray-700"></i>
+          <span
+            class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full px-1.5"
+            >2</span
+          >
+        </div>
+        <i
+          class="fa-solid fa-magnifying-glass text-lg text-gray-400 ml-2 cursor-pointer"
+        ></i>
+      </div>
+    </nav>
+
+    <div
+      class="w-full bg-gray-50 px-8 py-2 text-xs text-gray-400 flex items-center gap-2"
+    >
+      <span>Home</span>
+      <span><i class="fa-solid fa-chevron-right"></i></span>
+      <span>Categories</span>
+      <span><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="text-gray-600">Outerwear</span>
+    </div>
+
+    <div class="flex w-full h-[calc(100vh-88px)] min-h-[600px] mt-6">
+      <div
+        class="w-64 bg-gray-50 rounded-l-lg p-6 flex flex-col gap-8 h-full sticky top-0 self-start"
+      >
+        <div>
+          <h2 class="text-pink-500 font-bold text-lg mb-2">CATEGORIES</h2>
+          <ul class="text-gray-700 text-sm space-y-1">
+            <li class="font-bold text-black">
+              <i class="fa-solid fa-chevron-right mr-2"></i>WOMAN
+            </li>
+            <li class="ml-4 text-pink-500">Outerwear</li>
+            <li class="ml-4">Bombers</li>
+            <li class="ml-4">Blazers</li>
+            <li class="ml-4">Dresses</li>
+            <li class="ml-4">Jumpsuits</li>
+            <li class="ml-4">Tops</li>
+            <li class="ml-4">Trousers</li>
+            <li class="ml-4">Jeans</li>
+            <li class="ml-4">Shorts</li>
+            <li class="ml-4">Skirts</li>
+            <li class="ml-4">T-shirts</li>
+            <li class="ml-4">Gymwear</li>
+            <li class="ml-4">Basics</li>
+            <li class="ml-4">Shoes</li>
+            <li class="ml-4">Bags</li>
+            <li class="font-bold text-black mt-2">
+              <i class="fa-solid fa-chevron-right mr-2"></i>MAN KIDS
+            </li>
+            <li class="font-bold text-black mt-2">
+              <i class="fa-solid fa-chevron-right mr-2"></i>ACCESORIES
+            </li>
+            <li class="font-bold text-black mt-2">
+              <i class="fa-solid fa-chevron-right mr-2"></i>EDITORIALS
+            </li>
+          </ul>
+        </div>
+        <div class="mt-8">
+          <h3 class="text-pink-500 font-bold mb-2">NEWSLETTER</h3>
+          <p class="text-xs text-gray-500">
+            Sign up for our newsletter, get good deals and stay updated on our
+            hottest products.
+          </p>
+        </div>
+      </div>
+
+      <main class="flex-1 bg-white rounded-r-lg p-8 h-full overflow-y-auto">
+        <div
+          class="w-full h-64 rounded-lg overflow-hidden relative mb-8 flex items-center justify-center"
+          style="
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+          "
+        >
+          <div
+            class="absolute inset-0 bg-black bg-opacity-90 bg-cover bg-center brightness-40"
+            style="
+              background-image: url(https://t3.ftcdn.net/jpg/02/98/03/22/360_F_298032209_YD4pFLDyzMyqBzso5xF5USR05hxqGuXf.jpg);
+            "
+          ></div>
+          <div class="relative z-10 text-left pl-12">
+            <h1
+              class="text-4xl font-bold text-white mb-2"
+              style="font-family: 'Pacifico', cursive"
+            >
+              New Winter Collection
+            </h1>
+            <p class="text-white text-sm mb-4 max-w-md">
+              Quis ante penatibus. Sodales id eget, nam duis odlo. Quam
+              porttitor, sem vulputate sociis, erat nibh.
+            </p>
+            <button
+              class="bg-white text-pink-500 font-semibold px-6 py-2 rounded-full shadow hover:bg-pink-50 transition"
+            >
+              VIEW COLLECTION
+            </button>
+          </div>
+          <button
+            class="absolute right-4 top-1/2 shrink-0 -translate-y-1/2 bg-white bg-opacity-70 w-10 h-10 rounded-full p-2 text-gray-600 hover:bg-pink-100"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-8">
+          <div class="flex flex-col items-center bg-gray-100 rounded-lg p-4">
+            <img
+              src="https://www.mytheresa.com/media/1094/1238/100/01/P00887915.jpg"
+              alt="Sweater"
+              class="h-40 object-contain mb-4"
+            />
+
+            <div class="text-center">
+              <p class="font-bold text-lg">249,00</p>
+              <p class="text-xs text-gray-500">Short oversized sweatshirt</p>
+            </div>
+            <button
+              class="w-full hover:bg-pink-500 text-gray-700 hover:text-white py-2 rounded font-semibold mb-2 transition"
+            >
+              Add to bag
+            </button>
+          </div>
+
+          <div class="flex flex-col items-center bg-gray-100 rounded-lg p-4">
+            <img
+              src="https://www.mytheresa.com/media/1094/1238/100/09/P01040844.jpg"
+              alt="Pink Coat"
+              class="h-40 object-contain mb-4"
+            />
+            <div class="h-10"></div>
+            <div class="text-center mt-2">
+              <p class="font-bold text-lg">249,00</p>
+              <p class="text-xs text-gray-500">Short oversized sweatshirt</p>
+            </div>
+            <button
+              class="w-full hover:bg-pink-500 text-gray-700 hover:text-white py-2 rounded font-semibold mb-2 transition"
+            >
+              Add to bag
+            </button>
+          </div>
+
+          <div class="flex flex-col items-center bg-gray-100 rounded-lg p-4">
+            <img
+              src="https://www.mytheresa.com/media/1094/1238/100/a2/P00925796.jpg"
+              alt="Yellow Sweater"
+              class="h-40 object-contain mb-4"
+            />
+            <div class="h-10"></div>
+            <div class="text-center mt-2">
+              <p class="font-bold text-lg">249,00</p>
+              <p class="text-xs text-gray-500">Short oversized sweatshirt</p>
+            </div>
+            <button
+              class="w-full hover:bg-pink-500 text-gray-700 hover:text-white py-2 rounded font-semibold mb-2 transition"
+            >
+              Add to bag
+            </button>
+          </div>
+
+          <div class="flex flex-col items-center bg-gray-100 rounded-lg p-4">
+            <img
+              src="https://www.mytheresa.com/media/1094/1238/100/b7/P01062879.jpg"
+              alt="Red Jacket"
+              class="h-40 object-contain mb-4"
+            />
+            <div class="h-10"></div>
+            <div class="text-center mt-2">
+              <p class="font-bold text-lg">249,00</p>
+              <p class="text-xs text-gray-500">Short oversized sweatshirt</p>
+            </div>
+            <button
+              class="w-full hover:bg-pink-500 text-gray-700 hover:text-white py-2 rounded font-semibold mb-2 transition"
+            >
+              Add to bag
+            </button>
+          </div>
+
+          <div class="flex flex-col items-center bg-gray-50 rounded-lg p-4">
+            <img
+              src="https://www.mytheresa.com/media/1094/1238/100/c0/P01090660.jpg"
+              alt="Grey Sweater"
+              class="h-40 object-contain mb-4"
+            />
+            <div class="h-10"></div>
+            <div class="text-center mt-2">
+              <p class="font-bold text-lg">249,00</p>
+              <p class="text-xs text-gray-500">Short oversized sweatshirt</p>
+            </div>
+            <button
+              class="w-full hover:bg-pink-500 text-gray-700 hover:text-white py-2 rounded font-semibold mb-2 transition"
+            >
+              Add to bag
+            </button>
+          </div>
+
+          <div class="flex flex-col items-center bg-gray-50 rounded-lg p-4">
+            <img
+              src="https://www.mytheresa.com/media/1094/1238/100/64/P00899272.jpg"
+              alt="Black Sweater"
+              class="h-40 object-contain mb-4"
+            />
+            <div class="h-10"></div>
+            <div class="text-center mt-2">
+              <p class="font-bold text-lg">249,00</p>
+              <p class="text-xs text-gray-500">Short oversized sweatshirt</p>
+            </div>
+            <button
+              class="w-full hover:bg-pink-500 text-gray-700 hover:text-white py-2 rounded font-semibold mb-2 transition"
+            >
+              Add to bag
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
