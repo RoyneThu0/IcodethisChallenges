@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift Membership</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-2xl p-6 text-center">
+      <div class="flex justify-center mb-6">
+        <img
+          src="https://png.pngtree.com/recommend-works/png-clipart/20250320/ourmid/pngtree-red-gift-box-1-png-image_15825865.png"
+          alt=""
+          class="w-28"
+        />
+      </div>
+
+      <h2 class="text-2xl font-semibold text-gray-800 mb-8">
+        Select a gift membership
+      </h2>
+
+      <div class="space-y-6">
+        <div
+          class="flex items-center justify-between border rounded-xl p-4 hover:shadow-md cursor-pointer"
+        >
+          <div class="text-left">
+            <h3 class="font-semibold text-gray-800">U.S. Discovery</h3>
+            <p class="text-gray-500 text-sm">
+              Your friends or family members can explore their American roots
+              with access to billions of records from all 50 states.
+            </p>
+          </div>
+          <div class="flex flex-col space-y-3 ml-6">
+            <label class="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="plan"
+                class="form-radio text-indigo-600"
+              />
+              <span class="text-gray-700">$99 / 6 months</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="plan"
+                class="form-radio text-indigo-600"
+                checked
+              />
+              <span class="text-gray-700">$189 / 12 months</span>
+            </label>
+          </div>
+        </div>
+
+        <div
+          class="relative border rounded-xl p-4 hover:shadow-md cursor-pointer"
+        >
+          <span
+            class="absolute -top-3 left-4 bg-indigo-600 text-white text-xs px-3 py-1 rounded-full"
+            >Most Popular</span
+          >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <h3 class="font-semibold text-gray-800">World Explorer</h3>
+              <p class="text-gray-500 text-sm">
+                Recipients will be able to search for U.S. and international
+                family with access to billions of records from 80+ countries.
+              </p>
+            </div>
+            <div class="flex flex-col space-y-3 ml-6">
+              <label class="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="plan"
+                  class="form-radio text-indigo-600"
+                />
+                <span class="text-gray-700">$149 / 6 months</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="plan"
+                  class="form-radio text-indigo-600"
+                />
+                <span class="text-gray-700">$299 / 12 months</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-400 mt-6">
+        Keep in mind that this is a one-time, non-renewing membership and you
+        will only be billed for the cost of the membership you select above.
+      </p>
+
+      <button
+        class="mt-6 bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full transition"
+      >
+        Order Now
+      </button>
+    </div>
+  </body>
+</html>
