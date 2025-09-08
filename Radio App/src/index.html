@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center"
+    style="
+      background: conic-gradient(
+        from 180deg at 50% 50%,
+        #361f7b,
+        #3b0a8a,
+        #452e89
+      );
+    "
+  >
+    <div
+      class="text-white w-11/12 max-w-lg font-bold bg-purple-900 p-3 rounded-sm shadow-lg"
+    >
+      <div class="w-full grid grid-cols-3 gap-4">
+        <div class="p-4 rounded">
+          <i class="fa-solid fa-bars text-3xl text-white/40"></i>
+        </div>
+        <div class="p-4 flex items-center justify-center text-xl rounded">
+          FM RADIO
+        </div>
+        <div class="p-4 flex items-center justify-end rounded">
+          <i class="fa-solid fa-power-off text-3xl text-white/40"></i>
+        </div>
+      </div>
+      <p class="mt-5 text-center text-xl">Mojo Radio</p>
+      <div class="w-full mt-5 grid grid-cols-3 items-center justify-center">
+        <div class="p-4 flex items-center justify-center">
+          <i class="fa-solid fa-chevron-left text-5xl text-white/40"></i>
+        </div>
+        <div
+          class="w-40 h-40 rounded-full bg-white/30 border flex items-center justify-center"
+        >
+          <p class="text-4xl text-white">93.2</p>
+        </div>
+        <div class="p-4 flex items-center justify-center">
+          <i class="fa-solid fa-chevron-right text-5xl text-white/40"></i>
+        </div>
+      </div>
+      <p class="text-center text-white/90 mt-4 text-2xl">Love Mode (5:26)</p>
+      <p class="text-center font-light textwhite/70">JOAKIM KARUD</p>
+
+      <div>
+        <div
+          class="bg-[#231c3a] rounded-xl shadow-lg p-6 w-full max-w-xl mx-auto mt-8"
+        >
+          <div class="relative h-24 flex flex-col justify-end">
+            <div
+              class="absolute left-0 right-0 top-0 flex justify-between items-end h-16"
+            >
+              <div class="flex w-full justify-between" id="ticks"></div>
+            </div>
+
+            <div
+              class="absolute left-0 right-0 top-1/2 border-t border-white/30"
+              style="z-index: 1"
+            ></div>
+
+            <div
+              class="absolute left-1/2 top-0 -translate-x-1/2 h-16 w-0.5 bg-red-500"
+              style="z-index: 2"
+            ></div>
+
+            <div
+              class="absolute left-1/2 top-12 -translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <div
+                class="w-8 h-8 bg-white rounded-full border-4 border-[#231c3a] shadow-lg"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="flex justify-between mt-6 text-white text-xl font-medium tracking-wider"
+          >
+            <span>90</span>
+            <span>91</span>
+            <span>92</span>
+            <span>93</span>
+            <span>94</span>
+            <span>95</span>
+            <span>96</span>
+            <span>97</span>
+            <span>90</span>
+            <span>90</span>
+          </div>
+        </div>
+        <script>
+          // Render ticks dynamically for ruler
+          const ticksContainer = document.getElementById("ticks");
+          if (ticksContainer) {
+            for (let i = 0; i <= 40; i++) {
+              const isMajor = i % 5 === 0;
+              const tick = document.createElement("div");
+              tick.className = "flex flex-col items-center";
+              tick.innerHTML = `<div class=\"w-0.5 ${
+                isMajor ? "bg-white/70" : "bg-white/30"
+              }\" style=\"height: ${isMajor ? "32px" : "16px"};\"></div>`;
+              ticksContainer.appendChild(tick);
+            }
+          }
+        </script>
+      </div>
+      <div class="mt-10" id="state">
+        <h2 class="text-white/80 text-xl font-semibold mb-4">
+          Saved Radio Stations
+        </h2>
+        <div class="flex gap-4">
+          <div
+            class="bg-[#32255a] rounded-md p-6 flex flex-col items-center min-w-[140px]"
+          >
+            <span class="text-3xl font-bold text-white">91,3</span>
+            <span class="text-white/80 mt-2">Lorem FM</span>
+          </div>
+          <div
+            class="bg-[#32255a] rounded-md p-6 flex flex-col items-center min-w-[140px]"
+          >
+            <span class="text-3xl font-bold text-white">97.1</span>
+            <span class="text-white/80 mt-2">Toksyna FM</span>
+          </div>
+          <div
+            class="bg-[#32255a] rounded-md p-6 flex flex-col items-center min-w-[140px]"
+          >
+            <span class="text-3xl font-bold text-white">99,3</span>
+            <span class="text-white/80 mt-2">Vivalav</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
