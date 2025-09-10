@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TV App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-[#18393a] text-white min-h-screen font-sans">
+    <div class="flex flex-col md:flex-row h-screen overflow-hidden">
+      <aside
+        class="bg-[#142e2f] w-full md:w-64 flex-shrink-0 p-4 md:pt-10 md:pb-10 overflow-x-auto"
+      >
+        <nav
+          class="flex flex-row md:flex-col gap-2 md:gap-4 justify-between md:justify-start"
+        >
+          <div class="flex flex-col gap-2 md:gap-4 w-full">
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>MOVIES</span>
+              <span class="text-xs text-gray-400">18 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>MUSIC</span>
+              <span class="text-xs text-gray-400">9 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="bg-[#1ec6c6] text-white rounded-r-full pl-4 pr-2 py-1 font-semibold flex justify-between items-center"
+            >
+              <span>SERIES</span>
+              <span class="text-xs text-white">6 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>LIVE</span>
+              <span class="text-xs text-gray-400">16 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>SCIENCE</span>
+              <span class="text-xs text-gray-400">11 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>SPORTS</span>
+              <span class="text-xs text-gray-400">6 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>NEWS</span>
+              <span class="text-xs text-gray-400">14 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>KIDS</span>
+              <span class="text-xs text-gray-400">9 Channels</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>LIFESTYLE</span>
+              <span class="text-xs text-gray-400">6 Channels</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="flex-1 flex flex-col overflow-y-auto">
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between px-4 pt-4 md:pt-8"
+        >
+          <div class="w-full flex flex-col items-center justify-center">
+            <div
+              class="flex justify-center w-full gap-4 md:gap-8 text-sm md:text-base"
+            >
+              <span
+                class="text-[#1ec6c6] font-semibold border-b-2 border-[#1ec6c6] pb-1"
+                >NOW</span
+              >
+              <span class="text-gray-400 hover:text-white cursor-pointer"
+                >COMMING UP</span
+              >
+              <span class="text-gray-400 hover:text-white cursor-pointer"
+                >TONIGHT</span
+              >
+              <span class="text-gray-400 hover:text-white cursor-pointer"
+                >TODAY</span
+              >
+            </div>
+            <div
+              class="flex w-full justify-center gap-4 mt-10 md:mt-0 text-xs md:text-sm"
+            >
+              <span class="text-[#1ec6c6] font-semibold cursor-pointer"
+                >Popular</span
+              >
+              <span class="text-gray-400 hover:text-white cursor-pointer"
+                >New</span
+              >
+              <span class="text-gray-400 hover:text-white cursor-pointer"
+                >Highest Rated</span
+              >
+            </div>
+          </div>
+          <div class="ml-auto flex items-center mt-2 md:mt-0">
+            <button class="focus:outline-none">
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <section class="px-4 py-4 md:py-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://i.pinimg.com/736x/2b/9c/35/2b9c35619f7d61a53a3537be234226c5.jpg"
+                alt="Vikings"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">VIKINGS</h3>
+                  <p class="text-xs text-gray-400">Portage S4, Ep8</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-2/3 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">28 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/featured/game-of-thrones-92acb30ilmkjbmu9.jpg"
+                alt="Game of Thrones"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">GAME OF THRONES</h3>
+                  <p class="text-xs text-gray-400">The Red Woman S6, Ep1</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/2 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">13 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://images8.alphacoders.com/431/thumb-1920-431311.jpg"
+                alt="The Big Bang Theory"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">THE BIG BANG THEORY</h3>
+                  <p class="text-xs text-gray-400">
+                    The Viewing Party S9, Ep12
+                  </p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/6 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">5 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/hd/orange-is-the-new-black-reznikov-h08ydgtyz3sacygh.jpg"
+                alt="Orange is the New Black"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">ORANGE IS THE NEW ...</h3>
+                  <p class="text-xs text-gray-400">Trust no bitch S3, Ep13</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/2 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">12 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/hd/mr-robot-season-1-nnew08scfcxj45vp.jpg"
+                alt="Mr. Robot"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">MR. ROBOT</h3>
+                  <p class="text-xs text-gray-400">W1ter0se S1 Ep6</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-3/4 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">38 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/hd/modern-family-dvd-poster-cover-qlhbavon5k0kmbhn.jpg"
+                alt="Modern Family"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">MODERN FAMILY</h3>
+                  <p class="text-xs text-gray-400">Phil on wire S3, Ep2</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/6 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">5 min. left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="px-4 pb-8">
+          <h2 class="text-lg font-bold mb-4 text-[#1ec6c6]">FEATURED</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <img
+              src="https://wallpapers.com/images/featured/family-guy-background-j5ot9chu6yso3frz.jpg"
+              alt="Family Guy"
+              class="rounded-lg h-24 w-full object-cover"
+            />
+            <img
+              src="https://wallpapercat.com/w/full/9/1/1/366310-3840x2160-desktop-4k-the-man-from-uncle-background-photo.jpg"
+              alt="The Man from U.N.C.L.E."
+              class="rounded-lg h-24 w-full object-cover"
+            />
+            <img
+              src="https://wallpapers.com/images/featured/star-wars-plzcoaffexgf4h81.jpg"
+              alt="Star Wars"
+              class="rounded-lg h-24 w-full object-cover"
+            />
+            <img
+              src="https://wallpapers.com/images/hd/deadpool-with-a-kiddie-backpack-32q4okcs0ro3xp1g.jpg"
+              alt="Deadpool"
+              class="rounded-lg h-24 w-full object-cover"
+            />
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
