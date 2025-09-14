@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch Giveaway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="flex items-center justify-center min-h-screen bg-gradient-to-br from-cyan-900 to-cyan-700 text-white"
+  >
+    <div
+      class="bg-cyan-800/30 backdrop-blur-md p-8 rounded-xl shadow-xl max-w-4xl w-full flex flex-col md:flex-row items-center gap-8"
+    >
+      <div class="flex-1 space-y-6">
+        <div class="w-full flex items-center justify-center">
+          <p
+            class="w-fit bg-[#0f0f2e] text-center animate-pulse text-pink-400 px-4 py-1 rounded-md text-sm font-bold"
+          >
+            GIVEAWAY
+          </p>
+        </div>
+
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase">
+          SMARTWATCH 2 WRIST STRAP SE20
+        </h1>
+        <p class="text-gray-200 text-sm md:text-base">
+          The world’s first Android compatible SmartWatch with One-touch NFC
+        </p>
+
+        <div>
+          <p class="font-bold mb-2">ENDS IN:</p>
+          <div id="countdown" class="flex gap-2 text-center"></div>
+        </div>
+
+        <button
+          class="bg-pink-500 hover:bg-pink-600 transition px-6 py-3 rounded-md font-semibold text-lg shadow-md"
+        >
+          Make It Yours
+        </button>
+      </div>
+
+      <div class="flex-1 flex justify-center">
+        <img
+          src="https://github.com/WarehouseDev/sony-watch/blob/main/sony.png?raw=true"
+          alt="Smartwatch"
+          class="w-full md:w-[400px] lg:w-[800px] object-contain"
+        />
+      </div>
+    </div>
+
+    <script>
+      function startCountdown(durationInSeconds, elementId) {
+        const countdownEl = document.getElementById(elementId);
+        function updateCountdown() {
+          const hours = String(Math.floor(durationInSeconds / 3600)).padStart(
+            2,
+            "0"
+          );
+          const minutes = String(
+            Math.floor((durationInSeconds % 3600) / 60)
+          ).padStart(2, "0");
+          const seconds = String(durationInSeconds % 60).padStart(2, "0");
+
+          countdownEl.innerHTML = `
+          <div class="bg-[#0f0f2e] px-3 py-2 rounded text-lg font-bold">${hours}<div class="text-xs font-normal">HOURS</div></div>
+          <div class="bg-[#0f0f2e] px-3 py-2 rounded text-lg font-bold">${minutes}<div class="text-xs font-normal">MINUTES</div></div>
+          <div class="bg-[#0f0f2e] px-3 py-2 rounded text-lg font-bold">${seconds}<div class="text-xs font-normal">SECONDS</div></div>
+        `;
+
+          if (durationInSeconds > 0) {
+            durationInSeconds--;
+            setTimeout(updateCountdown, 1000);
+          }
+        }
+        updateCountdown();
+      }
+
+      // Start countdown for 24 hours (86400 seconds)
+      startCountdown(86400, "countdown");
+    </script>
+  </body>
+</html>
