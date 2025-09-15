@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check In</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="bg-gray-100 dark:bg-[#f5f6fa] flex items-center justify-center min-h-screen"
+  >
+    <div class="relative">
+      <button
+        onclick="toggleMode()"
+        class="absolute right-4 top-4 z-10 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md focus:outline-none"
+      >
+        <span id="modeIcon">🌙</span>
+      </button>
+      <div
+        class="max-w-md mx-auto rounded-xl shadow-lg overflow-hidden bg-white dark:bg-[#3b4a6b] p-8 relative"
+      >
+        <button
+          class="absolute right-4 top-4 text-gray-400 dark:text-gray-200 text-2xl font-bold focus:outline-none"
+        >
+          &times;
+        </button>
+        <h2 class="text-2xl font-semibold mb-6 text-[#3b4a6b] dark:text-white">
+          Check In
+        </h2>
+        <div class="mb-6">
+          <div
+            class="flex items-center bg-gray-100 dark:bg-[#4b5a7a] rounded-lg px-4 py-2"
+          >
+            <i
+              class="fas fa-search text-gray-400 dark:text-gray-300 mr-2 text-lg"
+            ></i>
+            <input
+              class="bg-transparent outline-none w-full text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-300"
+              placeholder="Search Location"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col items-center mb-6">
+          <img
+            src="https://png.pngtree.com/png-vector/20250123/ourmid/pngtree-navigational-pin-on-a-map-png-image_15309827.png"
+            alt="Map"
+            class="w-40 h-40 mb-4 drop-shadow-lg"
+          />
+          <h3 class="font-semibold text-lg text-[#3b4a6b] dark:text-white mb-1">
+            See places near you
+          </h3>
+          <p class="text-gray-400 dark:text-gray-200 text-center text-sm">
+            You have turned off your location. To see a list of places near you,
+            allow us to access your location while you use your app.
+          </p>
+        </div>
+        <button
+          class="w-full bg-[#2ecbfa] hover:bg-[#1bb6e0] text-white font-semibold py-3 rounded-lg shadow-md transition-colors"
+        >
+          Turn on location
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
