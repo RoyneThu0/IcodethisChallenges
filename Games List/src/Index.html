@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games List</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen min-h-screen bg-gray-100">
+    <nav class="bg-white shadow flex items-center justify-between md:p-10">
+      <div class="container mx-auto flex md:gap-6 gap-3 flex-wrap px-4 py-2">
+        <p
+          class="hover:text-blue-400 text-gray-400 hover:underline underline-offset-10 font-semibold text-xl cursor-pointer duration-300"
+        >
+          Home
+        </p>
+        <p
+          class="hover:text-blue-400 text-gray-400 hover:underline underline-offset-10 font-semibold text-xl cursor-pointer duration-300"
+        >
+          Apps
+        </p>
+        <p
+          class="text-blue-400 underline underline-offset-10 font-semibold text-xl cursor-pointer duration-300"
+        >
+          Games
+        </p>
+        <p
+          class="hover:text-blue-400 text-gray-400 hover:underline underline-offset-10 font-semibold text-xl cursor-pointer duration-300"
+        >
+          Music
+        </p>
+        <p
+          class="hover:text-blue-400 text-gray-400 hover:underline underline-offset-10 font-semibold text-xl cursor-pointer duration-300"
+        >
+          Movies&TV
+        </p>
+      </div>
+      <div class="w-full flex justify-end pr-10">
+        <div class="w-1/2 border border-gray-200 rounded-xl p-4">
+          <div class="flex items-center gap-4">
+            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+            <input
+              type="text"
+              placeholder="Search for apps & games"
+              class="w-full outline-none"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mt-5 px-16 container mx-auto">
+      <p class="text-xl font-semibold text-gray-500 mb-4">New Games</p>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://media.contentapi.ea.com/content/dam/eacom/NFSNL/images/2019/05/nfsnl-tu28-nf-keyart-ea.jpg.adapt.crop16x9.575p.jpg"
+              alt="Game Icon"
+              class="h-72 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-2">
+              <p class="font-semibold text-gray-400 text-sm">
+                Need For Speed ™ No limits
+              </p>
+
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://cdn.mos.cms.futurecdn.net/oJF5rsrykHS5VcDF8C2ew4.png"
+              alt="Game Icon"
+              class="h-72 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-2">
+              <p class="font-semibold text-gray-400 text-sm">June's journey</p>
+
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://www.arthipo.com/image/cache/catalog/poster/game/pgame11-batman-the-enemy-within-game-poster-600x315w.webp"
+              alt="Game Icon"
+              class="h-72 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-2">
+              <p class="font-semibold text-gray-400 text-sm">
+                Batman: The Enemy Within
+              </p>
+
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 px-16 container mx-auto">
+      <p class="text-xl font-semibold text-gray-500 mb-4">
+        Reccommended for You
+      </p>
+      <div class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-2">
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://w0.peakpx.com/wallpaper/851/942/HD-wallpaper-anger-disney-inside-out.jpg"
+              alt="Game Icon"
+              class="h-60 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-1">
+              <div class="flex flex-col">
+                <div class="flex items-center">
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-gray-400"></i>
+                </div>
+                <p class="font-semibold text-gray-400 text-sm mt-2">
+                  Inside out
+                </p>
+              </div>
+              <p class="text-sm text-gray-400">Free</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRWIazm2xn5J-IH5ib7TVV3qJ3WljJVH3pfA&s"
+              alt="Game Icon"
+              class="h-60 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-1">
+              <div class="flex flex-col">
+                <div class="flex items-center">
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-gray-400"></i>
+                </div>
+                <p class="font-semibold text-gray-400 text-sm mt-2">
+                  Candy crush
+                </p>
+              </div>
+              <p class="text-sm text-gray-400">Free</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://www.rovio.com/wp-content/uploads/2025/02/EVOLUTION_Icon-600x600-c-center.png"
+              alt="Game Icon"
+              class="h-60 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-1">
+              <div class="flex flex-col">
+                <div class="flex items-center">
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-gray-400"></i>
+                </div>
+                <p class="font-semibold text-gray-400 text-sm mt-2">
+                  Angry Birds Evolution
+                </p>
+              </div>
+              <p class="text-sm text-gray-400">Free</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbymB_C3VOrNYLrYJ6DHv69uNN67REEig-0w&s"
+              alt="Game Icon"
+              class="h-60 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-1">
+              <div class="flex flex-col">
+                <div class="flex items-center">
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-gray-400"></i>
+                </div>
+                <p class="font-semibold text-gray-400 text-sm mt-2">
+                  Super Mario Run
+                </p>
+              </div>
+              <p class="text-sm text-gray-400">Free</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRINkH7uQUOj0N4C2hPquLnCpygJfRCUpucBg&s"
+              alt="Game Icon"
+              class="h-60 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-1">
+              <div class="flex flex-col">
+                <div class="flex items-center">
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-gray-400"></i>
+                </div>
+                <p class="font-semibold text-gray-400 text-sm mt-2">
+                  Fruit ninja
+                </p>
+              </div>
+              <p class="text-sm text-gray-400">Free</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://i.pinimg.com/564x/48/1f/30/481f30a3ef625978250e2acdac962eae.jpg"
+              alt="Game Icon"
+              class="h-60 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-1">
+              <div class="flex flex-col">
+                <div class="flex items-center">
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-yellow-400"></i>
+                  <i class="fa-solid fa-star text-gray-400"></i>
+                </div>
+                <p class="font-semibold text-gray-400 text-sm mt-2">
+                  Sonic Dash
+                </p>
+              </div>
+              <p class="text-sm text-gray-400">Free</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 px-16 container mx-auto">
+      <p class="text-xl font-semibold text-gray-500 mb-4">Trending Now</p>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://media.contentapi.ea.com/content/dam/eacom/NFSNL/images/2019/05/nfsnl-tu28-nf-keyart-ea.jpg.adapt.crop16x9.575p.jpg"
+              alt="Game Icon"
+              class="h-72 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-2">
+              <p class="font-semibold text-gray-400 text-sm">
+                Need For Speed ™ No limits
+              </p>
+
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://cdn.mos.cms.futurecdn.net/oJF5rsrykHS5VcDF8C2ew4.png"
+              alt="Game Icon"
+              class="h-72 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-2">
+              <p class="font-semibold text-gray-400 text-sm">June's journey</p>
+
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white shadow hover:shadow-lg duration-300 cursor-pointer"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="https://www.arthipo.com/image/cache/catalog/poster/game/pgame11-batman-the-enemy-within-game-poster-600x315w.webp"
+              alt="Game Icon"
+              class="h-72 object-cover"
+            />
+            <div class="flex justify-between items-start w-full p-2">
+              <p class="font-semibold text-gray-400 text-sm">
+                Batman: The Enemy Within
+              </p>
+
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <i class="fa-solid fa-star text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
