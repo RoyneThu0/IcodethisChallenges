@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications 3</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gray-50"
+  >
+    <div class="w-full max-w-md mx-auto">
+      <div class="flex justify-end mb-8">
+        <div
+          class="w-12 h-12 bg-indigo-900 rounded-lg flex items-center justify-center"
+        >
+          <i class="fas fa-bell text-white text-lg"></i>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div
+          class="px-6 py-4 border-b border-gray-200 flex justify-between items-center"
+        >
+          <h2 class="text-lg font-semibold text-gray-900">Notifications</h2>
+          <button class="text-blue-500 text-sm hover:text-blue-600">
+            Mark all as read
+          </button>
+        </div>
+
+        <div class="divide-y divide-gray-200">
+          <div class="px-6 py-4">
+            <div class="flex items-start space-x-3">
+              <img
+                src="https://i.pinimg.com/736x/81/36/98/81369818f2bc3091eb9059114ef80cc7.jpg"
+                alt="Paul Wage"
+                class="w-10 h-10 rounded-full"
+              />
+              <div class="flex-1 min-w-0">
+                <div class="text-sm text-gray-900">
+                  <span class="font-medium">Paul Wage</span> shared the file
+                  <span class="font-medium">Android UI Kit</span> with you.
+                </div>
+                <div class="text-xs text-gray-500 mt-1">an hour ago</div>
+
+                <div class="flex space-x-3 mt-3">
+                  <button
+                    class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  >
+                    Decline
+                  </button>
+                  <button
+                    class="px-4 py-2 bg-indigo-900 border border-transparent rounded-md text-sm font-medium text-white hover:bg-indigo-800"
+                  >
+                    Accept
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 py-4">
+            <div class="flex items-start space-x-3">
+              <img
+                src="https://i.pinimg.com/236x/dc/6d/e2/dc6de2586a4364e10a0edab36625c5b3.jpg"
+                alt="Denise Selover"
+                class="w-10 h-10 rounded-full"
+              />
+              <div class="flex-1 min-w-0">
+                <div class="text-sm text-gray-900">
+                  <span class="font-medium">Denise Selover</span> made you an
+                  editor in the team <span class="font-medium">Power</span>.
+                </div>
+                <div class="text-xs text-gray-500 mt-1">Yesterday</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
