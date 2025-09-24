@@ -50,20 +50,6 @@ const EmptyStatePage = () => {
     dispatch(getUserActiveSubscriptions());
   }, [dispatch]);
 
-  // Auto-trigger tutorial for new users who haven't seen guidance
-  useEffect(() => {
-    if (isNewUser && serverStatements !== null) {
-      // Wait for serverStatements to load
-      const hasSeenGuidance =
-        localStorage.getItem("hasSeenUploadGuidance") === "true";
-      if (!hasSeenGuidance) {
-        setTimeout(() => {
-          setShowGuidance(true);
-        }, 1500); // Give time for the page to load
-      }
-    }
-  }, [isNewUser, serverStatements]);
-
   useEffect(() => {
     let statementCheck = dispatch(checkForProcessedStatements());
   }, [hasProcessedStatements]);
