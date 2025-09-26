@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Interface Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body class="bg-black text-white overflow-hidden h-screen font-sans">
+    <div
+      class="relative h-screen w-screen bg-gradient-to-br from-gray-900 via-black to-black"
+    >
+      <div class="absolute inset-0 opacity-30">
+        <div
+          class="absolute top-5 left-5 w-1 h-1 bg-white rounded-full animate-pulse"
+        ></div>
+        <div
+          class="absolute top-12 left-20 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-75"
+        ></div>
+        <div
+          class="absolute top-8 left-40 w-1 h-1 bg-white rounded-full animate-pulse delay-150"
+        ></div>
+        <div
+          class="absolute top-16 left-60 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-300"
+        ></div>
+        <div
+          class="absolute top-6 left-80 w-1 h-1 bg-white rounded-full animate-pulse delay-500"
+        ></div>
+        <div
+          class="absolute top-20 right-20 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-700"
+        ></div>
+        <div
+          class="absolute top-10 right-40 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"
+        ></div>
+        <div
+          class="absolute top-24 right-60 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-200"
+        ></div>
+        <div
+          class="absolute top-14 right-80 w-1 h-1 bg-white rounded-full animate-pulse delay-400"
+        ></div>
+      </div>
+
+      <nav class="z-10 pt-6 pb-3">
+        <div class="flex gap-8 justify-center">
+          <button
+            class="nav-tab bg-transparent border-none text-gray-500 text-xs font-semibold tracking-wide cursor-pointer py-1.5 transition-all duration-300 uppercase hover:text-orange-500"
+          >
+            SETTINGS
+          </button>
+          <button
+            class="nav-tab bg-transparent border-none text-gray-500 text-xs font-semibold tracking-wide cursor-pointer py-1.5 transition-all duration-300 uppercase hover:text-orange-500"
+          >
+            NAVIGATION
+          </button>
+          <button
+            class="nav-tab active bg-transparent border-none text-orange-500 text-xs font-semibold tracking-wide cursor-pointer py-1.5 transition-all duration-300 uppercase"
+          >
+            PHONE
+          </button>
+          <button
+            class="nav-tab bg-transparent border-none text-gray-500 text-xs font-semibold tracking-wide cursor-pointer py-1.5 transition-all duration-300 uppercase hover:text-orange-500"
+          >
+            MUSIC
+          </button>
+        </div>
+      </nav>
+
+      <div class="z-10 flex flex-col items-center justify-center h-full">
+        <div class="text-center mb-8">
+          <div class="mb-6">
+            <div
+              class="w-20 h-20 rounded-full mx-auto mb-3 border-2 border-gray-600 overflow-hidden bg-gray-800"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+                alt="Robert"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p
+              class="text-gray-400 text-xs tracking-wide font-medium uppercase"
+            >
+              ROBERT IS CALLING
+            </p>
+          </div>
+
+          <div class="flex gap-8 justify-center">
+            <button
+              class="accept-btn bg-transparent text-orange-500 border-none py-2 px-6 text-xs font-semibold tracking-wide cursor-pointer transition-all duration-300 uppercase border-b-2 border-orange-500 hover:-translate-y-0.5 hover:opacity-80"
+            >
+              ACCEPT
+            </button>
+            <button
+              class="decline-btn bg-transparent text-orange-500 border-none py-2 px-6 text-xs font-semibold tracking-wide cursor-pointer transition-all duration-300 uppercase border-b-2 border-orange-500 hover:-translate-y-0.5 hover:opacity-80"
+            >
+              DECLINE
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="flex justify-center items-center gap-8 w-full max-w-5xl px-4"
+        >
+          <div
+            class="small-meter flex flex-col items-center gap-2"
+            style="--progress: 0.45"
+          >
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full border-3 border-gray-600 bg-gray-800 flex items-center justify-center relative overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 rounded-full"
+                style="
+                  background: conic-gradient(
+                    #ff8c00 calc(var(--progress) * 360deg),
+                    transparent 0
+                  );
+                "
+              ></div>
+              <div class="absolute inset-2 rounded-full bg-gray-800"></div>
+              <i
+                class="fas fa-oil-can text-orange-500 text-lg relative z-10"
+              ></i>
+            </div>
+          </div>
+
+          <div
+            class="relative w-[260px] h-[260px] flex items-center justify-center"
+          >
+            <div
+              class="absolute inset-0 w-[260px] h-[260px] rounded-full border-3 border-gray-600 bg-gray-900"
+            ></div>
+            <div
+              class="absolute inset-3 rounded-full border-2 border-dashed border-gray-600"
+            ></div>
+
+            <svg
+              viewBox="0 0 200 200"
+              class="w-[260px] h-[260px] absolute z-10"
+            >
+              <g stroke="gray" stroke-width="1">
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-120,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-110,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-100,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-80,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-70,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-50,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-40,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-20,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-10,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(10,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(20,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(40,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(50,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(70,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(80,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(100,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(110,100,100)"
+                />
+              </g>
+
+              <g stroke="white" stroke-width="2">
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-120,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-90,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-60,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-30,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(0,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(30,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(60,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(90,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(120,100,100)"
+                />
+              </g>
+
+              <g
+                fill="white"
+                font-size="10"
+                font-family="sans-serif"
+                text-anchor="middle"
+                dominant-baseline="middle"
+              >
+                <text x="60" y="160">0</text>
+                <text x="40" y="120">1</text>
+                <text x="60" y="75">2</text>
+                <text x="100" y="55">3</text>
+                <text x="140" y="55">4</text>
+                <text x="180" y="80">5</text>
+                <text x="185" y="125">6</text>
+                <text x="155" y="170">7</text>
+                <text x="100" y="185">8</text>
+              </g>
+
+              <line
+                x1="100"
+                y1="100"
+                x2="60"
+                y2="75"
+                stroke="orange"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <circle cx="100" cy="100" r="6" fill="gray" />
+            </svg>
+
+            <div
+              class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-300 text-xs text-center"
+            >
+              ×1000 RPM
+            </div>
+          </div>
+
+          <div
+            class="relative w-[260px] h-[260px] flex items-center justify-center"
+          >
+            <div
+              class="absolute inset-0 w-[260px] h-[260px] rounded-full border-3 border-gray-600 bg-gray-900"
+            ></div>
+            <div
+              class="absolute inset-3 rounded-full border-2 border-dashed border-gray-600"
+            ></div>
+
+            <svg
+              viewBox="0 0 200 200"
+              class="w-[260px] h-[260px] absolute z-10"
+            >
+              <g stroke="gray" stroke-width="1">
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-120,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-110,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-100,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-80,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-70,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-50,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-40,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-20,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(-10,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(10,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(20,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(40,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(50,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(70,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(80,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(100,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="20"
+                  transform="rotate(110,100,100)"
+                />
+              </g>
+
+              <g stroke="white" stroke-width="2">
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-120,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-90,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-60,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(-30,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(0,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(30,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(60,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(90,100,100)"
+                />
+                <line
+                  x1="100"
+                  y1="15"
+                  x2="100"
+                  y2="28"
+                  transform="rotate(120,100,100)"
+                />
+              </g>
+
+              <g
+                fill="white"
+                font-size="10"
+                font-family="sans-serif"
+                text-anchor="middle"
+                dominant-baseline="middle"
+              >
+                <text x="60" y="160">0</text>
+                <text x="40" y="120">20</text>
+                <text x="60" y="75">40</text>
+                <text x="100" y="55">60</text>
+                <text x="140" y="55">80</text>
+                <text x="180" y="80">100</text>
+                <text x="185" y="125">120</text>
+                <text x="155" y="170">140</text>
+                <text x="100" y="185">160</text>
+              </g>
+
+              <line
+                x1="100"
+                y1="100"
+                x2="60"
+                y2="75"
+                stroke="orange"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <circle cx="100" cy="100" r="6" fill="gray" />
+            </svg>
+
+            <div
+              class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-300 text-xs text-center"
+            >
+              MPH
+            </div>
+          </div>
+
+          <div
+            class="small-meter flex flex-col items-center gap-2"
+            style="--progress: 0.7"
+          >
+            <div
+              class="w-16 h-16 rounded-full border-3 border-gray-600 bg-gray-800 flex items-center justify-center relative overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 rounded-full"
+                style="
+                  background: conic-gradient(
+                    #ff8c00 calc(var(--progress) * 360deg),
+                    transparent 0
+                  );
+                "
+              ></div>
+              <div
+                class="absolute flex items-center justify-center inset-2 rounded-full bg-gray-800"
+              ></div>
+              <i
+                class="fas fa-gas-pump text-orange-500 text-lg relative z-10"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.querySelectorAll(".nav-tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          document
+            .querySelectorAll(".nav-tab")
+            .forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Call buttons
+      document.querySelector(".accept-btn").addEventListener("click", () => {
+        alert("Call accepted!");
+      });
+
+      document.querySelector(".decline-btn").addEventListener("click", () => {
+        alert("Call declined!");
+      });
+
+      // Animate needles on load
+      setTimeout(() => {
+        // RPM needle moves from 210° (0) to about 300° (showing around 3 RPM)
+        document.querySelector(".rpm-needle").style.transform =
+          "translateX(-50%) rotate(300deg)";
+        // Speed needle moves from 210° (0) to about 270° (showing around 40 mph)
+        document.querySelector(".speed-needle").style.transform =
+          "translateX(-50%) rotate(270deg)";
+      }, 1000);
+    </script>
+  </body>
+</html>
