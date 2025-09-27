@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Course Card</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            clipPath: {
+              "slant-top": "polygon(0 0, 100% 0, 100% 100%, 0 85%)",
+              "slant-bottom": "polygon(0 0, 100% 15%, 100% 100%, 0 100%)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div
+      class="relative w-11/12 max-w-sm bg-white shadow-lg rounded overflow-hidden"
+    >
+      <div
+        class="relative z-10"
+        style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%)"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
+          alt="Course Image"
+          class="w-full h-40 object-cover"
+        />
+      </div>
+
+      <div
+        class="absolute z-20 top-[120px] right-4 bg-white shadow-xl rounded-full border-4 border-blue-500 text-blue-500 font-bold flex items-center justify-center w-20 h-20 animate-pulse"
+      >
+        <div class="text-center">
+          <p class="text-lg">45%</p>
+          <p class="text-xs">BOOKED</p>
+        </div>
+      </div>
+
+      <div class="p-4">
+        <h2 class="text-blue-500 font-bold uppercase text-lg font-sans">
+          Building a Successful <br />
+          E-Business
+        </h2>
+        <p class="text-gray-600 text-sm mt-2">
+          Learn how using computer and internet technology can facilitate a
+          business to successfully build an online e-business.
+        </p>
+
+        <div class="mt-4 text-center">
+          <p class="text-blue-500 font-semibold text-sm">TIME REMAINING</p>
+          <div class="flex justify-center gap-4 mt-2">
+            <div class="border border-gray-300 px-3 py-2 rounded">
+              <p class="text-lg font-bold">2</p>
+              <p class="text-xs text-gray-500">Days</p>
+            </div>
+            <div class="border border-gray-300 px-3 py-2 rounded">
+              <p class="text-lg font-bold">14</p>
+              <p class="text-xs text-gray-500">Hours</p>
+            </div>
+            <div class="border border-gray-300 px-3 py-2 rounded">
+              <p class="text-lg font-bold">53</p>
+              <p class="text-xs text-gray-500">Minutes</p>
+            </div>
+            <div class="border border-gray-300 px-3 py-2 rounded">
+              <p class="text-lg font-bold">26</p>
+              <p class="text-xs text-gray-500">Seconds</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-gradient-to-r from-blue-500 to-sky-400 text-white text-center py-6 font-bold uppercase tracking-wide cursor-pointer"
+        style="clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%)"
+      >
+        Take Course
+      </div>
+    </div>
+  </body>
+</html>
