@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-11/12 max-w-md p-6 bg-white rounded-2xl shadow-lg space-y-4">
+      <h2 class="text-xl font-semibold text-gray-700 text-center">
+        Upload Your Files
+      </h2>
+
+      <label
+        class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-blue-500 transition"
+      >
+        <input id="fileInput" type="file" multiple class="hidden" />
+        <span class="text-gray-500 text-sm"
+          >Drag & drop or click to upload</span
+        >
+      </label>
+
+      <div id="preview" class="space-y-2 max-h-40 overflow-y-auto"></div>
+
+      <button
+        id="uploadBtn"
+        class="w-full py-2 rounded-xl bg-blue-500 text-white font-medium hover:bg-blue-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled
+      >
+        Upload Files
+      </button>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const preview = document.getElementById("preview");
+      const uploadBtn = document.getElementById("uploadBtn");
+
+      fileInput.addEventListener("change", () => {
+        preview.innerHTML = "";
+        if (fileInput.files.length > 0) {
+          uploadBtn.disabled = false;
+        } else {
+          uploadBtn.disabled = true;
+        }
+
+        [...fileInput.files].forEach((file) => {
+          const fileItem = document.createElement("div");
+          fileItem.className =
+            "flex items-center justify-between p-2 border rounded-lg bg-gray-50";
+          fileItem.innerHTML = `
+          <span class="text-sm text-gray-700">${file.name}</span>
+          <span class="text-xs text-gray-500">${(file.size / 1024).toFixed(
+            1
+          )} KB</span>
+        `;
+          preview.appendChild(fileItem);
+        });
+      });
+
+      uploadBtn.addEventListener("click", () => {
+        alert(`${fileInput.files.length} file(s) uploaded successfully!`);
+        fileInput.value = "";
+        preview.innerHTML = "";
+        uploadBtn.disabled = true;
+      });
+    </script>
+  </body>
+</html>
