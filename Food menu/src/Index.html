@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Menu</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://i.pinimg.com/736x/93/3a/88/933a88539897ac96d71b65c27122b3ec.jpg);
+    "
+  >
+    <div class="w-11/12 max-w-xl rounded-lg shadow-lg overflow-hidden">
+      <div class="relative">
+        <div
+          id="menuCarousel"
+          class="transition-transform duration-300 ease-in-out"
+        >
+          <div class="menu-section" data-section="breakfast">
+            <div
+              class="bg-white p-4 cursor-pointer flex justify-between items-center"
+            >
+              <div>
+                <h2
+                  class="text-2xl font-bold text-orange-600 uppercase tracking-wider"
+                >
+                  Breakfast
+                </h2>
+                <p class="text-orange-500 text-sm">7:00AM - 11:00AM</p>
+              </div>
+              <button
+                class="expand-btn bg-gray-400 rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-gray-500 transition-colors"
+              >
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="menu-content hidden mx-2 bg-orange-600 text-white p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">BUTTERMILK FRIED CHICKEN</h3>
+                  <p class="text-2xl font-bold">$12</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">VEGGIE SPECIAL</h3>
+                  <p class="text-2xl font-bold">$11</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">CLASSIC PB&J</h3>
+                  <p class="text-2xl font-bold">$5</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">GRILLED CHEESE</h3>
+                  <p class="text-2xl font-bold">$8</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-section" data-section="lunch">
+            <div
+              class="bg-red-100 p-4 cursor-pointer flex justify-between items-center"
+            >
+              <div>
+                <h2
+                  class="text-2xl font-bold text-red-600 uppercase tracking-wider"
+                >
+                  Lunch
+                </h2>
+                <p class="text-red-500 text-sm">11:00AM - 3:00PM</p>
+              </div>
+              <button
+                class="expand-btn bg-gray-400 rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-gray-500 transition-colors"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+            <div class="menu-content mx-2 bg-red-400 text-white p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="menu-item relative">
+                  <h3 class="font-bold text-lg">BUTTERMILK FRIED CHICKEN</h3>
+                  <p class="text-2xl font-bold">$12</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">VEGGIE SPECIAL</h3>
+                  <p class="text-2xl font-bold">$11</p>
+                </div>
+                <div class="menu-item relative">
+                  <h3 class="font-bold text-lg">HOUSE SMOKED PORK CUBAN</h3>
+                  <p class="text-2xl font-bold">$10</p>
+
+                  <div
+                    class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-white text-gray-800 p-3 rounded shadow-lg z-10 tooltip"
+                  >
+                    <p class="font-medium">
+                      Swiss, Pickles & Mustard on Ciabatta
+                    </p>
+                    <div
+                      class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"
+                    ></div>
+                  </div>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">CLASSIC PB&J</h3>
+                  <p class="text-2xl font-bold">$5</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">HOUSE SMOKED TEXAS BBQ</h3>
+                  <p class="text-2xl font-bold">$12</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">GRILLED CHEESE</h3>
+                  <p class="text-2xl font-bold">$8</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">HOUSE SMOKED TURKEY</h3>
+                  <p class="text-2xl font-bold">$12</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">QUICHE OR FRITTATA</h3>
+                  <p class="text-2xl font-bold">$8</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-section" data-section="prepared">
+            <div
+              class="bg-gray-100 p-4 cursor-pointer flex justify-between items-center"
+            >
+              <div>
+                <h2
+                  class="text-2xl font-bold text-gray-600 uppercase tracking-wider"
+                >
+                  Prepared
+                </h2>
+                <p class="text-gray-500 text-sm">11:00AM - CLOSING</p>
+              </div>
+              <button
+                class="expand-btn bg-gray-400 rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-gray-500 transition-colors"
+              >
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="menu-content mx-2 hidden bg-gray-400 text-white p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">FRESH SALADS</h3>
+                  <p class="text-2xl font-bold">$9</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">SOUP OF THE DAY</h3>
+                  <p class="text-2xl font-bold">$7</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">ARTISAN PASTRIES</h3>
+                  <p class="text-2xl font-bold">$4</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">FRESH FRUIT BOWL</h3>
+                  <p class="text-2xl font-bold">$6</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-section" data-section="coffee">
+            <div
+              class="bg-orange-100 p-4 cursor-pointer flex justify-between items-center"
+            >
+              <div>
+                <h2
+                  class="text-2xl font-bold text-orange-600 uppercase tracking-wider"
+                >
+                  Coffee & Beverages
+                </h2>
+                <p class="text-orange-500 text-sm">ALL DAY</p>
+              </div>
+              <button
+                class="expand-btn bg-gray-400 rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-gray-500 transition-colors"
+              >
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="menu-content mx-2 hidden bg-orange-400 text-white p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">ESPRESSO</h3>
+                  <p class="text-2xl font-bold">$3</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">AMERICANO</h3>
+                  <p class="text-2xl font-bold">$4</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">LATTE</h3>
+                  <p class="text-2xl font-bold">$5</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">CAPPUCCINO</h3>
+                  <p class="text-2xl font-bold">$5</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">FRESH JUICE</h3>
+                  <p class="text-2xl font-bold">$4</p>
+                </div>
+                <div class="menu-item">
+                  <h3 class="font-bold text-lg">ICED TEA</h3>
+                  <p class="text-2xl font-bold">$3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript for expand/collapse functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".menu-section");
+
+        sections.forEach((section) => {
+          const header = section.querySelector("div:first-child");
+          const content = section.querySelector(".menu-content");
+          const button = section.querySelector(".expand-btn i");
+
+          header.addEventListener("click", function () {
+            const isHidden = content.classList.contains("hidden");
+
+            if (isHidden) {
+              content.classList.remove("hidden");
+              button.classList.remove("fa-plus");
+              button.classList.add("fa-minus");
+            } else {
+              content.classList.add("hidden");
+              button.classList.remove("fa-minus");
+              button.classList.add("fa-plus");
+            }
+          });
+        });
+
+        // Show tooltip for pork cuban on hover
+        const tooltip = document.querySelector(".tooltip");
+        const porkCuban = tooltip?.parentElement;
+
+        if (porkCuban && tooltip) {
+          porkCuban.addEventListener("mouseenter", () => {
+            tooltip.style.display = "block";
+          });
+
+          porkCuban.addEventListener("mouseleave", () => {
+            tooltip.style.display = "none";
+          });
+
+          // Hide tooltip initially
+          tooltip.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
