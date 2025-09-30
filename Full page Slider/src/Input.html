@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Page Slider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .carousel-item {
+        flex: 0 0 80%;
+        /* Show central item big, sides peeking */
+        transition: transform 0.5s ease, filter 0.5s ease;
+      }
+
+      .inactive {
+        filter: grayscale(100%);
+        transform: scale(0.9);
+      }
+
+      .active {
+        filter: grayscale(0%);
+        transform: scale(1);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="relative w-full max-w-5xl overflow-hidden">
+      <div
+        id="carousel"
+        class="flex transition-transform duration-500 ease-in-out"
+      >
+        <div class="carousel-item inactive px-2">
+          <img
+            src="https://picsum.photos/id/1018/800/400"
+            class="w-full rounded-xl shadow-lg"
+          />
+        </div>
+        <div class="carousel-item active px-2">
+          <img
+            src="https://picsum.photos/id/1015/800/400"
+            class="w-full rounded-xl shadow-lg"
+          />
+        </div>
+        <div class="carousel-item inactive px-2">
+          <img
+            src="https://picsum.photos/id/1019/800/400"
+            class="w-full rounded-xl shadow-lg"
+          />
+        </div>
+        <div class="carousel-item inactive px-2">
+          <img
+            src="https://picsum.photos/id/1020/800/400"
+            class="w-full rounded-xl shadow-lg"
+          />
+        </div>
+      </div>
+
+      <button
+        id="prev"
+        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
+      >
+        ◀
+      </button>
+      <button
+        id="next"
+        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
+      >
+        ▶
+      </button>
+    </div>
+
+    <script>
+      const carousel = document.getElementById("carousel");
+      const items = carousel.children;
+      let index = 1; // Start at second image
+      const total = items.length;
+
+      function updateCarousel() {
+        // Calculate offset so the active item is centered
+        const offset = -index * items[0].offsetWidth;
+        carousel.style.transform = `translateX(${
+          offset +
+          (carousel.parentElement.offsetWidth / 2 - items[0].offsetWidth / 2)
+        }px)`;
+
+        // Set active/inactive styles
+        Array.from(items).forEach((item, i) => {
+          if (i === index) {
+            item.classList.remove("inactive");
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+            item.classList.add("inactive");
+          }
+        });
+      }
+
+      document.getElementById("prev").addEventListener("click", () => {
+        index = (index - 1 + total) % total;
+        updateCarousel();
+      });
+
+      document.getElementById("next").addEventListener("click", () => {
+        index = (index + 1) % total;
+        updateCarousel();
+      });
+
+      // Initial load
+      window.addEventListener("load", updateCarousel);
+      window.addEventListener("resize", updateCarousel);
+    </script>
+  </body>
+</html>
