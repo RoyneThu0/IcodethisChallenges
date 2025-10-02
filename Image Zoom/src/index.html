@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Zoom Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #modalImage {
+        transition: transform 0.2s ease;
+        transform-origin: center center;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-teal-500">
+    <div class="grid grid-cols-2 gap-4 w-full max-w-lg">
+      <img
+        src="https://i.pinimg.com/1200x/9a/80/3f/9a803f8fe6654875cf9ce39a02e9f82a.jpg"
+        alt="1"
+        class="cursor-pointer rounded-lg shadow"
+        onclick="openModal(this.src)"
+      />
+      <img
+        src="https://www.crepslocker.com/cdn/shop/files/louis-vuitton-neo-petit-damier-grey-beanie-_-scarf-nvprod3920087v-model-side.jpg?v=1697648584"
+        alt="2"
+        class="cursor-pointer rounded-lg shadow"
+        onclick="openModal(this.src)"
+      />
+      <img
+        src="https://images.saymedia-content.com/.image/t_share/MTc0MDYxNTM5MzgzMzIyMDU3/renaissance-fashion-womens-clothing-in-elizabethan-england.jpg"
+        alt="3"
+        class="cursor-pointer rounded-lg shadow"
+        onclick="openModal(this.src)"
+      />
+      <img
+        src="https://i.pinimg.com/originals/80/a6/09/80a60979734d42cbc96d29a444f69e6a.jpg"
+        alt="4"
+        class="cursor-pointer rounded-lg shadow"
+        onclick="openModal(this.src)"
+      />
+    </div>
+
+    <div
+      id="modal"
+      class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+      onclick="closeModal()"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-lg p-4 relative w-11/12 md:w-2/3 lg:w-1/2 flex flex-col items-center"
+        onclick="event.stopPropagation()"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute top-2 right-2 bg-gray-200 rounded-full p-2 hover:bg-gray-300 z-10 cursor-pointer text-gray-600 hover:text-gray-800 font-bold text-lg w-8 h-8 flex items-center justify-center"
+        >
+          ✕
+        </button>
+
+        <div
+          id="imageContainer"
+          class="overflow-hidden w-full flex justify-center relative"
+        >
+          <img
+            id="modalImage"
+            src=""
+            alt="Zoomed"
+            class="rounded-lg max-h-[70vh] object-contain"
+          />
+        </div>
+
+        <div class="w-full flex items-center justify-center space-x-4 mt-4">
+          <button
+            onclick="zoomOut()"
+            class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            -
+          </button>
+          <input
+            id="zoomSlider"
+            type="range"
+            min="1"
+            max="3"
+            step="0.1"
+            value="1"
+            class="w-2/3"
+            oninput="setZoom(this.value)"
+          />
+          <button
+            onclick="zoomIn()"
+            class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("modal");
+      const modalImage = document.getElementById("modalImage");
+      const zoomSlider = document.getElementById("zoomSlider");
+      const imageContainer = document.getElementById("imageContainer");
+
+      let zoomLevel = 1;
+
+      function openModal(src) {
+        modal.classList.remove("hidden");
+        modalImage.src = src;
+        modalImage.style.transform = "scale(1)";
+        zoomSlider.value = 1;
+        zoomLevel = 1;
+      }
+
+      function closeModal() {
+        modal.classList.add("hidden");
+      }
+
+      function setZoom(value) {
+        zoomLevel = parseFloat(value);
+        modalImage.style.transform = `scale(${zoomLevel})`;
+      }
+
+      function zoomIn() {
+        if (zoomLevel < 3) {
+          zoomLevel += 0.1;
+          zoomSlider.value = zoomLevel.toFixed(1);
+          setZoom(zoomLevel);
+        }
+      }
+
+      function zoomOut() {
+        if (zoomLevel > 1) {
+          zoomLevel -= 0.1;
+          zoomSlider.value = zoomLevel.toFixed(1);
+          setZoom(zoomLevel);
+        }
+      }
+
+      // Hover to zoom follow mouse
+      imageContainer.addEventListener("mousemove", (e) => {
+        if (zoomLevel > 1) {
+          const rect = imageContainer.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          modalImage.style.transformOrigin = `${x}% ${y}%`;
+        } else {
+          modalImage.style.transformOrigin = "center center";
+        }
+      });
+
+      // Close modal with ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
