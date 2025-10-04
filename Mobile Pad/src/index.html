@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Pad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-gradient-to-b from-white via-purple-500 to-white"
+  >
+    <div class="w-11/12 max-w-sm bg-white rounded-xl p-10 shadow-lg">
+      <div class="text-center mb-6">
+        <div
+          id="phoneNumber"
+          class="text-2xl font-semibold tracking-wider"
+        ></div>
+
+        <div
+          class="w-full justify-center mt-10 grid grid-cols-3 gap-4 place-items-center"
+        >
+          <button
+            onclick="press('1')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 hover:shadow-inner active:bg-green-500 rounded-full"
+          >
+            <p class="text-lg">1</p>
+            <span class="text-xs"> </span>
+          </button>
+          <button
+            onclick="press('2')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">2</p>
+            <span class="text-xs">ABC</span>
+          </button>
+          <button
+            onclick="press('3')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">3</p>
+            <span class="text-xs">DEF</span>
+          </button>
+
+          <button
+            onclick="press('4')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">4</p>
+            <span class="text-xs">GHI</span>
+          </button>
+          <button
+            onclick="press('5')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">5</p>
+            <span class="text-xs">JKL</span>
+          </button>
+          <button
+            onclick="press('6')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">6</p>
+            <span class="text-xs">MNO</span>
+          </button>
+
+          <button
+            onclick="press('7')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">7</p>
+            <span class="text-xs">PQRS</span>
+          </button>
+          <button
+            onclick="press('8')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">8</p>
+            <span class="text-xs">TUV</span>
+          </button>
+          <button
+            onclick="press('9')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500h over:shadow-inner flex flex-col justify-center rounded-full"
+          >
+            <p class="text-lg">9</p>
+            <span class="text-xs">WXYZ</span>
+          </button>
+
+          <button
+            onclick="press('*')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner rounded-full"
+          >
+            * <span class="text-xs"></span>
+          </button>
+          <button
+            onclick="press('0')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner rounded-full"
+          >
+            0 <span class="text-xs"></span>
+          </button>
+          <button
+            onclick="press('#')"
+            class="dial-btn bg-white border border-green-400 w-20 h-20 hover:shadow-gray-500 active:bg-green-500 hover:shadow-inner rounded-full"
+          >
+            # <span class="text-xs"></span>
+          </button>
+        </div>
+
+        <div class="flex justify-between items-center mt-6">
+          <button class="p-3 text-gray-500 hover:text-gray-700">
+            <i class="fa-solid fa-plus text-xl"></i>
+          </button>
+          <button
+            class="p-4 rounded-full bg-sky-500 text-white shadow-lg shadow-sky-400 hover:bg-sky-700 w-20 h-20 flex items-center justify-center"
+          >
+            <i class="fa-solid fa-phone"></i>
+          </button>
+          <button
+            onclick="backspace()"
+            class="p-3 text-gray-500 hover:text-gray-700"
+          >
+            <i class="fa-solid fa-delete-left text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let phoneNumber = "";
+      const phoneNumberDisplay = document.getElementById("phoneNumber");
+
+      function formatNumber(num) {
+        // Group digits like 0748 869 733
+        return num.replace(/(\d{4})(\d{3})(\d{0,3})/, (match, g1, g2, g3) => {
+          return g3 ? `${g1} ${g2} ${g3}` : g2 ? `${g1} ${g2}` : g1;
+        });
+      }
+
+      function press(num) {
+        if (phoneNumber.length < 11) {
+          // limit to 11 digits
+          phoneNumber += num;
+          phoneNumberDisplay.textContent = formatNumber(phoneNumber);
+        }
+      }
+
+      function backspace() {
+        phoneNumber = phoneNumber.slice(0, -1);
+        phoneNumberDisplay.textContent = formatNumber(phoneNumber);
+      }
+    </script>
+  </body>
+</html>
