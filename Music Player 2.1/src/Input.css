@@ -1,0 +1,86 @@
+/* Global button and icon visibility fixes for the music player */
+:root {
+  --bg-dark: #1f2937; /* tailwind gray-800 */
+  --muted: #9ca3af; /* tailwind gray-400 */
+  --accent: #3b82f6; /* tailwind blue-500 */
+}
+
+body {
+  background-color: #374151; /* tailwind gray-700 fallback */
+}
+
+/* Make sure all button elements are visible and clickable */
+button {
+  color: white; /* icon color */
+  background: transparent; /* small buttons use hover to show bg */
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Icons inside buttons should inherit visible color and a readable size */
+button i,
+.fas,
+.fa,
+.far,
+.fab {
+  color: inherit;
+  font-size: 1rem; /* adjust as needed */
+}
+
+/* Small circular control buttons */
+button.p-3 {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+button.p-3:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Play/pause prominent button override to ensure visibility */
+#playPauseBtn {
+  background: var(--accent) !important;
+  color: white !important;
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Focus outlines for keyboard accessibility */
+button:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 3px;
+}
+
+/* Ensure icons inside the play button are large and centered */
+#playPauseBtn i {
+  font-size: 1.25rem;
+}
+
+/* When Tailwind utility classes may reset color, force icon color on the controls container */
+.flex.justify-center.gap-5.mt-5.mb-4 button i {
+  color: white;
+}
+
+/* Progress bar visible contrast */
+#progressContainer {
+  background: rgba(255, 255, 255, 0.06);
+}
+#progressBar {
+  background: var(--accent);
+}
+
+/* Ensure any accidental global rule hiding buttons is countered */
+button[hidden],
+.hidden-button {
+  display: inline-flex !important;
+  visibility: visible !important;
+}

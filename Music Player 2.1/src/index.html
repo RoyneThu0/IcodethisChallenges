@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body class="flex items-center justify-center h-screen bg-gray-700">
+    <div
+      class="w-80 bg-gradient-to-b from-gray-800 to-gray-900 text-white rounded-2xl shadow-2xl overflow-hidden"
+    >
+      <div class="flex justify-between items-center px-4 py-3">
+        <i
+          class="fas fa-arrow-left text-gray-400 hover:text-white cursor-pointer"
+        ></i>
+        <i
+          class="fas fa-ellipsis-v text-gray-400 hover:text-white cursor-pointer"
+        ></i>
+      </div>
+
+      <div class="flex justify-center">
+        <img
+          src="https://ic.c4assets.com/vps/oblivion/F4E76D67-9B11-4221-809F6AC3DFBB4124.jpg?imformat=chrome&resize=700px:*"
+          alt="Album Art"
+          class="rounded-lg shadow-lg w-48 h-48 object-cover"
+        />
+      </div>
+
+      <div class="text-center mt-4 mb-2">
+        <h2 class="text-lg font-semibold">Oblivion Soundtrack</h2>
+        <p class="text-sm text-gray-400">
+          M83 - Oblivion (ft. Susanne Sundfor)
+        </p>
+      </div>
+
+      <div class="px-6 mt-4">
+        <div class="flex justify-between text-xs text-gray-400">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+        <div
+          class="relative w-full bg-gray-700 h-1 rounded-full mt-1 cursor-pointer"
+          id="progressContainer"
+        >
+          <div
+            id="progressBar"
+            class="bg-blue-400 h-1 rounded-full w-0 transition-all duration-100"
+          ></div>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-5 mt-5 mb-4">
+        <button class="p-3 rounded-full hover:bg-gray-700">
+          <i class="fas fa-random"></i>
+        </button>
+        <button class="p-3 rounded-full hover:bg-gray-700">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button
+          id="playPauseBtn"
+          class="p-4 bg-blue-500 w-10 h-10 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-600"
+        >
+          <i id="playIcon" class="fas fa-play"></i>
+        </button>
+        <button class="p-3 rounded-full hover:bg-gray-700">
+          <i class="fas fa-forward"></i>
+        </button>
+        <button class="p-3 rounded-full hover:bg-gray-700">
+          <i class="fas fa-infinity"></i>
+        </button>
+      </div>
+
+      <div class="border-t border-gray-700 px-6 py-4 text-sm">
+        <div class="flex justify-between py-1">
+          <span>Supercell</span><span>05:13</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span>Tech 49</span><span>03:11</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span>The Library</span><span>04:24</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span>Horatius</span><span>03:55</span>
+        </div>
+      </div>
+    </div>
+
+    <audio
+      id="audio"
+      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    ></audio>
+
+    <script>
+      const playPauseBtn = document.getElementById("playPauseBtn");
+      const playIcon = document.getElementById("playIcon");
+      const audio = document.getElementById("audio");
+      const progressBar = document.getElementById("progressBar");
+      const progressContainer = document.getElementById("progressContainer");
+      const currentTimeEl = document.getElementById("currentTime");
+      const durationEl = document.getElementById("duration");
+
+      let isPlaying = false;
+
+      // Format time (seconds → mm:ss)
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
+      }
+
+      // Play or pause
+      playPauseBtn.addEventListener("click", () => {
+        if (isPlaying) {
+          audio.pause();
+        } else {
+          audio.play();
+        }
+      });
+
+      audio.addEventListener("play", () => {
+        isPlaying = true;
+        playIcon.className = "fas fa-pause";
+      });
+
+      audio.addEventListener("pause", () => {
+        isPlaying = false;
+        playIcon.className = "fas fa-play";
+      });
+
+      // Update progress bar
+      audio.addEventListener("timeupdate", () => {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+      });
+
+      // Show duration
+      audio.addEventListener("loadedmetadata", () => {
+        durationEl.textContent = formatTime(audio.duration);
+      });
+
+      // Seek functionality
+      progressContainer.addEventListener("click", (e) => {
+        const width = progressContainer.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      });
+    </script>
+  </body>
+</html>
