@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex md:items-center items-start mt-10 justify-center bg-gray-400"
+  >
+    <div class="relative w-11/12 max-w-4xl bg-white">
+      <div
+        class="absolute inset-0 w-full bg-gray-700 text-center text-teal-300 font-bold text-lg p-6"
+        style="clip-path: polygon(0 0, 100% 0, 100% 20%, 0% 15%); z-index: 10"
+      ></div>
+      <div
+        class="relative w-full z-20 sm:flex grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1"
+      >
+        <div
+          class="md:w-2/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out"
+        >
+          <h1 class="text-lime-500 font-bold text-xl text-center">LIGHT</h1>
+
+          <div class="w-full flex justify-center mt-14">
+            <p class="text-6xl font-bold text-gray-700">
+              $19 <span class="text-sm">/mo</span>
+            </p>
+          </div>
+          <ul class="mt-10 space-y-4">
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">100</p>
+              <p class="text-gray-500">Max Connections</p>
+            </li>
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">200,000</p>
+              <p class="text-gray-500">Messages per day</p>
+            </li>
+            <li class="flex relative flex-col text-center">
+              <p class="font-bold text-gray-300">Encryption</p>
+              <p class="text-gray-300">SSL Protection</p>
+
+              <div
+                class="absolute h-1 w-40 bg-black -rotate-12 translate-y-4"
+              ></div>
+            </li>
+          </ul>
+          <div class="w-full flex justify-center mt-10">
+            <button
+              class="w-11/12 bg-lime-500 text-white py-3 rounded-lg hover:bg-lime-700 active:bg-sky-600"
+            >
+              SELECT PLAN
+            </button>
+          </div>
+        </div>
+        <div
+          class="md:w-3/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out md:border-x-2 border-gray-500"
+        >
+          <h1 class="text-teal-500 font-bold text-xl text-center">STARTUP</h1>
+
+          <div class="w-full flex justify-center mt-14">
+            <p class="text-6xl font-bold text-gray-700">
+              $49 <span class="text-sm">/mo</span>
+            </p>
+          </div>
+          <ul class="mt-10 space-y-4">
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">500</p>
+              <p class="text-gray-500">Max Connections</p>
+            </li>
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">1 Million</p>
+              <p class="text-gray-500">Messages per day</p>
+            </li>
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">Encryption</p>
+              <p class="text-gray-500">SSL Protection</p>
+            </li>
+          </ul>
+          <div class="w-full flex justify-center mt-10">
+            <button
+              class="w-11/12 bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-700 active:bg-sky-600"
+            >
+              SELECT PLAN
+            </button>
+          </div>
+        </div>
+        <div
+          class="md:w-4/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out"
+        >
+          <h1 class="text-sky-500 font-bold text-xl text-center">BIG BOY</h1>
+
+          <div class="w-full flex justify-center mt-14">
+            <p class="text-6xl font-bold text-gray-700">
+              $199 <span class="text-sm">/mo</span>
+            </p>
+          </div>
+          <ul class="mt-10 space-y-4">
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">5000</p>
+              <p class="text-gray-500">Max Connections</p>
+            </li>
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">10 Million</p>
+              <p class="text-gray-500">Messages per day</p>
+            </li>
+            <li class="flex flex-col text-center">
+              <p class="font-bold text-gray-700">Encryption</p>
+              <p class="text-gray-500">SSL Protection</p>
+            </li>
+          </ul>
+          <div class="w-full flex justify-center mt-10">
+            <button
+              class="w-11/12 bg-sky-500 text-white py-3 rounded-lg hover:bg-sky-700 active:bg-blue-600"
+            >
+              SELECT PLAN
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
