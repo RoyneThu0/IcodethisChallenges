@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallet balance</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <!-- Card container -->
+    <div
+      class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden"
+    >
+      <!-- Header with gradient and wave -->
+      <div
+        class="relative bg-gradient-to-br from-sky-300 via-indigo-300 to-purple-400 text-white px-6 pt-6 pb-20"
+      >
+        <div class="flex items-center justify-between">
+          <button class="text-white text-xl p-2">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <nav class="hidden sm:flex gap-6 text-sm opacity-90">
+            <a href="#" class="font-medium">Summary</a>
+            <a href="#" class="opacity-80">Activity</a>
+            <a href="#" class="opacity-80">Send/request</a>
+          </nav>
+          <div class="w-8"></div>
+        </div>
+
+        <div class="text-center mt-6">
+          <div class="uppercase text-xs tracking-widest opacity-90">
+            Your balancex
+          </div>
+          <div class="mt-2 text-5xl sm:text-6xl font-extrabold tracking-tight">
+            244.53 <span class="text-2xl font-medium align-text-top">USD</span>
+          </div>
+        </div>
+
+        <!-- decorative wave divider -->
+        <div class="absolute left-0 right-0 -bottom-14 pointer-events-none">
+          <svg
+            viewBox="0 0 800 220"
+            preserveAspectRatio="none"
+            class="w-full h-44 block"
+          >
+            <!-- smoother, more accurate wave: left rise, deep center trough, right slope -->
+            <path
+              d="M0,100 C120,40 220,40 320,100 C420,160 560,160 800,100 L800,220 L0,220 Z"
+              style="fill: white"
+            <!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Wallet balance</title>
+
+                <script src="https://cdn.tailwindcss.com"></script>
+
+                <link href="./output.css" rel="stylesheet" />
+                <link
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+                  integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+                  crossorigin="anonymous"
+                  referrerpolicy="noreferrer"
+                />
+              </head>
+              <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+                <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+                  <div class="relative bg-gradient-to-br from-sky-300 via-indigo-300 to-purple-400 text-white px-6 pt-6 pb-20">
+                    <div class="flex items-center justify-between">
+                      <button class="text-white text-xl p-2">
+                        <i class="fa-solid fa-bars"></i>
+                      </button>
+                      <nav class="hidden sm:flex gap-6 text-sm opacity-90">
+                        <a href="#" class="font-medium">Summary</a>
+                        <a href="#" class="opacity-80">Activity</a>
+                        <a href="#" class="opacity-80">Send/request</a>
+                      </nav>
+                      <div class="w-8"></div>
+                    </div>
+
+                    <div class="text-center mt-6">
+                      <div class="uppercase text-xs tracking-widest opacity-90">Your balancex</div>
+                      <div class="mt-2 text-5xl sm:text-6xl font-extrabold tracking-tight">244.53 <span class="text-2xl font-medium align-text-top">USD</span></div>
+                    </div>
+
+                    <div class="absolute left-0 right-0 -bottom-14 pointer-events-none">
+                      <svg viewBox="0 0 800 220" preserveAspectRatio="none" class="w-full h-44 block">
+                        <path d="M0,100 C120,40 220,40 320,100 C420,160 560,160 800,100 L800,220 L0,220 Z" style="fill:white;"></path>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="p-6 pt-6">
+                    <div class="-mt-20 relative flex items-center justify-center gap-6 mb-4">
+                      <button class="px-5 py-3 rounded-full text-sm font-semibold text-purple-700 bg-purple-50 shadow-md ring-1 ring-purple-100">Pending</button>
+                      <button class="px-5 py-3 rounded-full text-sm font-medium text-gray-600">Completed</button>
+                    </div>
+
+                    <div class="space-y-5">
+                      <div class="border border-transparent rounded-lg">
+                        <div class="text-gray-800 font-semibold">Company Inc.</div>
+                        <div class="text-sm text-gray-600 mt-1">Payment request for <span class="font-medium">280.00 CAD</span> sent</div>
+                        <div class="text-xs text-gray-400 mt-2">Company Inc. hasn't paid yet</div>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Send a reminder</button>
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Edit amount</button>
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Cancel</button>
+                        </div>
+                      </div>
+
+                      <div class="border border-transparent rounded-lg">
+                        <div class="text-gray-800 font-semibold">Company Inc.</div>
+                        <div class="text-sm text-gray-600 mt-1">Payment request for <span class="font-medium">356.00 USD</span> sent</div>
+                        <div class="text-xs text-gray-400 mt-2">Company Inc. hasn't paid yet</div>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Send a reminder</button>
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Edit amount</button>
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Cancel</button>
+                        </div>
+                      </div>
+
+                      <div class="border border-transparent rounded-lg">
+                        <div class="text-gray-800 font-semibold">Company Inc.</div>
+                        <div class="text-sm text-gray-600 mt-1">Payment request for <span class="font-medium">677.00 USD</span> sent</div>
+                        <div class="text-xs text-gray-400 mt-2">Company Inc. hasn't paid yet</div>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Send a reminder</button>
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Edit amount</button>
+                          <button class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </body>
+            </html>
+            </div>
+            <div class="text-xs text-gray-400 mt-2">
+              Company Inc. hasn't paid yet
+            </div>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button
+                class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50"
+              >
+                Send a reminder
+              </button>
+              <button
+                class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50"
+              >
+                Edit amount
+              </button>
+              <button
+                class="px-4 py-2 rounded-full border-2 border-purple-300 text-purple-700 text-sm hover:bg-purple-50"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
