@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-[#071428] flex items-center justify-center"
+    style="
+      background-image: url(https://static.vecteezy.com/system/resources/previews/019/847/897/non_2x/starry-night-sky-background-with-meteors-illustration-vector.jpg);
+    "
+  >
+    <main class="w-[820px] max-w-full mx-6">
+      <section
+        class="mx-auto bg-white/6 backdrop-blur-sm border border-teal-800/40 rounded-md overflow-hidden shadow-xl"
+      >
+        <header class="text-center py-6">
+          <div class="text-sm text-slate-300">Thursday 10:40 PM</div>
+          <h1 class="text-4xl md:text-5xl font-semibold text-white mt-2">
+            Timisoara
+          </h1>
+        </header>
+
+        <div class="px-8 pb-8 grid grid-cols-12 gap-6 items-center">
+          <div class="col-span-6 flex items-center justify-center">
+            <div
+              class="relative w-56 h-56 md:w-64 md:h-64 flex items-center justify-center"
+            >
+              <img
+                src="https://www.svgheart.com/wp-content/uploads/2020/10/-84.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="col-span-6">
+            <div class="flex items-start gap-4">
+              <div
+                class="text-7xl md:text-8xl leading-none font-extralight text-amber-50"
+              >
+                9
+              </div>
+              <div class="mt-6">
+                <div class="flex items-center gap-3">
+                  <div
+                    id="unitToggle"
+                    class="text-sky-400 cursor-pointer select-none"
+                  >
+                    <span id="cBtn" class="text-2xl font-medium">°C</span>
+                    <span class="text-slate-200 px-2">|</span>
+                    <span id="fBtn" class="text-slate-500 text-2xl">°F</span>
+                  </div>
+                </div>
+                <div class="text-sm text-slate-300 mt-2">MIN 3 °C</div>
+              </div>
+            </div>
+
+            <div
+              class="mt-6 grid grid-cols-3 gap-3 bg-white/5 p-4 rounded-md border border-white/5"
+            >
+              <div class="text-center">
+                <div class="text-sky-200 text-xl">
+                  <i class="fa-solid fa-droplet"></i>
+                </div>
+                <div class="text-xs text-slate-300 mt-1">93%</div>
+              </div>
+              <div class="text-center">
+                <div class="text-sky-200 text-xl">
+                  <i class="fa-solid fa-wind"></i>
+                </div>
+                <div class="text-xs text-slate-300 mt-1">5 km/h</div>
+              </div>
+              <div class="text-center">
+                <div class="text-sky-200 text-xl">
+                  <i class="fa-solid fa-cloud-rain"></i>
+                </div>
+                <div class="text-xs text-slate-300 mt-1">0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6 pb-6">
+          <div
+            class="grid grid-cols-6 gap-4 bg-white/6 border-t border-white/4 p-4 rounded-b-md"
+          >
+            <div class="text-center bg-white/4 rounded-sm py-3">
+              <div class="text-slate-100 font-semibold">Fri</div>
+              <div class="text-sky-200 mt-2">
+                <i class="fa-solid fa-cloud"></i>
+              </div>
+              <div class="text-slate-300 text-sm mt-1">15° / 4°</div>
+            </div>
+            <div class="text-center bg-white/4 rounded-sm py-3">
+              <div class="text-slate-100 font-semibold">Sat</div>
+              <div class="text-sky-200 mt-2">
+                <i class="fa-solid fa-cloud-sun"></i>
+              </div>
+              <div class="text-slate-300 text-sm mt-1">22° / 7°</div>
+            </div>
+            <div class="text-center bg-white/4 rounded-sm py-3">
+              <div class="text-slate-100 font-semibold">Sun</div>
+              <div class="text-sky-200 mt-2">
+                <i class="fa-solid fa-cloud-sun"></i>
+              </div>
+              <div class="text-slate-300 text-sm mt-1">22° / 9°</div>
+            </div>
+            <div class="text-center bg-white/4 rounded-sm py-3">
+              <div class="text-slate-100 font-semibold">Mon</div>
+              <div class="text-amber-300 mt-2">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <div class="text-slate-300 text-sm mt-1">25° / 14°</div>
+            </div>
+            <div class="text-center bg-white/4 rounded-sm py-3">
+              <div class="text-slate-100 font-semibold">Tue</div>
+              <div class="text-amber-300 mt-2">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <div class="text-slate-300 text-sm mt-1">25° / 14°</div>
+            </div>
+            <div class="text-center bg-white/4 rounded-sm py-3">
+              <div class="text-slate-100 font-semibold">Wed</div>
+              <div class="text-amber-300 mt-2">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <div class="text-slate-300 text-sm mt-1">26° / 18°</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const cBtn = document.getElementById("cBtn");
+      const fBtn = document.getElementById("fBtn");
+      const tempEl = document.querySelector(".text-7xl");
+
+      function toF(c) {
+        return Math.round((c * 9) / 5 + 32);
+      }
+      let cTemp = 9;
+      let isC = true;
+
+      cBtn.addEventListener("click", () => {
+        if (!isC) {
+          tempEl.textContent = cTemp;
+          cBtn.classList.remove("text-slate-500");
+          cBtn.classList.add("text-sky-400");
+          fBtn.classList.remove("text-sky-400");
+          fBtn.classList.add("text-slate-500");
+          isC = true;
+        }
+      });
+
+      fBtn.addEventListener("click", () => {
+        if (isC) {
+          tempEl.textContent = toF(cTemp);
+          fBtn.classList.remove("text-slate-500");
+          fBtn.classList.add("text-sky-400");
+          cBtn.classList.remove("text-sky-400");
+          cBtn.classList.add("text-slate-500");
+          isC = false;
+        }
+      });
+    </script>
+  </body>
+</html>
