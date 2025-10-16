@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Tracker</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+
+    <style>
+      .card-shadow {
+        box-shadow: 0 25px 40px rgba(2, 6, 23, 0.45);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-teal-700 min-h-screen flex items-center justify-center font-sans"
+  >
+    <div class="w-[360px] bg-white rounded-md overflow-hidden card-shadow">
+      <!-- Header -->
+      <div class="bg-teal-600 text-center py-4">
+        <div class="text-white text-sm tracking-wider">WEDNESDAY</div>
+        <div class="text-teal-100 text-xs mt-1">May 04 2016, 07:30</div>
+      </div>
+
+      <!-- Main content -->
+      <div class="p-6 bg-white">
+        <div class="flex justify-center">
+          <div class="relative flex items-center justify-center w-36 h-36">
+            <div
+              class="absolute inset-0 rounded-full bg-pink-200 flex items-center justify-center"
+            >
+              <div
+                class="w-[90%] h-[90%] rounded-full bg-[conic-gradient(from_0deg,_#ff4b88_0%_68%,_transparent_68%_100%)]"
+              ></div>
+            </div>
+
+            <div
+              class="absolute inset-5 rounded-full bg-white flex flex-col items-center justify-center"
+            >
+              <div class="text-4xl text-gray-700 font-light">4.8</div>
+              <div class="text-xs text-gray-400 tracking-wider mt-1">KM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center text-gray-500">
+          <div class="text-center">
+            <div class="text-xs">TIME</div>
+            <div class="text-2xl text-gray-700 font-semibold">23:40</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs">CALORIES</div>
+            <div class="text-2xl text-gray-700 font-semibold">510</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-teal-600 p-6 text-teal-50">
+        <div class="text-center text-lg mb-4 font-light">Latest activities</div>
+        <ul class="space-y-4">
+          <li class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-person-running text-white text-xl"></i>
+              <div>
+                <div class="text-sm font-semibold">11 Km</div>
+              </div>
+            </div>
+            <div class="text-sm">1h 20 min</div>
+            <div class="text-sm">478 calories</div>
+          </li>
+          <li class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-bicycle text-white text-xl"></i>
+              <div>
+                <div class="text-sm font-semibold">45 Km</div>
+              </div>
+            </div>
+            <div class="text-sm">2h 37 min</div>
+            <div class="text-sm">865 calories</div>
+          </li>
+          <li class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-person-running text-white text-xl"></i>
+              <div>
+                <div class="text-sm font-semibold">8 Km</div>
+              </div>
+            </div>
+            <div class="text-sm">55 min</div>
+            <div class="text-sm">322 calories</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Footer with GO button -->
+      <div class="bg-white p-4 flex items-center justify-between">
+        <div class="text-teal-600 text-xl">
+          <i class="fa-solid fa-house"></i>
+        </div>
+
+        <div class="-mt-10 flex-1 flex justify-center">
+          <button
+            class="bg-pink-500 text-white px-10 py-3 rounded-full shadow-lg transform hover:scale-105"
+          >
+            GO
+          </button>
+        </div>
+
+        <div class="text-teal-600 text-2xl">
+          <i class="fa-solid fa-list"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
