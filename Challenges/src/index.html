@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenges</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gray-950"
+  >
+    <div
+      id="into"
+      class="w-11/12 max-w-md p-10 bg-gray-700 flex flex-col justify-center items-center rounded-sm"
+    >
+      <div class="w-20 h-20 bg-white rounded-full"></div>
+
+      <p class="mt-5 text-white text-xl font-sans font-light">
+        Music app challenge
+      </p>
+      <p class="text-white text-sm mt-3 text-center">
+        Vote for your favourite community uploads created for our latest
+        challenge
+      </p>
+
+      <div class="w-full flex items-center justify-center mt-4">
+        <button
+          id="voteBtn"
+          class="bg-gradient-to-br from-indigo-400 to-fuchsia-400 px-10 py-3 rounded-md"
+        >
+          Vote now
+        </button>
+      </div>
+    </div>
+    <div
+      id="challenge"
+      class="w-11/12 max-w-xl bg-gray-700 p-10 rounded-lg hidden"
+    >
+      <div class="w-full flex items-center justify-between">
+        <h1 class="text-2xl font-sans font-light text-gray-400">
+          Ongoing challenges
+        </h1>
+        <a
+          href="#"
+          class="hover:text-blue-600 text-gray-400 hover:underline text-sm"
+          >View all</a
+        >
+      </div>
+      <ul class="mt-7">
+        <li
+          class="flex flex-col hover:bg-gray-600 duration-300 ease-in-out rounded-sm p-3"
+        >
+          <div class="w-full flex items-center justify-start gap-3">
+            <p class="text-xl text-gray-400">Dashboard Challenge</p>
+            <p class="px-2 py-1 text-xs animate-pulse rounded-full bg-teal-400">
+              New
+            </p>
+          </div>
+          <p class="text-gray-500">36 submissions</p>
+        </li>
+        <li
+          class="flex flex-col hover:bg-gray-600 duration-300 ease-in-out rounded-sm p-3"
+        >
+          <div class="w-full flex items-center justify-start gap-3">
+            <p class="text-xl text-gray-400">Facebook Redesign Challenge</p>
+            <p class="px-2 py-1 text-xs animate-pulse rounded-full bg-teal-400">
+              New
+            </p>
+          </div>
+          <p class="text-gray-500">84 submissions</p>
+        </li>
+        <li
+          class="flex items-center justify-between hover:bg-gray-600 duration-300 ease-in-out rounded-sm p-3"
+        >
+          <div class="w-full flex flex-col">
+            <div class="w-full flex items-center justify-start gap-3">
+              <p class="text-xl text-gray-400">Dating App Challenge</p>
+              <p
+                class="px-2 py-1 text-xs animate-pulse rounded-full bg-teal-400"
+              >
+                New
+              </p>
+            </div>
+            <p class="text-gray-500">158 submissions</p>
+          </div>
+
+          <div>
+            <button
+              class="bg-gradient-to-br from-indigo-400 to-fuchsia-400 px-7 py-2 rounded-md text-sm text-white font-semibold"
+            >
+              Vote
+            </button>
+          </div>
+        </li>
+        <li
+          class="flex flex-col hover:bg-gray-600 duration-300 ease-in-out rounded-sm p-3"
+        >
+          <div class="w-full flex items-center justify-start gap-3">
+            <p class="text-xl text-gray-400">Slack Rebranding Challenge</p>
+            <p class="px-2 py-1 text-xs animate-pulse rounded-full bg-teal-400">
+              New
+            </p>
+          </div>
+          <p class="text-gray-500">247 submissions</p>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const voteBtn = document.getElementById("voteBtn");
+      const challengeDiv = document.getElementById("challenge");
+      const intoDiv = document.getElementById("into");
+      if (voteBtn && challengeDiv) {
+        voteBtn.addEventListener("click", () => {
+          intoDiv.classList.add("hidden");
+          challengeDiv.classList.remove("hidden");
+          if (!challengeDiv.classList.contains("hidden")) {
+            panel.scrollIntoView({ behavior: "smooth" });
+            voteBtn.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
