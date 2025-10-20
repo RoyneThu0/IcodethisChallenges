@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users Card 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.js"></script>
+
+    <style>
+      .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .toast-message {
+        background-color: #05b8c5;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        opacity: 0.9;
+        transition: opacity 0.5s;
+        animation: fadeOut 3s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body
+    class="h-screen w-screen bg-cover bg-center flex items-center justify-center"
+    style="
+      background-image: url(https://wallpapers.com/images/hd/paper-background-er2jkg9iyxk8mtq7.jpg);
+    "
+  >
+    <div
+      id="main"
+      class="bg-white p-7 lg:w-1/3 md:w-2/3 sm:w-2/3 flex flex-col rounded-lg shadow-lg hover:scale-110 hover:shadow-gray-600 duration-300"
+    >
+      <div class="flex w-full h-full items-center justify-between">
+        <div class="flex items-center justify-start gap-3">
+          <img
+            class="w-24 h-24 rounded-full"
+            src="https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/654e8c53c36df72b1c430701_63ccec0c0949d931892be5c9_Aesthetic%2520Smoking%2520Girl%2520PFP%2520for%2520Tiktok%25201.jpeg"
+            alt=""
+          />
+          <div>
+            <p class="font-bold mt-2">Carrie Brewer</p>
+            <p class="font-light text-slate-500">214 followers</p>
+          </div>
+        </div>
+        <div class="flex gap-2 mt-5">
+          <button
+            class="px-7 py-2 text-white rounded-full bg-slate-400 hover:bg-orange-500 duration-300 active:bg-cyan-400"
+            onclick="showFollowing()"
+          >
+            Follow
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-white w-11/12 max-w-xl rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-110 hover:shadow-gray-600 duration-300"
+      id="Following"
+      style="display: none"
+    >
+      <div class="flex w-full h-full items-center justify-between p-7">
+        <div class="flex items-center justify-start gap-3">
+          <img
+            class="w-24 h-24 rounded-full"
+            src="https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/654e8c53c36df72b1c430701_63ccec0c0949d931892be5c9_Aesthetic%2520Smoking%2520Girl%2520PFP%2520for%2520Tiktok%25201.jpeg"
+            alt=""
+          />
+          <div>
+            <p class="font-bold mt-2">Carrie Brewer</p>
+            <p class="font-light text-slate-500">214 followers</p>
+          </div>
+        </div>
+        <div class="flex gap-2 mt-5">
+          <button
+            id="FollowBtn"
+            class="px-7 mt-3 py-3 rounded-full text-white bg-orange-500 active:bg-cyan-400 text-nowrap"
+          >
+            Follow
+          </button>
+        </div>
+      </div>
+      <img
+        src="https://www.thoughtco.com/thmb/2-U3CnQpaunyC7nmRxKyvjDrg9k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-88624213-56c48e0b3df78c0b139c668e.jpg"
+        class="w-full h-64 object-cover"
+        alt=""
+      />
+      <p class="w-full text-slate-600 mt-3 text-center p-7">
+        <span class="font-semibold">87.8K </span>views. Ljubijana Slovenia
+      </p>
+      <div class="w-full flex items-center justify-center mb-10 gap-5">
+        <button class="bg-black px-6 py-2 rounded-full text-white">
+          Free Download
+        </button>
+        <button class="border border-black px-6 py-2 rounded-full">
+          Share<i class="fa-solid fa-share ml-5"></i>
+        </button>
+      </div>
+    </div>
+    <div id="toastContainer" class="toast-container"></div>
+    <script>
+      function showFollowing() {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("Following").style.display = "flex";
+      }
+
+      let isFollowing = false;
+
+      document
+        .getElementById("FollowBtn")
+        .addEventListener("click", function () {
+          if (!isFollowing) {
+            this.textContent = "Following";
+            this.classList.remove("bg-orange-500");
+            this.classList.add("bg-green-500");
+
+            const toast = document.createElement("div");
+            toast.innerText = "You are now following !";
+            toast.className = "toast-message";
+            document.getElementById("toastContainer").appendChild(toast);
+
+            setTimeout(() => {
+              toast.remove();
+            }, 2500);
+
+            isFollowing = true;
+          } else {
+            this.textContent = "Follow";
+            this.classList.remove("bg-green-500");
+            this.classList.add("bg-orange-500");
+
+            const toast = document.createElement("div");
+            toast.innerText = "You have unfollowed Sally Ramos!";
+            toast.className = "toast-message";
+            document.getElementById("toastContainer").appendChild(toast);
+
+            setTimeout(() => {
+              toast.remove();
+            }, 2500);
+
+            isFollowing = false;
+          }
+        });
+    </script>
+  </body>
+</html>
