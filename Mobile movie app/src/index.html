@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Movie App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-bg: rgba(18, 18, 30, 0.96);
+        --accent: #63c2ff;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+      /* subtle scroll for inner panes */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-300 via-violet-300 to-indigo-400 p-6"
+  >
+    <div
+      class="w-[360px] max-w-full h-[780px] rounded-2xl shadow-2xl overflow-hidden relative"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_#1f2540_0%,_transparent_30%),linear-gradient(180deg,#1a2135, #0e1330)]"
+      ></div>
+
+      <div class="relative z-10 h-full text-white flex flex-col">
+        <header class="px-6 pt-6 pb-3 bg-gray-700">
+          <div class="flex items-center justify-between">
+            <button
+              class="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.03)] flex items-center justify-center border border-[rgba(255,255,255,0.03)]"
+            >
+              <i class="fa fa-chevron-left text-sky-300"></i>
+            </button>
+            <h1 class="text-lg font-semibold text-sky-200">Movies 2016</h1>
+            <div class="w-10"></div>
+          </div>
+
+          <div class="mt-4">
+            <div class="relative">
+              <input
+                aria-label="Search movies"
+                placeholder="Search movies"
+                class="w-full pl-4 pr-10 py-3 rounded-full bg-[rgba(255,255,255,0.02)] placeholder:text-slate-400 text-slate-200 border border-[rgba(255,255,255,0.03)] focus:outline-none"
+              />
+              <i
+                class="fa fa-search absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"
+              ></i>
+            </div>
+          </div>
+        </header>
+
+        <main class="px-5 pb-6 overflow-y-auto no-scrollbar bg-gray-800">
+          <section class="mt-3">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-xs tracking-wider text-sky-200 font-semibold">
+                FANTASY/SCIENCE FICTION
+              </h2>
+              <a class="text-xs text-sky-300"
+                >See all <i class="fa fa-chevron-right text-[10px]"></i
+              ></a>
+            </div>
+
+            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-3">
+              <article
+                class="w-32 min-w-[128px] bg-[rgba(255,255,255,0.02)] rounded-lg shadow-md"
+              >
+                <div
+                  class="h-56 bg-cover rounded-t-lg"
+                  style="
+                    background-image: url('https://m.media-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_FMjpg_UX1000_.jpg');
+                  "
+                ></div>
+                <div
+                  class="px-3 py-2 flex items-center justify-between rounded-b-lg"
+                >
+                  <span class="text-sm text-slate-200">Arrival</span>
+                  <span
+                    class="text-xs bg-amber-600 text-white px-2 py-0.5 rounded"
+                    >5</span
+                  >
+                </div>
+              </article>
+
+              <article
+                class="w-32 min-w-[128px] bg-[rgba(255,255,255,0.02)] rounded-lg shadow-md"
+              >
+                <div
+                  class="h-52 bg-cover rounded-t-lg"
+                  style="
+                    background-image: url('https://m.media-amazon.com/images/M/MV5BMjQwOTc0Mzg3Nl5BMl5BanBnXkFtZTgwOTg3NjI2NzE@._V1_.jpg');
+                  "
+                ></div>
+                <div
+                  class="px-3 py-2 flex items-center justify-between rounded-b-lg"
+                >
+                  <span class="text-sm text-slate-200">The 5th Wave</span>
+                  <span
+                    class="text-xs bg-amber-600 text-white px-2 py-0.5 rounded"
+                    >5</span
+                  >
+                </div>
+              </article>
+
+              <article
+                class="w-32 min-w-[128px] bg-[rgba(255,255,255,0.02)] rounded-lg shadow-md"
+              >
+                <div
+                  class="h-44 bg-cover rounded-t-lg"
+                  style="
+                    background-image: url('https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_.jpg');
+                  "
+                ></div>
+                <div
+                  class="px-3 py-2 flex items-center justify-between rounded-b-lg"
+                >
+                  <span class="text-sm text-slate-200"
+                    >Captain america civil war</span
+                  >
+                  <span
+                    class="text-xs bg-amber-600 text-white px-2 py-0.5 rounded"
+                    >5</span
+                  >
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="mt-4">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-xs tracking-wider text-sky-200 font-semibold">
+                COMEDY
+              </h2>
+              <a class="text-xs text-sky-300"
+                >See all <i class="fa fa-chevron-right text-[10px]"></i
+              ></a>
+            </div>
+
+            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-3">
+              <article
+                class="w-32 min-w-[128px] bg-[rgba(255,255,255,0.02)] rounded-lg shadow-md"
+              >
+                <div
+                  class="h-44 bg-cover rounded-t-lg"
+                  style="
+                    background-image: url('https://www.hollywoodreporter.com/wp-content/uploads/2015/11/zoolander_2_poster_key_art_1.jpg');
+                  "
+                ></div>
+                <div
+                  class="px-3 py-2 flex items-center justify-between rounded-b-lg"
+                >
+                  <span class="text-sm text-slate-200">Zoolander 2</span>
+                  <span
+                    class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded"
+                    >4.8</span
+                  >
+                </div>
+              </article>
+
+              <article
+                class="w-32 min-w-[128px] bg-[rgba(255,255,255,0.02)] rounded-lg shadow-md"
+              >
+                <div
+                  class="h-44 bg-cover rounded-t-lg"
+                  style="
+                    background-image: url('https://m.media-amazon.com/images/M/MV5BMTUwODA0NzQxMl5BMl5BanBnXkFtZTgwNzUyMjY3ODE@._V1_.jpg');
+                  "
+                ></div>
+                <div
+                  class="px-3 py-2 flex items-center justify-between rounded-b-lg"
+                >
+                  <span class="text-sm text-slate-200">Keanu</span>
+                  <span
+                    class="text-xs bg-amber-600 text-white px-2 py-0.5 rounded"
+                    >5</span
+                  >
+                </div>
+              </article>
+
+              <article
+                class="w-32 min-w-[128px] bg-[rgba(255,255,255,0.02)] rounded-lg shadow-md"
+              >
+                <div
+                  class="h-44 bg-cover rounded-t-lg"
+                  style="
+                    background-image: url('https://upload.wikimedia.org/wikipedia/en/e/e9/The_Nice_Guys_poster.png');
+                  "
+                ></div>
+                <div
+                  class="px-3 py-2 flex items-center justify-between rounded-b-lg"
+                >
+                  <span class="text-sm text-slate-200">The Nice Guys</span>
+                  <span
+                    class="text-xs bg-slate-700 text-white px-2 py-0.5 rounded"
+                    >6.7</span
+                  >
+                </div>
+              </article>
+            </div>
+          </section>
+          <div class="h-20"></div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
