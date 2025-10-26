@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Messages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-gradient-to-r/srgb from-purple-400 to-red-400"
+  >
+    <div
+      class="w-11/12 max-w-xl flex items-center justify-center flex-col md:flex-row gap-2"
+    >
+      <div class="w-full p-1">
+        <div class="w-full flex justify-end">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <div class="p-3">
+          <div
+            class="w-full shadow-lg hover:shadow-xl rounded-2xl hover:shadow-gray-400 duration-300"
+          >
+            <div
+              class="w-full bg-green-500 p-2 rounded-t-xl flex items-center justify-center"
+            >
+              <img
+                src="https://png.pngtree.com/png-vector/20240312/ourmid/pngtree-solid-black-wifi-symbol-png-image_11928473.png"
+                alt=""
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+            <div
+              class="hidden md:block inline-block w-0 h-0 border-solid border-t-[30px] border-r-[250px] border-l-0 border-b-0 border-l-transparent border-r-transparent border-t-green-500 border-b-transparent"
+            ></div>
+            <div class="p-5">
+              <p class="text-center font-semibold">Success!</p>
+              <p class="text-xs text-center mt-2">
+                Connection works perfectly.
+              </p>
+              <div class="flex w-full justify-center mt-4">
+                <button
+                  class="text-blue-500 font-semibold hover:text-white hover:bg-blue-500 py-2 px-4 rounded-xl"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="w-full flex justify-end">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <div class="p-3">
+          <div
+            class="w-full shadow-lg hover:shadow-xl rounded-2xl hover:shadow-gray-400 duration-300"
+          >
+            <div
+              class="w-full bg-red-500 p-2 rounded-t-xl flex items-center justify-center"
+            >
+              <img
+                src="https://cdn3d.iconscout.com/3d/premium/thumb/weak-signal-3d-icon-png-download-13031158.png"
+                alt=""
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+            <div
+              class="hidden md:block inline-block w-0 h-0 border-solid border-t-[30px] border-r-[250px] border-l-0 border-b-0 border-l-transparent border-r-transparent border-t-red-500 border-b-transparent"
+            ></div>
+            <div class="p-5">
+              <p class="text-center font-semibold">Error!</p>
+              <p class="text-xs text-center mt-2">
+                Connection couldn't be established.
+              </p>
+              <div class="flex w-full justify-center mt-4">
+                <button
+                  class="text-blue-500 font-semibold hover:text-white hover:bg-blue-500 py-2 px-4 rounded-xl"
+                >
+                  RETRY
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
