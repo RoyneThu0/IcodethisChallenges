@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-cover bg-center"
+    style="
+      background-image: url(https://www.color-meanings.com/wp-content/uploads/2022/04/Blue-Ocean-1.jpeg);
+    "
+  >
+    <div
+      class="w-screen h-screen backdrop-blur-xl flex items-center justify-center"
+    >
+      <div
+        class="bg-white w-11/12 max-w-lg p-8 rounded-lg shadow-lg shadow-gray-600"
+      >
+        <div class="flex justify-between border-b border-gray-300">
+          <p class="text-gray-500 text-xl">Confirm</p>
+          <i class="fa-solid fa-xmark text-xl text-gray-500"></i>
+        </div>
+        <div class="w-full flex flex-col items-center justify-center mt-10">
+          <img
+            src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRUzGsinkSPWGUI89Rdd67tiWALEUaagNWbcSrJ6DdQA_Fu-Qk8"
+            alt=""
+            class="w-14 h-14"
+          />
+          <p class="mt-2 text-blue-400 font-semibold text-sm text-center">
+            Are you sure you want to navigate <br />
+            away from this page?
+          </p>
+
+          <p class="text-gray-500 mt-3">
+            Press OK to continue or Cancel to stay on the current page
+          </p>
+
+          <div class="w-full p-1 grid grid-cols-2 gap-4 mt-5">
+            <button
+              class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 shadow-lg transition"
+            >
+              OK
+            </button>
+            <button
+              class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 shadow-lg transition"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
