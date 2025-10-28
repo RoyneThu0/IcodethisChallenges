@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Notifications</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-sky-50 to-purple-50"
+  >
+    <main class="w-11/12 max-w-xl">
+      <div class="relative flex items-center justify-end p-12">
+        <!-- small chat bubble icon (decorative) -->
+        <div class="hidden md:flex items-center gap-6 mr-6">
+          <div
+            class="w-12 h-12 rounded-full bg-white/60 backdrop-blur flex items-center justify-center shadow-sm"
+          >
+            <i class="fa-solid fa-comment-dots text-sky-400 text-lg"></i>
+          </div>
+        </div>
+
+        <!-- Notification bell -->
+        <div class="relative">
+          <button
+            id="notif-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            class="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-sky-200 hover:bg-sky-300 shadow-md focus:outline-none focus:ring-4 focus:ring-sky-200"
+            aria-label="Open notifications"
+          >
+            <i class="fa-solid fa-bell text-white text-lg"></i>
+            <span
+              class="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-semibold leading-none text-sky-900 bg-emerald-300 rounded-full shadow"
+              >97</span
+            >
+          </button>
+
+          <!-- dropdown card -->
+          <div
+            id="notif-panel"
+            role="dialog"
+            aria-label="Notifications"
+            class="hidden absolute right-0 mt-3 w-80 bg-white rounded-lg shadow-xl ring-1 ring-slate-200 overflow-hidden"
+          >
+            <!-- arrow notch -->
+            <div
+              class="absolute -top-2 right-6 w-4 h-4 bg-white rotate-45 transform origin-center filter drop-shadow-sm"
+            ></div>
+
+            <div
+              class="border-b border-slate-100 bg-sky-50 px-6 py-4 text-center"
+            >
+              <h3 class="text-sky-400 text-sm font-semibold tracking-wider">
+                NOTIFICATIONS
+              </h3>
+            </div>
+
+            <div class="p-4">
+              <ul class="space-y-4">
+                <li class="flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 flex items-center justify-center rounded-md bg-sky-50 text-sky-400"
+                    >
+                      <i class="fa-solid fa-user-plus text-sky-400 text-sm"></i>
+                    </div>
+                    <span class="text-slate-500 font-medium"
+                      >Friend requests</span
+                    >
+                  </div>
+                  <span
+                    class="text-slate-700 text-sm font-semibold px-3 py-1 border border-emerald-200 rounded-full bg-emerald-50"
+                    >23</span
+                  >
+                </li>
+
+                <li class="flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 flex items-center justify-center rounded-md bg-sky-50 text-sky-400"
+                    >
+                      <i class="fa-solid fa-comment text-sky-400 text-sm"></i>
+                    </div>
+                    <span class="text-slate-500 font-medium">Comments</span>
+                  </div>
+                  <span
+                    class="text-slate-700 text-sm font-semibold px-3 py-1 border border-emerald-200 rounded-full bg-emerald-50"
+                    >14</span
+                  >
+                </li>
+
+                <li class="flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 flex items-center justify-center rounded-md bg-sky-50 text-sky-400"
+                    >
+                      <i class="fa-solid fa-star text-sky-400 text-sm"></i>
+                    </div>
+                    <span class="text-slate-500 font-medium">Favorites</span>
+                  </div>
+                  <span
+                    class="text-slate-700 text-sm font-semibold px-3 py-1 border border-emerald-200 rounded-full bg-emerald-50"
+                    >11</span
+                  >
+                </li>
+
+                <li class="flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 flex items-center justify-center rounded-md bg-sky-50 text-sky-400"
+                    >
+                      <i class="fa-solid fa-eye text-sky-400 text-sm"></i>
+                    </div>
+                    <span class="text-slate-500 font-medium">Visitors</span>
+                  </div>
+                  <span
+                    class="text-slate-700 text-sm font-semibold px-3 py-1 border border-emerald-200 rounded-full bg-emerald-50"
+                    >49</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // minimal interactivity: toggle panel, close on outside click/Esc
+      (function () {
+        const toggle = document.getElementById("notif-toggle");
+        const panel = document.getElementById("notif-panel");
+
+        function openPanel() {
+          panel.classList.remove("hidden");
+          toggle.setAttribute("aria-expanded", "true");
+        }
+        function closePanel() {
+          panel.classList.add("hidden");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+        toggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (panel.classList.contains("hidden")) openPanel();
+          else closePanel();
+        });
+
+        // close when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!panel.classList.contains("hidden")) {
+            if (!panel.contains(e.target) && !toggle.contains(e.target))
+              closePanel();
+          }
+        });
+
+        // close on Esc
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closePanel();
+        });
+      })();
+    </script>
+  </body>
+</html>
