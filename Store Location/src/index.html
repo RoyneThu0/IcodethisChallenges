@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Location</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-[#1e1a38]">
+    <div
+      class="relative w-11/12 h-[250px] max-w-md p-10 bg-gradient-to-br rounded-tr-2xl rounded-bl-2xl from bg-pink-500 to-fuchsia-500"
+    >
+      <div
+        class="absolute translate-y-10 translate-x-10 inset-0 w-full h-fit p-6 bg-[#121129] rounded-xl text-white"
+      >
+        <h2 class="text-2xl font-semibold mb-6">Closest stores</h2>
+
+        <label class="block text-sm text-gray-300 mb-2">Postal code</label>
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <input
+            type="text"
+            value="5055"
+            class="w-1/3 px-3 py-2 rounded border border-purple-700 bg-[#121129] text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+          />
+          <button
+            class="flex w-full items-center justify-end gap-2 text-purple-400 hover:underline"
+          >
+            <i class="fa-solid fa-location-dot text-lg"></i>
+            <span>Use my location</span>
+          </button>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold">POINT Bergen Sentrum</h3>
+                <p class="text-gray-300 mt-1">
+                  Strandagaten 55-57, 6007 Bergen
+                </p>
+              </div>
+              <span
+                class="ml-4 inline-block bg-pink-500 text-white text-sm px-3 py-1 rounded-full"
+                >CLOSED</span
+              >
+            </div>
+            <div class="flex items-center text-gray-300 mt-3">
+              <i class="fa-regular fa-clock mr-2"></i>
+              <span>9:00 - 19:00</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold">POIVestkanten</h3>
+                <p class="text-gray-300 mt-1">
+                  Strandagaten 55-57, 6007 Bergen
+                </p>
+              </div>
+              <span
+                class="ml-4 inline-block bg-emerald-400 text-[#062814] text-sm px-3 py-1 rounded-full"
+                >OPEN</span
+              >
+            </div>
+            <div class="flex items-center text-gray-300 mt-3">
+              <i class="fa-regular fa-clock mr-2"></i>
+              <span>9:00 - 21:00</span>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="mt-8 w-full bg-indigo-500 hover:bg-indigo-400 text-white py-3 rounded-lg"
+        >
+          View all
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
