@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Components</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gray-950"
+  >
+    <div class="w-11/12 max-w-xl p-10 flex flex-col">
+      <div class="flex flex-col p-6 mb-6 items-center">
+        <p class="text-white text-center font-semibold font-serif text-xl">
+          What is your use case?
+        </p>
+        <div class="grid max-w-2xl grid-cols-3 mt-5">
+          <div
+            class="border group hover:bg-white duration-300 ease-in-out p-5 rounded-l-xl"
+          >
+            <p class="font-bold text-white group-hover:text-gray-950">B2C</p>
+          </div>
+          <div
+            class="border-y hover:bg-white group duration-300 ease-in-out p-5"
+          >
+            <p class="font-bold text-white group-hover:text-gray-950">B2C</p>
+          </div>
+          <div
+            class="hover:bg-white border group duration-300 ease-in-out p-5 rounded-r-xl"
+          >
+            <p class="font-bold text-white group-hover:text-gray-950">B2C</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-orange-500 p-10 flex flex-col rounded-2xl">
+        <p class="text-white font-serif font-semibold text-2xl">Free Plan</p>
+        <p class="text-white mt-2">
+          Get a free plan with up to 5,000 active users and unlimited logins.
+          <br />
+          No credit card required.
+        </p>
+        <button
+          class="mt-4 bg-white text-gray-950 font-bold py-4 px-4 rounded hover:bg-gray-200 duration-300 ease-in-out w-40 rounded-xl"
+        >
+          Start for free
+        </button>
+      </div>
+      <div class="w-full p-10 mt-5">
+        <p class="font-semibold font-serif text-white text-center text-xl">
+          How many active users?
+        </p>
+        <div class="mt-4 flex flex-col items-center space-y-4">
+          <div class="w-full flex items-center justify-between text-white">
+            <span class="text-sm">0</span>
+            <span id="activeUsersValue" class="text-lg font-bold text-center"
+              >5,000</span
+            >
+            <span class="text-sm">100,000</span>
+          </div>
+
+          <style>
+            /* simple custom thumb + base track */
+            #activeUsers {
+              height: 0.5rem;
+              border-radius: 9999px;
+              outline: none;
+            }
+            #activeUsers::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              width: 18px;
+              height: 18px;
+              border-radius: 9999px;
+              background: #fff;
+              box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.12);
+              cursor: pointer;
+            }
+            #activeUsers::-moz-range-thumb {
+              width: 18px;
+              height: 18px;
+              border-radius: 9999px;
+              background: #fff;
+              border: none;
+              cursor: pointer;
+            }
+          </style>
+
+          <input
+            id="activeUsers"
+            type="range"
+            min="0"
+            max="100000"
+            step="1000"
+            value="5000"
+            class="w-full"
+          />
+
+          <p class="text-white text-sm text-center">
+            Selected users:
+            <span id="activeUsersLabel" class="font-semibold">5,000</span>
+          </p>
+
+          <script>
+            (function () {
+              const slider = document.getElementById("activeUsers");
+              const valueDisplay = document.getElementById("activeUsersValue");
+              const label = document.getElementById("activeUsersLabel");
+
+              const fmt = (n) => Number(n).toLocaleString();
+
+              function update() {
+                const v = Number(slider.value);
+                valueDisplay.textContent = fmt(v);
+                label.textContent = fmt(v);
+
+                // fill track with accent color up to the thumb
+                const min = Number(slider.min || 0);
+                const max = Number(slider.max || 100);
+                const pct = ((v - min) / (max - min)) * 100;
+                slider.style.background = `linear-gradient(90deg,#fb923c ${pct}%, #e5e7eb ${pct}%)`;
+              }
+
+              slider.addEventListener("input", update);
+              update();
+            })();
+          </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
