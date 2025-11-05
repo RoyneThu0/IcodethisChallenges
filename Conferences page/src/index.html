@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conferences page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-gray-200 text-gray-800 font-sans w-screen min-h-screen flex items-center justify-center"
+  >
+    <div class="w-11/12 max-w-4xl mx-auto bg-white">
+      <header class="border-b bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center space-x-8">
+              <a class="text-lg font-semibold" href="#">Logo</a>
+              <nav
+                class="hidden md:flex items-center space-x-6 text-sm text-gray-600"
+              >
+                <a class="hover:text-gray-900" href="#">Discover</a>
+                <a class="hover:text-gray-900" href="#">Live</a>
+                <a class="hover:text-gray-900" href="#">Jobs</a>
+                <a class="text-gray-900 font-medium" href="#">Conferences</a>
+              </nav>
+            </div>
+
+            <div class="flex items-center space-x-4">
+              <a class="text-sm text-gray-600 hover:text-gray-900" href="#"
+                >Log In</a
+              >
+              <a
+                class="inline-block bg-gray-900 text-white text-sm px-4 py-2 rounded-md hover:opacity-95"
+                href="#"
+                >Get Started</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex flex-col lg:flex-row lg:space-x-10">
+          <section class="flex-1">
+            <div class="text-sm text-gray-500 mb-6">
+              <a href="#" class="hover:underline">Conferences</a>
+              <span class="mx-3">/</span>
+              <span class="text-gray-700">Bergen</span>
+            </div>
+
+            <h1 class="text-3xl font-bold mb-6">Conferences in Bergen</h1>
+
+            <div class="flex items-center gap-3 mb-6">
+              <button
+                class="px-3 py-1 rounded-md bg-gray-900 text-white text-sm"
+              >
+                ALL
+              </button>
+              <button
+                class="px-3 py-1 rounded-md bg-transparent text-sm text-gray-600 hover:bg-gray-100"
+              >
+                TODAY
+              </button>
+              <button
+                class="px-3 py-1 rounded-md bg-transparent text-sm text-gray-600 hover:bg-gray-100"
+              >
+                THIS WEEK
+              </button>
+              <button
+                class="px-3 py-1 rounded-md bg-transparent text-sm text-gray-600 hover:bg-gray-100"
+              >
+                JUNE
+              </button>
+              <button
+                class="px-3 py-1 rounded-md bg-transparent text-sm text-gray-600 hover:bg-gray-100"
+              >
+                JULY
+              </button>
+            </div>
+
+            <div class="bg-white rounded-md divide-y divide-gray-100 shadow-sm">
+              <article class="px-6 py-5">
+                <div class="text-xs text-gray-500 mb-2">
+                  Mon, 22 - Fri, 26 Jun 2020 • Bergen
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">
+                  International Conference on Tests and Proofs (TAP)
+                </h3>
+              </article>
+
+              <article class="px-6 py-5">
+                <div class="text-xs text-gray-500 mb-2">
+                  Mon, 22 - Fri, 26 Jun 2020 • Bergen
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">
+                  European Conference on Modelling Foundations
+                </h3>
+              </article>
+
+              <article class="px-6 py-5">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="text-pink-500 text-sm font-medium"
+                    >Postponed</span
+                  >
+                  <span class="text-xs text-gray-500">• Bergen</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">
+                  Conference on Graph Transformation
+                </h3>
+              </article>
+
+              <article class="px-6 py-5">
+                <div class="text-xs text-gray-500 mb-2">
+                  Mon, 22 - Fri, 26 Jun 2020 • Bergen
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">
+                  International Conference on Tests and Proofs (TAP)
+                </h3>
+              </article>
+
+              <article class="px-6 py-5">
+                <div class="mb-2">
+                  <span class="text-pink-500 text-sm font-medium"
+                    >Postponed</span
+                  >
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">
+                  Scandinavian Logic Symposium (SLSS)
+                </h3>
+              </article>
+            </div>
+          </section>
+
+          <aside class="w-full lg:w-80 mt-8 lg:mt-0">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <h4 class="text-lg font-semibold mb-4">Discover</h4>
+
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <div class="text-gray-400 mt-1">
+                    <i class="fa-regular fa-cube"></i>
+                  </div>
+                  <div>
+                    <div class="font-medium">Business Intelligence</div>
+                    <div class="text-sm text-gray-500">
+                      Historical, current, and predictive views of business
+                      operations.
+                    </div>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-start gap-3 bg-gray-900 text-white rounded-md p-4"
+                >
+                  <div class="text-white mt-1">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </div>
+                  <div>
+                    <div class="font-medium">Commerce</div>
+                    <div class="text-sm text-gray-200">
+                      Systems, goods and services, small and large scale.
+                    </div>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <div class="text-gray-400 mt-1">
+                    <i class="fa-solid fa-user-group"></i>
+                  </div>
+                  <div>
+                    <div class="font-medium">Human Resources</div>
+                    <div class="text-sm text-gray-500">
+                      About people who make up the workforce of an organization.
+                    </div>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <div class="text-gray-400 mt-1">
+                    <i class="fa-solid fa-network-wired"></i>
+                  </div>
+                  <div>
+                    <div class="font-medium">Internet of Things</div>
+                    <div class="text-sm text-gray-500">
+                      Human-to-human and human-to-computer interaction.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="max-w-6xl mx-auto px-6 pb-12 text-sm text-gray-500">
+        &nbsp;
+      </footer>
+    </div>
+  </body>
+</html>
