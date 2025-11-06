@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum Components</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-pink-50 min-h-screen antialiased text-slate-700">
+    <main class="max-w-6xl mx-auto px-6 py-16">
+      <div class="mb-10">
+        <div
+          class="bg-white/80 backdrop-blur-sm border rounded-xl p-5 shadow-[0_10px_30px_rgba(255,182,193,0.25)] flex items-center gap-4"
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600"
+          >
+            <i class="fa-solid fa-check fa-lg"></i>
+          </div>
+          <div>
+            <div class="text-sm">
+              Solved by
+              <span class="text-pink-600 font-medium">Charlie_reid</span> in
+              <span class="text-pink-600 font-medium">post #2</span>
+            </div>
+            <div class="text-xs text-slate-500">
+              The answer was identified. All redirects created can be found
+              under the hosting tab of the project settings.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section class="md:col-span-2">
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Create a new Topic</h2>
+
+            <form class="space-y-4">
+              <input
+                type="text"
+                placeholder="Type title, or paste a link here"
+                class="w-full border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-200"
+              />
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="relative">
+                  <button
+                    type="button"
+                    class="w-full border border-slate-200 rounded-lg px-4 py-3 text-left flex items-center justify-between"
+                    data-dropdown-button="category"
+                  >
+                    Category
+                    <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                  </button>
+                  <ul
+                    data-dropdown="category"
+                    class="hidden absolute left-0 mt-2 w-full bg-white border rounded-lg shadow p-2 text-sm"
+                  >
+                    <li class="px-3 py-2 rounded hover:bg-pink-50">
+                      Community resources
+                    </li>
+                    <li class="px-3 py-2 rounded hover:bg-pink-50">
+                      Design help
+                    </li>
+                    <li class="px-3 py-2 rounded hover:bg-pink-50">
+                      Publishing Help
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="relative">
+                  <button
+                    type="button"
+                    class="w-full border border-slate-200 rounded-lg px-4 py-3 text-left flex items-center justify-between"
+                    data-dropdown-button="tags"
+                  >
+                    Tags <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                  </button>
+                  <ul
+                    data-dropdown="tags"
+                    class="hidden absolute left-0 mt-2 w-full bg-white border rounded-lg shadow p-2 text-sm"
+                  >
+                    <li class="px-3 py-2 rounded hover:bg-pink-50">#react</li>
+                    <li class="px-3 py-2 rounded hover:bg-pink-50">#design</li>
+                    <li class="px-3 py-2 rounded hover:bg-pink-50">
+                      #publishing
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <textarea
+                rows="6"
+                placeholder="Enter your description here"
+                class="w-full border border-slate-200 rounded-lg px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-pink-200"
+              ></textarea>
+
+              <div class="flex items-center gap-4">
+                <button
+                  type="submit"
+                  class="inline-flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-lg shadow"
+                >
+                  <i class="fa-solid fa-plus"></i> Create Topic
+                </button>
+                <button
+                  type="button"
+                  class="bg-slate-100 text-slate-600 px-5 py-2 rounded-lg"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <aside class="space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <button
+                class="bg-white border border-slate-200 rounded-lg px-4 py-2 flex items-center gap-2"
+              >
+                All categories
+                <i class="fa-solid fa-chevron-down text-slate-400"></i>
+              </button>
+            </div>
+            <div class="relative">
+              <button
+                class="bg-white border border-slate-200 rounded-lg px-4 py-2 flex items-center gap-2"
+              >
+                All tags <i class="fa-solid fa-chevron-down text-slate-400"></i>
+              </button>
+            </div>
+            <button class="bg-pink-500 text-white px-4 py-2 rounded-lg">
+              Latest
+            </button>
+          </div>
+
+          <div class="bg-white rounded-lg p-3 shadow">
+            <ul class="space-y-2 text-sm">
+              <li class="px-3 py-2 rounded flex items-start gap-3">
+                <span class="w-3 h-3 rounded-full bg-sky-300 mt-2"></span>
+                <div class="flex-1">
+                  <div class="font-medium">Navbar Dropdown on Mobile</div>
+                  <div class="text-xs text-slate-500">Publishing Help</div>
+                </div>
+                <div class="flex items-center -space-x-2">
+                  <img
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    src="https://i.pravatar.cc/40?img=1"
+                    alt="avatar"
+                  />
+                  <img
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    src="https://i.pravatar.cc/40?img=2"
+                    alt="avatar"
+                  />
+                  <img
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    src="https://i.pravatar.cc/40?img=3"
+                    alt="avatar"
+                  />
+                </div>
+              </li>
+
+              <li class="px-3 py-2 rounded flex items-start gap-3">
+                <span class="w-3 h-3 rounded-full bg-purple-300 mt-2"></span>
+                <div class="flex-1">
+                  <div class="font-medium">Persistent Dark Mode</div>
+                  <div class="text-xs text-slate-500">Design Help</div>
+                </div>
+                <div class="flex items-center -space-x-2">
+                  <img
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    src="https://i.pravatar.cc/40?img=4"
+                    alt="avatar"
+                  />
+                  <img
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    src="https://i.pravatar.cc/40?img=5"
+                    alt="avatar"
+                  />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("click", function (e) {
+        const btn = e.target.closest("[data-dropdown-button]");
+        document
+          .querySelectorAll("[data-dropdown]")
+          .forEach((el) => el.classList.add("hidden"));
+
+        if (!btn) return;
+        const key = btn.getAttribute("data-dropdown-button");
+        const menu = document.querySelector('[data-dropdown="' + key + '"]');
+        if (menu) menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
