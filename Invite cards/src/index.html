@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invite Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen min-h-screen">
+    <div class="relative w-screen h-screen bg-gray-200">
+      <div
+        class="z-0 absolute left-10 top-10 w-[800px] h-[800px] rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgb(240, 66, 208) 40%,
+            rgb(137, 2, 255) 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute right-20 bottom-2 w-[450px] h-[450px] rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgb(255, 98, 0) 20%,
+            rgb(238, 2, 255) 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute w-screen h-screen bg-white/30 backdrop-filter backdrop-blur-2xl p-10 z-10 flex items-center justify-center"
+      >
+        <div
+          class="w-11/12 max-w-xl bg-white/70 p-10 rounded-lg shadow-xl hover:bg-white duration-300 ease-in-out"
+        >
+          <p class="text-start text-sm font-semibold text-black">
+            Invite people
+          </p>
+          <p class="mt-3 text-xs font-light">
+            All invited people will be granted access to all sites within your
+            organisation
+          </p>
+          <div
+            class="flex items-center w-fit gap-3 justify-start mt-5 bg-gray-300 rounded-full p-1"
+            role="tablist"
+            aria-label="Invite method"
+          >
+            <button
+              id="btnEmail"
+              type="button"
+              class="invite-toggle bg-white text-xs rounded-full px-3 py-2 font-medium"
+              aria-pressed="true"
+            >
+              Invite with email
+            </button>
+            <button
+              id="btnLink"
+              type="button"
+              class="invite-toggle text-xs rounded-full px-3 py-2 hover:bg-white duration-200"
+              aria-pressed="false"
+            >
+              Invite with link
+            </button>
+          </div>
+
+          <div class="mt-7 flex flex-col">
+            <label
+              id="inputLabel"
+              for="emailInput"
+              class="font-semibold text-xs"
+              >Email</label
+            >
+            <div
+              id="inputArea"
+              class="w-full mt-1 flex justify-center bg-white border border-gray-300 rounded-lg overflow-hidden p-0.5 items-center"
+            >
+              <input
+                id="emailInput"
+                type="email"
+                placeholder="Enter email addresses"
+                class="p-3 w-full rounded-lg focus:outline-none"
+              />
+
+              <input
+                id="linkInput"
+                type="text"
+                value="https://examplelinktoshare/my-team/jid98490032"
+                readonly
+                class="p-3 w-full rounded-lg focus:outline-none hidden"
+              />
+
+              <button
+                id="actionBtn"
+                class="px-4 shrink-0 py-3 bg-gradient-to-b from-purple-400 to-purple-500 text-white rounded-md rounded-l-none"
+              >
+                Send invite
+              </button>
+            </div>
+            <p class="mt-4 text-xs text-gray-500">
+              People with organisational access will be sent an email
+              invitation.
+              <span
+                class="underline font-semibold hover:text-blue-400 duration-300 cursor-pointer"
+                >Deactivate</span
+              >
+              it if you don't want this.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btnEmail = document.getElementById("btnEmail");
+    const btnLink = document.getElementById("btnLink");
+    const emailInput = document.getElementById("emailInput");
+    const linkInput = document.getElementById("linkInput");
+    const actionBtn = document.getElementById("actionBtn");
+    const inputLabel = document.getElementById("inputLabel");
+
+    let mode = "email"; // default
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      const emailActive = mode === "email";
+
+      // toggle visible inputs
+      if (emailActive) {
+        emailInput.classList.remove("hidden");
+        linkInput.classList.add("hidden");
+        inputLabel.textContent = "Email";
+        actionBtn.textContent = "Send invite";
+        btnEmail.classList.add("bg-white");
+        btnEmail.setAttribute("aria-pressed", "true");
+        btnLink.classList.remove("bg-white");
+        btnLink.setAttribute("aria-pressed", "false");
+      } else {
+        emailInput.classList.add("hidden");
+        linkInput.classList.remove("hidden");
+        inputLabel.textContent = "Share link";
+        actionBtn.textContent = "Copy link";
+        btnLink.classList.add("bg-white");
+        btnLink.setAttribute("aria-pressed", "true");
+        btnEmail.classList.remove("bg-white");
+        btnEmail.setAttribute("aria-pressed", "false");
+      }
+    }
+
+    // attach events
+    btnEmail.addEventListener("click", () => setMode("email"));
+    btnLink.addEventListener("click", () => setMode("link"));
+
+    actionBtn.addEventListener("click", async (e) => {
+      if (mode === "link") {
+        try {
+          await navigator.clipboard.writeText(linkInput.value);
+          // tiny visual feedback
+          const orig = actionBtn.textContent;
+          actionBtn.textContent = "Copied!";
+          setTimeout(() => (actionBtn.textContent = orig), 1200);
+        } catch (err) {
+          console.error("copy failed", err);
+        }
+      } else {
+        // placeholder behavior for sending invite
+        // you can wire this to your send-invite function
+        const emails = emailInput.value.trim();
+        if (!emails) {
+          emailInput.focus();
+          return;
+        }
+        // basic feedback
+        const orig = actionBtn.textContent;
+        actionBtn.textContent = "Sent";
+        setTimeout(() => (actionBtn.textContent = orig), 1200);
+      }
+    });
+
+    // initialize
+    setMode("email");
+  });
+</script>
