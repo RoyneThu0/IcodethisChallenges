@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen bg-gray-100 flex items-center justify-center">
+    <div class="w-11/12 max-w-3xl">
+      <nav class="w-full flex justify-center">
+        <ul class="flex gap-8 items-center text-sm text-gray-600">
+          <li><a href="#" class="hover:text-gray-900">Get Started</a></li>
+
+          <li class="relative">
+            <button
+              id="productBtn"
+              aria-expanded="false"
+              aria-controls="productMenu"
+              class="flex items-center gap-1 font-medium text-gray-800 hover:text-gray-900"
+            >
+              <span>Product</span>
+              <i
+                id="productCaret"
+                class="fa-solid text-xs fa-chevron-down text-gray-500 transition-transform duration-150"
+              ></i>
+            </button>
+
+            <div
+              id="productMenu"
+              class="pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-4 w-96 bg-white rounded-xl shadow-2xl ring-1 ring-gray-200 opacity-0 scale-95 transition-all duration-200"
+            >
+              <div class="p-6 space-y-5">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-anchor"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Why choose</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Development</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-gift"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Features</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-arrows-left-right"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Updates</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="#" class="hover:text-gray-900">Pricing</a></li>
+          <li><a href="#" class="hover:text-gray-900">Demo</a></li>
+          <li><a href="#" class="hover:text-gray-900">More</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <script>
+      (function () {
+        const btn = document.getElementById("productBtn");
+        const menu = document.getElementById("productMenu");
+        const caret = document.getElementById("productCaret");
+
+        let open = false;
+
+        function show() {
+          menu.classList.remove("opacity-0", "pointer-events-none", "scale-95");
+          menu.classList.add("opacity-100", "pointer-events-auto", "scale-100");
+          btn.setAttribute("aria-expanded", "true");
+          caret.style.transform = "rotate(180deg)";
+          open = true;
+        }
+
+        function hide() {
+          menu.classList.add("opacity-0", "pointer-events-none", "scale-95");
+          menu.classList.remove(
+            "opacity-100",
+            "pointer-events-auto",
+            "scale-100"
+          );
+          btn.setAttribute("aria-expanded", "false");
+          caret.style.transform = "";
+          open = false;
+        }
+
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          open ? hide() : show();
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!open) return;
+          if (!menu.contains(e.target) && !btn.contains(e.target)) hide();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && open) hide();
+        });
+
+        let touchCapable =
+          "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        if (!touchCapable) {
+          const parent = btn.parentElement;
+          parent.addEventListener("mouseenter", show);
+          parent.addEventListener("mouseleave", hide);
+        }
+      })();
+    </script>
+  </body>
+</html>
