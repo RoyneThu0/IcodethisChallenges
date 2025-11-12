@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./input.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="noreferrer" />
+  </head>
+
+  <body class="w-screen min-h-screen flex items-center justify-center">
+    <div class="w-full flex flex-col items-center px-6">
+      <div class="relative w-full flex flex-col items-center">
+        <div class="rounded-2xl overflow-hidden shadow-2xl h-64 w-[450px] mx-auto bg-gradient-to-b from-orange-400 to-pink-300">
+          <svg class="w-full h-full" viewBox="0 0 500 300" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#ffee00;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#fff533;stop-opacity:1" />
+              </linearGradient>
+              <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ff9a9a;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path d="M0,0 L500,0 L500,150 Q375,80 250,150 T0,150 Z" fill="url(#orangeGrad)" />
+            <path d="M0,150 Q125,220 250,150 T500,150 L500,300 L0,300 Z" fill="url(#pinkGrad)" />
+          </svg>
+    </div>
+
+  <div class="absolute left-1/2 -translate-x-1/2 top-8 w-[620px] h-36 rounded-2xl blur-3xl opacity-95" style="background:linear-gradient(90deg,#ff7b00,#ff6b6b);"></div>
+
+  <div class="relative -mt-36">
+          <div class="mx-auto w-[350px] h-[600px] bg-white/20 backdrop-blur-2xl webkit-backdrop border border-white/30 rounded-2xl shadow-lg p-2 flex flex-col">
+            <p class="text-white text-xl font-semibold">Updates</p>
+            <p class="text-white ">23 in the last 7 hours</p>
+
+
+            <div class="mt-6 flex-1 overflow-hidden ">
+              <div id="timelineWrapper" class="h-full pr-2 overflow-hidden">
+                <div class="relative pl-10 flex flex-col items-start">
+                  <div class="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-orange-200 to-pink-200 opacity-40"></div>
+                  <div class="mb-6 relative flex items-start">
+                    <div class="absolute -left-1.5 top-2 w-3.5 h-3.5 bg-gradient-to-br from-orange-300 to-pink-300 rounded-full border-2 border-white shadow-sm"></div>
+                    <div class="bg-white rounded-lg p-4 shadow-md w-[260px] ml-6">
+                      <div class="text-xs text-orange-500 font-semibold">16:30</div>
+                      <div class="mt-2 text-sm text-slate-700 font-medium">Believing is the Absence of Doubt</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6 relative flex items-start">
+                    <div class="absolute -left-1.5 top-2 w-3.5 h-3.5 bg-gradient-to-br from-orange-300 to-pink-300 rounded-full border-2 border-white shadow-sm"></div>
+                    <div class="bg-white rounded-lg p-4 shadow-md w-[260px] ml-6">
+                      <div class="text-xs text-orange-500 font-semibold">14:15</div>
+                      <div class="mt-2 text-sm text-slate-700 font-medium">Every Accomplishment Starts with the Decision to Try</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6 relative flex items-start">
+                    <div class="absolute -left-1.5 top-2 w-3.5 h-3.5 bg-gradient-to-br from-orange-300 to-pink-300 rounded-full border-2 border-white shadow-sm"></div>
+                    <div class="bg-white rounded-lg p-4 shadow-md w-[260px] ml-6">
+                      <div class="text-xs text-orange-500 font-semibold">12:45</div>
+                      <div class="mt-2 text-sm text-slate-700 font-medium">Your Only Limit is Your Mind</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6 relative flex items-start">
+                    <div class="absolute -left-1.5 top-2 w-3.5 h-3.5 bg-gradient-to-br from-orange-300 to-pink-300 rounded-full border-2 border-white shadow-sm"></div>
+                    <div class="bg-white rounded-lg p-4 shadow-md w-[260px] ml-6">
+                      <div class="text-xs text-orange-500 font-semibold">10:20</div>
+                      <div class="mt-2 text-sm text-slate-700 font-medium">Dream Bigger, Do Bigger</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6 relative flex items-start">
+                    <div class="absolute -left-1.5 top-2 w-3.5 h-3.5 bg-gradient-to-br from-orange-300 to-pink-300 rounded-full border-2 border-white shadow-sm"></div>
+                    <div class="bg-white rounded-lg p-4 shadow-md w-[260px] ml-6">
+                      <div class="text-xs text-orange-500 font-semibold">09:05</div>
+                      <div class="mt-2 text-sm text-slate-700 font-medium">Success Doesn't Just Find You, You Have to Go Out and Get It</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6 relative flex items-start">
+                    <div class="absolute -left-1.5 top-2 w-3.5 h-3.5 bg-gradient-to-br from-orange-300 to-pink-300 rounded-full border-2 border-white shadow-sm"></div>
+                    <div class="bg-white rounded-lg p-4 shadow-md w-[260px] ml-6">
+                      <div class="text-xs text-orange-500 font-semibold">07:30</div>
+                      <div class="mt-2 text-sm text-slate-700 font-medium">The Harder You Work for Something, the Greater You'll Feel When You Achieve It</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6 relative flex items-start">
+                    <div class="absolute -left-1.5 top-2 w-3.5 h-3.5 bg-gradient-to-br from-orange-300 to-pink-300 rounded-full border-2 border-white shadow-sm"></div>
+                    <div class="bg-white rounded-lg p-4 shadow-md w-[260px] ml-6">
+                      <div class="text-xs text-orange-500 font-semibold">06:00</div>
+                      <div class="mt-2 text-sm text-slate-700 font-medium">Great Things Never Come from Comfort Zones</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button id="toggleBtn" class="w-full bg-gradient-to-br from-orange-400 to-pink-400 text-white py-3 rounded-lg shadow-md relative overflow-hidden">
+                <span class="absolute -top-2 -right-2 w-3 h-3 bg-pink-500 rounded-full animate-pulse"></span>
+                Show all updates
+              </button>
+            </div>
+      </div>
+
+     <script>
+      (function () {
+        const toggleBtn = document.getElementById('toggleBtn');
+        const wrapper = document.getElementById('timelineWrapper');
+
+        toggleBtn.addEventListener('click', function () {
+          const isNowScrollable = wrapper.classList.toggle('overflow-auto');
+          wrapper.classList.toggle('overflow-hidden', isNowScrollable === false);
+          if (isNowScrollable) {
+            wrapper.scrollTo({ top: wrapper.scrollHeight, behavior: 'smooth' });
+            toggleBtn.textContent = 'Collapse updates';
+          } else {
+            wrapper.scrollTo({ top: 0, behavior: 'smooth' });
+            toggleBtn.innerHTML = 'Show all updates';
+          }
+        });
+      })();
+     </script>
+     
+</body>
+</html>
