@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message box</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center p-6 bg-[radial-gradient(ellipse_at_top_left,_#f6f8ff_0%25,_#ffffff_30%25)] bg-[#eef2ff]"
+  >
+    <div class="w-full max-w-md">
+      <div
+        class="bg-white rounded-xl overflow-hidden shadow-[0_18px_40px_rgba(82,63,105,0.12)]"
+      >
+        <div
+          class="bg-gradient-to-r from-[#fb8c88] to-[#ec7a7c] px-6 py-4 flex items-center justify-between text-white"
+        >
+          <h2 class="text-lg font-semibold">Send us a message</h2>
+          <button
+            id="toggle-btn"
+            class="w-8 h-8 rounded flex items-center justify-center bg-white/20 hover:bg-white/30"
+          >
+            <i id="toggle-icon" class="fa-solid fa-minus"></i>
+          </button>
+        </div>
+
+        <form id="message-form" class="p-6 space-y-4">
+          <div>
+            <label class="block text-xs text-slate-400 font-semibold mb-2"
+              >YOUR NAME</label
+            >
+            <input
+              id="name"
+              class="w-full border border-slate-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200"
+              placeholder="Walter"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-400 font-semibold mb-2"
+              >EMAIL ADDRESS</label
+            >
+            <input
+              id="email"
+              type="email"
+              class="w-full border border-slate-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200"
+              placeholder="walter@email.com"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-400 font-semibold mb-2"
+              >WHAT CAN WE DO FOR YOU?</label
+            >
+            <textarea
+              id="message"
+              rows="5"
+              class="w-full border border-slate-200 rounded-md px-3 py-2 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-pink-200"
+              placeholder="Type your message here"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-400 font-semibold mb-2"
+              >ATTACHMENTS</label
+            >
+            <label
+              for="file"
+              class="flex items-center justify-center border-2 border-dashed border-[rgba(0,0,0,0.12)] rounded-md p-4 cursor-pointer text-slate-500 bg-white"
+            >
+              <input id="file" type="file" class="hidden" multiple />
+              <div class="text-sm">Upload Files</div>
+            </label>
+            <div id="file-list" class="mt-2 text-sm text-slate-600"></div>
+          </div>
+
+          <div class="pt-2">
+            <button
+              id="send-btn"
+              type="submit"
+              class="w-full bg-gradient-to-r from-[#f08a87] to-[#f69ea0] text-white py-3 rounded-md shadow-sm hover:shadow-md"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        id="toast"
+        class="hidden mt-4 max-w-md mx-auto text-sm text-center"
+      ></div>
+    </div>
+  </body>
+</html>
