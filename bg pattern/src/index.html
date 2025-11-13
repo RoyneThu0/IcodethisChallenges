@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gold Plus Pattern</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      .bg_pattern {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        /* stronger, fully-opaque gold base so the pattern reads more visibly */
+        background-color: #ffe9a7;
+        opacity: 1;
+        z-index: -1;
+      }
+
+      .Cross {
+        background: radial-gradient(circle, transparent 25%, #ffffff 26%),
+          linear-gradient(
+            0deg,
+            transparent 44%,
+            #f1604dc0 45%,
+            #f1604dc0 55%,
+            transparent 56%
+          ),
+          linear-gradient(
+            90deg,
+            transparent 44%,
+            #f1604dc0 45%,
+            #f1604dc0 55%,
+            transparent 56%
+          );
+        background-size: 1em 1em;
+        /* let the gold base show through — don't overlay a white tile background */
+        background-color: transparent;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg_pattern Cross"></div>
+  </body>
+</html>
