@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen min-h-screen flex items-center jusitfy-center">
+    <main
+      class="w-screen min-h-screen flex items-center justify-center bg-gray-100 p-6"
+    >
+      <!-- Onboarding container: click the card (or Next) to advance stages -->
+      <div
+        id="onboarding"
+        class="relative w-full max-w-3xl flex gap-6 items-stretch"
+      >
+        <!-- Stage cards (only one .active at a time) -->
+        <div class="stage-card active" data-stage="1" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=60"
+            alt="illustration"
+          />
+          <h2>Connect multiple accounts</h2>
+          <p>
+            Stay connected to any platform you are used to — Twitter, Instagram,
+            Slack, whatever.
+          </p>
+          <div class="card-controls">
+            <button class="skip-btn">Skip</button>
+            <button class="next-btn" aria-label="Next">→</button>
+          </div>
+        </div>
+
+        <div class="stage-card" data-stage="2" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60"
+            alt="illustration"
+          />
+          <h2>Smart messaging system</h2>
+          <p>
+            View your messages without leaving the video you currently watched.
+          </p>
+          <div class="card-controls">
+            <button class="skip-btn">Skip</button>
+            <button class="next-btn" aria-label="Next">→</button>
+          </div>
+        </div>
+
+        <div class="stage-card" data-stage="3" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=60"
+            alt="illustration"
+          />
+          <h2>Instant data analysis</h2>
+          <p>
+            View and analyse all your activities grouped systematically so you
+            can get conclusions.
+          </p>
+          <div class="card-controls">
+            <button class="skip-btn">Skip</button>
+            <button class="next-btn" aria-label="Next">Get Started →</button>
+          </div>
+        </div>
+
+        <!-- Dots / indicators -->
+        <div class="dots absolute bottom-6 left-6 flex gap-2">
+          <button class="dot active" data-to="1" aria-label="Stage 1"></button>
+          <button class="dot" data-to="2" aria-label="Stage 2"></button>
+          <button class="dot" data-to="3" aria-label="Stage 3"></button>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      /* Stack cards absolutely and center them so they don't shift layout when changing */
+      #onboarding {
+        height: 520px;
+        position: relative;
+        display: block; /* we'll absolutely position cards inside */
+      }
+
+      .stage-card {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 360px;
+        min-height: 360px;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 12px;
+        padding: 36px 32px;
+        box-shadow: 0 10px 20px rgba(2, 6, 23, 0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 350ms cubic-bezier(0.2, 0.9, 0.2, 1),
+          opacity 300ms ease;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .stage-card img {
+        width: 160px;
+        height: 140px;
+        object-fit: cover;
+        margin-bottom: 18px;
+        border-radius: 8px;
+      }
+      .stage-card h2 {
+        font-size: 20px;
+        margin: 6px 0 8px;
+        color: #111827;
+      }
+      .stage-card p {
+        color: #6b7280;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      /* states */
+      .stage-card.active {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        pointer-events: auto;
+        z-index: 3;
+      }
+      .stage-card.prev {
+        opacity: 0;
+        transform: translate(-150%, -50%) scale(0.98);
+        z-index: 2;
+      }
+      .stage-card.next {
+        opacity: 0;
+        transform: translate(50%, -50%) scale(0.98);
+        z-index: 2;
+      }
+
+      /* controls inside card */
+      .card-controls {
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .card-controls .skip-btn {
+        background: transparent;
+        border: none;
+        color: #6b7280;
+        cursor: pointer;
+        padding: 6px 8px;
+      }
+      .card-controls .next-btn {
+        background: #fb923c;
+        border: none;
+        color: white;
+        padding: 10px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 6px 0 rgba(219, 115, 18, 0.12);
+      }
+
+      .dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #d1d5db;
+        border: none;
+        cursor: pointer;
+      }
+      .dots .dot.active {
+        background: #fb923c;
+      }
+
+      /* responsive */
+      @media (max-width: 900px) {
+        #onboarding {
+          max-width: 20rem;
+          height: 520px;
+        }
+        .stage-card {
+          width: 88%;
+          min-height: 380px;
+        }
+        .stage-card img {
+          width: 140px;
+          height: 120px;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        const container = document.getElementById("onboarding");
+        const stages = Array.from(container.querySelectorAll(".stage-card"));
+        const nextBtns = Array.from(container.querySelectorAll(".next-btn"));
+        const skipBtns = Array.from(container.querySelectorAll(".skip-btn"));
+        const dots = Array.from(container.querySelectorAll(".dot"));
+        let current = 0;
+
+        function updateUI() {
+          stages.forEach((s, i) => {
+            s.classList.remove("active", "prev", "next");
+            if (i === current) s.classList.add("active");
+            else if (i < current) s.classList.add("prev");
+            else s.classList.add("next");
+          });
+          dots.forEach((d, i) => d.classList.toggle("active", i === current));
+
+          // update all next buttons text/disabled state
+          nextBtns.forEach((b) => {
+            if (current === stages.length - 1) b.textContent = "Get Started →";
+            else b.textContent = "→";
+            b.disabled = false;
+            b.style.opacity = 1;
+          });
+        }
+
+        function goTo(n) {
+          current = Math.max(0, Math.min(stages.length - 1, n));
+          updateUI();
+        }
+
+        // advance stage
+        function advance() {
+          if (current < stages.length - 1) goTo(current + 1);
+          else {
+            // final action: mark completed and disable next buttons (could navigate)
+            container.classList.add("completed");
+            nextBtns.forEach((b) => {
+              b.disabled = true;
+              b.style.opacity = 0.9;
+            });
+          }
+        }
+
+        // init
+        updateUI();
+
+        // click on whole card to advance (ignore clicks on controls)
+        container.addEventListener("click", (e) => {
+          if (e.target.closest(".dot") || e.target.closest(".next-btn") || e.target.closest(".skip-btn")) return;
+          if (e.target.closest(".stage-card")) advance();
+        });
+
+        // wire up in-card next buttons
+        nextBtns.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            advance();
+          });
+        });
+
+        // wire up in-card skip buttons
+        skipBtns.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            goTo(stages.length - 1);
+          });
+        });
+
+        // dots navigation
+        dots.forEach((d) => {
+          d.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+            goTo(Number(d.dataset.to) - 1);
+          });
+        });
+
+        // keyboard support: right arrow -> next, left arrow -> prev
+        window.addEventListener("keydown", (ev) => {
+          if (ev.key === "ArrowRight") advance();
+          if (ev.key === "ArrowLeft") goTo(current - 1);
+        });
+      })();
+    </script>
+  </body>
+</html>
