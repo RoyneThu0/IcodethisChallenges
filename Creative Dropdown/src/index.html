@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Creative Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gray-200"
+  >
+    <div class="w-11/12 max-w-sm mx-auto px-4 py-12">
+      <h2 class="text-xs font-semibold text-gray-600 tracking-wider mb-6">
+        OBJECT TYPE
+      </h2>
+
+      <div class="relative">
+        <!-- Trigger (the header button) -->
+        <button
+          id="dropdown-trigger"
+          class="w-full text-left bg-white border-2 border-black rounded-md px-4 py-3 flex items-center justify-between"
+          aria-expanded="false"
+        >
+          <span id="dropdown-label" class="text-gray-500"
+            >Select an object type</span
+          >
+          <i class="fa-solid fa-chevron-down text-gray-600"></i>
+        </button>
+
+        <!-- Panel (kept in the 3rd-column style) -->
+        <div
+          id="dropdown-panel"
+          class="mt-3 bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hidden"
+          role="menu"
+        >
+          <ul id="dropdown-list" class="divide-y divide-gray-100">
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Person"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-amber-200 flex items-center justify-center text-amber-700"
+                ><i class="fa-solid fa-user"></i
+              ></span>
+              <span class="text-gray-700">Person</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Book"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"
+                ><i class="fa-solid fa-book-open"></i
+              ></span>
+              <span class="text-gray-700">Book</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Exercise"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-700"
+                ><i class="fa-solid fa-dumbbell"></i
+              ></span>
+              <span class="text-gray-700">Exercise</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Income"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-lime-100 flex items-center justify-center text-lime-700"
+                ><i class="fa-solid fa-wallet"></i
+              ></span>
+              <span class="text-gray-700">Income</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Expense"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600"
+                ><i class="fa-solid fa-arrow-up-from-bracket"></i
+              ></span>
+              <span class="text-gray-700">Expense</span>
+            </li>
+          </ul>
+
+          <div
+            class="bg-gray-50 border-t border-gray-100 px-6 py-4 text-center"
+          >
+            <button id="create-btn" class="text-sm font-semibold text-gray-700">
+              + Create an Object Type
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const trigger = document.getElementById("dropdown-trigger");
+        const panel = document.getElementById("dropdown-panel");
+        const list = document.getElementById("dropdown-list");
+        const label = document.getElementById("dropdown-label");
+
+        function openPanel() {
+          trigger.setAttribute("aria-expanded", "true");
+          panel.classList.remove("hidden");
+        }
+
+        function closePanel() {
+          trigger.setAttribute("aria-expanded", "false");
+          panel.classList.add("hidden");
+        }
+
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = trigger.getAttribute("aria-expanded") === "true";
+          if (isOpen) closePanel();
+          else openPanel();
+        });
+
+        list.addEventListener("click", (e) => {
+          const li = e.target.closest("li");
+          if (!li) return;
+          const value = li.getAttribute("data-value");
+          label.textContent = value;
+          label.classList.remove("text-gray-500");
+          label.classList.add("text-gray-700");
+          closePanel();
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!panel.contains(e.target) && !trigger.contains(e.target))
+            closePanel();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closePanel();
+        });
+      })();
+    </script>
+  </body>
+</html>
