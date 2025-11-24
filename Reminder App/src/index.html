@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reminder App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen bg-gradient-to-r from-orange-600 to-orange-400 flex items-center justify-center"
+  >
+    <div class="w-11/12 max-w-xl p-5 flex md:flex-row flex-col">
+      <div class="md:w-1/3 bg-gray-700 py-5 flex flex-col">
+        <div class="px-3">
+          <input
+            type="search"
+            class="w-full rounded-full bg-gray-600 text-gray-500 px-2 py-1"
+            placeholder="Search"
+          />
+        </div>
+
+        <ul class="mt-5">
+          <li
+            class="w-full group hover:bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p
+              class="text-xs text-white group-hover:text-black duration-300 ease-in-out"
+            >
+              REMINDERS
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-gray-400 text-gray-300 group-hover:text-black transition-colors text-xs"
+            >
+              2
+            </p>
+          </li>
+          <li
+            class="w-full group hover:bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p
+              class="text-xs text-white group-hover:text-black duration-300 ease-in-out"
+            >
+              TO DO LIST
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-gray-400 text-gray-300 group-hover:text-black transition-colors text-xs"
+            >
+              9
+            </p>
+          </li>
+          <li
+            class="w-full bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p class="text-xs text-black duration-300 ease-in-out">
+              SHOPPING LIST
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-400 text-black transition-colorstext-xs"
+            >
+              4
+            </p>
+          </li>
+          <li
+            class="w-full group hover:bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p
+              class="text-xs text-white group-hover:text-black duration-300 ease-in-out"
+            >
+              OTHER
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-gray-400 text-gray-300 group-hover:text-black transition-colors text-xs"
+            >
+              3
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="md:w-2/3 bg-white">
+        <div class="flex items-center justify-between p-5">
+          <h1>GROCERIES</h1>
+          <i
+            class="fa-solid fa-ellipsis-vertical text-gray-500 cursor-pointer"
+          ></i>
+        </div>
+        <ul class="mt-5 px-5 space-y-1">
+          <li class="line-through text-lg text-gray-400">Butter</li>
+
+          <li class="line-through text-lg text-gray-400">Orange juice</li>
+          <li class="text-lg text-black">Cheese</li>
+          <li class="line-through text-lg text-gray-400">Chocolate</li>
+          <li class="text-lg">Corn flakes</li>
+          <li class="text-lg">Potatoes</li>
+          <li class="text-lg">Avocado</li>
+        </ul>
+        <ul class="mt-5 w-full space-y-0.5">
+          <li class="flex items-center px-5 py-3 bg-gray-200 justify-between">
+            <h1 class="font-semibold">ELECTRONICS</h1>
+            <i
+              class="fa-solid fa-ellipsis-vertical text-gray-500 cursor-pointer"
+            ></i>
+          </li>
+          <li class="flex items-center px-5 py-3 bg-gray-200 justify-between">
+            <h1 class="font-semibold">BOOKS</h1>
+            <i
+              class="fa-solid fa-ellipsis-vertical text-gray-500 cursor-pointer"
+            ></i>
+          </li>
+          <li class="flex items-center px-5 py-3 bg-gray-200 justify-between">
+            <h1 class="font-semibold">CAR</h1>
+            <i
+              class="fa-solid fa-ellipsis-vertical text-gray-500 cursor-pointer"
+            ></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
