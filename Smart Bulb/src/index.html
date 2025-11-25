@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Bulb</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-800 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-4xl p-10 flex justify-center">
+      <div
+        id="card-login"
+        class="z-30 bg-white rounded-xl shadow-xl p-10 w-80 transition-all duration-500"
+      >
+        <div class="flex justify-center mb-5">
+          <img
+            src="https://www.svgrepo.com/show/176028/ceiling-lamp.svg"
+            class="w-14 opacity-40"
+          />
+        </div>
+
+        <label class="text-xs font-semibold">USERNAME</label>
+        <input
+          type="text"
+          class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 mb-4"
+          placeholder="Enter username"
+        />
+
+        <label class="text-xs font-semibold">PASSWORD</label>
+        <input
+          type="password"
+          class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 mb-6"
+          placeholder="Enter password"
+        />
+
+        <button
+          id="loginBtn"
+          class="w-full bg-[#5b6fcf] text-white py-2 rounded-md shadow-md hover:bg-[#4f63c0]"
+        >
+          LOG IN
+        </button>
+      </div>
+
+      <div
+        id="card-off"
+        class="absolute z-20 bg-[#162a63] rounded-xl shadow-xl p-10 w-72 h-96 flex items-end justify-center opacity-0 pointer-events-none transition-colors duration-500"
+      >
+        <button
+          id="offBtn"
+          class="w-28 h-28 rounded-full border border-white/20 flex items-center justify-center text-white text-lg font-semibold transition-colors duration-500"
+        >
+          OFF
+        </button>
+      </div>
+
+      <div
+        id="card-on"
+        class="absolute z-10 bg-white rounded-xl shadow-xl p-10 w-80 h-96 flex flex-col items-center justify-end opacity-0 pointer-events-none transition-all duration-500"
+      >
+        <div class="relative w-full h-40 flex flex-col items-center"></div>
+      </div>
+    </div>
+
+    <script>
+      const loginCard = document.getElementById("card-login");
+      const offCard = document.getElementById("card-off");
+      const onCard = document.getElementById("card-on");
+
+      const loginBtn = document.getElementById("loginBtn");
+      const offBtn = document.getElementById("offBtn");
+
+      loginBtn.addEventListener("click", () => {
+        loginCard.classList.add("opacity-0", "pointer-events-none");
+        offCard.classList.remove("opacity-0", "pointer-events-none");
+      });
+
+      let isOn = false;
+      offBtn.addEventListener("click", () => {
+        isOn = !isOn;
+        if (isOn) {
+          offBtn.textContent = "ON";
+          offCard.classList.remove("bg-[#162a63]");
+          offCard.classList.add("bg-yellow-400");
+          offBtn.classList.remove("text-white");
+          offBtn.classList.add("text-[#7c2d12]");
+        } else {
+          offBtn.textContent = "OFF";
+          offCard.classList.remove("bg-yellow-400");
+          offCard.classList.add("bg-[#162a63]");
+          offBtn.classList.remove("text-[#7c2d12]");
+          offBtn.classList.add("text-white");
+        }
+      });
+    </script>
+  </body>
+</html>
