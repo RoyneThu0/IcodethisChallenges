@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Form Elements</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-[#091d3b]"
+  >
+    <div class="w-11/12 max-w-3xl grid grid-cols-1 md:grid-cols-2">
+      <div>
+        <div
+          class="w-full p-1 flex items-center justify-center md:items-start md:justify-start"
+        >
+          <div
+            class="w-full max-w-md md:w-11/12 bg-[#fa755b] py-10 px-5 rounded-2xl flex items-center justify-center"
+          >
+            <div class="px-2">
+              <div
+                class="w-10 h-10 shrink-0 bg-white/40 rounded-full flex items-center justify-center"
+              >
+                <i class="fa-solid fa-check text-white"></i>
+              </div>
+              <p class="text-xs text-white mt-1 text-center">Audio</p>
+            </div>
+            <div class="h-0.5 bg-white w-full"></div>
+            <div class="px-2">
+              <div
+                class="w-10 h-10 shrink-0 bg-white rounded-full flex items-center justify-center p-3"
+              >
+                <div class="w-full h-full bg-[#fa755b] rounded-full"></div>
+              </div>
+              <p class="text-xs text-white mt-1 text-center">Video</p>
+            </div>
+            <div class="h-0.5 bg-white w-full"></div>
+
+            <div class="px-2 relative -translate-y-2.5">
+              <div
+                class="w-10 h-10 shrink-0 bg-white/40 rounded-full flex items-center justify-center"
+              ></div>
+              <p class="absolute -left-3 text-xs text-white mt-1 text-center">
+                Performance
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full p-1 mt-10 flex md:items-start items-center justify-center md:justify-end"
+        >
+          <div class="w-full max-w-sm md:w-11/12 bg-[#9c3490] p-10 rounded-2xl">
+            <div class="w-full flex items-start gap-1">
+              <div class="w-1/4 h-1 bg-white rounded-full"></div>
+              <div class="w-1/4 h-1 bg-white/40 rounded-full"></div>
+            </div>
+            <p class="text-white mt-5 text-xs">Rate your experience</p>
+
+            <div class="flex items-center justify-between mt-5">
+              <div
+                class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+              >
+                <p class="text-xs">1</p>
+              </div>
+              <div
+                class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+              >
+                <p class="text-xs">2</p>
+              </div>
+              <div
+                class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+              >
+                <p class="text-xs">3</p>
+              </div>
+              <div
+                class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+              >
+                <p class="text-xs">4</p>
+              </div>
+              <div
+                class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+              >
+                <p class="text-xs">5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full p-5">
+        <div>
+          <div
+            class="w-full p-1 flex items-center justify-center md:justify-end"
+          >
+            <div class="w-10/12 p-10 bg-[#db637d] rounded-2xl">
+              <p class="text-white text-center">
+                How do you rate our <br />
+                services
+              </p>
+              <div class="flex items-center justify-between mt-5">
+                <div
+                  class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div
+                  class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div
+                  class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div
+                  class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div
+                  class="w-5 h-5 rounded-full text-white hover:text-black hover:bg-white/40 duration-300 ease-in-out flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="w-full mt-5 flex justify-between">
+                <p class="text-xs text-white/40">Bad</p>
+                <p class="text-xs text-white/40">Very good</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full p-1 mt-10 flex items-center justify-center md:justify-start"
+          >
+            <div class="w-10/12 p-10 bg-[#8343d3] rounded-2xl">
+              <p class="text-white text-start">What didn't work properly?</p>
+
+              <ul>
+                <li class="flex items-center justify-start gap-3 mt-5">
+                  <input type="checkbox" name="blur" id="blur" />
+                  <label for="blur" class="text-white text-sm">
+                    Video was blurry</label
+                  >
+                </li>
+                <li class="flex items-center justify-start gap-3 mt-5">
+                  <input type="checkbox" name="sound" id="sound" />
+                  <label for="sound" class="text-white text-sm">
+                    Sound wasn't working</label
+                  >
+                </li>
+                <li class="flex items-center justify-start gap-3 mt-5">
+                  <input type="checkbox" name="crash" id="crash" />
+                  <label for="crash" class="text-white text-sm">
+                    App was crashing</label
+                  >
+                </li>
+                <li class="flex items-center justify-start gap-3 mt-5">
+                  <input type="checkbox" name="else" id="else" />
+                  <label for="else" class="text-white text-sm"> Else</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
