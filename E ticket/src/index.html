@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E ticket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-gray-500 bg-cover bg-center"
+    style="
+      background-image: url(https://i.pinimg.com/736x/0b/41/25/0b41253a4041ddb57004d633e4979430.jpg);
+    "
+  >
+    <div class="w-11/12 max-w-4xl flex items-center justify-center gap-0 h-96">
+      <div class="bg-white h-full p-8 rounded-l-xl shadow-lg w-full max-w-lg">
+        <div class="text-center">
+          <div class="flex w-full items-center justify-center gap-0">
+            <div class="text-5xl font-extrabold text-teal-400 mr-2">BUD</div>
+            <div class="w-10 bg-gray-300 h-0.5"></div>
+            <div class="text-gray-300 text-4xl transform rotate-0 mx-2">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+            <div class="w-10 bg-gray-300 h-0.5"></div>
+            <div class="text-5xl font-extrabold text-teal-400 ml-1">HEL</div>
+          </div>
+          <div
+            class="flex items-center justify-center gap-14 mt-2 text-gray-500"
+          >
+            <div class="text-sm">Budapest</div>
+            <div class="w-6"></div>
+            <div class="text-sm">Helsinki</div>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 bg-teal-50 p-6 rounded-lg flex items-center justify-between text-center"
+        >
+          <div>
+            <div class="text-sm text-gray-500">Departure</div>
+            <div class="text-2xl font-bold text-teal-400">16:25</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-500">Arrival</div>
+            <div class="text-2xl font-bold text-teal-400">21:40</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-500">Seat</div>
+            <div class="text-2xl font-bold text-teal-400">54B</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-500">Ticket No.</div>
+            <div class="text-2xl font-bold text-teal-400">FF346Y</div>
+          </div>
+        </div>
+
+        <p class="mt-6 text-gray-400 text-sm">
+          Et justo,
+          <span class="font-semibold text-gray-500">praesent sem placerat</span>
+          sapiente nec convallis non. Eget volutpat laoreet consectetuer taciti
+          dignissim.
+          <span class="font-semibold text-gray-500">Vel diam feugiat</span>
+          lacus, integer pellentesque, dolor mi ac nibh pharetra purus nonummy
+        </p>
+      </div>
+      <div
+        class="relative bg-white w-20 h-full overflow-hidden [mask-image:radial-gradient(circle_20px_at_50%_0,transparent_99%,black_100%),radial-gradient(circle_20px_at_50%_100%,transparent_99%,black_100%)] [mask-composite:intersect]"
+      ></div>
+      <!-- <div
+        class="h-full w-full max-w-xs flex items-center justify-center bg-green-300 p-1"
+      >
+        <div class="flex w-full items-center bg-red-400 justify-center gap-0">
+          <div class="text-5xl font-extrabold text-teal-400 mr-2">BUD</div>
+          <div class="w-10 bg-gray-300 h-0.5"></div>
+          <div class="text-gray-300 text-4xl transform rotate-0 mx-2">
+            <i class="fa-solid fa-plane"></i>
+          </div>
+          <div class="w-10 bg-gray-300 h-0.5"></div>
+          <div class="text-5xl font-extrabold text-teal-400 ml-1">HEL</div>
+        </div>
+      </div> -->
+      <div
+        id="here"
+        class="h-full w-96 max-w-2xl bg-white p-6 -rotate-45 rounded-b-xl flex items-center justify-center"
+      >
+        <div class="w-full">
+          <!-- Header: BUD - plane - HEL -->
+          <div class="text-center">
+            <div class="flex w-full max-w-sm items-center justify-center gap-0">
+              <div class="text-5xl font-extrabold text-teal-400 mr-2">BUD</div>
+              <div class="w-10 bg-gray-300 h-0.5"></div>
+              <div class="text-gray-300 text-4xl transform rotate-0 mx-2">
+                <i class="fa-solid fa-plane"></i>
+              </div>
+              <div class="w-10 bg-gray-300 h-0.5"></div>
+              <div class="text-5xl font-extrabold text-teal-400 ml-1">HEL</div>
+            </div>
+            <div
+              class="flex items-center justify-center gap-28 mt-2 text-gray-500"
+            >
+              <div class="text-sm">Budapest</div>
+              <div class="text-sm">Helsinki</div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-4 gap-4 text-center items-end">
+            <div>
+              <div class="text-sm text-gray-500">Departure</div>
+              <div class="text-2xl font-bold text-teal-400">16:25</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-500">Arrival</div>
+              <div class="text-2xl font-bold text-teal-400">21:40</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-500">Seat</div>
+              <div class="text-2xl font-bold text-teal-400">54B</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-500">Ticket No.</div>
+              <div class="text-2xl font-bold text-teal-400">FF346Y</div>
+            </div>
+          </div>
+
+          <div class="mt-8 pb-5 flex items-center justify-center">
+            <div class="w-full max-w-2xl h-32">
+              <div class="flex gap-2 items-end h-40">
+                <div class="w-2 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-3 h-full bg-black"></div>
+
+                <div class="w-1.5 h-full bg-black"></div>
+
+                <div class="w-2.5 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-2 h-full bg-black"></div>
+
+                <div class="w-1.5 h-full bg-black"></div>
+
+                <div class="w-2.5 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-2.5 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-2 h-full bg-black"></div>
+
+                <div class="w-1.5 h-full bg-black"></div>
+
+                <div class="w-2.5 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-2 h-full bg-black"></div>
+
+                <div class="w-1.5 h-full bg-black"></div>
+
+                <div class="w-2.5 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+
+                <div class="w-1 h-full bg-black"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
