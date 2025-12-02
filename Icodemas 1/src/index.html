@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICodeMas#1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://t3.ftcdn.net/jpg/17/64/74/76/360_F_1764747667_B1NBfNsQLhkj2J6Qd7X5HXZDXEScgFjP.jpg);
+    "
+  >
+    <div class="w-11/12 max-w-4xl p-10">
+      <h1
+        class="md:text-6xl font-semibold bg-gray-500/40 text-white text-center"
+      >
+        ICodeMas is coming to town
+      </h1>
+      <p class="text-white text-sm bg-gray-500/40 text-center mt-3">
+        Celebrate the Magic of the Season! Exclusive Christmas Challenges for 24
+        days!
+      </p>
+
+      <div class="w-full grid grid-cols-4 mt-10 gap-4">
+        <div class="p-5 rounded-2xl bg-white flex flex-col">
+          <p id="days" class="text-6xl font-semibold text-center">0</p>
+          <p class="text-center mt-5">Days</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white flex flex-col">
+          <p id="hours" class="text-6xl font-semibold text-center">0</p>
+          <p class="text-center mt-5">Hours</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white flex flex-col">
+          <p id="minutes" class="text-6xl font-semibold text-center">0</p>
+          <p class="text-center mt-5">Minutes</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white flex flex-col">
+          <p id="seconds" class="text-6xl font-semibold text-center">0</p>
+          <p class="text-center mt-5">Seconds</p>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const daysEl = document.getElementById("days");
+          const hoursEl = document.getElementById("hours");
+          const minutesEl = document.getElementById("minutes");
+          const secondsEl = document.getElementById("seconds");
+
+          function getNextTarget() {
+            const now = new Date();
+            const year = now.getFullYear();
+            // Target: December 25th at 00:00:00 local time
+            let target = new Date(year, 11, 25, 0, 0, 0, 0);
+            if (now >= target) {
+              target = new Date(year + 1, 11, 25, 0, 0, 0, 0);
+            }
+            return target;
+          }
+
+          let target = getNextTarget();
+
+          function update() {
+            const now = new Date();
+            let diff = target - now;
+            if (diff <= 0) {
+              // If reached or passed target, pick the next year's target
+              target = getNextTarget();
+              diff = target - now;
+            }
+
+            const secs = Math.floor(diff / 1000);
+            const days = Math.floor(secs / (24 * 3600));
+            const hours = Math.floor((secs % (24 * 3600)) / 3600);
+            const minutes = Math.floor((secs % 3600) / 60);
+            const seconds = secs % 60;
+
+            daysEl.textContent = String(days);
+            hoursEl.textContent = String(hours).padStart(2, "0");
+            minutesEl.textContent = String(minutes).padStart(2, "0");
+            secondsEl.textContent = String(seconds).padStart(2, "0");
+          }
+
+          update();
+          setInterval(update, 1000);
+        })();
+      </script>
+    </div>
+  </body>
+</html>
