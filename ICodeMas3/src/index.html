@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICodeMas3</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-[#e55a52]">
+    <div class="w-11/12 max-w-3xl bg-white rounded-2xl grid md:grid-cols-2">
+      <div class="w-full hidden md:block">
+        <img
+          src="https://i.pinimg.com/originals/e6/40/53/e64053d136c5d63553cf61fa9caa6aaa.gif"
+          alt=""
+          class="rounded-l-lg bg-cover object-cover"
+        />
+      </div>
+      <div class="w-full">
+        <div
+          class="w-full h-full bg-white rounded-2xl md:rounded-r-2xl p-6 md:p-10 relative flex flex-col items-center text-center"
+        >
+          <button
+            aria-label="close"
+            class="absolute top-4 right-4 text-gray-700 hover:text-black"
+          >
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+
+          <div
+            class="absolute top-10 -left-8 w-32 h-32 animate-pulse rounded-full bg-[#f6eccb] flex items-center justify-center"
+          >
+            <span class="text-red-600 font-extrabold text-4xl -rotate-12"
+              >20%</span
+            >
+          </div>
+
+          <h1
+            class="mt-20 md:mt-8 text-teal-800 font-extrabold text-3xl md:text-5xl leading-tight"
+          >
+            Jingle all<br />the way<br />to savings
+          </h1>
+
+          <p class="mt-4 text-gray-400 max-w-xs">
+            Enter your email for an exclusive Christmas discount
+          </p>
+
+          <div class="mt-6 w-full max-w-md">
+            <label for="name" class="sr-only">Name</label>
+            <input
+              id="name"
+              type="text"
+              placeholder="Enter name"
+              class="w-full px-6 py-4 rounded-full border border-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-200"
+            />
+          </div>
+
+          <button
+            class="mt-6 w-full max-w-md bg-teal-700 text-white py-4 rounded-full text-lg font-medium shadow-md hover:bg-teal-600"
+          >
+            Place order
+          </button>
+
+          <button class="mt-6 text-gray-400 hover:text-gray-600">
+            No thanks
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
