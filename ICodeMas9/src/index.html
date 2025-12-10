@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICodeMas9</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+      details summary::marker {
+        display: none;
+      }
+      details {
+        display: inline-block;
+      }
+      details > div {
+        transition: opacity 0.12s ease, transform 0.12s ease;
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        z-index: 50;
+      }
+      details:not([open]) > div {
+        opacity: 0;
+        transform: translateY(0.25rem);
+        pointer-events: none;
+        visibility: hidden;
+      }
+      details[open] > div {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        visibility: visible;
+      }
+      details[open] summary .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body class="w-screen min-h-screen flex items-center justify-center">
+    <div class="w-11/12 max-w-xl flex items-center justify-center mx-auto">
+      <div class="flex flex-col items-start justify-center mt-10">
+        <details
+          id="sortDropdown"
+          class="inline-block relative"
+          role="listbox"
+          aria-label="Sort options"
+        >
+          <summary
+            class="list-none cursor-pointer select-none flex items-center justify-between w-64 px-6 py-3 rounded-full bg-gray-100 text-gray-900 font-medium shadow-sm pr-10"
+            aria-haspopup="true"
+          >
+            <span id="sortLabel">Most recent</span>
+
+            <i
+              class="fa-solid fa-chevron-down text-gray-700 transform transition-transform duration-150"
+              aria-hidden="true"
+            ></i>
+          </summary>
+
+          <div
+            class="absolute left-0 top-full mt-3 w-full rounded-2xl bg-white border border-gray-200 shadow-lg py-3 overflow-hidden z-50 opacity-0 translate-y-1 pointer-events-none invisible open:opacity-100 open:translate-y-0 open:pointer-events-auto open:visible transition-all duration-150 ease-in-out"
+            role="menu"
+          >
+            <button
+              data-value="Recommended"
+              aria-selected="false"
+              class="w-full text-left px-6 py-3 text-gray-800 hover:bg-gray-100"
+              role="menuitem"
+            >
+              Recommended
+            </button>
+            <button
+              data-value="Popular"
+              aria-selected="false"
+              class="w-full text-left px-6 py-3 text-gray-800 bg-gray-100 rounded-lg mx-2"
+              role="menuitem"
+            >
+              Popular
+            </button>
+            <button
+              data-value="Price low to high"
+              aria-selected="false"
+              class="w-full text-left px-6 py-3 text-gray-800 hover:bg-gray-100"
+              role="menuitem"
+            >
+              Price low to high
+            </button>
+            <button
+              data-value="Price high to low"
+              aria-selected="false"
+              class="w-full text-left px-6 py-3 text-gray-800 hover:bg-gray-100"
+              role="menuitem"
+            >
+              Price high to low
+            </button>
+            <button
+              data-value="Sales"
+              aria-selected="false"
+              class="w-full text-left px-6 py-3 text-gray-800 hover:bg-gray-100"
+              role="menuitem"
+            >
+              Sales
+            </button>
+          </div>
+        </details>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const details = document.getElementById("sortDropdown");
+            if (!details) return;
+            const label = document.getElementById("sortLabel");
+            const menu = details.querySelector('[role="menu"]');
+
+            // Delegate clicks from the menu container for fewer listeners
+            menu.addEventListener("click", (e) => {
+              const btn = e.target.closest('[role="menuitem"]');
+              if (!btn || !menu.contains(btn)) return;
+              const text = btn.dataset.value ?? btn.textContent.trim();
+              if (label) label.textContent = text;
+              menu
+                .querySelectorAll('[role="menuitem"]')
+                .forEach((i) => i.setAttribute("aria-selected", "false"));
+              btn.setAttribute("aria-selected", "true");
+              details.open = false; // close
+              details.querySelector("summary")?.focus();
+            });
+
+            // Close when clicking outside
+            document.addEventListener("click", (e) => {
+              if (!details.contains(e.target)) details.open = false;
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
