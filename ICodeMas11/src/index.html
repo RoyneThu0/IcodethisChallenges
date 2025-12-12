@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift Card Selector</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen bg-[#3D9CB0] flex items-center justify-center p-4"
+  >
+    <div
+      class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 md:p-12"
+    >
+      <div class="absolute -top-24 -left-16 w-48 h-48">
+        <img
+          src="https://cdn3d.iconscout.com/3d/premium/thumb/gift-box-3d-icon-png-download-12085230.png"
+          alt="Gift Box"
+          class="w-full h-full object-contain"
+        />
+      </div>
+
+      <button
+        class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl w-8 h-8 flex items-center justify-center"
+      >
+        ✕
+      </button>
+
+      <div class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          Gift the joy of choice
+        </h1>
+        <p class="text-gray-500 max-w-lg mx-auto">
+          Show them you care with a gift they'll love. With an online gift card,
+          they can choose from a wide selection of products.
+        </p>
+      </div>
+
+      <div class="flex justify-center items-center gap-4 mb-8">
+        <button
+          id="decreaseBtn"
+          class="w-10 h-10 border border-gray-300 rounded flex items-center justify-center text-gray-600 hover:bg-gray-50 transition"
+        >
+          −
+        </button>
+        <div
+          class="w-24 h-12 border border-gray-300 rounded flex items-center justify-center"
+        >
+          <span id="currentAmount" class="text-2xl font-semibold text-gray-900"
+            >$25</span
+          >
+        </div>
+        <button
+          id="increaseBtn"
+          class="w-10 h-10 border border-gray-300 rounded flex items-center justify-center text-gray-600 hover:bg-gray-50 transition"
+        >
+          +
+        </button>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mb-8">
+        <button
+          class="amount-btn border-2 border-gray-900 bg-white text-gray-900 py-3 rounded font-medium hover:bg-gray-50 transition"
+          data-amount="25"
+        >
+          $25
+        </button>
+        <button
+          class="amount-btn border border-gray-300 text-gray-700 py-3 rounded font-medium hover:bg-gray-50 transition"
+          data-amount="50"
+        >
+          $50
+        </button>
+        <button
+          class="amount-btn border border-gray-300 text-gray-700 py-3 rounded font-medium hover:bg-gray-50 transition"
+          data-amount="75"
+        >
+          $75
+        </button>
+        <button
+          class="amount-btn border border-gray-300 text-gray-700 py-3 rounded font-medium hover:bg-gray-50 transition"
+          data-amount="100"
+        >
+          $100
+        </button>
+        <button
+          class="amount-btn border border-gray-300 text-gray-700 py-3 rounded font-medium hover:bg-gray-50 transition"
+          data-amount="200"
+        >
+          $200
+        </button>
+        <button
+          class="amount-btn border border-gray-300 text-gray-700 py-3 rounded font-medium hover:bg-gray-50 transition"
+          data-amount="300"
+        >
+          $300
+        </button>
+      </div>
+
+      <div class="flex justify-center">
+        <button
+          class="bg-[#3D9CB0] hover:bg-[#2C8A9E] text-white font-medium px-8 py-3 rounded-full transition-colors flex items-center gap-2"
+        >
+          Add to cart
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let currentAmount = 25;
+      const amounts = [25, 50, 75, 100, 200, 300];
+
+      const currentAmountEl = document.getElementById("currentAmount");
+      const decreaseBtn = document.getElementById("decreaseBtn");
+      const increaseBtn = document.getElementById("increaseBtn");
+      const amountButtons = document.querySelectorAll(".amount-btn");
+
+      // Update the display and button states
+      function updateAmount(newAmount) {
+        currentAmount = newAmount;
+        currentAmountEl.textContent = `$${currentAmount}`;
+
+        // Update preset buttons
+        amountButtons.forEach((btn) => {
+          const amount = parseInt(btn.dataset.amount);
+          if (amount === currentAmount) {
+            btn.classList.remove("border-gray-300", "text-gray-700");
+            btn.classList.add("border-2", "border-gray-900", "text-gray-900");
+          } else {
+            btn.classList.remove(
+              "border-2",
+              "border-gray-900",
+              "text-gray-900"
+            );
+            btn.classList.add("border", "border-gray-300", "text-gray-700");
+          }
+        });
+      }
+
+      // Decrease button
+      decreaseBtn.addEventListener("click", () => {
+        const currentIndex = amounts.indexOf(currentAmount);
+        if (currentIndex > 0) {
+          updateAmount(amounts[currentIndex - 1]);
+        }
+      });
+
+      // Increase button
+      increaseBtn.addEventListener("click", () => {
+        const currentIndex = amounts.indexOf(currentAmount);
+        if (currentIndex < amounts.length - 1) {
+          updateAmount(amounts[currentIndex + 1]);
+        }
+      });
+
+      // Preset amount buttons
+      amountButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const amount = parseInt(button.dataset.amount);
+          updateAmount(amount);
+        });
+      });
+    </script>
+  </body>
+</html>
