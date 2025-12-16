@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+      }
+
+      .card-shadow {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .snowflake {
+        position: absolute;
+        color: white;
+        opacity: 0.7;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center p-8">
+    <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="card-shadow rounded-lg overflow-hidden bg-white">
+        <img
+          src="https://cdn.vectorstock.com/i/500p/58/08/christmas-paper-cutout-art-vector-27635808.jpg"
+          alt=""
+          class="h-80 w-full object-cover"
+        />
+        <div class="bg-teal-700 p-8 flex items-center justify-between">
+          <div class="text-white">
+            <p class="text-sm font-light mb-2">Christmas collection</p>
+            <h2 class="text-2xl font-bold">Shop collection now</h2>
+          </div>
+          <button
+            class="bg-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            <i class="fas fa-arrow-down text-teal-700 text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-shadow rounded-lg overflow-hidden bg-white">
+        <img
+          src="https://icodethis.com/images/iCodeMas/promo_2.png"
+          alt=""
+          class="h-80 w-full object-cover"
+        />
+        <div class="bg-red-500 p-8 flex items-center justify-between">
+          <div class="text-white">
+            <p class="text-sm font-light mb-2">Gift card</p>
+            <h2 class="text-2xl font-bold">
+              Share the spirit with our Gift Cards
+            </h2>
+          </div>
+          <button
+            class="bg-white rounded-full px-6 py-3 flex items-center gap-2 hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            <span class="text-red-500 font-semibold">Get Gift</span>
+            <i class="fas fa-arrow-right text-red-500"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
