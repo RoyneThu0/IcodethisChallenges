@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-gray-50 w-screen min-h-screen flex items-center justify-center"
+  >
+    <div class="container mx-auto px-8 py-8">
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-4">
+          <button
+            class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-sm font-medium flex items-center gap-2"
+          >
+            Filters off
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="relative">
+            <select
+              class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-sm font-medium pr-8 appearance-none cursor-pointer"
+            >
+              <option>Most recent</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Name: A to Z</option>
+            </select>
+            <i
+              class="fas fa-chevron-down absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none"
+            ></i>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            class="w-8 h-8 flex items-center justify-center hover:bg-gray-200 rounded"
+          >
+            <div class="w-4 h-4 border-2 border-gray-600"></div>
+          </button>
+          <button
+            class="w-8 h-8 flex items-center justify-center hover:bg-gray-200 rounded"
+          >
+            <div class="flex gap-1">
+              <div class="w-1.5 h-4 bg-gray-600"></div>
+              <div class="w-1.5 h-4 bg-gray-600"></div>
+            </div>
+          </button>
+          <button
+            class="w-8 h-8 flex items-center justify-center hover:bg-gray-200 rounded"
+          >
+            <div class="flex gap-0.5">
+              <div class="w-1 h-4 bg-gray-600"></div>
+              <div class="w-1 h-4 bg-gray-600"></div>
+              <div class="w-1 h-4 bg-gray-600"></div>
+            </div>
+          </button>
+          <button
+            class="w-8 h-8 flex items-center justify-center hover:bg-gray-200 rounded"
+          >
+            <div class="flex gap-0.5">
+              <div class="w-0.5 h-4 bg-gray-600"></div>
+              <div class="w-0.5 h-4 bg-gray-600"></div>
+              <div class="w-0.5 h-4 bg-gray-600"></div>
+              <div class="w-0.5 h-4 bg-gray-600"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg overflow-hidden flex">
+          <div
+            class="relative bg-gray-100 flex-shrink-0 w-64 flex items-center justify-center p-8"
+          >
+            <img
+              src="https://file.aiquickdraw.com/imgcompressed/img/compressed_cdd7d9dd67f8abe640918f8851f92782.webp"
+              alt="Christmas Tree Decoration"
+              class="w-full h-auto object-contain"
+            />
+            <div
+              class="absolute top-4 left-4 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded"
+            >
+              NEW
+            </div>
+          </div>
+          <div class="flex-1 p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">
+              Christmas Tree Decoration
+            </h3>
+            <p class="text-2xl font-bold mb-3">$19.99</p>
+            <p class="text-gray-600 text-sm mb-6 flex-1">
+              Perfect for adding a festive touch to any space, this miniature
+              tree brings the magic of Christmas right into your home. Crafted
+              with care, it's a delightful ...
+            </p>
+            <button
+              class="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2.5 rounded font-medium flex items-center justify-center gap-2 self-start"
+            >
+              Add to cart
+              <i class="fas fa-shopping-bag"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden flex">
+          <div
+            class="relative bg-gray-100 flex-shrink-0 w-64 flex items-center justify-center p-8"
+          >
+            <img
+              src="https://cdn3d.iconscout.com/3d/premium/thumb/gift-box-3d-icon-png-download-3286985.png"
+              alt="Gift Box"
+              class="w-full h-auto object-contain"
+            />
+            <div
+              class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded"
+            >
+              -23%
+            </div>
+          </div>
+          <div class="flex-1 p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">Gift Box</h3>
+            <p class="text-2xl font-bold mb-3">
+              $9.99
+              <span class="text-lg line-through text-gray-400 font-normal"
+                >$12.99</span
+              >
+            </p>
+            <p class="text-gray-600 text-sm mb-6 flex-1">
+              Unwrap the joy of the season with our elegant Gift Box decoration.
+              Adorned with festive details, it's not just a decoration; it's a
+              promise of surprises and ...
+            </p>
+            <button
+              class="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2.5 rounded font-medium flex items-center justify-center gap-2 self-start"
+            >
+              Add to cart
+              <i class="fas fa-shopping-bag"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden flex">
+          <div
+            class="relative bg-gray-100 flex-shrink-0 w-64 flex items-center justify-center p-8"
+          >
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/046/828/190/non_2x/cute-gingerbread-man-on-transparent-background-png.png"
+              alt="Gingerbread Man Cookie"
+              class="w-full h-auto object-contain"
+            />
+          </div>
+          <div class="flex-1 p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">Gingerbread Man Cookie</h3>
+            <p class="text-2xl font-bold mb-3">$12.99</p>
+            <p class="text-gray-600 text-sm mb-6 flex-1">
+              With its sugary charm and festive details, this decoration adds a
+              touch of whimsy to your home. Hang it in your kitchen or display
+              it in the kitchen for a delightful seasonal ...
+            </p>
+            <button
+              class="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2.5 rounded font-medium flex items-center justify-center gap-2 self-start"
+            >
+              Add to cart
+              <i class="fas fa-shopping-bag"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden flex">
+          <div
+            class="relative bg-gray-100 flex-shrink-0 w-64 flex items-center justify-center p-8"
+          >
+            <img
+              src="https://media.istockphoto.com/id/511668251/photo/icy-snowflake-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=PSkfQJIXlTeEEPwHRJQGMefYWb8va-1TZgOOo30CP9w="
+              alt="Snowflake Decoration"
+              class="w-full h-auto object-contain"
+            />
+          </div>
+          <div class="flex-1 p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">Snowflake Decoration</h3>
+            <p class="text-2xl font-bold mb-3">$4.99</p>
+            <p class="text-gray-600 text-sm mb-6 flex-1">
+              Glistening with winter magic, this piece captures the delicate
+              beauty of snowflakes. Hang it by the window or sprinkle them
+              around your home for a ...
+            </p>
+            <button
+              class="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2.5 rounded font-medium flex items-center justify-center gap-2 self-start"
+            >
+              Add to cart
+              <i class="fas fa-shopping-bag"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
