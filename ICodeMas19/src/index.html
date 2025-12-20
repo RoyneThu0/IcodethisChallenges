@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICodeMas19</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-700 p-4"
+  >
+    <div class="w-full max-w-2xl bg-white rounded-lg shadow-2xl p-8">
+      <form id="checkoutForm" class="space-y-8">
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Contact info</h3>
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Email <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Vladi@gmail.com"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            />
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Shipping info</h3>
+          <div class="space-y-4">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              />
+            </div>
+
+            <div>
+              <label
+                for="country"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Country / Region <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="country"
+                placeholder="Enter country"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              />
+            </div>
+
+            <div>
+              <label
+                for="address"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="address"
+                placeholder="Enter address"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Payment info</h3>
+
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            <label
+              class="payment-option border-2 border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 transition duration-200 bg-white"
+              data-method="card"
+            >
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="card"
+                checked
+                hidden
+              />
+              <i class="fas fa-credit-card text-2xl text-blue-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-700">Card</span>
+            </label>
+
+            <label
+              class="payment-option border-2 border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 transition duration-200 bg-white"
+              data-method="cash"
+            >
+              <input type="radio" name="paymentMethod" value="cash" hidden />
+              <i class="fas fa-coins text-2xl text-green-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-700"
+                >Cash at arrival</span
+              >
+            </label>
+
+            <label
+              class="payment-option border-2 border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 transition duration-200 bg-white"
+              data-method="paypal"
+            >
+              <input type="radio" name="paymentMethod" value="paypal" hidden />
+              <i class="fab fa-paypal text-2xl text-blue-400 mb-2"></i>
+              <span class="text-sm font-medium text-gray-700">Paypal</span>
+            </label>
+          </div>
+
+          <div id="cardDetails" class="space-y-4">
+            <div>
+              <label
+                for="cardNumber"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Card number <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="cardNumber"
+                  placeholder="0044 1234 5678 9012"
+                  required
+                  maxlength="19"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                />
+                <i
+                  class="absolute right-4 top-3.5 text-2xl text-red-500 fa-brands fa-cc-mastercard"
+                ></i>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="expiry"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Expiry date <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="expiry"
+                  placeholder="MM / YY"
+                  required
+                  maxlength="7"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="cvc"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  CVC <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="cvc"
+                  placeholder="123"
+                  required
+                  maxlength="4"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full md:w-auto bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-8 rounded-full hover:shadow-lg hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105"
+        >
+          Place order
+        </button>
+      </form>
+    </div>
+
+    <script>
+      // Payment method selection
+      const paymentOptions = document.querySelectorAll(".payment-option");
+      const cardDetails = document.getElementById("cardDetails");
+
+      paymentOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          // Remove active state from all options
+          paymentOptions.forEach((opt) => {
+            opt.classList.remove("border-blue-500", "border-2", "bg-blue-50");
+            opt.classList.add("border-gray-300", "border-2");
+          });
+
+          // Add active state to selected option
+          this.classList.add("border-blue-500", "bg-blue-50");
+          this.classList.remove("border-gray-300");
+
+          // Select the radio button
+          const radio = this.querySelector('input[type="radio"]');
+          radio.checked = true;
+
+          // Show/hide card details based on selection
+          if (radio.value === "card") {
+            cardDetails.style.display = "block";
+            cardDetails.querySelectorAll("input").forEach((input) => {
+              input.required = true;
+            });
+          } else {
+            cardDetails.style.display = "none";
+            cardDetails.querySelectorAll("input").forEach((input) => {
+              input.required = false;
+            });
+          }
+        });
+      });
+
+      // Card number formatting (add spaces every 4 digits)
+      const cardNumberInput = document.getElementById("cardNumber");
+      cardNumberInput.addEventListener("input", function (e) {
+        let value = e.target.value.replace(/\s+/g, "");
+        let formattedValue = value.replace(/(\d{4})/g, "$1 ").trim();
+        e.target.value = formattedValue;
+      });
+
+      // Expiry date formatting (MM/YY)
+      const expiryInput = document.getElementById("expiry");
+      expiryInput.addEventListener("input", function (e) {
+        let value = e.target.value.replace(/\D/g, "");
+        if (value.length >= 2) {
+          value = value.slice(0, 2) + " / " + value.slice(2, 4);
+        }
+        e.target.value = value;
+      });
+
+      // CVC validation (only numbers)
+      const cvcInput = document.getElementById("cvc");
+      cvcInput.addEventListener("input", function (e) {
+        e.target.value = e.target.value.replace(/\D/g, "");
+      });
+
+      // Form submission
+      const form = document.getElementById("checkoutForm");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get form data
+        const formData = {
+          email: document.getElementById("email").value,
+          name: document.getElementById("name").value,
+          country: document.getElementById("country").value,
+          address: document.getElementById("address").value,
+          paymentMethod: document.querySelector(
+            'input[name="paymentMethod"]:checked'
+          ).value,
+        };
+
+        // If card payment, add card details
+        if (formData.paymentMethod === "card") {
+          formData.cardNumber = document.getElementById("cardNumber").value;
+          formData.expiry = document.getElementById("expiry").value;
+          formData.cvc = document.getElementById("cvc").value;
+        }
+
+        // Display success message
+        console.log("Order placed successfully!", formData);
+        alert(
+          `Order placed successfully!\n\nEmail: ${formData.email}\nName: ${formData.name}\nPayment Method: ${formData.paymentMethod}`
+        );
+
+        // Optional: Reset form
+        // form.reset();
+      });
+
+      // Initialize: Show card details by default
+      cardDetails.style.display = "block";
+      paymentOptions[0].classList.add("border-blue-500", "bg-blue-50");
+      paymentOptions[0].classList.remove("border-gray-300");
+    </script>
+  </body>
+</html>
