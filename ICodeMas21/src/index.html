@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICodeMas21</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      .faq-radio {
+        display: none;
+      }
+
+      .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        padding-top: 0;
+        padding-bottom: 0;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      }
+
+      .faq-radio:checked ~ .faq-content {
+        max-height: 500px;
+        padding-top: 0;
+        padding-bottom: 1.25rem;
+        transition: max-height 0.3s ease-in, padding 0.3s ease-in;
+      }
+
+      .faq-radio:checked ~ label .faq-icon-plus {
+        display: none;
+      }
+
+      .faq-radio:checked ~ label .faq-icon-close {
+        display: inline;
+      }
+
+      .faq-radio:not(:checked) ~ label .faq-icon-plus {
+        display: inline;
+      }
+
+      .faq-radio:not(:checked) ~ label .faq-icon-close {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen bg-gray-50 flex items-center justify-center p-8"
+  >
+    <div class="max-w-3xl w-full bg-white rounded-lg shadow-sm p-8 md:p-12">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Frequently asked questions
+        </h1>
+        <p class="text-gray-600 text-sm md:text-base">
+          Have questions? Explore our Frequently Asked Questions section for
+          quick answers.<br />
+          If your question isn't answered, feel free to reach out to our helpful
+          support team.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <input type="radio" name="faq" id="faq1" class="faq-radio" checked />
+          <label
+            for="faq1"
+            class="w-full flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-medium text-gray-900"
+              >When will my order ship?</span
+            >
+            <span>
+              <span class="faq-icon-close text-gray-900 text-xl font-light"
+                >×</span
+              >
+              <span class="faq-icon-plus text-gray-900 text-xl font-light"
+                >+</span
+              >
+            </span>
+          </label>
+          <div class="faq-content px-5 text-gray-700 text-sm leading-relaxed">
+            Orders typically ship within 1-2 business days. During peak holiday
+            season, please allow up to 3 business days for processing and
+            shipping. You will receive an email notification with tracking
+            information once your order has shipped.
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <input type="radio" name="faq" id="faq2" class="faq-radio" />
+          <label
+            for="faq2"
+            class="w-full flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-medium text-gray-900"
+              >What are your shipping rates?</span
+            >
+            <span>
+              <span class="faq-icon-close text-gray-900 text-xl font-light"
+                >×</span
+              >
+              <span class="faq-icon-plus text-gray-900 text-xl font-light"
+                >+</span
+              >
+            </span>
+          </label>
+          <div class="faq-content px-5 text-gray-700 text-sm leading-relaxed">
+            We offer competitive shipping rates based on your location and order
+            size. Standard shipping starts at $5.99, with free shipping
+            available on orders over $50. Expedited shipping options are also
+            available at checkout.
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <input type="radio" name="faq" id="faq3" class="faq-radio" />
+          <label
+            for="faq3"
+            class="w-full flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-medium text-gray-900"
+              >Do you offer gift wrapping?</span
+            >
+            <span>
+              <span class="faq-icon-close text-gray-900 text-xl font-light"
+                >×</span
+              >
+              <span class="faq-icon-plus text-gray-900 text-xl font-light"
+                >+</span
+              >
+            </span>
+          </label>
+          <div class="faq-content px-5 text-gray-700 text-sm leading-relaxed">
+            Yes! We offer premium gift wrapping services for an additional $4.99
+            per item. You can select this option during checkout and even
+            include a personalized message card at no extra charge.
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <input type="radio" name="faq" id="faq4" class="faq-radio" />
+          <label
+            for="faq4"
+            class="w-full flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-medium text-gray-900"
+              >What is your return policy?</span
+            >
+            <span>
+              <span class="faq-icon-close text-gray-900 text-xl font-light"
+                >×</span
+              >
+              <span class="faq-icon-plus text-gray-900 text-xl font-light"
+                >+</span
+              >
+            </span>
+          </label>
+          <div class="faq-content px-5 text-gray-700 text-sm leading-relaxed">
+            We accept returns within 30 days of purchase for a full refund.
+            Items must be unused, in original packaging, and accompanied by
+            proof of purchase. Return shipping costs are the responsibility of
+            the customer unless the item is defective.
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <input type="radio" name="faq" id="faq5" class="faq-radio" />
+          <label
+            for="faq5"
+            class="w-full flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <span class="font-medium text-gray-900"
+              >Do you have a store location?</span
+            >
+            <span>
+              <span class="faq-icon-close text-gray-900 text-xl font-light"
+                >×</span
+              >
+              <span class="faq-icon-plus text-gray-900 text-xl font-light"
+                >+</span
+              >
+            </span>
+          </label>
+          <div class="faq-content px-5 text-gray-700 text-sm leading-relaxed">
+            Currently, we operate exclusively online to provide the best prices
+            and widest selection. However, we're exploring options for pop-up
+            shops and retail partnerships. Sign up for our newsletter to be
+            notified of any store locations in your area.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
