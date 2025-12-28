@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storage Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-gray-400 min-h-screen flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8"
+  >
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div
+          class="w-full h-fit bg-white/30 border-t border-white rounded-3xl pt-6 shadow-lg lg:col-span-1"
+        >
+          <div class="lg:col-span-1">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg h-full">
+              <div class="flex items-center gap-3 mb-8">
+                <button
+                  class="bg-white border-2 border-gray-300 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition"
+                >
+                  <i class="fas fa-arrow-left text-gray-700"></i>
+                </button>
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-800">
+                  Total storage
+                </h2>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center gap-6">
+                <div class="flex-shrink-0">
+                  <canvas
+                    id="storageChart"
+                    class="w-32 h-32 sm:w-40 sm:h-40"
+                  ></canvas>
+                </div>
+
+                <div class="text-center sm:text-left flex-1">
+                  <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
+                    30 GB
+                  </h3>
+                  <p class="text-gray-600 text-sm sm:text-base mb-4">
+                    Total storage
+                  </p>
+                  <div class="bg-blue-100 rounded-lg p-3 mb-4">
+                    <p class="text-blue-700 font-semibold">3.6 GB</p>
+                    <p class="text-blue-600 text-sm">10% used</p>
+                  </div>
+                  <button
+                    class="bg-black text-white rounded-full px-6 py-2 text-sm font-medium hover:bg-gray-800 transition"
+                  >
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="lg:col-span-2 relative flex items-center justify-center px-4"
+        >
+          <div
+            class="absolute inset-x-4 sm:inset-x-10 z-0 mt-10 bg-white/30 border-t border-white rounded-3xl pt-6 shadow-lg max-w-md sm:max-w-lg mx-auto"
+          ></div>
+          <div
+            class="relative z-10 w-full max-w-lg sm:max-w-2xl mx-auto space-y-4 px-2 sm:px-0"
+          >
+            <h2
+              class="mt-8 text-lg sm:text-3xl font-bold text-gray-800 mb-6 text-center sm:text-left"
+            >
+              Plans
+            </h2>
+
+            <div class="bg-black rounded-3xl p-6 sm:p-8 text-white shadow-lg">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <div class="w-7 h-2 rounded-full bg-orange-500"></div>
+                  </div>
+                  <p class="text-gray-300 text-sm mb-2">Current plan</p>
+                  <h3 class="text-4xl sm:text-5xl font-bold">30 GB</h3>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+              >
+                <div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <div class="w-7 h-2 rounded-full bg-blue-500"></div>
+                  </div>
+                  <h3 class="text-3xl sm:text-4xl font-bold text-gray-800">
+                    100 GB
+                  </h3>
+                </div>
+                <div class="text-right w-full sm:w-auto">
+                  <button
+                    class="bg-black text-white rounded-full px-6 py-2 text-sm font-medium hover:bg-gray-800 transition w-full sm:w-auto"
+                  >
+                    NOK 17.00/month
+                  </button>
+                  <p class="text-blue-600 text-xs sm:text-sm mt-2">
+                    Or prepay anually NOK 170.00/year
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition"
+            >
+              <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+              >
+                <div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <div class="w-7 h-2 rounded-full bg-green-500"></div>
+                  </div>
+                  <h3 class="text-3xl sm:text-4xl font-bold text-gray-800">
+                    1 TB
+                  </h3>
+                </div>
+                <div class="text-right w-full sm:w-auto">
+                  <button
+                    class="bg-black text-white rounded-full px-6 py-2 text-sm font-medium hover:bg-gray-800 transition w-full sm:w-auto"
+                  >
+                    NOK 89.00/month
+                  </button>
+                  <p class="text-blue-600 text-xs sm:text-sm mt-2">
+                    Or prepay anually NOK 899.00/year
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      (function () {
+        const ctx = document.getElementById("storageChart").getContext("2d");
+
+        const used = 3.6;
+        const total = 30;
+        const free = Math.max(total - used, 0);
+
+        new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: ["Used", "Free"],
+            datasets: [
+              {
+                data: [used, free],
+                backgroundColor: ["#1e40af", "#bfe9ff"],
+                borderColor: ["#ffffff", "#ffffff"],
+                borderWidth: 6,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: { display: false },
+              tooltip: { enabled: false },
+            },
+            animation: { duration: 600, animateRotate: true },
+          },
+        });
+      })();
+    </script>
+  </body>
+</html>
