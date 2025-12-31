@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Graph</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center bg-[#13183f]">
+    <div class="flex flex-col w-11/12 max-w-lg rounded-lg">
+      <div class="bg-[#161b4e] rounded-t-xl p-5">
+        <h1 class="font-semibold text-white text-center">VISITORS PER DAY</h1>
+      </div>
+
+      <div
+        class="flex items-center justify-between bg-[#0f1333] p-8 rounded-b-xl shadow-2xl"
+      >
+        <div class="relative w-64 h-64">
+          <canvas id="donutChart" class="w-full h-full"></canvas>
+          <div
+            class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+          >
+            <span class="text-4xl font-bold text-white">38k</span>
+            <span class="text-sm text-gray-300">Visitors Total</span>
+          </div>
+        </div>
+
+        <div class="ml-6 space-y-4">
+          <div class="flex items-center gap-4">
+            <span
+              class="inline-flex items-center justify-center w-10 h-6 rounded-full bg-[#b983e9] text-black text-sm"
+              >41%</span
+            >
+            <span class="text-gray-200">Morbi ligula</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span
+              class="inline-flex items-center justify-center w-10 h-6 rounded-full bg-[#ff5f86] text-black text-sm"
+              >29%</span
+            >
+            <span class="text-gray-200">Scelerisque</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span
+              class="inline-flex items-center justify-center w-10 h-6 rounded-full bg-[#ff8a00] text-black text-sm"
+              >23%</span
+            >
+            <span class="text-gray-200">Praesent maecenas</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span
+              class="inline-flex items-center justify-center w-10 h-6 rounded-full bg-[#ffd400] text-black text-sm"
+              >4%</span
+            >
+            <span class="text-gray-200">Morbi ligula</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span
+              class="inline-flex items-center justify-center w-10 h-6 rounded-full bg-[#6fffc6] text-black text-sm"
+              >3%</span
+            >
+            <span class="text-gray-200">Morbi ligula</span>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        const ctx = document.getElementById("donutChart").getContext("2d");
+
+        new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: [
+              "Morbi ligula",
+              "Scelerisque",
+              "Praesent maecenas",
+              "Morbi ligula",
+              "Morbi ligula",
+            ],
+            datasets: [
+              {
+                data: [41, 29, 23, 4, 3],
+                backgroundColor: [
+                  "#b983e9",
+                  "#ff5f86",
+                  "#ff8a00",
+                  "#ffd400",
+                  "#6fffc6",
+                ],
+                borderWidth: 0,
+              },
+            ],
+          },
+          options: {
+            cutout: "78%",
+            rotation: -90,
+            plugins: {
+              legend: { display: false },
+              tooltip: { enabled: false },
+            },
+            maintainAspectRatio: false,
+          },
+        });
+      </script>
+    </div>
+  </body>
+</html>
