@@ -26,8 +26,10 @@
         border: none;
         justify-content: center;
         cursor: pointer;
-        width: 100%;
+        width: auto;
+        min-width: 5.5rem; /* ensures a comfortable tappable area */
         transition: all 0.3s ease;
+        flex: 0 1 auto;
       }
 
       .rating-div:hover {
@@ -60,9 +62,8 @@
         </p>
         <div
           id="rating"
-          class="w-full flex-row flex items-center justify-center mt-5 gap-2"
+          class="w-full flex-row flex flex-wrap items-center justify-center mt-5 gap-2"
         >
-          <!-- Hidden Radio Inputs -->
           <input type="radio" name="rating" id="rating-1" value="1" />
           <label for="rating-1" class="rating-div">
             <p class="text-4xl">🥲</p>
