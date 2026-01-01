@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Feedback</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      input[type="radio"] {
+        display: none;
+      }
+
+      .rating-div {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        align-items: center;
+        border: none;
+        justify-content: center;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .rating-div:hover {
+        box-shadow: 0 4px 6px -1px rgba(233, 30, 99, 0.1),
+          0 2px 4px -1px rgba(233, 30, 99, 0.06);
+      }
+
+      input[type="radio"]:checked + .rating-div {
+        background-color: #fb64b6;
+        border-radius: 0.5rem;
+        color: white;
+        box-shadow: 0 10px 15px -3px rgba(56, 161, 105, 0.1),
+          0 4px 6px -2px rgba(56, 161, 105, 0.05);
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://img.freepik.com/free-photo/natural-textured-surface_23-2151899504.jpg?semt=ais_hybrid&w=740&q=80);
+    "
+  >
+    <div
+      class="w-11/12 max-w-xl bg-white shadow-xl rounded-lg hover:-translate-y-3 duration-300 ease-in-out"
+    >
+      <div class="flex-col p-10 rounded-lg w-full">
+        <p class="font-serif font-semibold text-xl">Give Feedback</p>
+        <p class="text-sm font-sans font-semibold mt-5">
+          What do you think of the issue search experience within Jira projects?
+        </p>
+        <div
+          id="rating"
+          class="w-full flex-row flex items-center justify-center mt-5 gap-2"
+        >
+          <!-- Hidden Radio Inputs -->
+          <input type="radio" name="rating" id="rating-1" value="1" />
+          <label for="rating-1" class="rating-div">
+            <p class="text-4xl">🥲</p>
+            <p>Terrible</p>
+          </label>
+          <input type="radio" name="rating" id="rating-2" value="2" />
+          <label for="rating-2" class="rating-div">
+            <p class="text-4xl">☹️</p>
+            <p>Bad</p>
+          </label>
+          <input type="radio" name="rating" id="rating-3" value="3" />
+          <label for="rating-3" class="rating-div">
+            <p class="text-4xl">😐</p>
+            <p>Ok</p>
+          </label>
+          <input type="radio" name="rating" id="rating-4" value="4" />
+          <label for="rating-4" class="rating-div">
+            <p class="text-4xl">🙂</p>
+            <p>Good</p>
+          </label>
+          <input type="radio" name="rating" id="rating-5" value="5" />
+          <label for="rating-5" class="rating-div">
+            <p class="text-4xl">😁</p>
+            <p>Amazing</p>
+          </label>
+        </div>
+        <div id="feedback-textbox" class="w-full flex-col mt-5 hidden">
+          <p class="text-xs">What are the main reasons for your rating?</p>
+          <input
+            type="text"
+            class="w-full border border-blue-600 pb-8 px-2 focus:outline-none mt-2 rounded-lg"
+          />
+        </div>
+        <div class="flex items-center justify-start mt-5">
+          <input
+            type="checkbox"
+            name="contact"
+            id="contact"
+            class="mx-1 w-5 h-5 accent-[#e81ad0]"
+          />
+          <label
+            for="contact"
+            id="contact"
+            class="w-full flex items-center text-xs"
+            >I may be contacted about this feedback.
+            <p class="text-pink-500 cursor-pointer">Privacy Policy</p></label
+          >
+        </div>
+        <div class="flex items-center justify-start mt-2">
+          <input
+            type="checkbox"
+            name="help"
+            id="help"
+            class="mx-1 w-5 h-5 accent-[#e81ad0]"
+          />
+          <label for="help" id="help" class="w-full flex items-center text-xs"
+            >Id like to help improve by joining the
+            <p class="text-pink-500 cursor-pointer px-1">
+              Research Group
+            </p></label
+          >
+        </div>
+        <div class="flex items-center justify-end mt-5 gap-5">
+          <button
+            class="py-2 px-3 bg-pink-400 rounded-lg text-white text-sm hover:text-black hover:bg-fuchsia-400"
+          >
+            Submit
+          </button>
+          <button
+            class="py-2 px-3 rounded-lg text-black text-sm hover:text-white hover:bg-fuchsia-400"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('input[name="rating"]').forEach((radio) => {
+        radio.addEventListener("change", function () {
+          const feedbackTextbox = document.getElementById("feedback-textbox");
+          if (this.value === "1" || this.value === "2") {
+            feedbackTextbox.classList.remove("hidden");
+          } else {
+            feedbackTextbox.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
