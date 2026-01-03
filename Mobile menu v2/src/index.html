@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex items-center justify-center">
+    <div
+      class="w-11/12 relative max-w-md bg-white shadow-xl rounded-xl overflow-clip"
+    >
+      <div
+        class="absolute z-0 w-[500px] bg-[#5e7dd6] p-2 h-52 -top-24 left-0 rounded-3xl -rotate-12"
+      ></div>
+      <div class="absolute z-10 m-5 w-full flex items-center justify-center">
+        <div class="flex w-full items-center justify-between z-10">
+          <div class="border-8 border-white border-opacity-30 rounded-full">
+            <img
+              class="w-20 h-20 rounded-full shadow-md shadow-slate-900"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNGxhwqRrRUGshTR9lGyEbmo7cb4kEUq_EQ&s"
+              alt=""
+            />
+          </div>
+          <div class="flex w-3/4 items-start pl-10 flex-col">
+            <h1 class="text-white text-2xl font-semibold">Dr Jessica James</h1>
+            <p class="text-white/60 text-sm">Dermatologist</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-center mt-44 bg-red-">
+        <button class="text-white bg-[#5e7dd6] px-8 py-3 rounded-lg">
+          <i class="fa-solid fa-plus mr-1"></i> Add branch
+        </button>
+      </div>
+      <ul class="mt-6">
+        <li class="relative group">
+          <input
+            type="radio"
+            name="menu"
+            id="dashboard"
+            class="peer hidden"
+            checked
+          />
+          <label
+            for="dashboard"
+            class="flex items-center justify-between py-5 pr-4 hover:bg-gray-100 rounded-lg cursor-pointer peer-checked:bg-blue-50"
+          >
+            <div class="flex items-center">
+              <div
+                class="h-14 w-1.5 bg-[#5e7dd6] hidden group-has-[:checked]:block absolute left-0"
+              ></div>
+              <i
+                class="fa-solid fa-chart-pie text-xl text-gray-400 group-has-[:checked]:text-[#5e7dd6] ml-5 mr-4"
+              ></i>
+              <span
+                class="text-gray-600 group-has-[:checked]:text-gray-800 font-medium group-has-[:checked]:font-semibold"
+                >Dashboard</span
+              >
+            </div>
+            <i
+              class="fa-solid fa-chevron-right text-gray-400 group-has-[:checked]:text-[#5e7dd6]"
+            ></i>
+          </label>
+        </li>
+
+        <li class="relative group">
+          <input
+            type="radio"
+            name="menu"
+            id="post"
+            class="peer hidden"
+            checked
+          />
+          <label
+            for="post"
+            class="flex items-center justify-between py-5 pr-4 hover:bg-gray-100 rounded-lg cursor-pointer peer-checked:bg-blue-50"
+          >
+            <div class="flex items-center">
+              <div
+                class="h-14 w-1.5 bg-[#5e7dd6] hidden group-has-[:checked]:block absolute left-0"
+              ></div>
+              <i
+                class="fa-solid fa-calendar text-xl text-gray-400 group-has-[:checked]:text-[#5e7dd6] ml-5 mr-4"
+              ></i>
+              <span
+                class="text-gray-600 group-has-[:checked]:text-gray-800 font-medium group-has-[:checked]:font-semibold"
+                >Post sessions</span
+              >
+            </div>
+            <i
+              class="fa-solid fa-chevron-right text-gray-400 group-has-[:checked]:text-[#5e7dd6]"
+            ></i>
+          </label>
+        </li>
+        <li class="relative group">
+          <input
+            type="radio"
+            name="menu"
+            id="live"
+            class="peer hidden"
+            checked
+          />
+          <label
+            for="live"
+            class="flex items-center justify-between py-5 pr-4 hover:bg-gray-100 rounded-lg cursor-pointer peer-checked:bg-blue-50"
+          >
+            <div class="flex items-center">
+              <div
+                class="h-14 w-1.5 bg-[#5e7dd6] hidden group-has-[:checked]:block absolute left-0"
+              ></div>
+              <i
+                class="fa-solid fa-bolt-lightning text-xl text-gray-400 group-has-[:checked]:text-[#5e7dd6] ml-5 mr-4"
+              ></i>
+              <span
+                class="text-gray-600 group-has-[:checked]:text-gray-800 font-medium group-has-[:checked]:font-semibold"
+                >Live sessions</span
+              >
+            </div>
+            <i
+              class="fa-solid fa-chevron-right text-gray-400 group-has-[:checked]:text-[#5e7dd6]"
+            ></i>
+          </label>
+        </li>
+        <li class="relative group">
+          <input
+            type="radio"
+            name="menu"
+            id="messages"
+            class="peer hidden"
+            checked
+          />
+          <label
+            for="messages"
+            class="flex items-center justify-between py-5 pr-4 hover:bg-gray-100 rounded-lg cursor-pointer peer-checked:bg-blue-50"
+          >
+            <div class="flex items-center">
+              <div
+                class="h-14 w-1.5 bg-[#5e7dd6] hidden group-has-[:checked]:block absolute left-0"
+              ></div>
+              <i
+                class="fa-solid fa-message text-xl text-gray-400 group-has-[:checked]:text-[#5e7dd6] ml-5 mr-4"
+              ></i>
+              <span
+                class="text-gray-600 group-has-[:checked]:text-gray-800 font-medium group-has-[:checked]:font-semibold"
+                >Messages</span
+              >
+            </div>
+            <i
+              class="fa-solid fa-chevron-right text-gray-400 group-has-[:checked]:text-[#5e7dd6]"
+            ></i>
+          </label>
+        </li>
+        <li class="relative group mb-5">
+          <input
+            type="radio"
+            name="menu"
+            id="locum"
+            class="peer hidden"
+            checked
+          />
+          <label
+            for="locum"
+            class="flex items-center justify-between py-5 pr-4 hover:bg-gray-100 rounded-lg cursor-pointer peer-checked:bg-blue-50"
+          >
+            <div class="flex items-center">
+              <div
+                class="h-14 w-1.5 bg-[#5e7dd6] hidden group-has-[:checked]:block absolute left-0"
+              ></div>
+              <i
+                class="fa-solid fa-heart text-xl text-gray-400 group-has-[:checked]:text-[#5e7dd6] ml-5 mr-4"
+              ></i>
+              <span
+                class="text-gray-600 group-has-[:checked]:text-gray-800 font-medium group-has-[:checked]:font-semibold"
+                >Locum Library</span
+              >
+            </div>
+            <i
+              class="fa-solid fa-chevron-right text-gray-400 group-has-[:checked]:text-[#5e7dd6]"
+            ></i>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
