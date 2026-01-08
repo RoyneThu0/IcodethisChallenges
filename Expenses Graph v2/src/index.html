@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url('https://plus.unsplash.com/premium_photo-1668037381937-f7df1b888573?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    "
+  >
+    <div
+      class="relative h-[470px] w-11/12 max-w-lg flex items-center justify-center bg-white bg-opacity-25 rounded-lg shadow-lg p-4"
+    >
+      <div
+        class="absolute w-full p-10 hover:translate-x-10 hover:translate-y-10 duration-500 ease-in-out bg-white rounded-lg flex flex-col shadow-lg shadow-slate-600"
+      >
+        <p class="text-2xl font-serif font-semibold mt-6">Expenses</p>
+        <div class="w-full flex items-center justify-between mt-5">
+          <div
+            class="w-fit gap-3 bg-purple-100 p-2 rounded-full flex items-center justify-between"
+          >
+            <button
+              class="bg-gradient-to-r from-purple-400 to-blue-400 text-white font-semibold py-2 px-4 rounded-full focus:outline-none"
+            >
+              Weekly
+            </button>
+            <button
+              class="hover:bg-gradient-to-r from-purple-400 to-blue-400 hover:text-white text-black font-semibold py-2 px-4 rounded-full hover:bg-gray-200 focus:outline-none"
+            >
+              Monthly
+            </button>
+            <button
+              class="hover:bg-gradient-to-r from-purple-400 to-blue-400 hover:text-white text-black font-semibold py-2 px-4 rounded-full hover:bg-gray-200 focus:outline-none"
+            >
+              Yearly
+            </button>
+          </div>
+          <p class="text-3xl font-bold">...</p>
+        </div>
+
+        <div class="mt-10 w-full">
+          <canvas id="expensesChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script>
+      const ctx = document.getElementById("expensesChart").getContext("2d");
+
+      // Define data for different time periods
+      const chartData = {
+        weekly: {
+          labels: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          expenses: [12, 19, 3, 5, 2, 3, 7],
+          income: [15, 25, 8, 10, 5, 6, 9],
+        },
+        monthly: {
+          labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+          expenses: [120, 150, 80, 95],
+          income: [200, 250, 180, 210],
+        },
+        yearly: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          expenses: [
+            450, 520, 380, 490, 510, 470, 500, 530, 480, 510, 490, 550,
+          ],
+          income: [800, 850, 780, 820, 900, 870, 890, 920, 880, 910, 890, 950],
+        },
+      };
+
+      const expensesChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: chartData.weekly.labels,
+          datasets: [
+            {
+              label: "Expenses",
+              data: chartData.weekly.expenses,
+              backgroundColor: "rgba(75, 192, 192, 0.6)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 2,
+              borderRadius: 10,
+            },
+            {
+              label: "Income",
+              data: chartData.weekly.income,
+              backgroundColor: "rgba(153, 102, 255, 0.9)",
+              borderColor: "rgba(153, 102, 255, 1)",
+              borderWidth: 2,
+              borderRadius: 10,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+          barPercentage: 0.5,
+          categoryPercentage: 0.7,
+        },
+      });
+
+      const buttons = document.querySelectorAll("button");
+
+      function updateActiveButton(activeButton) {
+        buttons.forEach((btn) => {
+          btn.classList.remove(
+            "bg-gradient-to-r",
+            "from-purple-400",
+            "to-blue-400",
+            "text-white"
+          );
+          btn.classList.add("hover:bg-teal-400");
+        });
+
+        activeButton.classList.add(
+          "bg-gradient-to-r",
+          "from-purple-400",
+          "to-blue-400",
+          "text-white"
+        );
+        activeButton.classList.remove(
+          "hover:bg-gradient-to-r",
+          "hover:from-purple-400",
+          "hover:to-blue-400",
+          "text-black"
+        );
+      }
+
+      buttons[0].addEventListener("click", () => {
+        expensesChart.data.labels = chartData.weekly.labels;
+        expensesChart.data.datasets[0].data = chartData.weekly.expenses;
+        expensesChart.data.datasets[1].data = chartData.weekly.income;
+        expensesChart.update();
+        updateActiveButton(buttons[0]);
+      });
+
+      buttons[1].addEventListener("click", () => {
+        expensesChart.data.labels = chartData.monthly.labels;
+        expensesChart.data.datasets[0].data = chartData.monthly.expenses;
+        expensesChart.data.datasets[1].data = chartData.monthly.income;
+        expensesChart.update();
+        updateActiveButton(buttons[1]);
+      });
+
+      buttons[2].addEventListener("click", () => {
+        expensesChart.data.labels = chartData.yearly.labels;
+        expensesChart.data.datasets[0].data = chartData.yearly.expenses;
+        expensesChart.data.datasets[1].data = chartData.yearly.income;
+        expensesChart.update();
+        updateActiveButton(buttons[2]);
+      });
+    </script>
+  </body>
+</html>
