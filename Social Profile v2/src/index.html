@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://img.freepik.com/premium-photo/blue-white-abstract-blue-white-world_14117-3421.jpg);
+    "
+  >
+    <div
+      id="main"
+      class="w-11/12 max-w-xl p-10 bg-[#8dc7e8] shadow-lg rounded-lg hover:scale-110 duration-300"
+    >
+      <div class="flex w-full h-full flex-col items-center">
+        <img
+          class="w-24 h-24 rounded-full shadow-lg object-cover"
+          src="https://images.unsplash.com/photo-1728621999954-9c8ee3f85fa8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdpcmx8ZW58MHwyfDB8fHww"
+          alt=""
+        />
+        <p class="font-bold text-lg mt-4">Sally Ramos</p>
+        <p class="font-light text-gray-600">@sallytheramos</p>
+
+        <div class="flex gap-2 mt-5">
+          <button
+            id="FollowBtn"
+            class="px-7 py-2 text-white rounded-full bg-[#4c95c5] hover:bg-[#080848] duration-300 active:bg-sky-800"
+          >
+            Following
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-[#8dc7e8] p-7 w-11/12 max-w-xl rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-110 hover:shadow-gray-600 duration-300"
+      id="Following"
+      style="display: none"
+    >
+      <div class="flex items-center justify-between w-full">
+        <img
+          class="w-24 h-24 rounded-full shadow-lg object-cover"
+          src="https://images.unsplash.com/photo-1728621999954-9c8ee3f85fa8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdpcmx8ZW58MHwyfDB8fHww"
+          alt=""
+        />
+
+        <button
+          id="followingBtn"
+          class="px-7 mt-3 py-2 rounded-full text-white bg-[#4c95c5] hover:bg-[#080848] duration-300 active:bg-sky-800"
+        >
+          Follow
+        </button>
+      </div>
+      <p class="font-bold mt-5 w-full text-start">Sally Ramos</p>
+      <p class="font-light text-gray-600 w-full text-start">@sallytheramos</p>
+      <p class="font-light text-gray-600 w-full text-start mt-2">
+        Product designer at @company.
+      </p>
+      <p class="font-light text-gray-600 w-full text-start">
+        working on @othercompany at my free time.
+      </p>
+      <p class="w-full text-gray-600 mt-5">
+        <span class="font-semibold">15K </span>Followers.
+        <span class="font-semibold">7K </span>Following. Since April 30.2017
+      </p>
+    </div>
+    <div
+      id="toastMessage"
+      class="fixed top-20 self-center bg-sky-600 text-white px-4 py-2 rounded shadow-lg"
+      style="display: none"
+    >
+      You are now following Sally Ramos!
+    </div>
+    <script>
+      const followBtn = document.getElementById("FollowBtn");
+      const followingDiv = document.getElementById("Following");
+      const mainDiv = document.getElementById("main");
+
+      followBtn.addEventListener("click", () => {
+        followingDiv.style.display = "block";
+        mainDiv.style.display = "none";
+      });
+
+      followingBtn.addEventListener("click", () => {
+        toastMessage.style.display = "block";
+        followingBtn.innerText = " Following";
+        setTimeout(() => {
+          toastMessage.style.display = "none";
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
