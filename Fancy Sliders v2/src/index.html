@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fancy Sliders v2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div
+      class="bg-white rounded-lg p-8 shadow-lg w-full max-w-4xl flex flex-col items-center gap-10"
+    >
+      <!-- Chart with Range Slider -->
+      <div class="w-full flex flex-col items-center">
+        <div class="flex justify-center mb-2">
+          <canvas id="myChart" class="w-[420px] h-[120px]"></canvas>
+        </div>
+        <div class="flex items-center justify-center w-full">
+          <button
+            id="rangeLeft"
+            class="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center mr-2"
+          >
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <div id="slider1" class="flex-1 mx-2"></div>
+          <button
+            id="rangeRight"
+            class="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center ml-2"
+          >
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Single Value Slider -->
+      <div class="w-full max-w-xl flex flex-col gap-2">
+        <div
+          class="flex justify-between text-sm text-blue-900 font-semibold mb-1"
+        >
+          <span>$0</span>
+          <span id="slider2Value" class="font-bold"></span>
+          <span>$1500</span>
+        </div>
+        <div id="slider2"></div>
+      </div>
+
+      <!-- Progress Bar with Percentage -->
+      <div class="w-full max-w-2xl flex flex-col items-center gap-2">
+        <div
+          class="relative w-full h-8 bg-gray-200 rounded-full overflow-hidden"
+        >
+          <div
+            id="progressBar"
+            class="absolute left-0 top-0 h-full bg-blue-900/80 rounded-full flex items-center justify-center transition-all duration-300"
+            style="width: 54%"
+          >
+            <div
+              class="absolute inset-0 bg-[repeating-linear-gradient(135deg,_#233a7b_0_10px,_#233a7b22_10px_20px)] opacity-30 rounded-full"
+            ></div>
+            <span
+              class="relative z-10 text-white font-bold w-full text-center"
+              id="progressPercent"
+              >54%</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Storage Bars -->
+      <div class="w-full max-w-2xl flex flex-col gap-2 mt-4">
+        <div
+          class="flex items-center justify-between text-sm text-blue-900 font-semibold"
+        >
+          <span>Sketch</span>
+          <span>14Gb</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
+          <div
+            id="sketchBar"
+            class="h-full bg-blue-900 rounded-full transition-all duration-300"
+            style="width: 40%"
+          ></div>
+        </div>
+        <div
+          class="flex items-center justify-between text-sm text-[#e57277] font-semibold"
+        >
+          <span>Figma</span>
+          <span>36Gb</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div
+            id="figmaBar"
+            class="h-full bg-[#e57277] rounded-full transition-all duration-300"
+            style="width: 85%"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Chart and Range Slider
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const data = Array.from({ length: 24 }, () =>
+        Math.floor(Math.random() * 100),
+      );
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: Array.from({ length: 24 }, (_, i) => `${i + 1}`),
+          datasets: [
+            {
+              data: data,
+              backgroundColor: data.map(() => "rgb(99, 102, 241, 0.2)"),
+              borderColor: data.map(() => "rgb(99, 102, 241, 1)"),
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: { x: { display: false }, y: { display: false } },
+          plugins: { legend: { display: false }, tooltip: { enabled: true } },
+        },
+      });
+
+      // Range Slider for chart
+      const slider1 = document.getElementById("slider1");
+      noUiSlider.create(slider1, {
+        start: [4, 19],
+        connect: true,
+        range: { min: 0, max: 23 },
+        step: 1,
+        behaviour: "drag",
+      });
+      slider1.noUiSlider.on("update", (values) => {
+        const [start, end] = values.map(Number);
+        const highlightedData = data.map((_, i) =>
+          i >= start && i <= end
+            ? {
+                backgroundColor: "rgb(99, 102, 241, 0.2)",
+                borderColor: "rgb(99, 102, 241, 1)",
+              }
+            : {
+                backgroundColor: "rgb(201, 203, 207, 0.2)",
+                borderColor: "rgb(201, 203, 207, 1)",
+              },
+        );
+        myChart.data.datasets[0].backgroundColor = highlightedData.map(
+          (d) => d.backgroundColor,
+        );
+        myChart.data.datasets[0].borderColor = highlightedData.map(
+          (d) => d.borderColor,
+        );
+        myChart.update();
+      });
+      // Arrow buttons for range slider
+      document.getElementById("rangeLeft").onclick = () => {
+        let [start, end] = slider1.noUiSlider.get().map(Number);
+        if (start > 0) slider1.noUiSlider.set([start - 1, end - 1]);
+      };
+      document.getElementById("rangeRight").onclick = () => {
+        let [start, end] = slider1.noUiSlider.get().map(Number);
+        if (end < 23) slider1.noUiSlider.set([start + 1, end + 1]);
+      };
+
+      // Single Value Slider
+      const slider2 = document.getElementById("slider2");
+      noUiSlider.create(slider2, {
+        start: [470],
+        connect: [true, false],
+        range: { min: 0, max: 1500 },
+        step: 1,
+        tooltips: {
+          to: (value) => `$${Math.round(value)}`,
+          from: (value) => Number(value.replace("$", "")),
+        },
+      });
+      const slider2Value = document.getElementById("slider2Value");
+      slider2.noUiSlider.on("update", (values) => {
+        slider2Value.textContent = `$${Math.round(values[0])}`;
+      });
+      slider2Value.textContent = "$470";
+
+      // Progress Bar with Percentage
+      const progressBar = document.getElementById("progressBar");
+      const progressPercent = document.getElementById("progressPercent");
+      let percent = 54;
+      function animateProgressBar(target) {
+        let current = 0;
+        const interval = setInterval(() => {
+          if (current >= target) {
+            clearInterval(interval);
+            return;
+          }
+          current++;
+          progressBar.style.width = `${current}%`;
+          progressPercent.textContent = `${current}%`;
+        }, 10);
+      }
+      animateProgressBar(percent);
+
+      // Storage Bars (Sketch and Figma)
+      const sketchBar = document.getElementById("sketchBar");
+      const figmaBar = document.getElementById("figmaBar");
+      // Animate storage bars
+      function animateBar(bar, target) {
+        let current = 0;
+        const interval = setInterval(() => {
+          if (current >= target) {
+            clearInterval(interval);
+            return;
+          }
+          current++;
+          bar.style.width = `${current}%`;
+        }, 8);
+      }
+      animateBar(sketchBar, 40); // 40% for Sketch
+      animateBar(figmaBar, 85); // 85% for Figma
+    </script>
+  </body>
+</html>
