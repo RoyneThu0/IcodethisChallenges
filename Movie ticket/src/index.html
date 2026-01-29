@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seat Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+
+    <style>
+      .seat {
+        width: 24px;
+        height: 24px;
+        fill: #d0d0d2;
+      }
+      .seat.booked {
+        fill: #e82929;
+      }
+      .seat.selected {
+        fill: #71f88c;
+      }
+      .seat-icon {
+        font-size: 24px;
+        color: rgb(210, 206, 206);
+        margin: 5px;
+        cursor: pointer;
+      }
+      .seat-icon.selected {
+        color: #71f88c;
+      }
+      .seat-icon.booked {
+        color: rgba(255, 0, 0, 0.668);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-b from-gray-300 to-gray-700 flex items-center justify-center min-h-screen bg-cover bg-center"
+    style="
+      background-image: url(https://4kwallpapers.com/images/walls/thumbs_2t/586.png);
+    "
+  >
+    <div
+      class="w-11/12 max-w-sm bg-white mt-10 rounded-xl shadow-xl shadow-slate-900"
+    >
+      <div class="relative">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghJTCIFlCLALiDfzj46Z1h-wiAnT7TOGwXDmmj2KfD2TUADj_xDriaojSCYPvM4_nO_3GPbPa1Ow_7xux5iRSDbD-hRGDGdrpMVWd3szUSY5zuw_JRbr4Zn6ASvSJ3ls9AvdbgXMqpD7vNMvybBjIFvp1OCGu8vWkQEaokEVz3AxbdFdMAmkbo5Q/s540/IMG_8156.gif"
+          alt="Movie Poster"
+          class="w-full rounded-t-xl h-52 object-cover"
+        />
+        <div class="absolute top-36 w-full text-center">
+          <h2 class="font-semibold text-2xl font-serif text-slate-50">
+            Spiderman Noir
+          </h2>
+          <p class="text-sm text-gray-100">
+            Cineplex Entertainment, Toronto ON
+          </p>
+        </div>
+        <div class="absolute top-0 left-0 p-4">
+          <button class="text-white text-2xl">&#8592;</button>
+        </div>
+      </div>
+      <div
+        class="p-4 text-center bg-gradient-to-b from-[#484848] from-50% to-90% to-gray-900"
+      >
+        <div
+          class="flex items-center justify-center space-x-4 mt-4 mb-2 text-xs text-gray-200"
+        >
+          <div class="flex items-center space-x-1">
+            <svg class="seat">
+              <circle cx="12" cy="12" r="12"></circle>
+            </svg>
+            <span>Available</span>
+          </div>
+          <div class="flex items-center space-x-1">
+            <svg class="seat booked">
+              <circle cx="12" cy="12" r="12"></circle>
+            </svg>
+            <span>Booked</span>
+          </div>
+          <div class="flex items-center space-x-1">
+            <svg class="seat selected">
+              <circle cx="12" cy="12" r="12"></circle>
+            </svg>
+            <span>Selected</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-8 gap-2 justify-items-center">
+          <span class="col-span-1"></span>
+
+          <div
+            class="col-span-8 grid grid-cols-8 gap-2 justify-items-center seat-layout"
+          >
+            <template id="seat-template">
+              <button class="seat-icon">
+                <svg class="seat available">
+                  <circle cx="12" cy="12" r="12"></circle>
+                </svg>
+              </button>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 text-center text-gray-500 text-sm">
+        <p class="border-t-4 border-gray-400 pt-4">Screen</p>
+      </div>
+
+      <div
+        class="flex justify-between items-center p-4 bg-pink-600 text-white rounded-b-xl"
+      >
+        <div>
+          <p>Date: <span class="font-semibold">Nov 11, 19:15</span></p>
+          <p>Tickets: <span class="tickets font-semibold">0</span></p>
+          <p>Total: $<span class="total font-semibold">0</span></p>
+        </div>
+        <button
+          class="bg-white text-pink-600 active:bg-green-400 duration-300 px-4 py-2 hover:bg-slate-800 hover:text-white rounded-md font-semibold"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tickets = document.querySelector(".tickets");
+        const total = document.querySelector(".total");
+        const ticketPrice = 10;
+
+        // Set up the seat layout
+        for (let i = 0; i < 48; i++) {
+          // 48 seats
+          const seat = document.createElement("i");
+          seat.classList.add("fa-solid", "fa-couch", "seat-icon");
+          seat.addEventListener("click", () => {
+            if (seat.classList.contains("booked")) return;
+
+            seat.classList.toggle("selected");
+            updateSummary();
+          });
+
+          // Randomly mark some seats as booked
+          if (Math.random() < 0.2) {
+            seat.classList.add("booked");
+          }
+
+          document.querySelector(".seat-layout").appendChild(seat);
+        }
+
+        function updateSummary() {
+          const selectedSeats = document.querySelectorAll(
+            ".seat-icon.selected",
+          ).length;
+          tickets.textContent = selectedSeats;
+          total.textContent = selectedSeats * ticketPrice;
+        }
+      });
+    </script>
+  </body>
+</html>
