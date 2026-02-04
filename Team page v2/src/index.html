@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="w-screen min-h-screen bg-cover bg-center flex items-center justify-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1629197521865-4946b4acd2b0?q=80&w=1725&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    "
+  >
+    <div
+      id="team"
+      class="w-11/12 max-w-5xl p-10 grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 items-center justify-center gap-2"
+    >
+      <div
+        class="bg-slate-900 flex hover:scale-95 duration-300 flex-col items-center justify-center rounded-lg shadow-xl"
+      >
+        <img
+          class="w-full rounded-t-lg"
+          src="https://wallpapers.com/images/hd/rick-and-morty-stoner-mugshot-q0nf600gikr66wac.jpg"
+          alt=""
+        />
+        <div class="w-full p-2">
+          <p class="w-full text-start text-slate-200 mt-2 font-semibold">
+            Rick Sanchez
+          </p>
+          <p class="w-full text-start text-sm text-slate-500">Rogue Fugitive</p>
+          <p class="w-full text-start mt-2 text-sm text-slate-500">
+            Previously
+          </p>
+
+          <span
+            class="flex w-full text-start text-xl font-sans font-semibold text-blue-500"
+            >G
+            <p class="text-red-500">o</p>
+            <p class="text-yellow-500">o</p>
+            <p class="text-blue-500">g</p>
+            <p class="text-green-600">l</p>
+            <p class="text-red-500">e</p></span
+          >
+        </div>
+      </div>
+      <div
+        class="bg-slate-900 hover:scale-95 duration-300 flex flex-col items-center justify-center rounded-lg shadow-xl"
+      >
+        <img
+          class="w-full rounded-t-lg"
+          src="https://i.pinimg.com/736x/08/8a/55/088a55f51ba65cbdea8c90c75093296e.jpg"
+          alt=""
+        />
+        <div class="w-full p-2">
+          <p class="w-full text-start text-slate-200 mt-2 font-semibold">
+            Morty Smith
+          </p>
+          <p class="w-full text-start text-sm text-slate-500">Sidekick</p>
+          <p class="w-full text-start mt-2 text-sm text-slate-500">
+            Previously
+          </p>
+
+          <span class="text-xl text-slate-200"> Uber</span>
+        </div>
+      </div>
+      <div
+        class="bg-slate-900 hover:scale-95 duration-300 flex flex-col items-center justify-center rounded-lg shadow-xl"
+      >
+        <img
+          class="w-full h-48 rounded-t-lg"
+          src="https://static0.srcdn.com/wordpress/wp-content/uploads/2019/11/Rick-and-Morty-Season-4-Episode-2-Jerry.jpg?w=1200&h=675&fit=crop"
+          alt=""
+        />
+        <div class="w-full p-2">
+          <p class="w-full text-start text-slate-200 mt-2 font-semibold">
+            Jerry Smith
+          </p>
+          <p class="w-full text-start text-sm text-slate-500">
+            Trying his best okay?
+          </p>
+          <p class="w-full text-start mt-2 text-sm text-slate-500">
+            Previously
+          </p>
+
+          <span
+            class="flex w-full items-center justify-start text-start text-xl font-sans font-semibold text-white"
+            ><i class="fa-brands fa-intercom text-white text-xl mx-2"></i
+            >INTERCOM</span
+          >
+        </div>
+      </div>
+      <div
+        id="add-more"
+        class="bg-slate-900 min-h-[300px] flex group flex-col items-center justify-center h-full rounded-lg shadow-xl"
+      >
+        <p>
+          <i
+            class="fa-solid fa-plus group-hover:text-blue-500 duration-300 text-slate-300 text-4xl"
+          ></i>
+        </p>
+        <p class="group-hover:text-blue-500 duration-300 text-slate-300">
+          Add more
+        </p>
+      </div>
+    </div>
+    <script>
+      const team = document.getElementById("team");
+      const addMore = document.getElementById("add-more");
+
+      let newCardCount = 0;
+      const maxNewCards = 4;
+
+      addMore.addEventListener("click", () => {
+        if (newCardCount >= maxNewCards) {
+          addMore.style.pointerEvents = "none";
+          addMore.textContent = "Limit reached";
+          addMore.classList.add("text-white", "text-xl", "animate-pulse");
+          return;
+        }
+        const newCard = document.createElement("div");
+        newCard.className =
+          "bg-slate-900 hover:scale-95 duration-300 flex flex-col items-center justify-center rounded-lg shadow-xl";
+        newCard.innerHTML = `
+        <img
+        class="w-full rounded-t-lg"
+        src="https://sketchok.com/images/articles/01-cartoons/007-rick-and-morty/02/10.jpg"
+        alt=""
+        />
+        <div class="w-full p-2">
+          <p class="w-full text-start text-slate-200 mt-2 font-semibold">
+            Mr Meeseeks
+          </p>
+          <p class="w-full text-start text-sm text-slate-500">
+            Take a shot off jerry's swing
+          </p>
+          <p class="w-full text-start mt-2 text-sm text-slate-500">
+            Previously
+          </p>
+
+          <span class="text-xl text-slate-200"> Company</span>
+        </div>
+        `;
+
+        team.insertBefore(newCard, addMore);
+        newCardCount++;
+      });
+    </script>
+  </body>
+</html>
