@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="min-h-screen bg-gray-100 flex items-center justify-center p-4 bg-cover bg-center"
+    style="
+      background-image: url(https://plus.unsplash.com/premium_photo-1673480195911-3075a87738b0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHdoaXRlJTIwYWJzdHJhY3QlMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHx8MA%3D%3D);
+    "
+  >
+    <div
+      class="bg-white rounded-xl shadow-lg w-full max-w-2xl mx-auto p-4 md:p-8"
+    >
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+        <i
+          class="fa-solid fa-chevron-left text-gray-400 text-xl md:text-2xl md:self-center"
+        ></i>
+        <div class="flex flex-col items-center md:items-start md:w-1/3">
+          <img
+            class="w-24 h-24 rounded-full object-cover mb-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZR8CHybxqJgeBeRMzg_Aiw8IBnepueWNnNg&s"
+            alt="Company Logo"
+          />
+          <div class="flex text-yellow-400 mb-1">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-gray-500 text-sm">2778 reviews</p>
+        </div>
+        <div class="flex-1 md:w-2/3">
+          <p class="text-xl font-bold text-gray-800 mb-1">#1. GOOGLE</p>
+          <p class="text-blue-500 text-sm mb-2">http://www.google.com</p>
+          <p class="text-gray-600 text-sm">
+            Google LLC is an American multinational technology company that
+            specializes in internet-related services and products. These include
+            online advertising technologies, search, cloud computing, software,
+            and hardware.
+          </p>
+        </div>
+        <i
+          class="fa-solid fa-chevron-right text-gray-400 text-xl md:text-2xl md:self-center"
+        ></i>
+      </div>
+      <div class="mt-8">
+        <div class="flex flex-col md:flex-row gap-4 mb-6">
+          <div
+            class="flex-1 bg-gray-50 rounded-lg p-4 flex flex-col items-center"
+          >
+            <span class="text-xs text-gray-500">TOTAL EMPLOYEES</span>
+            <p class="text-lg font-semibold text-gray-800">72,043</p>
+          </div>
+          <div
+            class="flex-1 bg-gray-50 rounded-lg p-4 flex flex-col items-center"
+          >
+            <span class="text-xs text-gray-500">JOB OPENINGS</span>
+            <p class="text-lg font-semibold text-green-600">1278</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-lg font-bold text-gray-800 mb-4">PAID TIME OFF</p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <p class="flex-1 text-sm text-gray-600">General PTO</p>
+              <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-400" style="width: 20%"></div>
+              </div>
+              <p class="w-10 text-center text-sm font-semibold text-gray-700">
+                15
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <p class="flex-1 text-sm text-gray-600">
+                Total PTO after 5 years
+              </p>
+              <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-400" style="width: 40%"></div>
+              </div>
+              <p class="w-10 text-center text-sm font-semibold text-gray-700">
+                20
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <p class="flex-1 text-sm text-gray-600">For volunteering</p>
+              <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-400" style="width: 25%"></div>
+              </div>
+              <p class="w-10 text-center text-sm font-semibold text-gray-700">
+                25
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <p class="flex-1 text-sm text-gray-600">
+                General PTO for part-timers
+              </p>
+              <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-400" style="width: 8.33%"></div>
+              </div>
+              <p class="w-10 text-center text-sm font-semibold text-gray-700">
+                7
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <p class="flex-1 text-sm text-gray-600">
+                #Sick days for part-timers
+              </p>
+              <div
+                class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden"
+              ></div>
+              <p class="w-10 text-center text-sm font-semibold text-gray-700">
+                0
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
