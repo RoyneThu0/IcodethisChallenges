@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Tooltip</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex items-center justify-center bg-cover bg-gradient-to-br from-purple-400 to bg-indigo-800"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1637825891028-564f672aa42c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    "
+  >
+    <div class="w-11/12 max-w-3xl p-10 grid sm:grid-cols-2 grid-cols-1 gap-10">
+      <div class="w-full h-full flex items-end justify-center">
+        <div
+          id="one"
+          class="relative z-0 bg-slate-50 w-full flex flex-col p-5 mt-14 rounded-lg"
+        >
+          <div class="w-full flex items-center justify-center">
+            <img
+              src="https://miro.medium.com/v2/resize:fit:800/1*odA_nWwCL4O7FXgWmAP1gw.jpeg"
+              class="w-20 h-20 rounded-full"
+              alt=""
+            />
+            <div class="w-full flex flex-col ml-2">
+              <p class="font-bold text-lg">Nora Sanders</p>
+              <p class="font-light text-sm">
+                UX Designer <span class="text-blue-500">@Google</span>
+              </p>
+            </div>
+          </div>
+          <div class="w-full flex items-center justify-center mt-4">
+            <button
+              class="w-1/2 py-3 bg-purple-600 text-white rounded-md shadow-lg shadow-purple-700"
+            >
+              Message
+            </button>
+          </div>
+          <div
+            class="absolute hidden sm:block -z-10 w-0 h-0 -bottom-6 left-36 border-l-[20px] border-l-transparent border-t-[29px] border-t-slate-50 border-r-[20px] border-r-transparent flex flex-col items-center"
+          ></div>
+          <img
+            class="absolute hidden animate-pulse sm:block -bottom-28 left-32 w-20 h-20 rounded-full z-20"
+            src="https://miro.medium.com/v2/resize:fit:800/1*odA_nWwCL4O7FXgWmAP1gw.jpeg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="w-full h-full flex items-start justify-center">
+        <div id="two" class="relative bg-blue-900 w-full p-5 rounded-lg mb-20">
+          <div class="w-full flex flex-col items-center justify-center">
+            <img
+              src="https://miro.medium.com/v2/resize:fit:800/1*odA_nWwCL4O7FXgWmAP1gw.jpeg"
+              class="w-20 h-20 rounded-full"
+              alt=""
+            />
+            <div class="w-full flex flex-col items-center ml-2">
+              <p class="font-bold text-lg text-white">Nora Sanders</p>
+              <p class="font-light text-sm text-slate-400">
+                UX Designer <span class="text-blue-500">@Google</span>
+              </p>
+            </div>
+          </div>
+          <div class="w-full flex items-center justify-center mt-4">
+            <button
+              class="w-2/3 py-3 bg-purple-600 text-white rounded-md shadow-lg shadow-purple-700"
+            >
+              Message
+            </button>
+          </div>
+          <div
+            class="absolute hidden sm:block -right-5 top-24 w-0 h-0 border-t-[20px] border-t-transparent border-l-[25px] border-l-blue-900 border-b-[20px] border-b-transparent"
+          ></div>
+          <img
+            class="absolute animate-pulse hidden sm:block -right-28 top-20 w-20 h-20 rounded-full z-20"
+            src="https://miro.medium.com/v2/resize:fit:800/1*odA_nWwCL4O7FXgWmAP1gw.jpeg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
