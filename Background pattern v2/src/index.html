@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background pattern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen">
+    <canvas
+      id="background"
+      class="fixed inset-0 -z-10 h-screen w-screen pointer-events-none bg-gradient-to-tr from-[#07666b] to-[#72b953]"
+    ></canvas>
+
+    <script>
+      "use strict";
+
+      function generateBackground() {
+        const space = 30;
+        const canvas = document.getElementById("background");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        if (canvas.getContext) {
+          const ctx = canvas.getContext("2d");
+          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = "#fff";
+          ctx.fillStyle = "#fff";
+
+          ctx.globalAlpha = 0.2;
+          ctx.beginPath();
+          for (let y = space / 2; y <= canvas.height; y += space) {
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvas.width, y);
+            for (let x = space / 2; x <= canvas.width; x += space) {
+              if (y === space / 2) {
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+              }
+              ctx.moveTo(x, y);
+              ctx.arc(x, y, 2, 0, Math.PI * 2, true);
+            }
+          }
+          ctx.stroke();
+
+          ctx.globalAlpha = 1;
+          ctx.beginPath();
+          const numberOfPoints = Math.floor(
+            (Math.floor(canvas.width / space) *
+              Math.floor(canvas.height / space)) /
+              40
+          );
+          for (let i = 0; i <= numberOfPoints; i++) {
+            const x =
+              space / 2 +
+              Math.floor((canvas.width / space) * Math.random()) * space;
+            const y =
+              space / 2 +
+              Math.floor((canvas.height / space) * Math.random()) * space;
+            ctx.moveTo(x, y);
+            ctx.arc(x, y, 2, 0, Math.PI * 2, true);
+          }
+          ctx.fill();
+          ctx.stroke();
+        }
+      }
+
+      window.addEventListener("resize", generateBackground);
+      generateBackground();
+    </script>
+  </body>
+</html>
