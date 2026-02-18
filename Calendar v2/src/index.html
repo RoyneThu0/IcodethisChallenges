@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar v2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-[#5f5b67] text-white"
+    style="font-family: &quot;Inter&quot;, sans-serif"
+  >
+    <main class="min-h-screen flex items-center justify-center p-6">
+      <section
+        class="w-full max-w-[520px] rounded-[22px] bg-[#6a6571] shadow-2xl ring-1 ring-white/10"
+      >
+        <header
+          class="flex items-center justify-between rounded-t-[22px] bg-[#7a7480] px-6 py-5"
+        >
+          <button
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"
+            aria-label="Previous month"
+          >
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+          </button>
+          <h1 class="text-lg font-semibold tracking-wide">March 2017</h1>
+          <button
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"
+            aria-label="Next month"
+          >
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+          </button>
+        </header>
+
+        <div class="px-7 pb-7 pt-6">
+          <div
+            class="grid grid-cols-7 gap-y-4 text-center text-sm font-semibold text-cyan-200"
+          >
+            <span>Su</span>
+            <span>Mo</span>
+            <span>Tu</span>
+            <span>We</span>
+            <span>Th</span>
+            <span>Fr</span>
+            <span>Sa</span>
+          </div>
+
+          <div
+            id="calendar-days"
+            class="mt-5 grid grid-cols-7 gap-y-6 text-center text-base"
+          ></div>
+
+          <!-- Modal for adding/removing events -->
+          <div
+            id="event-modal"
+            class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40"
+          >
+            <div
+              class="bg-[#6a6571] rounded-xl p-6 w-full max-w-xs mx-auto relative"
+            >
+              <button
+                id="close-modal"
+                class="absolute top-2 right-2 text-white/60 hover:text-white"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <h2 class="text-lg font-semibold mb-2">
+                Events for <span id="modal-date"></span>
+              </h2>
+              <ul id="event-list" class="mb-4 space-y-2"></ul>
+              <form id="add-event-form" class="flex gap-2">
+                <select
+                  id="event-color"
+                  class="rounded px-2 py-1 bg-[#7a7480] text-white"
+                >
+                  <option value="bg-pink-400">Pink</option>
+                  <option value="bg-amber-300">Amber</option>
+                  <option value="bg-cyan-300">Cyan</option>
+                  <option value="bg-purple-300">Purple</option>
+                  <option value="bg-[#59c6ff]">Blue</option>
+                </select>
+                <button
+                  type="submit"
+                  class="bg-cyan-500 hover:bg-cyan-600 text-white rounded px-3 py-1"
+                >
+                  Add
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <script>
+            // Example events: key is date, value is array of event colors
+            let events = {
+              "2017-03-09": ["bg-pink-400"],
+              "2017-03-17": ["bg-amber-300", "bg-cyan-300"],
+              "2017-03-20": ["bg-purple-300"],
+              "2017-03-07": ["bg-[#59c6ff]"], // selected day
+            };
+
+            // Calendar config
+            const year = 2017;
+            const month = 2; // March (0-indexed)
+            const today = 7; // selected day
+
+            const calendarDays = document.getElementById("calendar-days");
+            const eventModal = document.getElementById("event-modal");
+            const closeModalBtn = document.getElementById("close-modal");
+            const modalDate = document.getElementById("modal-date");
+            const eventList = document.getElementById("event-list");
+            const addEventForm = document.getElementById("add-event-form");
+            const eventColor = document.getElementById("event-color");
+
+            let selectedDate = null;
+
+            function getDaysInMonth(year, month) {
+              return new Date(year, month + 1, 0).getDate();
+            }
+            function getFirstDayOfWeek(year, month) {
+              return new Date(year, month, 1).getDay();
+            }
+
+            function renderCalendar() {
+              const daysInMonth = getDaysInMonth(year, month);
+              const firstDayOfWeek = getFirstDayOfWeek(year, month);
+              const prevMonth = month === 0 ? 11 : month - 1;
+              const prevMonthYear = month === 0 ? year - 1 : year;
+              const daysInPrevMonth = getDaysInMonth(prevMonthYear, prevMonth);
+
+              // Clear
+              calendarDays.innerHTML = "";
+
+              // Previous month's trailing days
+              for (let i = firstDayOfWeek - 1; i >= 0; i--) {
+                const day = daysInPrevMonth - i;
+                const span = document.createElement("span");
+                span.className = "text-white/50";
+                span.textContent = day;
+                calendarDays.appendChild(span);
+              }
+
+              // Current month days
+              for (let day = 1; day <= daysInMonth; day++) {
+                const dateKey = `${year}-03-${String(day).padStart(2, "0")}`;
+                const eventColors = events[dateKey] || [];
+                let span;
+                if (day === today) {
+                  span = document.createElement("span");
+                  span.className = "flex justify-center";
+                  const inner = document.createElement("span");
+                  inner.className =
+                    "flex h-10 w-10 items-center justify-center rounded-full bg-[#59c6ff] text-[#37434d] shadow-lg relative cursor-pointer";
+                  inner.textContent = day;
+                  inner.onclick = () => openEventModal(dateKey);
+                  // Dots for events (except selected day, which is blue)
+                  if (
+                    eventColors.length > 0 &&
+                    !(
+                      eventColors.length === 1 &&
+                      eventColors[0] === "bg-[#59c6ff]"
+                    )
+                  ) {
+                    const dots = document.createElement("span");
+                    dots.className =
+                      "absolute left-1/2 top-9 flex -translate-x-1/2 gap-1";
+                    eventColors.forEach((color) => {
+                      const dot = document.createElement("span");
+                      dot.className = `h-1.5 w-1.5 rounded-full ${color}`;
+                      dots.appendChild(dot);
+                    });
+                    inner.appendChild(dots);
+                  }
+                  span.appendChild(inner);
+                } else {
+                  span = document.createElement("span");
+                  span.className = "cursor-pointer";
+                  span.onclick = () => openEventModal(dateKey);
+                  if (eventColors.length > 0) {
+                    span.className += " relative";
+                    span.textContent = day;
+                    const dots = document.createElement("span");
+                    dots.className = `absolute left-1/2 top-9 flex -translate-x-1/2 gap-1 pointer-events-none`;
+                    eventColors.forEach((color) => {
+                      const dot = document.createElement("span");
+                      dot.className = `h-1.5 w-1.5 rounded-full ${color}`;
+                      dots.appendChild(dot);
+                    });
+                    span.appendChild(dots);
+                  } else {
+                    span.textContent = day;
+                  }
+                }
+                calendarDays.appendChild(span);
+              }
+
+              // Next month's leading days
+              const totalCells = firstDayOfWeek + daysInMonth;
+              const nextDays = 7 * Math.ceil(totalCells / 7) - totalCells;
+              for (let i = 1; i <= nextDays; i++) {
+                const span = document.createElement("span");
+                span.className = "text-white/50";
+                span.textContent = i;
+                calendarDays.appendChild(span);
+              }
+            }
+
+            function openEventModal(dateKey) {
+              selectedDate = dateKey;
+              modalDate.textContent = dateKey;
+              renderEventList();
+              eventModal.classList.remove("hidden");
+              eventModal.classList.add("flex");
+            }
+
+            function closeEventModal() {
+              eventModal.classList.add("hidden");
+              eventModal.classList.remove("flex");
+            }
+
+            function renderEventList() {
+              eventList.innerHTML = "";
+              const eventColors = events[selectedDate] || [];
+              if (eventColors.length === 0) {
+                eventList.innerHTML =
+                  '<li class="text-white/60">No events</li>';
+                return;
+              }
+              eventColors.forEach((color, idx) => {
+                const li = document.createElement("li");
+                li.className = "flex items-center gap-2";
+                const dot = document.createElement("span");
+                dot.className = `h-4 w-4 rounded-full ${color}`;
+                li.appendChild(dot);
+                const label = document.createElement("span");
+                label.className = "flex-1";
+                label.textContent = color
+                  .replace("bg-", "")
+                  .replace("[#", "")
+                  .replace("]", "");
+                li.appendChild(label);
+                const removeBtn = document.createElement("button");
+                removeBtn.className =
+                  "ml-2 text-xs text-red-400 hover:text-red-600";
+                removeBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+                removeBtn.onclick = () => removeEvent(idx);
+                li.appendChild(removeBtn);
+                eventList.appendChild(li);
+              });
+            }
+
+            function addEvent(color) {
+              if (!selectedDate) return;
+              if (!events[selectedDate]) events[selectedDate] = [];
+              events[selectedDate].push(color);
+              renderEventList();
+              renderCalendar();
+            }
+
+            function removeEvent(idx) {
+              if (!selectedDate) return;
+              if (!events[selectedDate]) return;
+              events[selectedDate].splice(idx, 1);
+              if (events[selectedDate].length === 0)
+                delete events[selectedDate];
+              renderEventList();
+              renderCalendar();
+            }
+
+            addEventForm.onsubmit = (e) => {
+              e.preventDefault();
+              addEvent(eventColor.value);
+            };
+            closeModalBtn.onclick = closeEventModal;
+            eventModal.onclick = (e) => {
+              if (e.target === eventModal) closeEventModal();
+            };
+
+            renderCalendar();
+          </script>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
