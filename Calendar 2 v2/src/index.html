@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar with events</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      .calendar {
+        width: 100%;
+        max-width: 400px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .calendar-header {
+        background-color: #f0f9ff;
+        color: #333;
+        padding: 16px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .day {
+        width: 100%;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .day.selected {
+        background-color: #facc15;
+        border-radius: 50%;
+        color: white;
+      }
+      #events {
+        margin-top: 20px;
+      }
+      #reminderList {
+        list-style-type: none;
+        padding: 0;
+      }
+      #reminderList li {
+        background: #f9f9f9;
+        margin: 5px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      #reminderInput {
+        width: calc(100% - 110px);
+        padding: 10px;
+        margin-right: 10px;
+      }
+      #addReminderButton {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-teal-900 flex md:items-center md:mt-0 mt-10 justify-center min-h-screen bg-cover bg-center"
+    style="
+      background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fabstract-green&psig=AOvVaw1rC7vVDGToq5fVMsmHFIzU&ust=1740036380525000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjLseaaz4sDFQAAAAAdAAAAABAE);
+    "
+  >
+    <div class="calendar bg-white">
+      <div class="calendar-header flex items-center justify-between px-4 py-2">
+        <button onclick="previousMonth()" class="text-gray-500">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <div id="monthYear" class="text-lg">October 2016</div>
+        <button onclick="nextMonth()" class="text-gray-500">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-7 text-center text-gray-400 font-medium py-2">
+        <div>Su</div>
+        <div>Mo</div>
+        <div>Tu</div>
+        <div>We</div>
+        <div>Th</div>
+        <div>Fr</div>
+        <div>Sa</div>
+      </div>
+      <div id="daysGrid" class="grid grid-cols-7 gap-1 px-2 pb-2"></div>
+
+      <div id="events" class="p-4">
+        <h2 class="text-gray-800 mb-2">Events</h2>
+        <ul id="eventList" class="list-disc pl-5 mb-2"></ul>
+        <input type="hidden" id="selectedDate" />
+        <input
+          type="text"
+          id="eventInput"
+          class="border p-2 w-full mb-2"
+          placeholder="Add an Event"
+        />
+      </div>
+
+      <div class="flex justify-end p-4">
+        <button
+          id="addEventButton"
+          class="bg-lime-500 text-white rounded-full w-14 h-14 shadow-lg focus:outline-none"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let currentMonth = 9; // October (0-based index)
+      let currentYear = 2016;
+      const events = {};
+
+      function updateCalendar() {
+        document.getElementById("monthYear").textContent = `${new Date(
+          currentYear,
+          currentMonth,
+        ).toLocaleString("default", { month: "long" })} ${currentYear}`;
+        renderDays();
+      }
+
+      function renderDays() {
+        const daysGrid = document.getElementById("daysGrid");
+        daysGrid.innerHTML = "";
+        const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+        const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+        // Fill initial empty cells
+        for (let i = 0; i < firstDay; i++) {
+          const emptyDiv = document.createElement("div");
+          daysGrid.appendChild(emptyDiv);
+        }
+
+        // Fill actual days of the month
+        for (let date = 1; date <= lastDate; date++) {
+          const dayDiv = document.createElement("div");
+          dayDiv.classList.add(
+            "day",
+            "bg-gray-100",
+            "hover:bg-gray-200",
+            "text-gray-700",
+            "font-medium",
+          );
+          dayDiv.textContent = date;
+            // Add colored dot if event exists for this date
+            const eventDateKey = `${currentYear}-${currentMonth + 1}-${date}`;
+            if (events[eventDateKey] && events[eventDateKey].length > 0) {
+              const dot = document.createElement("span");
+              dot.className = "inline-block w-2 h-2 rounded-full bg-lime-500 ml-1";
+              dayDiv.appendChild(dot);
+            }
+
+          dayDiv.addEventListener("click", function () {
+            document
+              .querySelectorAll(".day")
+              .forEach((d) => d.classList.remove("selected"));
+            dayDiv.classList.add("selected");
+            document.getElementById("selectedDate").value = `${currentYear}-${
+              currentMonth + 1
+            }-${date}`;
+            renderEvents();
+          });
+
+          daysGrid.appendChild(dayDiv);
+        }
+      }
+
+      function previousMonth() {
+        currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+        currentYear = currentMonth === 11 ? currentYear - 1 : currentYear;
+        updateCalendar();
+      }
+
+      function nextMonth() {
+        currentMonth = currentMonth === 11 ? 0 : currentMonth + 1;
+        currentYear = currentMonth === 0 ? currentYear + 1 : currentYear;
+        updateCalendar();
+      }
+
+      function addEvent() {
+        const eventInput = document.getElementById("eventInput");
+        const selectedDate = document.getElementById("selectedDate").value;
+
+        if (eventInput.value.trim() !== "" && selectedDate) {
+          if (!events[selectedDate]) {
+            events[selectedDate] = [];
+          }
+          events[selectedDate].push(eventInput.value);
+          eventInput.value = "";
+          renderEvents();
+        }
+      }
+
+      function renderEvents() {
+        const eventList = document.getElementById("eventList");
+        const selectedDate = document.getElementById("selectedDate").value;
+        eventList.innerHTML = "";
+
+        if (events[selectedDate]) {
+          events[selectedDate].forEach((event) => {
+            const li = document.createElement("li");
+            li.textContent = event;
+            eventList.appendChild(li);
+          });
+        }
+      }
+
+      document
+        .getElementById("addEventButton")
+        .addEventListener("click", addEvent);
+
+      // Initialize calendar on page load
+      document.addEventListener("DOMContentLoaded", updateCalendar);
+    </script>
+  </body>
+</html>
