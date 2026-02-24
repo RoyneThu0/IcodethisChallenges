@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Followers</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="w-screen h-screen bg-gradient-to-b bg-cover bg-center from-sky-600 from-70% to-blue-800 flex items-center justify-center p-5"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1677080946126-99bbc7b19747?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    "
+  >
+    <div class="w-11/12 max-w-sm shadow-xl shadow-blue-900 flex-col">
+      <div
+        class="w-full bg-gradient-to-r flex-col from-blue-700 to-sky-500 p-5 rounded-lg"
+      >
+        <div class="flex items-center pt-3">
+          <i
+            class="fa-solid fa-chevron-left text-lg cursor-pointer text-white"
+          ></i>
+          <p class="w-full text-center text-white text-2xl">Find friends</p>
+        </div>
+        <input
+          type="text"
+          placeholder="Enter a friend's name"
+          class="bg-opacity-30 focus: outline-none border px-4 py-2 rounded-full mt-10 mb-4 border-slate-30 bg-slate-200 w-full text-slate-600"
+          id="searchInput"
+        />
+      </div>
+      <div id="friendsList" class="flex py-10 bg-slate-200 flex-col space-y-3">
+        <div
+          class="friend-card flex items-center justify-between px-4"
+          data-name="Jason Graham"
+        >
+          <div class="flex items-center justify-start">
+            <img
+              src="https://images.unsplash.com/photo-1543299750-19d1d6297053?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHBlb3BsZXxlbnwwfDJ8MHx8fDA%3D"
+              class="w-16 h-16 rounded-full border-sky-500 border-2"
+              alt=""
+            />
+            <p class="px-2 text-sm text-blue-800 font-semibold">Jason Graham</p>
+          </div>
+          <div>
+            <button
+              class="followButton follow bg-gradient-to-r from-sky-400 to-sky-600 px-10 text-white shadow-lg py-2 rounded-full"
+            >
+              Follow
+            </button>
+          </div>
+        </div>
+        <div
+          class="friend-card flex items-center justify-between px-4"
+          data-name="Jana Holler"
+        >
+          <div class="flex items-center justify-start">
+            <img
+              src="https://images.unsplash.com/photo-1669199148548-028995f5d045?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fHBlb3BsZXxlbnwwfDJ8MHx8fDA%3D"
+              class="w-16 h-16 rounded-full border-sky-500 border-2"
+              alt=""
+            />
+            <p class="px-2 text-sm text-blue-800 font-semibold">Jana Holler</p>
+          </div>
+          <div>
+            <button
+              class="followButton follow bg-gradient-to-r from-sky-400 to-sky-600 px-10 text-white shadow-lg py-2 rounded-full"
+            >
+              Follow
+            </button>
+          </div>
+        </div>
+        <div
+          class="friend-card flex items-center justify-between px-4"
+          data-name="Becky Lauren"
+        >
+          <div class="flex items-center justify-start">
+            <img
+              src="https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHBlb3BsZXxlbnwwfDJ8MHx8fDA%3D"
+              class="w-16 h-16 rounded-full border-sky-500 border-2"
+              alt=""
+            />
+            <p class="px-2 text-sm text-blue-800 font-semibold">Becky Lauren</p>
+          </div>
+          <div>
+            <button
+              class="followButton follow bg-gradient-to-r from-sky-400 to-sky-600 px-10 text-white shadow-lg py-2 rounded-full"
+            >
+              Follow
+            </button>
+          </div>
+        </div>
+        <div
+          class="friend-card flex items-center justify-between px-4"
+          data-name="Jake Osta"
+        >
+          <div class="flex items-center justify-start">
+            <img
+              src="https://images.unsplash.com/photo-1542909192-2f2241a99c9d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHBlb3BsZXxlbnwwfDJ8MHx8fDA%3D"
+              class="w-16 h-16 rounded-full border-sky-500 border-2"
+              alt=""
+            />
+            <p class="px-2 text-sm text-blue-800 font-semibold">Jake Osta</p>
+          </div>
+          <div>
+            <button
+              class="followButton follow bg-gradient-to-r from-sky-400 to-sky-600 px-10 text-white shadow-lg py-2 rounded-full"
+            >
+              Follow
+            </button>
+          </div>
+        </div>
+        <div
+          class="friend-card flex items-center justify-between px-4"
+          data-name="Matthew Zemeka"
+        >
+          <div class="flex items-center justify-start">
+            <img
+              src="https://images.unsplash.com/photo-1595897950118-1037962bc920?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHBlb3BsZXxlbnwwfDJ8MHx8fDA%3D"
+              class="w-16 h-16 rounded-full border-sky-500 border-2"
+              alt=""
+            />
+            <p class="px-2 text-sm text-blue-800 font-semibold">
+              Matthew Zemeka
+            </p>
+          </div>
+          <div>
+            <button
+              class="followButton follow bg-gradient-to-r from-sky-400 to-sky-600 px-10 text-white shadow-lg py-2 rounded-full"
+            >
+              Follow
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const buttons = document.querySelectorAll(".followButton");
+      buttons.forEach((button) => {
+        button.addEventListener("click", function () {
+          this.classList.toggle("follow");
+          this.classList.toggle("unfollow");
+          this.textContent = this.classList.contains("follow")
+            ? "Follow"
+            : "Unfollow";
+        });
+      });
+
+      const searchInput = document.querySelector("#searchInput");
+      const friendCards = document.querySelectorAll(".friend-card");
+
+      const filterFriends = () => {
+        const query = searchInput.value.trim().toLowerCase();
+
+        friendCards.forEach((card) => {
+          const name = card.dataset.name.toLowerCase();
+          const isMatch = name.includes(query);
+          card.classList.toggle("hidden", !isMatch);
+        });
+      };
+
+      searchInput.addEventListener("input", filterFriends);
+    </script>
+  </body>
+</html>
