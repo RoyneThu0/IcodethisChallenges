@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Player</title>
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        padding: 20px;
+      }
+
+      .player-wrapper {
+        width: 100%;
+        max-width: 1000px;
+        background: rgba(20, 20, 20, 0.95);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .player-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        background: rgba(10, 10, 10, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .video-title {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      .player-controls-top {
+        display: flex;
+        gap: 12px;
+      }
+
+      .control-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 20px;
+        padding: 6px;
+        transition: opacity 0.2s;
+      }
+
+      .control-btn:hover {
+        opacity: 0.7;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .player-footer {
+        padding: 12px 16px;
+        background: rgba(10, 10, 10, 0.8);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #ffffff;
+        font-size: 12px;
+      }
+
+      .play-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 4px 8px;
+        transition: opacity 0.2s;
+      }
+
+      .play-btn:hover {
+        opacity: 0.7;
+      }
+
+      .progress-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .progress-bar {
+        flex: 1;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f39c12 0%, #f39c12 100%);
+        border-radius: 2px;
+        width: 0%;
+        transition: width 0.1s;
+      }
+
+      .progress-bar:hover .progress-fill::after {
+        opacity: 1;
+      }
+
+      .progress-fill::after {
+        content: "";
+        position: absolute;
+        right: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #f39c12;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.1s;
+      }
+
+      .time-display {
+        display: flex;
+        gap: 6px;
+        min-width: 80px;
+      }
+
+      .controls-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .volume-slider {
+        width: 0;
+        transition: width 0.2s;
+        cursor: pointer;
+      }
+
+      .volume-control:hover .volume-slider {
+        width: 60px;
+      }
+
+      .quality-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 12px;
+        padding: 4px 8px;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+
+      .quality-btn:hover {
+        opacity: 0.7;
+      }
+
+      .settings-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 4px 8px;
+        transition: opacity 0.2s;
+      }
+
+      .settings-btn:hover {
+        opacity: 0.7;
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        outline: none;
+        border-radius: 2px;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        background: #f39c12;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 12px;
+        height: 12px;
+        background: #f39c12;
+        cursor: pointer;
+        border-radius: 50%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="player-wrapper">
+      <div class="player-header">
+        <h2 class="video-title" id="titleText">Nothing like a new macbook</h2>
+        <div class="player-controls-top">
+          <button class="control-btn" title="Share">
+            <i class="fas fa-share"></i>
+          </button>
+          <button class="control-btn" title="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="video-container">
+        <iframe
+          id="videoFrame"
+          src="https://youtu.be/hmOuKEe5wTs?si=U5XsBywyofSGR_VX"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+          "
+          allowfullscreen=""
+        >
+        </iframe>
+      </div>
+
+      <div class="player-footer">
+        <button class="play-btn" id="playBtn" title="Play">
+          <i class="fas fa-play"></i>
+        </button>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span>/</span>
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="controls-right">
+          <div class="volume-control">
+            <button class="control-btn" id="volumeBtn" title="Mute">
+              <i class="fas fa-volume-high"></i>
+            </button>
+            <input
+              type="range"
+              class="volume-slider"
+              id="volumeSlider"
+              min="0"
+              max="100"
+              value="70"
+            />
+          </div>
+
+          <button class="quality-btn" title="HD">HD</button>
+
+          <button class="settings-btn" title="Settings">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const iframe = document.getElementById("videoFrame");
+
+      const VIDEO_ID = "hmOuKEe5wTs";
+      const videoTitle = "Nothing like a new macbook";
+
+      iframe.src = `https://www.youtube.com/embed/${VIDEO_ID}`;
+      document.getElementById("titleText").textContent = videoTitle;
+
+      document.getElementById("playBtn").addEventListener("click", function () {
+        const icon = this.querySelector("i");
+        if (icon.classList.contains("fa-play")) {
+          icon.classList.remove("fa-play");
+          icon.classList.add("fa-pause");
+        } else {
+          icon.classList.remove("fa-pause");
+          icon.classList.add("fa-play");
+        }
+      });
+
+      document
+        .getElementById("volumeBtn")
+        .addEventListener("click", function () {
+          const icon = this.querySelector("i");
+          if (icon.classList.contains("fa-volume-high")) {
+            icon.classList.remove("fa-volume-high");
+            icon.classList.add("fa-volume-xmark");
+          } else {
+            icon.classList.remove("fa-volume-xmark");
+            icon.classList.add("fa-volume-high");
+          }
+        });
+    </script>
+  </body>
+</html>
