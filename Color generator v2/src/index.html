@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Palette Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6"
+  >
+    <div class="w-full max-w-4xl">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-2 text-white">
+          Color Palette Generator
+        </h1>
+        <p class="text-slate-400 text-lg">
+          Create beautiful color combinations
+        </p>
+      </div>
+
+      <div
+        id="palette"
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8"
+      ></div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <button
+          onclick="generatePalette()"
+          class="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+        >
+          Generate Palette
+        </button>
+        <button
+          onclick="copyPalette()"
+          class="px-8 py-3 bg-slate-700 text-white font-semibold rounded-lg shadow-lg hover:bg-slate-600 hover:shadow-xl transition-all duration-200"
+        >
+          Copy All
+        </button>
+      </div>
+
+      <div class="text-center text-slate-400 text-sm">
+        <p>
+          <span class="text-purple-400 font-semibold">Spacebar</span> to
+          generate · <span class="text-purple-400 font-semibold">C</span> to
+          copy all · <span class="text-purple-400 font-semibold">Click</span> to
+          copy single color
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function getRandomColor() {
+        return (
+          "#" +
+          Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, "0")
+        );
+      }
+
+      function generatePalette() {
+        const palette = document.getElementById("palette");
+        palette.innerHTML = "";
+        const colors = [];
+        for (let i = 0; i < 5; i++) {
+          const color = getRandomColor();
+          colors.push(color);
+          const colorCard = document.createElement("div");
+          colorCard.className =
+            "h-48 rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200 flex flex-col items-center justify-end p-3 group border border-slate-600";
+          colorCard.style.backgroundColor = color;
+          colorCard.onclick = () => copyToClipboard(color);
+          const colorText = document.createElement("span");
+          colorText.className =
+            "bg-black bg-opacity-70 text-white px-3 py-1 rounded-lg text-xs font-mono mb-2 group-hover:bg-opacity-90 transition-all";
+          colorText.innerText = color.toUpperCase();
+          colorCard.appendChild(colorText);
+          palette.appendChild(colorCard);
+        }
+        window.currentColors = colors;
+      }
+
+      function copyToClipboard(color) {
+        navigator.clipboard.writeText(color);
+        showNotification(`Copied: ${color}`);
+      }
+
+      function showNotification(message) {
+        const notification = document.createElement("div");
+        notification.className =
+          "fixed top-6 right-6 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-pulse";
+        notification.innerText = message;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+      }
+
+      function copyPalette() {
+        navigator.clipboard.writeText(window.currentColors.join(", "));
+        showNotification("Palette copied to clipboard!");
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.code === "Space") {
+          event.preventDefault();
+          generatePalette();
+        } else if (event.key.toLowerCase() === "c") {
+          copyPalette();
+        }
+      });
+
+      generatePalette();
+    </script>
+  </body>
+</html>
