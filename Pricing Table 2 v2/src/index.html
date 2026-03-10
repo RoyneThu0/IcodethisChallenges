@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Table 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex sm:items-center bg-cover items-start mt-10 justify-center bg-slate-900"
+    style="
+      background-image: url(https://st4.depositphotos.com/5950644/27772/v/450/depositphotos_277723366-stock-illustration-white-grey-low-poly-crystal.jpg);
+    "
+  >
+    <div class="w-11/12 max-w-3xl p-5 flex flex-col">
+      <div
+        class="w-full flex-col md:flex-row flex items-center md:justify-between justify-center"
+      >
+        <p class="font-bold text-3xl">Choose your plan</p>
+        <div
+          class="inline-flex w-fit items-center p-1 md:mt-0 mt-4 bg-gray-100 rounded-full shadow-inner shadow-slate-600"
+        >
+          <button
+            class="w-20 py-2 text-gray-500 text-sm focus:outline-none rounded-full transition-colors duration-300 ease-in-out"
+            id="monthly"
+          >
+            Monthly
+          </button>
+          <button
+            class="w-20 py-2 bg-white text-gray-900 text-sm focus:outline-none rounded-full transition-colors duration-300 ease-in-out"
+            id="yearly"
+          >
+            Yearly
+          </button>
+        </div>
+      </div>
+      <div
+        class="w-full h-5/6 p-5 mt-10 grid sm:grid-cols-2 grid-cols-1 items-start justify-center gap-6"
+      >
+        <div
+          class="w-full h-full flex flex-col p-5 bg-white shadow-lg shadow-slate-600 rounded-lg price-card transition-all duration-500 opacity-0 translate-y-8"
+        >
+          <p class="text-xl font-semibold">Starter</p>
+          <p
+            class="mt-3 font-semibold"
+            data-monthly-price="$8.99"
+            data-yearly-price="$107.88"
+            id="starter-price"
+          >
+            $8.99 / month
+          </p>
+          <p class="text-sm text-slate-500" id="starter-billing">
+            Billed yearly
+          </p>
+          <p class="mt-5 text-xs text-slate-500">
+            Pretium fusce id velit ut tortor pretium. Sit amet consectetur
+            adipiscing elit ut. Condimentum mattis pellentesque id nibh. Euismod
+            elementum.
+          </p>
+          <div class="w-full h-full flex items-end">
+            <button
+              class="w-full bg-black py-3 mt-3 text-white text-sm rounded-md hover:bg-white hover:text-black border border-black duration-300 ease-in-out transform transition-transform hover:scale-105"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+        <div
+          class="w-full h-full flex flex-col p-5 bg-white shadow-lg shadow-slate-600 rounded-lg price-card transition-all duration-500 opacity-0 translate-y-8"
+        >
+          <p class="text-xl font-semibold">Professional</p>
+          <p
+            class="mt-3 font-semibold"
+            data-monthly-price="$21.99"
+            data-yearly-price="$263.88"
+            id="professional-price"
+          >
+            $21.99 / month
+          </p>
+          <p class="text-sm text-slate-500" id="professional-billing">
+            Billed yearly
+          </p>
+          <p class="mt-5 text-xs text-slate-500">
+            Duis at consectetur lorem donec massa sapien faucibus. Ac placerat
+            vestibulum lectus mauris.
+          </p>
+          <div class="w-full h-full flex items-end">
+            <button
+              class="w-full bg-white py-3 mt-3 text-black text-sm rounded-md hover:bg-black hover:text-white border border-black duration-300 ease-in-out transform transition-transform hover:scale-105"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const monthlyBtn = document.getElementById("monthly");
+      const yearlyBtn = document.getElementById("yearly");
+
+      const starterPrice = document.getElementById("starter-price");
+      const professionalPrice = document.getElementById("professional-price");
+
+      const starterBilling = document.getElementById("starter-billing");
+      const professionalBilling = document.getElementById(
+        "professional-billing",
+      );
+
+      const priceCards = document.querySelectorAll(".price-card");
+
+      window.addEventListener("DOMContentLoaded", () => {
+        priceCards.forEach((card, i) => {
+          setTimeout(
+            () => {
+              card.classList.remove("opacity-0", "translate-y-8");
+              card.classList.add("opacity-100", "translate-y-0");
+            },
+            200 + i * 150,
+          );
+        });
+      });
+
+      function animateCards() {
+        priceCards.forEach((card, i) => {
+          card.classList.add("opacity-0", "translate-y-8");
+          setTimeout(
+            () => {
+              card.classList.remove("opacity-0", "translate-y-8");
+              card.classList.add("opacity-100", "translate-y-0");
+            },
+            100 + i * 100,
+          );
+        });
+      }
+
+      monthlyBtn.addEventListener("click", () => {
+        monthlyBtn.classList.add("bg-white", "text-gray-900");
+        monthlyBtn.classList.remove("text-gray-500");
+        monthlyBtn.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.8)";
+
+        yearlyBtn.classList.remove("bg-white", "text-gray-900");
+        yearlyBtn.classList.add("text-gray-500");
+        yearlyBtn.style.boxShadow = "none";
+
+        starterPrice.textContent =
+          starterPrice.getAttribute("data-monthly-price") + " / month";
+        professionalPrice.textContent =
+          professionalPrice.getAttribute("data-monthly-price") + " / month";
+
+        starterBilling.textContent = "Billed monthly";
+        professionalBilling.textContent = "Billed monthly";
+
+        animateCards();
+      });
+
+      yearlyBtn.addEventListener("click", () => {
+        yearlyBtn.classList.add("bg-white", "text-gray-900");
+        yearlyBtn.classList.remove("text-gray-500");
+        yearlyBtn.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.8)";
+
+        monthlyBtn.classList.remove("bg-white", "text-gray-900");
+        monthlyBtn.classList.add("text-gray-500");
+        monthlyBtn.style.boxShadow = "none";
+
+        starterPrice.textContent =
+          starterPrice.getAttribute("data-yearly-price") + " / year";
+        professionalPrice.textContent =
+          professionalPrice.getAttribute("data-yearly-price") + " / year";
+
+        starterBilling.textContent = "Billed yearly";
+        professionalBilling.textContent = "Billed yearly";
+
+        animateCards();
+      });
+    </script>
+  </body>
+</html>
