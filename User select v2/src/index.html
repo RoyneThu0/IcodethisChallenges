@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Select</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="min-h-screen bg-gradient-to-br from-[#0f0e18] to-[#141323] flex items-center justify-center p-6"
+  >
+    <div class="w-full max-w-3xl bg-[#0e0d1a] rounded-2xl shadow-xl p-6">
+      <header class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white text-lg font-bold"
+          >
+            U
+          </div>
+          <h1 class="text-white text-xl font-semibold">Who is playing now?</h1>
+        </div>
+        <button
+          class="hidden md:inline-block px-4 py-2 rounded-full border border-blue-400/30 text-blue-300 hover:bg-blue-700/30 transition"
+          onclick="toggleManageUsers()"
+        >
+          Manage users
+        </button>
+      </header>
+
+      <main>
+        <div
+          id="user-list"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+        >
+          <div
+            class="user-card bg-[#0f0f1c] p-5 rounded-xl flex flex-col items-center text-center relative hover:scale-105 transform transition shadow-sm"
+          >
+            <button
+              class="absolute top-3 right-3 text-white hidden manage-user"
+              onclick="deleteUser(0)"
+            >
+              ×
+            </button>
+            <img
+              class="w-16 h-16 rounded-full bg-[#2a293f]"
+              src="https://pngimg.com/d/rockets_PNG13290.png"
+              alt=""
+            />
+            <p class="text-white mt-3 font-medium">tika-m</p>
+          </div>
+
+          <div
+            class="user-card bg-[#0f0f1c] p-5 rounded-xl flex flex-col items-center text-center relative hover:scale-105 transform transition shadow-sm"
+          >
+            <button
+              class="absolute top-3 right-3 text-white hidden manage-user"
+              onclick="deleteUser(1)"
+            >
+              ×
+            </button>
+            <img
+              class="w-16 h-16 rounded-full bg-[#2a293f]"
+              src="https://static.vecteezy.com/system/resources/previews/009/384/696/non_2x/drum-clipart-design-illustration-free-png.png"
+              alt=""
+            />
+            <p class="text-white mt-3 font-medium">garlic-naan</p>
+          </div>
+
+          <div
+            class="add-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl border-2 border-dashed border-blue-600/20 text-blue-300 hover:bg-blue-900/10 cursor-pointer"
+            onclick="showAddUserModal()"
+          >
+            <div
+              class="w-12 h-12 rounded-full border border-blue-400/30 flex items-center justify-center"
+            >
+              <i class="fa-solid fa-plus text-blue-400"></i>
+            </div>
+            <p class="text-blue-300">Add user</p>
+          </div>
+        </div>
+      </main>
+
+      <div class="mt-6 flex items-center justify-center md:hidden">
+        <button
+          class="px-4 py-2 rounded-full border border-blue-400/30 text-blue-300"
+          onclick="toggleManageUsers()"
+        >
+          Manage users
+        </button>
+      </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div
+      id="add-user-modal"
+      class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4"
+    >
+      <div class="w-full max-w-md bg-[#0f0f1c] rounded-xl shadow-2xl p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg text-white font-semibold">Add User</h2>
+          <button
+            class="text-white/60 hover:text-white"
+            onclick="hideAddUserModal()"
+          >
+            ✕
+          </button>
+        </div>
+        <input
+          type="text"
+          id="new-user-name"
+          class="w-full p-3 rounded-lg bg-[#121224] text-white placeholder:text-gray-400 focus:outline-none mb-4"
+          placeholder="Enter user name"
+        />
+        <div class="flex gap-3">
+          <button
+            class="flex-1 bg-blue-500 text-white py-2 rounded-lg"
+            onclick="addUser()"
+          >
+            Add
+          </button>
+          <button
+            class="flex-1 bg-gray-700 text-white py-2 rounded-lg"
+            onclick="hideAddUserModal()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const userList = document.getElementById("user-list");
+      const addUserModal = document.getElementById("add-user-modal");
+
+      function showAddUserModal() {
+        addUserModal.classList.remove("hidden");
+        document.getElementById("new-user-name").focus();
+      }
+
+      function hideAddUserModal() {
+        addUserModal.classList.add("hidden");
+        document.getElementById("new-user-name").value = "";
+      }
+
+      function toggleManageUsers() {
+        const manageButtons = document.querySelectorAll(".manage-user");
+        manageButtons.forEach((button) => button.classList.toggle("hidden"));
+      }
+
+      function addUser() {
+        const userNameEl = document.getElementById("new-user-name");
+        const userName = userNameEl.value.trim();
+        if (!userName) return;
+
+        const svgs = [
+          "https://static.vecteezy.com/system/resources/previews/009/384/696/non_2x/drum-clipart-design-illustration-free-png.png",
+          "https://www.svgrepo.com/show/402543/racing-car.svg",
+          "https://www.clker.com/cliparts/H/E/I/U/J/j/jet.svg",
+        ];
+        const randomSvg = svgs[Math.floor(Math.random() * svgs.length)];
+
+        const userDiv = document.createElement("div");
+        userDiv.className =
+          "user-card bg-[#0f0f1c] p-5 rounded-xl flex flex-col items-center text-center relative hover:scale-105 transform transition shadow-sm";
+        userDiv.innerHTML = `
+                <button class="absolute top-3 right-3 text-white hidden manage-user" onclick="deleteUser(${userList.querySelectorAll(".user-card").length})">×</button>
+                <img class="w-16 h-16 rounded-full bg-[#2a293f]" src="${randomSvg}" alt="" />
+                <p class="text-white mt-3 font-medium">${userName}</p>
+              `;
+
+        const addCard = userList.querySelector(".add-card");
+        userList.insertBefore(userDiv, addCard);
+        updateDeleteButtons();
+        hideAddUserModal();
+      }
+
+      function updateDeleteButtons() {
+        const users = userList.querySelectorAll(".user-card");
+        users.forEach((user, index) => {
+          const deleteButton = user.querySelector(".manage-user");
+          if (deleteButton)
+            deleteButton.setAttribute("onclick", `deleteUser(${index})`);
+        });
+      }
+
+      function deleteUser(index) {
+        const users = userList.querySelectorAll(".user-card");
+        if (users[index]) {
+          users[index].remove();
+          updateDeleteButtons();
+        }
+      }
+    </script>
+  </body>
+</html>
