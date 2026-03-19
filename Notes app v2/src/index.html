@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --max-width: 1100px;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial;
+      }
+      .app-container {
+        max-width: var(--max-width);
+      }
+      .session-item {
+        transition:
+          background-color 0.18s,
+          color 0.18s;
+      }
+      .session-item.active {
+        background-color: rgb(59, 130, 246);
+        color: white;
+      }
+      .session-item.active span {
+        color: white;
+      }
+      .chapter-content {
+        display: none;
+      }
+      .chapter-content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-10 md:mt-0 justify-center bg-cover bg-center bg-blue-600"
+    style="
+      background-image: url(https://img.freepik.com/free-photo/liquid-marbling-paint-texture-background-fluid-painting-abstract-texture-intensive-color-mix-wallpaper_1258-82946.jpg?semt=ais_hybrid);
+    "
+  >
+    <main
+      class="w-11/12 app-container max-w-4xl flex flex-col items-center justify-center bg-white rounded-xl overflow-hidden shadow-lg"
+    >
+      <header
+        class="w-full bg-white flex flex-col md:flex-row items-center md:items-stretch justify-between p-4 gap-3 border-b border-slate-200"
+      >
+        <div class="flex items-center gap-4">
+          <i
+            class="fa-solid fa-house text-2xl p-2 text-slate-500"
+            aria-hidden="true"
+          ></i>
+          <div class="flex flex-col">
+            <h1 class="font-semibold text-lg text-slate-800">
+              Learn How To Motivate Yourself
+            </h1>
+            <p class="text-sm text-slate-400">
+              48,240 total words <span class="mx-2">|</span> 4 sessions
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button
+            class="text-slate-600 text-sm hover:text-white hover:bg-red-500 px-3 py-2 rounded-md transition duration-200"
+            aria-label="Delete book"
+          >
+            Delete
+          </button>
+          <div class="relative">
+            <button
+              class="text-slate-600 text-sm hover:text-blue-600 px-3 py-2 rounded-md transition duration-200 flex items-center gap-2"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Export
+              <i
+                class="fa-solid fa-chevron-down text-xs"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="w-full bg-slate-50 p-4 flex-1">
+        <div
+          class="w-full bg-white shadow-lg md:flex grid md:grid-cols-2 grid-cols-1 rounded-lg overflow-hidden h-full"
+        >
+          <nav
+            class="md:w-2/5 w-full flex flex-col p-5 gap-5 bg-slate-50 md:bg-white border-b md:border-b-0 md:border-r border-slate-200"
+          >
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-base font-semibold text-slate-800">Sessions</h2>
+                <p class="text-sm text-slate-500 mt-1">48,240 total words</p>
+              </div>
+              <button
+                class="w-10 h-10 bg-blue-500 hover:bg-blue-600 flex items-center justify-center text-white rounded-full transition shadow-md duration-200"
+                aria-label="Add new session"
+                title="Add new session"
+              >
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="relative">
+              <input
+                type="search"
+                placeholder="Search sessions..."
+                class="w-full px-3 py-2 bg-white border border-slate-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                aria-label="Search sessions"
+              />
+              <i
+                class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 pointer-events-none"
+                aria-hidden="true"
+              ></i>
+            </div>
+
+            <ul class="flex flex-col gap-2 w-full">
+              <li>
+                <button
+                  onclick="selectChapter('intro')"
+                  class="session-item w-full flex flex-col items-start px-4 py-3 rounded-lg text-left hover:bg-blue-50 md:hover:bg-blue-500 md:hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  data-chapter="intro"
+                >
+                  <span class="font-medium text-slate-800">Intro</span>
+                  <span class="text-sm text-slate-500 mt-1">2,450 words</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="selectChapter('chapter-1')"
+                  class="session-item w-full flex flex-col items-start px-4 py-3 rounded-lg text-left hover:bg-blue-50 md:hover:bg-blue-500 md:hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  data-chapter="chapter-1"
+                >
+                  <span class="font-medium text-slate-800">Chapter 1</span>
+                  <span class="text-sm text-slate-500 mt-1">2,450 words</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="selectChapter('chapter-2')"
+                  class="session-item active w-full flex flex-col items-start px-4 py-3 rounded-lg text-left hover:bg-blue-50 md:hover:bg-blue-500 md:hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  data-chapter="chapter-2"
+                >
+                  <span class="font-medium text-slate-800">Chapter 2</span>
+                  <span class="text-sm text-slate-500 mt-1">2,450 words</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="selectChapter('chapter-3')"
+                  class="session-item w-full flex flex-col items-start px-4 py-3 rounded-lg text-left hover:bg-blue-50 md:hover:bg-blue-500 md:hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  data-chapter="chapter-3"
+                >
+                  <span class="font-medium text-slate-800">Chapter 3</span>
+                  <span class="text-sm text-slate-500 mt-1">2,450 words</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <div
+            class="md:border-l border-slate-200 p-6 w-full flex flex-col overflow-y-auto"
+          >
+            <article id="intro" class="chapter-content">
+              <div
+                class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200"
+              >
+                <h2 class="text-3xl font-bold text-slate-900">Intro</h2>
+                <div class="flex items-center gap-2">
+                  <button
+                    aria-label="Edit chapter"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Edit"
+                  >
+                    <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="Fullscreen"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Fullscreen"
+                  >
+                    <i class="fa-solid fa-maximize" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="More options"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="More options"
+                  >
+                    <i
+                      class="fa-solid fa-ellipsis-vertical"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="text-slate-700 leading-relaxed space-y-4 text-sm md:text-base"
+              >
+                <p>
+                  Welcome to this comprehensive guide on personal motivation and
+                  self-improvement. This introduction will set the foundation
+                  for the chapters to follow, exploring the fundamental
+                  principles that drive human behavior and success.
+                </p>
+                <p>
+                  Throughout this course, you'll discover that motivation isn't
+                  something that happens to you—it's something you create. By
+                  understanding the core principles and applying proven
+                  strategies, you can unlock your full potential and achieve the
+                  goals that matter most to you.
+                </p>
+                <p>
+                  Each chapter builds upon the previous one, creating a complete
+                  framework for understanding and implementing lasting
+                  motivation in your life. Take your time with each section,
+                  reflect on the concepts, and apply them to your own unique
+                  situation.
+                </p>
+                <p>
+                  By the end of this guide, you'll have practical tools,
+                  real-world strategies, and a clear understanding of how to
+                  maintain motivation even when facing challenges and setbacks.
+                </p>
+              </div>
+            </article>
+
+            <article id="chapter-1" class="chapter-content">
+              <div
+                class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200"
+              >
+                <h2 class="text-3xl font-bold text-slate-900">
+                  Chapter 1: The Foundation of Motivation
+                </h2>
+                <div class="flex items-center gap-2">
+                  <button
+                    aria-label="Edit chapter"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Edit"
+                  >
+                    <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="Fullscreen"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Fullscreen"
+                  >
+                    <i class="fa-solid fa-maximize" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="More options"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="More options"
+                  >
+                    <i
+                      class="fa-solid fa-ellipsis-vertical"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="text-slate-700 leading-relaxed space-y-4 text-sm md:text-base"
+              >
+                <p>
+                  The foundation of all motivation begins with understanding
+                  what drives human behavior. At its core, motivation is the
+                  force that compels us to take action toward our goals and
+                  aspirations.
+                </p>
+                <p>
+                  There are two types of motivation: intrinsic and extrinsic.
+                  Intrinsic motivation comes from within—it's the internal
+                  desire to do something because it's meaningful to you.
+                  Extrinsic motivation comes from external factors like rewards,
+                  recognition, or avoiding negative consequences.
+                </p>
+                <p>
+                  The most sustainable and fulfilling motivation is a
+                  combination of both types. When you align your external goals
+                  with your internal values and passions, you create a powerful
+                  force for change.
+                </p>
+                <p>
+                  Understanding your personal values, strengths, and long-term
+                  vision is the first step toward building unshakeable
+                  motivation that will carry you through any challenge.
+                </p>
+              </div>
+            </article>
+
+            <article id="chapter-2" class="chapter-content active">
+              <div
+                class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200"
+              >
+                <h2 class="text-3xl font-bold text-slate-900">Chapter 2</h2>
+                <div class="flex items-center gap-2">
+                  <button
+                    aria-label="Edit chapter"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Edit"
+                  >
+                    <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="Fullscreen"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Fullscreen"
+                  >
+                    <i class="fa-solid fa-maximize" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="More options"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="More options"
+                  >
+                    <i
+                      class="fa-solid fa-ellipsis-vertical"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="text-slate-700 leading-relaxed space-y-4 text-sm md:text-base"
+              >
+                <p>
+                  Being lucky in life is the result of putting yourself into
+                  action for good luck to happen to you. You've probably heard
+                  the statement "The harder I work the luckier I get." Another
+                  way of putting it is "Whatever you are ready for is ready for
+                  you."
+                </p>
+                <p>
+                  Are you satisfied with your life, the job you have, or the
+                  amount of money you're making? Or are you not satisfied with
+                  the feeling that life is somehow passing you by? Chances are
+                  one of these reasons fits you because most people aren't
+                  satisfied with their lives, and usually one of those reasons
+                  is the cause.
+                </p>
+                <p>
+                  Success is not a spectator sport, something that just happens
+                  before your eyes. It's an experience, a game that must be
+                  played to be enjoyed fully. You need to get involved with
+                  life. You'll need to get more involved with your family,
+                  friends, people you see every day. Because in that
+                  involvement, you'll find you have everything you need to
+                  succeed.
+                </p>
+                <p>
+                  You have within you, right now, at this very moment, all that
+                  is necessary for you to become the happy, successful person
+                  you've always wanted to be. All you need to do is unlock the
+                  riches that have been locked away within you.
+                </p>
+                <p>
+                  Are you ready for a more abundant and happier life? If you
+                  are, then you'll need to know how to put yourself into action
+                  to achieve it. Consider these discoveries for successful
+                  living:
+                </p>
+              </div>
+            </article>
+
+            <article id="chapter-3" class="chapter-content">
+              <div
+                class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200"
+              >
+                <h2 class="text-3xl font-bold text-slate-900">
+                  Chapter 3: Building Lasting Habits
+                </h2>
+                <div class="flex items-center gap-2">
+                  <button
+                    aria-label="Edit chapter"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Edit"
+                  >
+                    <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="Fullscreen"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="Fullscreen"
+                  >
+                    <i class="fa-solid fa-maximize" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    aria-label="More options"
+                    class="p-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    title="More options"
+                  >
+                    <i
+                      class="fa-solid fa-ellipsis-vertical"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="text-slate-700 leading-relaxed space-y-4 text-sm md:text-base"
+              >
+                <p>
+                  The final piece of the motivation puzzle is understanding how
+                  to build lasting habits that support your goals. Motivation
+                  alone won't sustain long-term change—habits will. Habits are
+                  the compound interest of self-improvement.
+                </p>
+                <p>
+                  Start small and be consistent. A tiny habit practiced daily is
+                  far more powerful than a massive goal attempted sporadically.
+                  Focus on identity-based habits rather than outcome-based
+                  goals. Instead of "I want to be fit," think "I am someone who
+                  exercises regularly."
+                </p>
+                <p>
+                  Remove friction from good habits and add friction to bad ones.
+                  Make it easy to do what you want to do, and hard to do what
+                  you don't. Your environment is the invisible architect of
+                  behavior.
+                </p>
+                <p>
+                  Track your progress and celebrate small wins. The process
+                  compounds over time, and one day you'll look back amazed at
+                  how far you've come. Remember: you are not trying to build the
+                  perfect system—you're trying to build a system that improves
+                  1% every day.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    function selectChapter(chapterId) {
+      // Remove active class from all chapter contents
+      const allChapters = document.querySelectorAll(".chapter-content");
+      allChapters.forEach((chapter) => {
+        chapter.classList.remove("active");
+      });
+
+      // Add active class to selected chapter
+      const selectedChapter = document.getElementById(chapterId);
+      if (selectedChapter) {
+        selectedChapter.classList.add("active");
+      }
+
+      // Remove active class from all session buttons
+      const allButtons = document.querySelectorAll(".session-item");
+      allButtons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      // Add active class to clicked button
+      const activeButton = document.querySelector(
+        `[data-chapter="${chapterId}"]`,
+      );
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
+    }
+  </script>
+</html>
