@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Photo Gallery</title>
+  </head>
+  <body
+    class="w-screen min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex justify-center md:items-center items-start md:py-0 py-8"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-11/12 p-8 md:p-10">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-1">Photo Gallery</h1>
+        <p class="text-sm text-gray-500">Discover amazing photography</p>
+      </div>
+
+      <div class="flex space-x-8 border-b border-gray-200 mb-8 overflow-x-auto">
+        <button
+          class="pb-3 text-gray-600 hover:text-gray-900 font-medium text-sm whitespace-nowrap transition-colors flex items-center space-x-2"
+        >
+          <i class="fas fa-shapes"></i>
+          <span>Vector</span>
+        </button>
+        <button
+          class="pb-3 text-gray-600 hover:text-gray-900 font-medium text-sm whitespace-nowrap transition-colors flex items-center space-x-2"
+        >
+          <i class="fas fa-palette"></i>
+          <span>Illustrations</span>
+        </button>
+        <button
+          class="pb-3 text-black border-b-2 border-black font-semibold text-sm whitespace-nowrap transition-colors flex items-center space-x-2"
+        >
+          <i class="fas fa-image"></i>
+          <span>Images</span>
+        </button>
+        <button
+          class="pb-3 text-gray-600 hover:text-gray-900 font-medium text-sm whitespace-nowrap transition-colors flex items-center space-x-2"
+        >
+          <i class="fas fa-icons"></i>
+          <span>Icons</span>
+        </button>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-3 md:gap-4 items-center mb-8">
+        <div class="relative w-full md:w-2/3">
+          <i class="fas fa-search absolute left-4 top-3 text-gray-400"></i>
+          <input
+            type="text"
+            placeholder="Search photos..."
+            class="px-4 py-3 pl-10 border border-gray-300 focus:border-black focus:outline-none rounded-lg w-full transition-colors text-sm"
+          />
+        </div>
+        <button
+          class="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg shadow-md transition-all flex items-center space-x-2 font-medium w-full md:w-auto justify-center"
+        >
+          <i class="fas fa-cloud-upload-alt"></i>
+          <span>Upload</span>
+        </button>
+      </div>
+
+      <div id="gallery" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+
+      <div
+        id="modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4"
+      >
+        <div
+          class="bg-white rounded-lg max-w-2xl w-full max-h-90vh overflow-auto"
+        >
+          <div
+            class="sticky top-0 bg-white border-b border-gray-200 flex justify-between items-center p-4"
+          >
+            <h2 id="modalTitle" class="text-xl font-bold text-gray-900"></h2>
+            <button
+              onclick="closeModal()"
+              class="text-gray-500 hover:text-gray-900 text-2xl"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <img id="modalImage" src="" alt="" class="w-full h-auto" />
+          <div class="p-6">
+            <p id="modalDescription" class="text-gray-700 mb-4"></p>
+            <div class="flex justify-between items-center mb-4 text-sm">
+              <div class="text-gray-600">
+                <span id="modalLikes" class="font-semibold">0</span> likes •
+                <span id="modalShares" class="font-semibold">0</span> shares
+              </div>
+              <button
+                onclick="deleteImage()"
+                class="text-red-500 hover:text-red-700 flex items-center space-x-1"
+              >
+                <i class="fas fa-trash"></i>
+                <span>Delete</span>
+              </button>
+            </div>
+            <div class="flex gap-3">
+              <button
+                onclick="likeImage()"
+                class="flex-1 bg-gray-900 hover:bg-black text-white py-2 rounded-lg font-medium transition-all flex items-center justify-center space-x-2"
+              >
+                <i class="fas fa-heart"></i>
+                <span>Like</span>
+              </button>
+              <button
+                onclick="shareImage()"
+                class="flex-1 border border-gray-300 hover:bg-gray-50 text-gray-900 py-2 rounded-lg font-medium transition-all flex items-center justify-center space-x-2"
+              >
+                <i class="fas fa-share-alt"></i>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Gallery Data
+      const images = [
+        {
+          id: 1,
+          src: "https://img.freepik.com/premium-photo/captivating-portrait-woman-with-striking-blue-hair_777078-174916.jpg",
+          title: "Young Lady",
+          category: "images",
+          likes: 123,
+          shares: 10,
+        },
+        {
+          id: 2,
+          src: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSknXqSicXUDRQfr7oGTswQCZ6ZoGGO2DdLrmGGTI6Q2fs9rFcC",
+          title: "Window Arch",
+          category: "images",
+          likes: 234,
+          shares: 20,
+        },
+        {
+          id: 3,
+          src: "https://c0.wallpaperflare.com/preview/828/406/452/black-and-gray-high-rise-building.jpg",
+          title: "Roofline",
+          category: "images",
+          likes: 345,
+          shares: 30,
+        },
+        {
+          id: 4,
+          src: "https://static.wixstatic.com/media/69f61f_7fe859545e5c4890af8274523a3151c5~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/69f61f_7fe859545e5c4890af8274523a3151c5~mv2.jpg",
+          title: "Abstract Painting",
+          category: "illustrations",
+          likes: 245,
+          shares: 35,
+        },
+        {
+          id: 5,
+          src: "https://vermillion-llama-d26505.netlify.app/images/image5.jpg",
+          title: "City Scapes",
+          category: "images",
+          likes: 456,
+          shares: 40,
+        },
+        {
+          id: 6,
+          src: "https://img.freepik.com/premium-photo/brown-wooden-door-flat-bricked-wall-photo_195114-71896.jpg?w=360",
+          title: "Door of Egress",
+          category: "images",
+          likes: 567,
+          shares: 50,
+        },
+      ];
+
+      let currentCategory = "images";
+      let currentImageId = null;
+
+      // Render Gallery
+      function renderGallery(filter = "") {
+        const gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
+
+        const filtered = images.filter((img) => {
+          const matchesCategory = img.category === currentCategory;
+          const matchesSearch = img.title
+            .toLowerCase()
+            .includes(filter.toLowerCase());
+          return matchesCategory && matchesSearch;
+        });
+
+        filtered.forEach((img) => {
+          const div = document.createElement("div");
+          div.className = "relative group cursor-pointer";
+          div.innerHTML = `
+            <img
+              src="${img.src}"
+              alt="${img.title}"
+              onclick="openModal(${img.id})"
+              class="rounded-lg shadow-md object-cover w-full h-48 group-hover:brightness-75 transition-all duration-300"
+            />
+            <div class="absolute bottom-0 left-0 bg-black bg-opacity-60 text-white p-3 w-full text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-b-lg">
+              <div class="font-semibold">${img.title}</div>
+              <div class="text-xs text-gray-300 mt-1">
+                <i class="fas fa-heart"></i> ${img.likes} • <i class="fas fa-share-alt"></i> ${img.shares}
+              </div>
+            </div>
+          `;
+          gallery.appendChild(div);
+        });
+      }
+
+      // Modal Functions
+      function openModal(id) {
+        const img = images.find((i) => i.id === id);
+        if (img) {
+          currentImageId = id;
+          document.getElementById("modalImage").src = img.src;
+          document.getElementById("modalTitle").textContent = img.title;
+          document.getElementById("modalDescription").textContent =
+            `A beautiful ${img.title.toLowerCase()} - viewed by many admiring visitors online.`;
+          document.getElementById("modalLikes").textContent = img.likes;
+          document.getElementById("modalShares").textContent = img.shares;
+          document.getElementById("modal").classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      function likeImage() {
+        if (currentImageId) {
+          images.forEach((img) => {
+            if (img.id === currentImageId) {
+              img.likes++;
+              document.getElementById("modalLikes").textContent = img.likes;
+              renderGallery(document.querySelector("input[type='text']").value);
+            }
+          });
+        }
+      }
+
+      function shareImage() {
+        if (currentImageId) {
+          images.forEach((img) => {
+            if (img.id === currentImageId) {
+              img.shares++;
+              document.getElementById("modalShares").textContent = img.shares;
+              renderGallery(document.querySelector("input[type='text']").value);
+            }
+          });
+        }
+      }
+
+      function deleteImage() {
+        if (currentImageId) {
+          const index = images.findIndex((i) => i.id === currentImageId);
+          if (index > -1) {
+            images.splice(index, 1);
+            closeModal();
+            renderGallery(document.querySelector("input[type='text']").value);
+          }
+        }
+      }
+
+      // Category Navigation
+      const categoryButtons = document.querySelectorAll("button");
+      const categories = ["vector", "illustrations", "images", "icons"];
+
+      categories.forEach((category, index) => {
+        categoryButtons[index].addEventListener("click", () => {
+          // Remove active state from all
+          categoryButtons.forEach((btn) => {
+            btn.classList.remove(
+              "pb-3",
+              "text-black",
+              "border-b-2",
+              "border-black",
+              "font-semibold",
+            );
+            btn.classList.add("text-gray-600", "font-medium");
+          });
+
+          // Add active state to clicked
+          categoryButtons[index].classList.remove(
+            "text-gray-600",
+            "font-medium",
+          );
+          categoryButtons[index].classList.add(
+            "pb-3",
+            "text-black",
+            "border-b-2",
+            "border-black",
+            "font-semibold",
+          );
+
+          currentCategory = category;
+          renderGallery(document.querySelector("input[type='text']").value);
+        });
+      });
+
+      // Search Input
+      document
+        .querySelector("input[type='text']")
+        .addEventListener("input", (e) => {
+          renderGallery(e.target.value);
+        });
+
+      // Close modal on background click
+      document.getElementById("modal").addEventListener("click", (e) => {
+        if (e.target.id === "modal") closeModal();
+      });
+
+      // Initial render
+      renderGallery();
+    </script>
+  </body>
+</html>
