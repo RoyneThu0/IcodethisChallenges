@@ -1,0 +1,71 @@
+/*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
+.flex {
+  display: flex;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.bg-gradient-to-br {
+  --tw-gradient-position: to bottom right in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 56px;
+  cursor: pointer;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: all 0.4s ease;
+  border-radius: 56px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 48px;
+  width: 48px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: all 0.4s ease;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+input:checked + .slider {
+  background-color: #4f46e5;
+}
+input:checked + .slider:before {
+  transform: translateX(44px);
+}
+.switch:hover input:not(:disabled) + .slider {
+  background-color: #a5a5a5;
+}
+.switch:hover input:checked:not(:disabled) + .slider {
+  background-color: #6366f1;
+}
+input:disabled + .slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
