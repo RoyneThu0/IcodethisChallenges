@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div
+      class="relative h-screen snap-start bg-white flex justify-center items-center"
+    >
+      <div
+        class="absolute z-0 bottom-80 right-2 rounded-full bg-cyan-300 shadow-lg shadow-cyan-300 w-24 h-24"
+      ></div>
+      <div
+        class="absolute z-0 bottom-10 left-32 rounded-full bg-cyan-300 shadow-lg shadow-cyan-300 w-14 h-14"
+      ></div>
+      <div
+        class="absolute z-0 -top-32 blur-lg right-80 w-0 h-0 border-l-[200px] border-l-transparent border-b-[190px] border-b-cyan-300 -rotate-12"
+      ></div>
+      <div
+        class="absolute z-0 top-12 left-32 w-0 h-0 border-l-[80px] border-l-transparent border-b-[80px] border-b-pink-300 -rotate-12"
+      ></div>
+      <div
+        class="absolute z-0 top-10 rounded-full bg-yellow-300 shadow-lg shadow-yellow-300 w-10 h-10"
+      ></div>
+      <div
+        class="absolute z-0 -bottom-32 blur-lg right-10 w-0 h-0 border-l-[200px] border-l-transparent border-b-[190px] border-b-purple-500 -rotate-45"
+      ></div>
+
+      <div
+        class="absolute z-0 top-20 right-20 w-0 h-0 border-l-[280px] border-l-transparent border-b-[280px] border-b-cyan-300"
+      ></div>
+
+      <div
+        class="absolute z-0 top-64 left-56 w-0 h-0 border-l-[280px] border-l-transparent border-b-[280px] border-b-fuchsia-300 -rotate-45"
+      ></div>
+
+      <div
+        class="w-11/12 max-w-3xl flex-col border-4 border-black absolute z-10 bg-gray-100 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-0 flex items-center justify-center p-10"
+      >
+        <p class="text-3xl font-semibold">Verify your email address</p>
+        <p class="mt-4 font-sans text-gray-500">
+          We emailed you a 4 digit code to user.xyz@gmail.com <br />
+          Enter the code below to confirm your email address
+        </p>
+
+        <div class="mt-6 flex justify-center space-x-3">
+          <input
+            type="text"
+            maxlength="1"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="otp-input sm:w-28 sm:h-40 w-10 h-14 border rounded-lg text-center text-5xl font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+        </div>
+
+        <div class="w-full flex items-center justify-center gap-3 mt-6">
+          <button
+            id="verifyBtn"
+            class="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-300 transform hover:scale-105 active:scale-95"
+          >
+            Verify Code
+          </button>
+          <button
+            id="clearBtn"
+            class="px-6 py-3 bg-gray-400 hover:bg-gray-500 text-white font-semibold rounded-lg transition duration-300"
+          >
+            Clear
+          </button>
+        </div>
+
+        <div
+          id="message"
+          class="mt-4 p-3 rounded-lg text-center font-medium opacity-0 transition-opacity duration-300"
+        ></div>
+
+        <div class="w-full flex items-center justify-center mt-6">
+          <p
+            class="w-fit p-2 rounded-lg animate-pulse text-center bg-gray-300 text-gray-500"
+          >
+            Make sure to keep this window open while checking for the code
+          </p>
+        </div>
+
+        <div class="w-full text-center mt-6">
+          <p class="text-gray-600">
+            Didn't receive the code?
+            <button
+              id="resendBtn"
+              class="text-blue-500 hover:text-blue-700 font-semibold underline cursor-pointer"
+            >
+              Resend
+            </button>
+            <span id="timer" class="text-gray-500"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      let resendTimer = 0;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const inputs = document.querySelectorAll(".otp-input");
+        const verifyBtn = document.getElementById("verifyBtn");
+        const clearBtn = document.getElementById("clearBtn");
+        const resendBtn = document.getElementById("resendBtn");
+        const timerEl = document.getElementById("timer");
+        const messageEl = document.getElementById("message");
+
+        // Auto-focus and input handling
+        inputs.forEach((input, index) => {
+          input.addEventListener("input", (e) => {
+            const value = e.target.value;
+            // Only allow digits
+            if (!/^\d*$/.test(value)) {
+              e.target.value = "";
+              return;
+            }
+            if (value.length === 1 && index < inputs.length - 1) {
+              inputs[index + 1].focus();
+            }
+            updateVerifyButton();
+          });
+
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" && index > 0 && !e.target.value) {
+              inputs[index - 1].focus();
+            }
+          });
+
+          input.addEventListener("paste", (e) => {
+            e.preventDefault();
+            const pasteData = e.clipboardData
+              .getData("text")
+              .replace(/\D/g, "")
+              .split("");
+            pasteData.forEach((num, i) => {
+              if (i < inputs.length) {
+                inputs[i].value = num;
+              }
+            });
+            inputs[Math.min(pasteData.length, inputs.length - 1)].focus();
+            updateVerifyButton();
+          });
+        });
+
+        // Clear button
+        clearBtn.addEventListener("click", () => {
+          inputs.forEach((input) => {
+            input.value = "";
+            input.style.borderColor = "";
+          });
+          messageEl.classList.remove("opacity-100");
+          messageEl.classList.add("opacity-0");
+          inputs[0].focus();
+          updateVerifyButton();
+        });
+
+        // Verify button
+        verifyBtn.addEventListener("click", () => {
+          const code = Array.from(inputs)
+            .map((input) => input.value)
+            .join("");
+
+          if (code.length !== 4) {
+            showMessage("Please enter all 4 digits", "error");
+            inputs.forEach((input) => (input.style.borderColor = "#ef4444"));
+            return;
+          }
+
+          // Simulate verification
+          verifyBtn.disabled = true;
+          verifyBtn.textContent = "Verifying...";
+
+          setTimeout(() => {
+            if (code === "1234") {
+              // Demo: correct code is 1234
+              showMessage("✓ Email verified successfully!", "success");
+              inputs.forEach((input) => {
+                input.style.borderColor = "#10b981";
+                input.disabled = true;
+              });
+              verifyBtn.style.display = "none";
+              clearBtn.style.display = "none";
+              confetti();
+            } else {
+              showMessage("✗ Invalid code. Please try again.", "error");
+              inputs.forEach((input) => (input.style.borderColor = "#ef4444"));
+              inputs[0].focus();
+              inputs[0].select();
+              verifyBtn.disabled = false;
+              verifyBtn.textContent = "Verify Code";
+            }
+          }, 1000);
+        });
+
+        // Resend button with countdown
+        resendBtn.addEventListener("click", () => {
+          if (resendTimer > 0) return;
+
+          showMessage("Code sent to your email!", "success");
+          resendBtn.disabled = true;
+          startResendTimer();
+        });
+
+        function startResendTimer() {
+          resendTimer = 60;
+          resendBtn.style.opacity = "0.5";
+          resendBtn.style.pointerEvents = "none";
+
+          const interval = setInterval(() => {
+            resendTimer--;
+            timerEl.textContent = ` (${resendTimer}s)`;
+
+            if (resendTimer <= 0) {
+              clearInterval(interval);
+              resendBtn.disabled = false;
+              resendBtn.style.opacity = "1";
+              resendBtn.style.pointerEvents = "auto";
+              timerEl.textContent = "";
+            }
+          }, 1000);
+        }
+
+        function updateVerifyButton() {
+          const code = Array.from(inputs)
+            .map((input) => input.value)
+            .join("");
+          verifyBtn.disabled = code.length !== 4;
+          verifyBtn.style.opacity = code.length === 4 ? "1" : "0.5";
+        }
+
+        function showMessage(text, type) {
+          messageEl.textContent = text;
+          messageEl.className = `mt-4 p-3 rounded-lg text-center font-medium opacity-100 transition-opacity duration-300 ${
+            type === "success"
+              ? "bg-green-100 text-green-700"
+              : "bg-red-100 text-red-700"
+          }`;
+        }
+
+        function confetti() {
+          const duration = 2000;
+          const animationEnd = Date.now() + duration;
+          const defaults = {
+            startVelocity: 30,
+            spread: 360,
+            ticks: 60,
+            zIndex: 0,
+          };
+
+          function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+          }
+
+          const interval = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+              return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            for (let i = 0; i < particleCount; i++) {
+              createParticle(
+                randomInRange(0, window.innerWidth),
+                randomInRange(0, window.innerHeight),
+              );
+            }
+          }, 250);
+        }
+
+        function createParticle(x, y) {
+          const particle = document.createElement("div");
+          particle.style.position = "fixed";
+          particle.style.left = x + "px";
+          particle.style.top = y + "px";
+          particle.style.pointerEvents = "none";
+          particle.style.fontSize = "20px";
+          particle.style.zIndex = "9999";
+          particle.textContent = ["🎉", "✨", "🎊"][
+            Math.floor(Math.random() * 3)
+          ];
+          document.body.appendChild(particle);
+
+          const duration = 2000;
+          const startTime = Date.now();
+          const vx = (Math.random() - 0.5) * 8;
+          const vy = -Math.random() * 8 - 5;
+
+          function animate() {
+            const elapsed = Date.now() - startTime;
+            const progress = elapsed / duration;
+
+            particle.style.opacity = 1 - progress;
+            particle.style.transform = `translate(${vx * elapsed * 0.1}px, ${vy * elapsed * 0.1 + elapsed * elapsed * 0.0001}px)`;
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              particle.remove();
+            }
+          }
+
+          animate();
+        }
+
+        // Initialize
+        updateVerifyButton();
+        inputs[0].focus();
+      });
+    </script>
+  </body>
+</html>
