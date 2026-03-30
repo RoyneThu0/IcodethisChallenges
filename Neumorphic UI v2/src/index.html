@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphic UI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --bg: #e8ebf2;
+        --panel: #edf0f6;
+        --text: #454c5f;
+        --muted: #747c90;
+        --light-shadow: #ffffff;
+        --dark-shadow: #cfd5e3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(
+          circle at 20% 0%,
+          #f0f2f8 0%,
+          var(--bg) 68%
+        );
+        font-family: "Manrope", sans-serif;
+        color: var(--text);
+      }
+
+      .ui-wrap {
+        width: min(760px, calc(100vw - 2rem));
+      }
+
+      .neo-block {
+        background: var(--panel);
+        border-radius: 18px;
+        box-shadow:
+          14px 14px 28px var(--dark-shadow),
+          -12px -12px 24px var(--light-shadow);
+      }
+
+      .payment-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        padding: 1.1rem;
+      }
+
+      .pay-option {
+        border: 0;
+        background: transparent;
+        border-radius: 16px;
+        cursor: pointer;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-weight: 800;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+        color: #50576b;
+      }
+
+      .pay-option span {
+        font-size: 0.88rem;
+      }
+
+      .pay-option.active {
+        background: #e9ecf3;
+        box-shadow:
+          inset 1px 1px 0 rgba(255, 255, 255, 0.85),
+          9px 9px 18px rgba(196, 203, 220, 0.9),
+          -7px -7px 16px rgba(255, 255, 255, 0.92);
+      }
+
+      .icon-circle {
+        width: 70px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: inline-grid;
+        place-items: center;
+        color: #fff;
+        font-size: 1.35rem;
+        box-shadow:
+          7px 8px 15px rgba(173, 179, 195, 0.7),
+          -4px -4px 10px rgba(255, 255, 255, 0.7);
+      }
+
+      .credit {
+        background: linear-gradient(145deg, #ff7b88, #f76072);
+      }
+
+      .gift {
+        background: linear-gradient(145deg, #f8ba76, #f4a85f);
+      }
+
+      .orders {
+        background: linear-gradient(145deg, #7d7cff, #6a68f2);
+      }
+
+      .notification {
+        margin-top: 2rem;
+        padding: 1.25rem 1.4rem;
+        border-radius: 14px;
+        text-align: center;
+        line-height: 1.45;
+        color: var(--muted);
+        font-size: 1.02rem;
+        box-shadow:
+          inset 5px 5px 11px #d2d8e5,
+          inset -6px -6px 11px #ffffff;
+      }
+
+      .notification a {
+        color: #6f82f2;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .button-row {
+        margin-top: 2.25rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+      }
+
+      .action {
+        border: 0;
+        border-radius: 999px;
+        padding: 1rem 1.1rem;
+        font: inherit;
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        cursor: pointer;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .action:active {
+        transform: translateY(2px);
+      }
+
+      .continue {
+        color: #fff;
+        background: linear-gradient(145deg, #7b90ff, #6780ef);
+        box-shadow:
+          10px 10px 20px #c4cbe0,
+          -9px -9px 18px #ffffff;
+      }
+
+      .cancel {
+        color: #7d8beb;
+        background: #ecf0f6;
+        box-shadow:
+          10px 10px 20px #c4cbe0,
+          -9px -9px 18px #ffffff;
+      }
+
+      @media (max-width: 720px) {
+        body {
+          padding: 1.25rem 0.5rem;
+          align-items: start;
+        }
+
+        .payment-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pay-option {
+          min-height: 128px;
+        }
+
+        .button-row {
+          grid-template-columns: 1fr;
+        }
+
+        .action {
+          font-size: 1.05rem;
+        }
+
+        .notification {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="ui-wrap">
+      <section class="neo-block payment-grid" aria-label="Payment options">
+        <button class="pay-option" type="button">
+          <i
+            class="fa-regular fa-credit-card icon-circle credit"
+            aria-hidden="true"
+          ></i>
+          <span>CREDIT CARD</span>
+        </button>
+
+        <button class="pay-option active" type="button" aria-current="true">
+          <i class="fa-solid fa-gift icon-circle gift" aria-hidden="true"></i>
+          <span>GIFT CARDS</span>
+        </button>
+
+        <button class="pay-option" type="button">
+          <i
+            class="fa-solid fa-bag-shopping icon-circle orders"
+            aria-hidden="true"
+          ></i>
+          <span>ORDERS</span>
+        </button>
+      </section>
+
+      <section class="notification" aria-label="Notification message">
+        Stay on top of your order status, deals, new messages and more.
+        <a href="#">Enable notifications</a>
+      </section>
+
+      <div class="button-row">
+        <button class="action continue" type="button">Continue</button>
+        <button class="action cancel" type="button">Cancel</button>
+      </div>
+    </main>
+  </body>
+</html>
