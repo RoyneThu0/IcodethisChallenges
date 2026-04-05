@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Accordion 2</title>
+  </head>
+  <body
+    class="min-h-screen w-full flex items-center justify-center bg-[#f6f8fc]"
+  >
+    <div class="w-11/12 max-w-md p-4 bg-white space-y-4">
+      <h1 class="text-center text-xl capitalize font-semibold">
+        The barebones of an accordion
+      </h1>
+      <p class="text-center w-3/4 mx-auto text-sm">
+        Highlighting important details of a section and revealing more details
+        upon a tap or a click, if necessary
+      </p>
+      <details class="text-xs">
+        <summary
+          class="flex items-center justify-between cursor-pointer p-2 text-gray-500 open:text-gray-900 border-b border-gray-400 text-sm"
+        >
+          <span>When and how should it be used?</span>
+          <i class="fa-solid fa-plus"></i>
+        </summary>
+        <span class="text-sm mt-2 block">
+          Accordions should be used when there are multiple sections of content,
+          and the user needs to quickly access and understand specific
+          information. They can be used to organize information in a way that is
+          easy to scan and read, making it easier for users to find what they
+          need.
+        </span>
+        <button
+          class="border py-2 px-4 rounded-full border-gray-500 text-gray-500 text-xs mt-2"
+        >
+          Read more
+        </button>
+      </details>
+      <details class="text-xs">
+        <summary
+          class="flex items-center justify-between cursor-pointer p-2 text-gray-500 open:text-gray-900 border-b border-gray-400 text-sm"
+        >
+          <span>What is an accordion?</span>
+          <i class="fa-solid fa-plus"></i>
+        </summary>
+        <span class="text-sm mt-2 block">
+          An accordion is a vertically stacked list of headers that can be
+          expanded or collapsed to reveal or hide the content associated with
+          each header.
+        </span>
+        <button
+          class="border py-2 px-4 rounded-full border-gray-500 text-gray-500 text-xs mt-2"
+        >
+          Read more
+        </button>
+      </details>
+
+     
+        <span class="text-sm mt-2 block">
+          If a user clicks on a collapsed card while another card is open, there
+          are two approaches that can be taken: the open card can be closed and
+          the new card opened, or the new card can be opened while the old one
+          remains open.
+        </span>
+        <button
+          class="border py-2 px-4 rounded-full border-gray-500 text-gray-500 text-xs mt-2"
+        >
+          Read more
+        </button>
+      </details>
+      <details class="text-xs">
+        <summary
+          class="flex items-center justify-between cursor-pointer p-2 text-gray-500 open:text-gray-900 border-b border-gray-400 text-sm"
+        >
+          <span>How to choose an icon to indicate expansion?</span>
+          <i class="fa-solid fa-plus"></i>
+        </summary>
+        <span class="text-sm mt-2 block">
+          Icons can be used to indicate the state of an accordion, such as a
+          plus sign (+) to indicate that the section is collapsed, and a minus
+          sign (-) to indicate that the section is expanded. Other icons can
+          also be used, such as a caret or a triangle.
+        </span>
+        <button
+          class="border py-2 px-4 rounded-full border-gray-500 text-gray-500 text-xs mt-2"
+        >
+          Read more
+        </button>
+      </details>
+    </div>
+  </body>
+</html>
