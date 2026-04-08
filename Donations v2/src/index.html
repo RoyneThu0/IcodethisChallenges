@@ -142,13 +142,25 @@
             class="w-full flex items-center md:justify-start justify-center gap-3 mt-5"
           >
             <div class="flex items-center justify-center gap-2 pt-5">
-              <button type="button" class="amount-pill donation-amount" data-amount="5">
+              <button
+                type="button"
+                class="amount-pill donation-amount"
+                data-amount="5"
+              >
                 $5
               </button>
-              <button type="button" class="amount-pill donation-amount" data-amount="10">
+              <button
+                type="button"
+                class="amount-pill donation-amount"
+                data-amount="10"
+              >
                 $10
               </button>
-              <button type="button" class="amount-pill donation-amount" data-amount="15">
+              <button
+                type="button"
+                class="amount-pill donation-amount"
+                data-amount="15"
+              >
                 $15
               </button>
 
@@ -185,38 +197,39 @@
     <div id="confetti" class="confetti-wrap"></div>
 
     <script>
-      const amountButtons = document.querySelectorAll('.donation-amount');
-      const customAmountInput = document.getElementById('custom_amount');
-      const donateButton = document.getElementById('donate-btn');
-      const successMessage = document.getElementById('success-message');
-      const confettiWrap = document.getElementById('confetti');
+      const amountButtons = document.querySelectorAll(".donation-amount");
+      const customAmountInput = document.getElementById("custom_amount");
+      const donateButton = document.getElementById("donate-btn");
+      const successMessage = document.getElementById("success-message");
+      const confettiWrap = document.getElementById("confetti");
 
       let selectedAmount = null;
 
       amountButtons.forEach((button) => {
-        button.addEventListener('click', () => {
+        button.addEventListener("click", () => {
           selectedAmount = button.dataset.amount;
-          customAmountInput.value = '';
+          customAmountInput.value = "";
 
-          amountButtons.forEach((pill) => pill.classList.remove('active'));
-          button.classList.add('active');
+          amountButtons.forEach((pill) => pill.classList.remove("active"));
+          button.classList.add("active");
         });
       });
 
-      customAmountInput.addEventListener('input', () => {
+      customAmountInput.addEventListener("input", () => {
         selectedAmount = customAmountInput.value.trim();
-        amountButtons.forEach((pill) => pill.classList.remove('active'));
+        amountButtons.forEach((pill) => pill.classList.remove("active"));
       });
 
       function launchConfetti() {
-        const colors = ['#22c55e', '#f97316', '#3b82f6', '#ec4899', '#eab308'];
+        const colors = ["#22c55e", "#f97316", "#3b82f6", "#ec4899", "#eab308"];
 
         for (let i = 0; i < 120; i += 1) {
-          const piece = document.createElement('span');
-          piece.className = 'confetti-piece';
+          const piece = document.createElement("span");
+          piece.className = "confetti-piece";
           piece.style.left = `${Math.random() * 100}%`;
-          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-          piece.style.setProperty('--drift', `${Math.random() * 160 - 80}px`);
+          piece.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+          piece.style.setProperty("--drift", `${Math.random() * 160 - 80}px`);
           piece.style.animationDelay = `${Math.random() * 0.45}s`;
           confettiWrap.appendChild(piece);
 
@@ -224,20 +237,38 @@
         }
       }
 
-      donateButton.addEventListener('click', () => {
+      donateButton.addEventListener("click", () => {
         const amount = selectedAmount || customAmountInput.value.trim();
 
         if (!amount || Number(amount) <= 0 || Number.isNaN(Number(amount))) {
-          successMessage.classList.remove('show');
-          successMessage.textContent = 'Please choose or enter a valid amount.';
-          successMessage.classList.remove('text-emerald-700', 'bg-emerald-50', 'border-emerald-200');
-          successMessage.classList.add('text-rose-700', 'bg-rose-50', 'border-rose-200', 'show');
+          successMessage.classList.remove("show");
+          successMessage.textContent = "Please choose or enter a valid amount.";
+          successMessage.classList.remove(
+            "text-emerald-700",
+            "bg-emerald-50",
+            "border-emerald-200",
+          );
+          successMessage.classList.add(
+            "text-rose-700",
+            "bg-rose-50",
+            "border-rose-200",
+            "show",
+          );
           return;
         }
 
         successMessage.textContent = `Donation successful. Thank you for your $${Number(amount)} support!`;
-        successMessage.classList.remove('text-rose-700', 'bg-rose-50', 'border-rose-200');
-        successMessage.classList.add('text-emerald-700', 'bg-emerald-50', 'border-emerald-200', 'show');
+        successMessage.classList.remove(
+          "text-rose-700",
+          "bg-rose-50",
+          "border-rose-200",
+        );
+        successMessage.classList.add(
+          "text-emerald-700",
+          "bg-emerald-50",
+          "border-emerald-200",
+          "show",
+        );
         launchConfetti();
       });
     </script>
