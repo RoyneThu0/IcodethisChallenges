@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toasts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              fadeInUp: "fadeInUp 0.5s ease-out",
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-gray-100 p-8 flex flex-col items-center gap-8">
+    <div
+      class="flex items-center gap-3 px-6 py-4 shadow-lg rounded-md bg-white text-gray-800 animate-fadeInUp"
+    >
+      <div class="flex-shrink-0 text-lg text-green-500">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <span class="flex-1 text-sm font-medium"
+        >File has been removed successfully.</span
+      >
+      <button
+        class="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer bg-none border-none p-0"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div
+      class="flex items-center gap-3 px-6 py-4 shadow-lg rounded-md bg-slate-900 text-white animate-fadeInUp"
+      style="animation-delay: 0.1s"
+    >
+      <div class="flex-shrink-0 text-lg text-green-400">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <span class="flex-1 text-sm font-medium"
+        >File has been removed successfully.</span
+      >
+      <button
+        class="flex-shrink-0 text-gray-500 hover:text-gray-300 transition-colors cursor-pointer bg-none border-none p-0"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div
+      class="flex items-center gap-3 px-6 py-4 shadow-lg rounded-lg bg-white text-gray-800 animate-fadeInUp"
+      style="animation-delay: 0.2s"
+    >
+      <div class="flex-shrink-0 text-lg text-green-500">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <span class="flex-1 text-sm font-medium"
+        >File has been removed successfully.</span
+      >
+      <button
+        class="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer bg-none border-none p-0"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div
+      class="flex items-center gap-3 px-6 py-4 shadow-lg rounded-full bg-slate-900 text-white animate-fadeInUp"
+      style="animation-delay: 0.3s"
+    >
+      <div class="flex-shrink-0 text-lg text-green-400">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <span class="flex-1 text-sm font-medium"
+        >File has been removed successfully.</span
+      >
+      <button
+        class="flex-shrink-0 text-gray-500 hover:text-gray-300 transition-colors cursor-pointer bg-none border-none p-0"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div
+      class="flex items-center gap-3 px-6 py-4 shadow-lg rounded-full bg-white text-gray-800 animate-fadeInUp"
+      style="animation-delay: 0.4s"
+    >
+      <div class="flex-shrink-0 text-lg text-green-500">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <span class="flex-1 text-sm font-medium"
+        >File has been removed successfully.</span
+      >
+      <button
+        class="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer bg-none border-none p-0"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div
+      class="flex items-center gap-3 px-6 py-4 shadow-lg rounded-md bg-slate-900 text-white animate-fadeInUp"
+      style="animation-delay: 0.5s"
+    >
+      <div class="flex-shrink-0 text-lg text-green-400">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <span class="flex-1 text-sm font-medium"
+        >File has been removed successfully.</span
+      >
+      <button
+        class="flex-shrink-0 text-gray-500 hover:text-gray-300 transition-colors cursor-pointer bg-none border-none p-0"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </body>
+</html>
