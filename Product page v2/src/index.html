@@ -322,13 +322,13 @@
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       }
 
-      /* Active (snapped) card - full gradient + glow */
+      /* Active (snapped) card - gradient fades left→right: color on text side, white on image side */
       .product-card[data-color="purple"].card-active {
         background: linear-gradient(
-          135deg,
+          to right,
           #d8b4fe 0%,
-          #ede9fe 50%,
-          #f5f3ff 100%
+          #ede9fe 45%,
+          #ffffff 100%
         );
         box-shadow:
           0 0 0 1px rgba(167, 139, 250, 0.3),
@@ -338,10 +338,10 @@
 
       .product-card[data-color="yellow"].card-active {
         background: linear-gradient(
-          135deg,
+          to right,
           #fde68a 0%,
-          #fef9c3 50%,
-          #fffbeb 100%
+          #fef9c3 45%,
+          #ffffff 100%
         );
         box-shadow:
           0 0 0 1px rgba(234, 179, 8, 0.3),
@@ -351,10 +351,10 @@
 
       .product-card[data-color="pink"].card-active {
         background: linear-gradient(
-          135deg,
+          to right,
           #fbcfe8 0%,
-          #fdf2f8 50%,
-          #fff0f6 100%
+          #fdf2f8 45%,
+          #ffffff 100%
         );
         box-shadow:
           0 0 0 1px rgba(236, 72, 153, 0.3),
@@ -364,10 +364,10 @@
 
       .product-card[data-color="blue"].card-active {
         background: linear-gradient(
-          135deg,
+          to right,
           #bfdbfe 0%,
-          #e0f2fe 50%,
-          #f0f9ff 100%
+          #e0f2fe 45%,
+          #ffffff 100%
         );
         box-shadow:
           0 0 0 1px rgba(59, 130, 246, 0.3),
