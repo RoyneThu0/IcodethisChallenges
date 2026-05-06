@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get started</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .confetti-wrap {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 30;
+      }
+
+      .confetti-piece {
+        position: absolute;
+        top: -10%;
+        width: 8px;
+        height: 14px;
+        border-radius: 2px;
+        animation: confetti-fall 1.8s linear forwards;
+      }
+
+      @keyframes confetti-fall {
+        0% {
+          transform: translate3d(0, 0, 0) rotate(0deg);
+          opacity: 1;
+        }
+
+        100% {
+          transform: translate3d(var(--drift), 120vh, 0) rotate(640deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="flex items-center justify-center min-h-screen w-screen bg-cover bg-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1637825891028-564f672aa42c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHB1cnBsZXxlbnwwfDB8MHx8fDA%3D);
+    "
+  >
+    <div id="confettiContainer" class="confetti-wrap"></div>
+
+    <div
+      id="card"
+      class="bg-white rounded-lg shadow-lg p-10 w-11/12 max-w-xl text-center relative z-10"
+    >
+      <div class="flex items-center justify-between mb-6">
+        <div
+          class="w-8 h-8 rounded-full bg-blue-500 text-white shadow-xl flex items-center justify-center font-bold step"
+        >
+          1
+        </div>
+        <div class="flex-1 h-1 bg-gray-300 mx-2 relative progress-line">
+          <div
+            class="absolute top-0 left-0 h-full bg-blue-500 transition-all duration-300"
+            style="width: 0%"
+          ></div>
+        </div>
+        <div
+          class="w-8 h-8 rounded-full bg-gray-300 text-white shadow-xl flex items-center justify-center font-bold step"
+        >
+          2
+        </div>
+        <div class="flex-1 h-1 bg-gray-300 mx-2 relative progress-line">
+          <div
+            class="absolute top-0 left-0 h-full bg-blue-500 transition-all duration-300"
+            style="width: 0%"
+          ></div>
+        </div>
+        <div
+          class="w-8 h-8 rounded-full bg-gray-300 text-white shadow-xl flex items-center justify-center font-bold step"
+        >
+          3
+        </div>
+      </div>
+
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">
+        Welcome Data Studio
+      </h2>
+      <p class="text-sm text-gray-600 mb-6">
+        Turn your data into informative dashboards and reports that are easy to
+        read, easy to share, and fully customizable. Data Studio allows you to
+        tell great data stories to support better business decisions.
+      </p>
+      <div
+        id="completionMessage"
+        class="hidden mb-6 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3"
+      >
+        All steps are done. You are ready to go.
+      </div>
+      <button
+        id="nextButton"
+        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+      >
+        Get started
+      </button>
+    </div>
+
+    <script>
+      const steps = document.querySelectorAll(".step");
+      const progressLines = document.querySelectorAll(".progress-line div");
+      const nextButton = document.getElementById("nextButton");
+      const completionMessage = document.getElementById("completionMessage");
+      const confettiContainer = document.getElementById("confettiContainer");
+      let currentStep = 0;
+
+      function launchConfetti() {
+        const colors = ["#3b82f6", "#f59e0b", "#10b981", "#ef4444", "#8b5cf6"];
+        const totalPieces = 70;
+
+        for (let i = 0; i < totalPieces; i++) {
+          const piece = document.createElement("span");
+          piece.className = "confetti-piece";
+          piece.style.left = `${Math.random() * 100}%`;
+          piece.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+          piece.style.animationDelay = `${Math.random() * 0.35}s`;
+          piece.style.setProperty("--drift", `${Math.random() * 280 - 140}px`);
+
+          confettiContainer.appendChild(piece);
+
+          piece.addEventListener("animationend", () => {
+            piece.remove();
+          });
+        }
+      }
+
+      function completeSteps() {
+        completionMessage.classList.remove("hidden");
+        nextButton.textContent = "Completed";
+        nextButton.disabled = true;
+        nextButton.classList.remove("hover:bg-blue-600");
+        nextButton.classList.add("bg-gray-400", "cursor-not-allowed");
+        launchConfetti();
+      }
+
+      nextButton.addEventListener("click", () => {
+        if (currentStep < steps.length - 1) {
+          steps[currentStep + 1].classList.add("bg-blue-500");
+          steps[currentStep + 1].classList.remove("bg-gray-300");
+          progressLines[currentStep].style.width = "100%";
+          currentStep++;
+
+          if (currentStep === steps.length - 1) {
+            completeSteps();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
