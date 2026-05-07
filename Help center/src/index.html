@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help Center 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --surface: #dfe7f2;
+        --surface-strong: #d4deeb;
+        --highlight: #f8fbff;
+        --shadow: #b7c4d3;
+        --text-main: #314056;
+        --text-soft: #6f7d92;
+        --accent: #6f8fb8;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background:
+          radial-gradient(circle at top left, #eef4fb 0%, transparent 32%),
+          radial-gradient(circle at bottom right, #d2dce9 0%, transparent 28%),
+          var(--surface);
+        color: var(--text-main);
+      }
+
+      .neu-panel {
+        background: linear-gradient(145deg, #e7eef8, #d2dbe7);
+        border-radius: 32px;
+        box-shadow:
+          18px 18px 36px var(--shadow),
+          -18px -18px 36px var(--highlight);
+      }
+
+      .neu-inset {
+        background: linear-gradient(145deg, #dae3ee, #e8eff8);
+        box-shadow:
+          inset 10px 10px 22px #c0cbd8,
+          inset -10px -10px 22px #f9fcff;
+      }
+
+      .neu-chip {
+        background: linear-gradient(145deg, #e7eef8, #d5deea);
+        box-shadow:
+          10px 10px 22px #bcc8d6,
+          -10px -10px 22px #f7fbff;
+      }
+
+      .neu-flat {
+        background: linear-gradient(145deg, #dbe4ef, #dde6f1);
+        box-shadow: none;
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          background 220ms ease;
+      }
+
+      .neu-flat:hover {
+        background: linear-gradient(145deg, #e7eef8, #d5deea);
+        box-shadow:
+          10px 10px 22px #bcc8d6,
+          -10px -10px 22px #f7fbff;
+        transform: translateY(-2px);
+      }
+
+      .neu-card {
+        background: linear-gradient(145deg, #e4ebf5, #d7e0ec);
+        box-shadow:
+          16px 16px 32px #bcc8d6,
+          -16px -16px 32px #f8fbff;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen w-full flex items-start md:items-center justify-center px-4 py-8 md:px-6"
+  >
+    <div
+      class="w-full max-w-5xl flex flex-col items-center justify-center gap-8"
+    >
+      <div
+        class="neu-panel w-full md:w-4/5 p-5 md:p-8 flex flex-col items-center justify-center"
+      >
+        <div class="neu-flat w-full rounded-[24px] px-5 py-6 text-center">
+          <p class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">
+            How can we help you?
+          </p>
+        </div>
+        <div
+          class="neu-inset w-full mt-8 flex items-center justify-center rounded-[24px] px-4"
+        >
+          <p>
+            <i
+              class="fa-solid fa-magnifying-glass pl-1 text-[var(--accent)]"
+            ></i>
+          </p>
+          <input
+            type="text"
+            name=" issue"
+            id="issue"
+            class="w-full bg-transparent px-3 py-4 text-sm md:text-base text-[var(--text-main)] placeholder:text-[var(--text-soft)] focus:outline-none"
+            placeholder=" Describe your issue"
+          />
+        </div>
+        <ul class="w-full mt-6 flex flex-col items-start justify-start gap-3">
+          <li
+            class="neu-flat w-full rounded-2xl flex items-center justify-between py-4 px-4"
+          >
+            <p
+              class="pl-2 text-sm md:text-base font-medium text-[var(--text-soft)]"
+            >
+              Popular articles
+            </p>
+            <i class="fa-solid fa-chevron-down text-[var(--accent)]"></i>
+          </li>
+          <li
+            class="neu-flat w-full rounded-2xl flex items-center justify-between py-4 px-4"
+          >
+            <p
+              class="pl-2 text-sm md:text-base font-medium text-[var(--text-soft)]"
+            >
+              Fix problems & request removals
+            </p>
+            <i class="fa-solid fa-chevron-down text-[var(--accent)]"></i>
+          </li>
+          <li
+            class="neu-flat w-full rounded-2xl flex items-center justify-between py-4 px-4"
+          >
+            <p
+              class="pl-2 text-sm md:text-base font-medium text-[var(--text-soft)]"
+            >
+              Browse the web
+            </p>
+            <i class="fa-solid fa-chevron-down text-[var(--accent)]"></i>
+          </li>
+          <li
+            class="neu-flat w-full rounded-2xl flex items-center justify-between py-4 px-4"
+          >
+            <p
+              class="pl-2 text-sm md:text-base font-medium text-[var(--text-soft)]"
+            >
+              Search on your phone or tablet
+            </p>
+            <i class="fa-solid fa-chevron-down text-[var(--accent)]"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="w-full grid md:grid-cols-3 grid-cols-1 gap-5 md:gap-6">
+        <div
+          class="neu-card flex flex-col w-full rounded-[28px] p-4 transition duration-300 hover:-translate-y-1"
+        >
+          <div class="neu-inset rounded-[22px] p-2">
+            <img
+              class="h-32 w-full object-cover rounded-[18px]"
+              src="https://s3.eu-west-2.amazonaws.com/sr-acf-craft/v2/images/_1920x1080_crop_center-center_line/The-Tallest-Mountains-in-the-World.jpg"
+              alt="Snow-covered mountain range"
+            />
+          </div>
+          <p
+            class="w-full pt-4 text-center text-sm font-semibold tracking-wide text-[var(--text-main)]"
+          >
+            A friend indeed
+          </p>
+          <p class="pt-1 pb-2 text-center text-xs text-[var(--text-soft)]">
+            Community tips and trusted walkthroughs.
+          </p>
+        </div>
+        <div
+          class="neu-card flex flex-col w-full rounded-[28px] p-4 transition duration-300 hover:-translate-y-1"
+        >
+          <div class="neu-inset rounded-[22px] p-2">
+            <img
+              class="h-32 w-full object-cover rounded-[18px]"
+              src="https://live-production.wcms.abc-cdn.net.au/1258c6dc5260f47d0d8e5810ecdbe98f?impolicy=wcms_crop_resize&cropH=1672&cropW=2974&xPos=0&yPos=342&width=862&height=485"
+              alt="Blue glacial mountain landscape"
+            />
+          </div>
+          <p
+            class="w-full pt-4 text-center text-sm font-semibold tracking-wide text-[var(--text-main)]"
+          >
+            Quick fixes
+          </p>
+          <p class="pt-1 pb-2 text-center text-xs text-[var(--text-soft)]">
+            Short answers for the issues users hit most.
+          </p>
+        </div>
+        <div
+          class="neu-card flex flex-col w-full rounded-[28px] p-4 transition duration-300 hover:-translate-y-1"
+        >
+          <div class="neu-inset rounded-[22px] p-2">
+            <img
+              class="h-32 w-full object-cover rounded-[18px]"
+              src="https://dsk4t6ov5vq8n.cloudfront.net/uploads/PBS-Articles/2022/The-Green-Planet/Episode-4-photos/Sized-photos/_1200x630_crop_center-center_82_none/The_Green_Planet_04_004.jpg?mtime=1657053687"
+              alt="Green island landscape from above"
+            />
+          </div>
+          <p
+            class="w-full pt-4 text-center text-sm font-semibold tracking-wide text-[var(--text-main)]"
+          >
+            Return of the Ridleys
+          </p>
+          <p class="pt-1 pb-2 text-center text-xs text-[var(--text-soft)]">
+            Longer reads for account, device, and browser help.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
