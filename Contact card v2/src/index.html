@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact card</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @keyframes slideDown {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(120px);
+        }
+      }
+      .slide-down {
+        animation: slideDown 2s ease-out forwards;
+      }
+
+      :root {
+        color-scheme: light;
+        --app-bg: #f8fafc;
+        --frame-bg: #ffffff;
+        --hero-gradient: linear-gradient(
+          135deg,
+          #38bdf8 0%,
+          #818cf8 50%,
+          #a855f7 100%
+        );
+        --panel-bg: #ffffff;
+        --heading: #0f172a;
+        --muted: #64748b;
+        --pill-border: #e2e8f0;
+        --pill-text: #475569;
+        --toggle-bg: #ffffff;
+        --toggle-text: #0f172a;
+        --toggle-border: rgba(15, 23, 42, 0.12);
+      }
+
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --app-bg: #060815;
+        --frame-bg: #0d1325;
+        --hero-gradient: linear-gradient(
+          145deg,
+          #0ea5e9 0%,
+          #4f46e5 55%,
+          #7e22ce 100%
+        );
+        --panel-bg: #10172a;
+        --heading: #e2e8f0;
+        --muted: #94a3b8;
+        --pill-border: #334155;
+        --pill-text: #cbd5e1;
+        --toggle-bg: #0f172a;
+        --toggle-text: #e2e8f0;
+        --toggle-border: rgba(148, 163, 184, 0.35);
+      }
+
+      body {
+        background: var(--app-bg);
+      }
+
+      body,
+      .app-frame,
+      .hero-card,
+      .chat-panel,
+      .theme-toggle {
+        transition:
+          background-color 250ms ease,
+          border-color 250ms ease,
+          color 250ms ease;
+      }
+
+      .app-frame {
+        background: var(--frame-bg);
+      }
+
+      .hero-card {
+        background: var(--hero-gradient);
+      }
+
+      .chat-panel {
+        background: var(--panel-bg);
+      }
+
+      .heading {
+        color: var(--heading);
+      }
+
+      .muted-text {
+        color: var(--muted);
+      }
+
+      .status-pill {
+        border-color: var(--pill-border) !important;
+        color: var(--pill-text);
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 50;
+        border: 1px solid var(--toggle-border);
+        background: var(--toggle-bg);
+        color: var(--toggle-text);
+        border-radius: 999px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+      }
+
+      .theme-toggle:hover {
+        transform: translateY(-1px);
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-10 md:mt-0 justify-center"
+  >
+    <button
+      id="themeToggle"
+      type="button"
+      aria-label="Toggle dark mode"
+      aria-pressed="false"
+      class="theme-toggle"
+    >
+      <span id="themeIcon" aria-hidden="true"
+        ><i class="fa-solid fa-moon"></i
+      ></span>
+      <span id="themeLabel">Dark mode</span>
+    </button>
+
+    <div
+      class="app-frame w-11/12 max-w-2xl h-fit py-20 rounded-lg flex items-start justify-center"
+    >
+      <div
+        class="hero-card w-full relative z-0 max-w-sm p-10 rounded-lg flex items-center justify-center flex-col"
+      >
+        <p class="text-white text-xl">Hi George</p>
+        <p class="w-full text-slate-200 text-sm mt-4 mb-10 text-center">
+          You can contact us whenever you need help <br />
+          or just curious about something
+        </p>
+        <div
+          class="chat-panel slide-down absolute w-9/12 rounded-lg duration-300 translate-y-20 z-10 p-10 shadow-2xl flex items-center justify-start flex-col"
+        >
+          <p class="heading w-full text-center text-lg font-semibold">
+            Start chatting
+          </p>
+          <img
+            class="w-16 h-16 rounded-full mt-4 border-2 border-transparent hover:scale-110 duration-300 hover:border-purple-500"
+            src="https://i.pinimg.com/280x280_RS/ce/d9/41/ced941bcd0ce9038a808ffc60c018acd.jpg"
+            alt=""
+          />
+          <p class="heading mt-2 text-">Essie Walton</p>
+          <p
+            class="status-pill text-sm mt-2 border animate-pulse px-2 rounded-full"
+          >
+            <i class="fa-solid fa-circle text-xs text-green-400"></i>
+            Active
+          </p>
+
+          <button
+            class="mt-6 text-sm bg-gradient-to-br from-sky-400 via-indigo-400 to-purple-500 py-2 px-4 rounded-md font-light text-white hover:scale-105 duration-300"
+          >
+            Send a message
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const storageKey = "contact-card-theme";
+        const root = document.documentElement;
+        const toggle = document.getElementById("themeToggle");
+        const icon = document.getElementById("themeIcon");
+        const label = document.getElementById("themeLabel");
+        const media =
+          typeof window.matchMedia === "function"
+            ? window.matchMedia("(prefers-color-scheme: dark)")
+            : null;
+
+        if (!toggle || !icon || !label) {
+          return;
+        }
+
+        const readStoredTheme = () => {
+          try {
+            return window.localStorage.getItem(storageKey);
+          } catch (_error) {
+            return null;
+          }
+        };
+
+        const writeStoredTheme = (theme) => {
+          try {
+            window.localStorage.setItem(storageKey, theme);
+          } catch (_error) {
+            // Ignore storage failures (private mode / blocked storage).
+          }
+        };
+
+        const setTheme = (theme) => {
+          const isDark = theme === "dark";
+          root.setAttribute("data-theme", theme);
+          toggle.setAttribute("aria-pressed", String(isDark));
+          icon.innerHTML = isDark
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
+          label.textContent = isDark ? "Light mode" : "Dark mode";
+        };
+
+        const savedTheme = readStoredTheme();
+        const initialTheme =
+          savedTheme || (media && media.matches ? "dark" : "light");
+        setTheme(initialTheme);
+
+        toggle.addEventListener("click", () => {
+          const nextTheme =
+            root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          setTheme(nextTheme);
+          writeStoredTheme(nextTheme);
+        });
+
+        const handleSystemThemeChange = (event) => {
+          if (!readStoredTheme()) {
+            setTheme(event.matches ? "dark" : "light");
+          }
+        };
+
+        if (media) {
+          if (typeof media.addEventListener === "function") {
+            media.addEventListener("change", handleSystemThemeChange);
+          } else if (typeof media.addListener === "function") {
+            media.addListener(handleSystemThemeChange);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
