@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start mt-10 md:mt-0 justify-center bg-gray-100"
+  >
+    <div class="w-11/12 max-w-4xl p-10 bg-white shadow-2xl rounded-lg">
+      <div
+        id="cards-container"
+        class="w-full grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3"
+      ></div>
+      <button
+        id="load-more"
+        class="w-full py-6 bg-indigo-700/90 hover:shadow-2xl hover:bg-indigo-800 duration-300 mt-5 text-sm text-white"
+      >
+        LOAD MORE EVENTS
+      </button>
+      <script>
+        const cardData = [
+          {
+            bg: "bg-indigo-700/90 text-white",
+            date: "MAY",
+            day: "4",
+            title:
+              "Computer Hardware Desktops And Notebooks And Handhelds Oh My",
+            time: "15:00 - 17:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-gray-300 text-black",
+            date: "MAY",
+            day: "4",
+            title: "Compatible Inkjet Cartridge",
+            time: "12:00 - 14:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-indigo-700/90 text-white",
+            date: "MAY",
+            day: "4",
+            title: "Choosing The Best Audio Player Software For Your Computer",
+            time: "14:00 - 15:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-gray-300 text-black",
+            date: "MAY",
+            day: "4",
+            title: "Microsoft Patch Management For Home Users",
+            time: "09:00 - 11:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-indigo-700/90 text-white",
+            date: "MAY",
+            day: "4",
+            title: "Help Finding Information Online",
+            time: "11:00 - 13:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-gray-300 text-black",
+            date: "MAY",
+            day: "4",
+            title: "Steps In Installing Rack Mount LCD Monitors",
+            time: "13:00 - 14:00",
+            location: "Online",
+          },
+
+          {
+            bg: "bg-indigo-700/90 text-white",
+            date: "JUN",
+            day: "10",
+            title: "Modern Web Development Trends",
+            time: "10:00 - 12:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-gray-300 text-black",
+            date: "JUN",
+            day: "11",
+            title: "AI in Everyday Life",
+            time: "13:00 - 15:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-indigo-700/90 text-white",
+            date: "JUN",
+            day: "12",
+            title: "Cloud Computing Essentials",
+            time: "16:00 - 18:00",
+            location: "Online",
+          },
+          {
+            bg: "bg-gray-300 text-black",
+            date: "JUN",
+            day: "13",
+            title: "Cybersecurity Basics",
+            time: "09:00 - 10:30",
+            location: "Online",
+          },
+        ];
+
+        let cardsShown = 6;
+
+        function renderCards() {
+          const container = document.getElementById("cards-container");
+          container.innerHTML = "";
+          for (let i = 0; i < cardsShown && i < cardData.length; i++) {
+            const card = cardData[i];
+            container.innerHTML += `
+              <div
+                class="w-full p-6 ${card.bg} flex items-center justify-between flex-col hover:shadow-xl shadow-gray-400 hover:-translate-y-2 duration-300 card focus:shadow-inner active:shadow-inner"
+                tabindex="0"
+              >
+                <div class="w-full">
+                  <p class="text-sm">${card.date}</p>
+                  <p class="text-xl font-bold mt-2">${card.day}</p>
+                  <p class="font-semibold mt-5">${card.title}</p>
+                </div>
+                <div class="w-full mt-4 flex items-center justify-between">
+                  <div class="w-full flex flex-col text-xs">
+                    <p>${card.time}</p>
+                    <p>${card.location}</p>
+                  </div>
+                  <i class="fa-solid fa-arrow-right text-xl"></i>
+                </div>
+              </div>
+            `;
+          }
+        }
+
+        document.getElementById("load-more").addEventListener("click", () => {
+          cardsShown += 3;
+          renderCards();
+        });
+
+        renderCards();
+      </script>
+    </div>
+  </body>
+</html>
