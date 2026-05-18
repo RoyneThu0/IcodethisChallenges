@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share link</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-blue-950"
+  >
+    <div class="w-11/12 max-w-md bg-blue-900 rounded-lg p-5 flex flex-col">
+      <p class="w-full md:text-start text-center text-white font-semibold">
+        Follow us!
+      </p>
+      <div
+        class="w-full grid sm:flex grid-cols-4 md:items-start items-center mt-3 gap-1"
+      >
+        <button
+          type="button"
+          class="social-icon w-full sm:w-14 h-14 text-slate-400 text-3xl bg-blue-800 hover:bg-pink-500 hover:-translate-y-2 duration-300 hover:text-white rounded-lg cursor-pointer text-center flex items-center justify-center"
+          data-link="https://atalink.com/instagram"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </button>
+        <button
+          type="button"
+          class="social-icon w-full sm:w-14 h-14 text-slate-400 text-3xl bg-blue-800 hover:bg-pink-500 hover:-translate-y-2 duration-300 hover:text-white rounded-lg cursor-pointer text-center flex items-center justify-center"
+          data-link="https://atalink.com/facebook"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </button>
+        <button
+          type="button"
+          class="social-icon w-full sm:w-14 h-14 text-slate-400 text-3xl bg-blue-800 hover:bg-pink-500 hover:-translate-y-2 duration-300 hover:text-white rounded-lg cursor-pointer text-center flex items-center justify-center"
+          data-link="https://atalink.com/dribbble"
+          aria-label="Dribbble"
+        >
+          <i class="fa-solid fa-basketball"></i>
+        </button>
+        <button
+          type="button"
+          class="social-icon w-full sm:w-14 h-14 text-slate-400 text-3xl bg-blue-800 hover:bg-pink-500 hover:-translate-y-2 duration-300 hover:text-white rounded-lg cursor-pointer text-center flex items-center justify-center"
+          data-link="https://atalink.com/behance"
+          aria-label="Behance"
+        >
+          <i class="fa-brands fa-behance"></i>
+        </button>
+      </div>
+      <p class="mt-8 text-white text-xs">Or share the page</p>
+      <div
+        class="w-full bg-blue-950 p-3 mt-3 rounded-lg sm:flex grid md:grid-cols-2 grid-cols-1 items-center justify-center gap-3"
+      >
+        <div class="w-full h-full flex items-center justify-center">
+          <p
+            id="share-link"
+            class="text-slate-300 w-full md:text-end text-center text-xs"
+          >
+            https://atalink.com/instagram
+          </p>
+        </div>
+        <button
+          type="button"
+          id="copy-btn"
+          class="text-blue-400 p-4 md:text-end text-center hover:text-blue-500 hover:bg-pink-500 rounded-lg duration-200 text-xs cursor-pointer"
+        >
+          Copy to clipboard
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const socialIcons = document.querySelectorAll(".social-icon");
+      const shareLinkEl = document.getElementById("share-link");
+      const copyBtn = document.getElementById("copy-btn");
+
+      const setActiveIcon = (activeIcon) => {
+        socialIcons.forEach((icon) => {
+          icon.classList.remove("text-white");
+          icon.classList.add("text-slate-400");
+        });
+
+        activeIcon.classList.remove("text-slate-400");
+        activeIcon.classList.add("text-white");
+      };
+
+      socialIcons.forEach((icon) => {
+        icon.addEventListener("click", () => {
+          const selectedLink = icon.dataset.link;
+          shareLinkEl.textContent = selectedLink;
+          setActiveIcon(icon);
+          copyBtn.textContent = "Copy to clipboard";
+        });
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        const linkToCopy = shareLinkEl.textContent.trim();
+
+        try {
+          await navigator.clipboard.writeText(linkToCopy);
+          copyBtn.textContent = "Copied!";
+        } catch {
+          copyBtn.textContent = "Copy failed";
+        }
+      });
+
+      if (socialIcons.length > 0) {
+        setActiveIcon(socialIcons[0]);
+      }
+    </script>
+  </body>
+</html>
