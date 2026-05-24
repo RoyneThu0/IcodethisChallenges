@@ -2,8 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Table</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link href="./output.css" rel="stylesheet" />
     <link
@@ -13,149 +20,381 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      :root {
+        --bg-soft: #eef5f8;
+        --ink: #123043;
+        --ink-muted: #507287;
+        --chip-bg: #e8f3f7;
+        --chip-ink: #225a73;
+        --card: #ffffff;
+        --line: #d3e4ec;
+        --highlight: #d8edf6;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background:
+          radial-gradient(circle at 12% 15%, #d4ebf4 0%, transparent 42%),
+          radial-gradient(circle at 88% 8%, #d9f2e4 0%, transparent 40%),
+          linear-gradient(180deg, #f6fbfd 0%, var(--bg-soft) 100%);
+      }
+    </style>
   </head>
-  <body
-    class="w-screen h-screen flex md:items-center items-start justify-center bg-gray-100 p-6"
-  >
-    <div
-      class="max-w-7xl mx-auto bg-white p-6 rounded-xl shadow-md overflow-x-auto"
-    >
-      <div class="flex items-center justify-start mb-4">
-        <h2 class="text-xl font-semibold text-indigo-900">OBJECTS</h2>
-        <p class="text-xs ml-2 text-black bg-gray-300 px-2 py-1 rounded-full">
-          7 results
-        </p>
-      </div>
+  <body class="min-h-screen px-4 py-6 sm:px-8 sm:py-10">
+    <main class="mx-auto w-full max-w-6xl">
+      <section
+        class="rounded-3xl border border-[var(--line)] bg-[var(--card)]/95 p-4 shadow-[0_18px_55px_-30px_rgba(18,48,67,0.45)] backdrop-blur sm:p-8"
+      >
+        <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <h2
+              class="text-xl font-bold tracking-tight text-[var(--ink)] sm:text-2xl"
+            >
+              Contacts
+            </h2>
+            <p
+              class="rounded-full bg-[var(--highlight)] px-3 py-1 text-xs font-medium text-[var(--ink)]"
+            >
+              7 results
+            </p>
+          </div>
+          <button
+            class="inline-flex items-center gap-2 rounded-full bg-[var(--ink)] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+            type="button"
+          >
+            <i class="fa-solid fa-user-plus text-xs"></i>
+            Add Contact
+          </button>
+        </div>
 
-      <table class="min-w-full text-sm text-left text-gray-700">
-        <thead class="text-xs text-gray-500">
-          <tr>
-            <th class="px-4 py-3">Default Name</th>
-            <th class="px-4 py-3">Department</th>
-            <th class="px-4 py-3">Phone</th>
-            <th class="px-4 py-3">Email</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200">
-          <tr class="hover:bg-indigo-50">
-            <td class="px-4 py-3 font-medium text-indigo-900">Luz R. Hogan</td>
-            <td class="px-4 py-3 space-x-2">
+        <div class="mb-5 flex flex-wrap items-center gap-3">
+          <label
+            class="flex min-w-0 flex-1 items-center gap-2 rounded-2xl border border-[var(--line)] bg-white px-3 py-2 text-[var(--ink-muted)]"
+          >
+            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+            <input
+              type="text"
+              placeholder="Search by name, phone, email"
+              class="w-full border-0 bg-transparent text-sm text-[var(--ink)] outline-none placeholder:text-[var(--ink-muted)]"
+            />
+          </label>
+          <button
+            class="rounded-2xl border border-[var(--line)] bg-white px-4 py-2 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--highlight)]"
+            type="button"
+          >
+            <i class="fa-solid fa-sliders mr-1 text-xs"></i>
+            Filters
+          </button>
+        </div>
+
+        <div class="hidden overflow-x-auto md:block">
+          <table class="min-w-full text-left text-sm text-[var(--ink-muted)]">
+            <thead
+              class="text-xs uppercase tracking-wide text-[var(--ink-muted)]/90"
+            >
+              <tr>
+                <th class="px-4 py-3 font-semibold">Name</th>
+                <th class="px-4 py-3 font-semibold">Department</th>
+                <th class="px-4 py-3 font-semibold">Phone</th>
+                <th class="px-4 py-3 font-semibold">Email</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--line)]">
+              <tr class="transition hover:bg-[var(--highlight)]/60">
+                <td class="px-4 py-4 font-semibold text-[var(--ink)]">
+                  Luz R. Hogan
+                </td>
+                <td class="space-x-2 px-4 py-4">
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >Front End Development</span
+                  >
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX</span
+                  >
+                </td>
+                <td class="px-4 py-4 text-[var(--ink)]">603-845-9466</td>
+                <td class="px-4 py-4 text-[var(--chip-ink)]">
+                  LuizHgan@email.com
+                </td>
+              </tr>
+
+              <tr class="transition hover:bg-[var(--highlight)]/60">
+                <td class="px-4 py-4 font-semibold text-[var(--ink)]">
+                  Teresa G. Curtis
+                </td>
+                <td class="space-x-2 px-4 py-4">
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX</span
+                  >
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX Research</span
+                  >
+                </td>
+                <td class="px-4 py-4 text-[var(--ink)]">435-820-1433</td>
+                <td class="px-4 py-4 text-[var(--chip-ink)]">
+                  Teresa.G@email.com
+                </td>
+              </tr>
+
+              <tr class="transition hover:bg-[var(--highlight)]/60">
+                <td class="px-4 py-4 font-semibold text-[var(--ink)]">
+                  Tiffany Donald
+                </td>
+                <td class="space-x-2 px-4 py-4">
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX</span
+                  >
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >Front End Development</span
+                  >
+                </td>
+                <td class="px-4 py-4 text-[var(--ink)]">513-269-4521</td>
+                <td class="px-4 py-4 text-[var(--chip-ink)]">
+                  Tif-Donald@email.com
+                </td>
+              </tr>
+
+              <tr class="bg-[var(--highlight)]/55">
+                <td class="px-4 py-4 font-semibold text-[var(--ink)]">
+                  Alison Lang
+                </td>
+                <td class="space-x-2 px-4 py-4">
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >Front End Development</span
+                  >
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX</span
+                  >
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX Research</span
+                  >
+                </td>
+                <td class="px-4 py-4 text-[var(--ink)]">218-304-5299</td>
+                <td class="px-4 py-4 text-[var(--chip-ink)]">
+                  alisonlang@email.com
+                </td>
+              </tr>
+
+              <tr class="transition hover:bg-[var(--highlight)]/60">
+                <td class="px-4 py-4 font-semibold text-[var(--ink)]">
+                  Mona Carrington
+                </td>
+                <td class="space-x-2 px-4 py-4">
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX</span
+                  >
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX Research</span
+                  >
+                </td>
+                <td class="px-4 py-4 text-[var(--ink)]">415-530-4879</td>
+                <td class="px-4 py-4 text-[var(--chip-ink)]">
+                  Mona_carrington@email.com
+                </td>
+              </tr>
+
+              <tr class="transition hover:bg-[var(--highlight)]/60">
+                <td class="px-4 py-4 font-semibold text-[var(--ink)]">
+                  Alison Lang
+                </td>
+                <td class="space-x-2 px-4 py-4">
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >Front End Development</span
+                  >
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX</span
+                  >
+                </td>
+                <td class="px-4 py-4 text-[var(--ink)]">218-304-5299</td>
+                <td class="px-4 py-4 text-[var(--chip-ink)]">
+                  alisonlang@email.com
+                </td>
+              </tr>
+
+              <tr class="transition hover:bg-[var(--highlight)]/60">
+                <td class="px-4 py-4 font-semibold text-[var(--ink)]">
+                  Amy Moore
+                </td>
+                <td class="space-x-2 px-4 py-4">
+                  <span
+                    class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                    >UI/UX Research</span
+                  >
+                </td>
+                <td class="px-4 py-4 text-[var(--ink)]">484-660-7788</td>
+                <td class="px-4 py-4 text-[var(--chip-ink)]">
+                  GimmeMore@email.com
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="space-y-3 md:hidden">
+          <article
+            class="rounded-2xl border border-[var(--line)] bg-white p-4 shadow-sm"
+          >
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <h3 class="font-semibold text-[var(--ink)]">Luz R. Hogan</h3>
+              <i class="fa-regular fa-user text-[var(--ink-muted)]"></i>
+            </div>
+            <div class="mb-3 flex flex-wrap gap-2">
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >Front End Development</span
               >
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >UI/UX</span
               >
-            </td>
-            <td class="px-4 py-3">603-845-9466</td>
-            <td class="px-4 py-3 text-indigo-700">LuizHgan@email.com</td>
-          </tr>
+            </div>
+            <p class="text-sm text-[var(--ink-muted)]">603-845-9466</p>
+            <p class="text-sm text-[var(--chip-ink)]">LuizHgan@email.com</p>
+          </article>
 
-          <tr class="hover:bg-indigo-50">
-            <td class="px-4 py-3 font-medium text-indigo-900">
-              Teresa G. Curtis
-            </td>
-            <td class="px-4 py-3 space-x-2">
+          <article
+            class="rounded-2xl border border-[var(--line)] bg-white p-4 shadow-sm"
+          >
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <h3 class="font-semibold text-[var(--ink)]">Teresa G. Curtis</h3>
+              <i class="fa-regular fa-user text-[var(--ink-muted)]"></i>
+            </div>
+            <div class="mb-3 flex flex-wrap gap-2">
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >UI/UX</span
               >
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >UI/UX Research</span
               >
-            </td>
-            <td class="px-4 py-3">435-820-1433</td>
-            <td class="px-4 py-3 text-indigo-700">Teresa.G@email.com</td>
-          </tr>
+            </div>
+            <p class="text-sm text-[var(--ink-muted)]">435-820-1433</p>
+            <p class="text-sm text-[var(--chip-ink)]">Teresa.G@email.com</p>
+          </article>
 
-          <tr class="hover:bg-indigo-50">
-            <td class="px-4 py-3 font-medium text-indigo-900">
-              Tiffany Donald
-            </td>
-            <td class="px-4 py-3 space-x-2">
+          <article
+            class="rounded-2xl border border-[var(--line)] bg-white p-4 shadow-sm"
+          >
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <h3 class="font-semibold text-[var(--ink)]">Tiffany Donald</h3>
+              <i class="fa-regular fa-user text-[var(--ink-muted)]"></i>
+            </div>
+            <div class="mb-3 flex flex-wrap gap-2">
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >UI/UX</span
               >
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >Front End Development</span
               >
-            </td>
-            <td class="px-4 py-3">513-269-4521</td>
-            <td class="px-4 py-3 text-indigo-700">Tif-Donald@email.com</td>
-          </tr>
+            </div>
+            <p class="text-sm text-[var(--ink-muted)]">513-269-4521</p>
+            <p class="text-sm text-[var(--chip-ink)]">Tif-Donald@email.com</p>
+          </article>
 
-          <tr class="bg-indigo-50">
-            <td class="px-4 py-3 font-medium text-indigo-900">Alison Lang</td>
-            <td class="px-4 py-3 space-x-2">
+          <article
+            class="rounded-2xl border border-[var(--line)] bg-[var(--highlight)]/45 p-4 shadow-sm"
+          >
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <h3 class="font-semibold text-[var(--ink)]">Alison Lang</h3>
+              <i class="fa-regular fa-user text-[var(--ink-muted)]"></i>
+            </div>
+            <div class="mb-3 flex flex-wrap gap-2">
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
-                >Front End Development</span
-              >
-              <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
-                >UI/UX</span
-              >
-              <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
-                >UI/UX Research</span
-              >
-            </td>
-            <td class="px-4 py-3">218-304-5299</td>
-            <td class="px-4 py-3 text-indigo-700">alisonlang@email.com</td>
-          </tr>
-
-          <tr class="hover:bg-indigo-50">
-            <td class="px-4 py-3 font-medium text-indigo-900">
-              Mona Carrington
-            </td>
-            <td class="px-4 py-3 space-x-2">
-              <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
-                >UI/UX</span
-              >
-              <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
-                >UI/UX Research</span
-              >
-            </td>
-            <td class="px-4 py-3">415-530-4879</td>
-            <td class="px-4 py-3 text-indigo-700">Mona_carrington@email.com</td>
-          </tr>
-
-          <tr class="hover:bg-indigo-50">
-            <td class="px-4 py-3 font-medium text-indigo-900">Alison Lang</td>
-            <td class="px-4 py-3 space-x-2">
-              <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >Front End Development</span
               >
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >UI/UX</span
               >
-            </td>
-            <td class="px-4 py-3">218-304-5299</td>
-            <td class="px-4 py-3 text-indigo-700">alisonlang@email.com</td>
-          </tr>
-
-          <tr class="hover:bg-indigo-50">
-            <td class="px-4 py-3 font-medium text-indigo-900">Amy Moore</td>
-            <td class="px-4 py-3 space-x-2">
               <span
-                class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs"
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
                 >UI/UX Research</span
               >
-            </td>
-            <td class="px-4 py-3">484-660-7788</td>
-            <td class="px-4 py-3 text-indigo-700">GimmeMore@email.com</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </div>
+            <p class="text-sm text-[var(--ink-muted)]">218-304-5299</p>
+            <p class="text-sm text-[var(--chip-ink)]">alisonlang@email.com</p>
+          </article>
+
+          <article
+            class="rounded-2xl border border-[var(--line)] bg-white p-4 shadow-sm"
+          >
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <h3 class="font-semibold text-[var(--ink)]">Mona Carrington</h3>
+              <i class="fa-regular fa-user text-[var(--ink-muted)]"></i>
+            </div>
+            <div class="mb-3 flex flex-wrap gap-2">
+              <span
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                >UI/UX</span
+              >
+              <span
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                >UI/UX Research</span
+              >
+            </div>
+            <p class="text-sm text-[var(--ink-muted)]">415-530-4879</p>
+            <p class="text-sm text-[var(--chip-ink)]">
+              Mona_carrington@email.com
+            </p>
+          </article>
+
+          <article
+            class="rounded-2xl border border-[var(--line)] bg-white p-4 shadow-sm"
+          >
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <h3 class="font-semibold text-[var(--ink)]">Alison Lang</h3>
+              <i class="fa-regular fa-user text-[var(--ink-muted)]"></i>
+            </div>
+            <div class="mb-3 flex flex-wrap gap-2">
+              <span
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                >Front End Development</span
+              >
+              <span
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                >UI/UX</span
+              >
+            </div>
+            <p class="text-sm text-[var(--ink-muted)]">218-304-5299</p>
+            <p class="text-sm text-[var(--chip-ink)]">alisonlang@email.com</p>
+          </article>
+
+          <article
+            class="rounded-2xl border border-[var(--line)] bg-white p-4 shadow-sm"
+          >
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <h3 class="font-semibold text-[var(--ink)]">Amy Moore</h3>
+              <i class="fa-regular fa-user text-[var(--ink-muted)]"></i>
+            </div>
+            <div class="mb-3 flex flex-wrap gap-2">
+              <span
+                class="inline-block rounded-lg bg-[var(--chip-bg)] px-2 py-1 text-xs text-[var(--chip-ink)]"
+                >UI/UX Research</span
+              >
+            </div>
+            <p class="text-sm text-[var(--ink-muted)]">484-660-7788</p>
+            <p class="text-sm text-[var(--chip-ink)]">GimmeMore@email.com</p>
+          </article>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
