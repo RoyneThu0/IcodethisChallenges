@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie Popup</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      :root {
+        --bg-start: #ffe8b2;
+        --bg-end: #ffcfa6;
+        --ink: #2f1f1a;
+        --brand: #cc5f29;
+        --brand-dark: #ad4e1f;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .cookie-title {
+        font-family: "DM Serif Display", serif;
+      }
+
+      .ambient-glow {
+        position: fixed;
+        width: 420px;
+        height: 420px;
+        border-radius: 9999px;
+        filter: blur(48px);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .float-in {
+        animation: floatIn 0.45s ease-out forwards;
+      }
+
+      @keyframes floatIn {
+        from {
+          opacity: 0;
+          transform: translateY(16px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center overflow-hidden"
+    style="
+      background: radial-gradient(
+        circle at 20% 20%,
+        var(--bg-start),
+        var(--bg-end)
+      );
+    "
+  >
+    <div class="ambient-glow top-[-120px] left-[-80px] bg-white/40"></div>
+    <div
+      class="ambient-glow bottom-[-140px] right-[-120px] bg-orange-300/40"
+    ></div>
+
+    <main class="relative z-10 px-4 text-center">
+      <p class="text-[var(--ink)]/70 text-sm tracking-wide uppercase">
+        Cookie Experience
+      </p>
+      <h1 class="cookie-title text-[var(--ink)] text-4xl sm:text-5xl mt-3">
+        Freshly baked privacy
+      </h1>
+      <p class="max-w-md mt-4 text-[var(--ink)]/75 leading-relaxed">
+        We use cookies to remember your preferences and keep your shopping trip
+        smooth.
+      </p>
+      <button
+        id="open-modal"
+        class="mt-8 bg-[var(--brand)] hover:bg-[var(--brand-dark)] text-white font-semibold px-7 py-3 rounded-full shadow-lg shadow-orange-700/30 transition duration-200"
+      >
+        Open cookie popup
+      </button>
+    </main>
+
+    <div
+      id="cookie-modal"
+      class="fixed inset-0 z-20 hidden items-center justify-center px-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cookie-modal-title"
+    >
+      <div
+        id="overlay"
+        class="absolute inset-0 bg-[#2f1f1a]/50 backdrop-blur-[2px]"
+      ></div>
+
+      <section
+        class="float-in relative w-full max-w-md rounded-[30px] border border-orange-200 bg-[#fff9f0] p-8 sm:p-10 shadow-2xl shadow-[#7f3d1e]/30"
+      >
+        <button
+          id="close-modal"
+          class="absolute right-4 top-4 h-9 w-9 rounded-full bg-white text-[var(--ink)]/70 hover:text-[var(--ink)] hover:bg-orange-50 transition"
+          aria-label="Close cookie popup"
+        >
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+
+        <img
+          class="mx-auto w-36 mix-blend-multiply"
+          src="https://static.vecteezy.com/system/resources/previews/074/533/098/non_2x/chocolate-chip-cookie-breaking-into-two-pieces-with-crumbs-scattering-in-air-isolated-on-transparent-background-png.png"
+          alt="Chocolate chip cookie"
+        />
+
+        <h2
+          id="cookie-modal-title"
+          class="cookie-title mt-4 text-3xl text-[var(--ink)] text-center"
+        >
+          Cookies, anyone?
+        </h2>
+        <p class="mt-3 text-center text-[var(--ink)]/70 leading-relaxed">
+          Our site uses cookies to remember your cart, personalize
+          recommendations, and improve performance.
+        </p>
+
+        <div class="mt-7 flex flex-col gap-3">
+          <button
+            id="accept-all"
+            class="w-full rounded-xl bg-[var(--brand)] hover:bg-[var(--brand-dark)] text-white py-3 font-semibold shadow-md shadow-orange-700/30 transition"
+          >
+            Accept all cookies
+          </button>
+          <button
+            id="essential-only"
+            class="w-full rounded-xl border border-orange-200 bg-white text-[var(--ink)] py-3 font-medium hover:bg-orange-50 transition"
+          >
+            Essential only
+          </button>
+          <button
+            class="w-full rounded-xl text-sm text-[var(--ink)]/70 hover:text-[var(--ink)] py-2 transition"
+          >
+            Learn more
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const modal = document.getElementById("cookie-modal");
+      const openModalBtn = document.getElementById("open-modal");
+      const closeModalBtn = document.getElementById("close-modal");
+      const overlay = document.getElementById("overlay");
+      const acceptAllBtn = document.getElementById("accept-all");
+      const essentialOnlyBtn = document.getElementById("essential-only");
+
+      function openModal() {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeModal() {
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+      }
+
+      openModalBtn.addEventListener("click", openModal);
+      closeModalBtn.addEventListener("click", closeModal);
+      overlay.addEventListener("click", closeModal);
+      acceptAllBtn.addEventListener("click", closeModal);
+      essentialOnlyBtn.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      setTimeout(openModal, 450);
+    </script>
+  </body>
+</html>
