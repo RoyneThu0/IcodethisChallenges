@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Picker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen bg-gray-100 flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1606636661692-255650f47ec9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8b3JhbmdlJTIwYW5kJTIwd2hpdGV8ZW58MHwwfDB8fHww);
+    "
+  >
+    <div
+      class="w-11/12 max-w-3xl flex items-center justify-center bg-gray-100 rounded-lg"
+    >
+      <div class="bg-white p-4 md:p-8 rounded-lg shadow-md w-full max-w-3xl">
+        <div class="flex items-center justify-between mb-4">
+          <button
+            id="prev-month"
+            class="text-orange-400 text-2xl px-2"
+            aria-label="Previous month"
+          >
+            <i class="fa fa-chevron-left"></i>
+          </button>
+
+          <button
+            id="next-month"
+            class="text-orange-400 text-2xl px-2"
+            aria-label="Next month"
+          >
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <p id="month-a-title" class="text-center font-semibold text-lg">
+              Month
+            </p>
+            <div class="grid grid-cols-7 text-center text-gray-400 mt-3 mb-2">
+              <p>Su</p>
+              <p>Mo</p>
+              <p>Tu</p>
+              <p>We</p>
+              <p>Th</p>
+              <p>Fr</p>
+              <p>Sa</p>
+            </div>
+            <div
+              id="month-a-grid"
+              class="grid grid-cols-7 text-center gap-1"
+            ></div>
+          </div>
+
+          <div class="flex flex-col">
+            <p id="month-b-title" class="text-center font-semibold text-lg">
+              Month
+            </p>
+            <div class="grid grid-cols-7 text-center text-gray-400 mb-2 mt-3">
+              <p>Su</p>
+              <p>Mo</p>
+              <p>Tu</p>
+              <p>We</p>
+              <p>Th</p>
+              <p>Fr</p>
+              <p>Sa</p>
+            </div>
+            <div
+              id="month-b-grid"
+              class="grid grid-cols-7 text-center gap-1"
+            ></div>
+          </div>
+        </div>
+
+        <p
+          id="selected-range"
+          class="mt-6 text-center text-sm text-gray-600"
+        ></p>
+
+        <div
+          class="flex flex-wrap justify-between mt-6 gap-2 border-t border-t-slate-200 text-gray-500 text-sm py-3"
+        >
+          <button class="hover:text-orange-400" data-range="today">
+            Today
+          </button>
+          <button class="hover:text-orange-400" data-range="yesterday">
+            Yesterday
+          </button>
+          <button class="hover:text-orange-400" data-range="last7">
+            Last 7 days
+          </button>
+          <button class="hover:text-orange-400" data-range="last30">
+            Last 30 days
+          </button>
+          <button class="hover:text-orange-400" data-range="last6m">
+            Last 6 months
+          </button>
+          <button class="hover:text-orange-400" data-range="last12m">
+            Last 12 months
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const monthATitle = document.getElementById("month-a-title");
+      const monthBTitle = document.getElementById("month-b-title");
+      const monthAGrid = document.getElementById("month-a-grid");
+      const monthBGrid = document.getElementById("month-b-grid");
+      const selectedRangeEl = document.getElementById("selected-range");
+      const prevBtn = document.getElementById("prev-month");
+      const nextBtn = document.getElementById("next-month");
+      const presetButtons = document.querySelectorAll("[data-range]");
+
+      const monthLabelFormatter = new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        year: "numeric",
+      });
+
+      const dateLabelFormatter = new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      });
+
+      const today = atStartOfDay(new Date());
+
+      const state = {
+        viewMonthStart: new Date(today.getFullYear(), today.getMonth(), 1),
+        startDate: null,
+        endDate: null,
+      };
+
+      function atStartOfDay(date) {
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      }
+
+      function toIsoDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      }
+
+      function parseIsoDate(isoDate) {
+        return atStartOfDay(new Date(`${isoDate}T00:00:00`));
+      }
+
+      function isSameDay(a, b) {
+        return !!a && !!b && a.getTime() === b.getTime();
+      }
+
+      function isWithinRange(date, startDate, endDate) {
+        if (!startDate || !endDate) {
+          return false;
+        }
+
+        const dateTime = date.getTime();
+        return dateTime > startDate.getTime() && dateTime < endDate.getTime();
+      }
+
+      function renderMonthGrid(targetDate, titleEl, gridEl) {
+        titleEl.textContent = monthLabelFormatter.format(targetDate);
+        gridEl.innerHTML = "";
+
+        const year = targetDate.getFullYear();
+        const month = targetDate.getMonth();
+        const firstDayOfWeek = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        for (let i = 0; i < firstDayOfWeek; i += 1) {
+          const spacer = document.createElement("span");
+          spacer.className = "h-9 w-9";
+          gridEl.appendChild(spacer);
+        }
+
+        for (let day = 1; day <= daysInMonth; day += 1) {
+          const date = new Date(year, month, day);
+          const button = document.createElement("button");
+          const isStart = isSameDay(date, state.startDate);
+          const isEnd = isSameDay(date, state.endDate);
+          const inRange = isWithinRange(date, state.startDate, state.endDate);
+          const isToday = isSameDay(date, today);
+
+          button.type = "button";
+          button.dataset.date = toIsoDate(date);
+          button.textContent = String(day);
+          button.className =
+            "h-9 w-9 mx-auto rounded-full text-sm transition cursor-pointer";
+
+          if (inRange) {
+            button.classList.add("bg-orange-200", "text-white");
+          } else {
+            button.classList.add("text-gray-700", "hover:bg-orange-100");
+          }
+
+          if (isStart || isEnd) {
+            button.classList.remove("bg-orange-200");
+            button.classList.add("bg-orange-400", "text-white");
+          }
+
+          if (isToday && !isStart && !isEnd) {
+            button.classList.add("ring-1", "ring-orange-300");
+          }
+
+          gridEl.appendChild(button);
+        }
+      }
+
+      function updateRangeLabel() {
+        if (!state.startDate && !state.endDate) {
+          selectedRangeEl.textContent = "Select a start date and end date";
+          return;
+        }
+
+        if (state.startDate && !state.endDate) {
+          selectedRangeEl.textContent = `Start date: ${dateLabelFormatter.format(state.startDate)}`;
+          return;
+        }
+
+        const startLabel = dateLabelFormatter.format(state.startDate);
+        const endLabel = dateLabelFormatter.format(state.endDate);
+        selectedRangeEl.textContent = `Selected range: ${startLabel} - ${endLabel}`;
+      }
+
+      function render() {
+        const secondMonth = new Date(
+          state.viewMonthStart.getFullYear(),
+          state.viewMonthStart.getMonth() + 1,
+          1,
+        );
+
+        renderMonthGrid(state.viewMonthStart, monthATitle, monthAGrid);
+        renderMonthGrid(secondMonth, monthBTitle, monthBGrid);
+        updateRangeLabel();
+      }
+
+      function shiftViewMonth(offset) {
+        state.viewMonthStart = new Date(
+          state.viewMonthStart.getFullYear(),
+          state.viewMonthStart.getMonth() + offset,
+          1,
+        );
+        render();
+      }
+
+      function setRange(startDate, endDate) {
+        state.startDate = atStartOfDay(startDate);
+        state.endDate = atStartOfDay(endDate);
+        state.viewMonthStart = new Date(
+          state.startDate.getFullYear(),
+          state.startDate.getMonth(),
+          1,
+        );
+        render();
+      }
+
+      function applyPreset(rangeKey) {
+        const end = atStartOfDay(new Date());
+        const start = atStartOfDay(new Date());
+
+        if (rangeKey === "today") {
+          setRange(end, end);
+          return;
+        }
+
+        if (rangeKey === "yesterday") {
+          const yesterday = new Date(end);
+          yesterday.setDate(yesterday.getDate() - 1);
+          setRange(yesterday, yesterday);
+          return;
+        }
+
+        if (rangeKey === "last7") {
+          start.setDate(start.getDate() - 6);
+          setRange(start, end);
+          return;
+        }
+
+        if (rangeKey === "last30") {
+          start.setDate(start.getDate() - 29);
+          setRange(start, end);
+          return;
+        }
+
+        if (rangeKey === "last6m") {
+          start.setMonth(start.getMonth() - 6);
+          start.setDate(start.getDate() + 1);
+          setRange(start, end);
+          return;
+        }
+
+        if (rangeKey === "last12m") {
+          start.setFullYear(start.getFullYear() - 1);
+          start.setDate(start.getDate() + 1);
+          setRange(start, end);
+        }
+      }
+
+      function onDateClick(event) {
+        const target = event.target.closest("button[data-date]");
+
+        if (!target) {
+          return;
+        }
+
+        const clickedDate = parseIsoDate(target.dataset.date);
+
+        if (!state.startDate || (state.startDate && state.endDate)) {
+          state.startDate = clickedDate;
+          state.endDate = null;
+          render();
+          return;
+        }
+
+        if (clickedDate.getTime() < state.startDate.getTime()) {
+          state.endDate = state.startDate;
+          state.startDate = clickedDate;
+        } else {
+          state.endDate = clickedDate;
+        }
+
+        render();
+      }
+
+      prevBtn.addEventListener("click", () => shiftViewMonth(-1));
+      nextBtn.addEventListener("click", () => shiftViewMonth(1));
+      monthAGrid.addEventListener("click", onDateClick);
+      monthBGrid.addEventListener("click", onDateClick);
+
+      presetButtons.forEach((button) => {
+        button.addEventListener("click", () =>
+          applyPreset(button.dataset.range),
+        );
+      });
+
+      render();
+    </script>
+  </body>
+</html>
