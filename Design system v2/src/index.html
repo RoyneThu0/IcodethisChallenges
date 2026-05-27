@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --ink: #102039;
+        --muted: #5f7087;
+        --accent: #0ea5a4;
+        --accent-strong: #0c8a89;
+        --surface: #ffffff;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 5% 10%, #99f6e4 0%, transparent 38%),
+          radial-gradient(circle at 90% 88%, #bae6fd 0%, transparent 42%),
+          linear-gradient(145deg, #ecfeff 0%, #eff6ff 55%, #f8fafc 100%);
+      }
+
+      .ds-board {
+        background: color-mix(in srgb, var(--surface) 92%, #dbeafe 8%);
+        border: 1px solid #dbe6f2;
+        box-shadow: 0 20px 55px rgba(15, 35, 70, 0.14);
+        animation: board-rise 0.6s ease-out;
+      }
+
+      .ds-column {
+        border: 1px solid #e3ebf5;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+
+      .ds-column > div + div {
+        margin-top: 1.5rem;
+      }
+
+      .ds-title {
+        font-family: "Fraunces", serif;
+        letter-spacing: 0.01em;
+      }
+
+      .ds-eyebrow {
+        color: var(--muted);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+      }
+
+      @keyframes board-rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.99);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-start md:items-center py-10 md:py-0 justify-center px-4"
+  >
+    <div
+      class="ds-board w-full max-w-5xl p-4 md:p-8 rounded-2xl grid md:grid-cols-2 grid-cols-1 items-start gap-4 md:gap-5"
+    >
+      <div class="ds-column w-full">
+        <div class="w-full space-y-3">
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 bg-cyan-500 text-white rounded-lg hover:bg-cyan-700 duration-200"
+            >
+              Primary
+            </button>
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 bg-cyan-500 text-white rounded-lg hover:bg-cyan-700 duration-200"
+            >
+              Primary <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <p class="ds-eyebrow text-xs py-3">DEFAULT</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 bg-cyan-700 text-white rounded-lg cursor-default pointer-events-none"
+            >
+              Primary
+            </button>
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 bg-cyan-700 text-white rounded-lg cursor-default pointer-events-none"
+            >
+              Primary <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <p class="ds-eyebrow text-xs py-3">HOVER</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              disabled
+              aria-disabled="true"
+              class="flex w-full items-center justify-center text-xs py-3 bg-slate-300 text-white/80 rounded-lg cursor-not-allowed pointer-events-none"
+            >
+              Primary
+            </button>
+            <button
+              disabled
+              aria-disabled="true"
+              class="flex w-full items-center justify-center text-xs py-3 bg-slate-300 text-white/80 rounded-lg cursor-not-allowed pointer-events-none"
+            >
+              Primary <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <p class="ds-eyebrow text-xs py-3">DISABLED</p>
+          </div>
+        </div>
+        <div class="w-full mt-8">
+          <h1 class="ds-title text-2xl">Page header</h1>
+          <h2 class="text-slate-600 mt-3 font-medium">Section header</h2>
+          <div class="text-slate-500 text-sm mt-5 w-full leading-relaxed">
+            Default text example vehicula risus integer mollis ut fringilla,
+            torquent ligula venenatis autem scelerisque suspendisse,
+            pellentesque nullam, mauris accumsan, tempor dictumst consectetur a.
+            Duis penatibus.
+            <span
+              class="text-cyan-700 cursor-pointer font-medium hover:underline"
+              >Link example</span
+            >
+
+            <p class="text-xs mt-3 text-slate-400">
+              Venenatis autem scelerisque suspendisse, tempor dictumst
+              consectetur a, Duis penatibus. <br />
+              <span class="text-cyan-700 cursor-pointer underline"
+                >Hovered link example</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="ds-column w-full">
+        <div class="w-full space-y-3">
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-cyan-500 text-cyan-700 hover:text-white rounded-lg hover:bg-cyan-700 duration-200"
+            >
+              Secondary
+            </button>
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-cyan-500 text-cyan-700 hover:text-white rounded-lg hover:bg-cyan-700 duration-200"
+            >
+              Secondary<i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <p class="ds-eyebrow text-xs py-3">DEFAULT</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-cyan-700 text-white rounded-lg bg-cyan-700 cursor-default pointer-events-none"
+            >
+              Secondary
+            </button>
+            <button
+              class="flex w-full items-center justify-center text-xs py-3 border border-cyan-700 text-white rounded-lg bg-cyan-700 cursor-default pointer-events-none"
+            >
+              Secondary <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <p class="ds-eyebrow text-xs py-3">HOVER</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button
+              disabled
+              aria-disabled="true"
+              class="flex w-full items-center justify-center text-xs py-3 border border-slate-300 text-slate-300 rounded-lg cursor-not-allowed pointer-events-none"
+            >
+              Secondary
+            </button>
+            <button
+              disabled
+              aria-disabled="true"
+              class="flex w-full items-center justify-center text-xs py-3 border border-slate-300 text-slate-300 rounded-lg cursor-not-allowed pointer-events-none"
+            >
+              Secondary <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <p class="ds-eyebrow text-xs py-3">DISABLED</p>
+          </div>
+        </div>
+
+        <div class="w-full mt-8">
+          <p class="text-sm text-start text-slate-500 ds-eyebrow">BADGES</p>
+          <div class="grid grid-cols-3 gap-3 mt-2">
+            <p
+              class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-cyan-500 rounded-full"
+            >
+              Default
+              <span
+                class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0"
+                >4</span
+              >
+            </p>
+            <p
+              class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-green-400 rounded-full"
+            >
+              Positive
+              <span
+                class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0"
+                >2</span
+              >
+            </p>
+            <p
+              class="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-red-400 rounded-full"
+            >
+              Negative
+              <span
+                class="border text-white w-5 h-5 flex items-center justify-center rounded-full p-1 border-white ml-1 shrink-0"
+                >9</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="mt-5 w-full">
+          <p class="text-sm text-start text-slate-500 ds-eyebrow">CARD</p>
+
+          <div
+            class="w-full p-5 shadow-md border border-slate-100 mt-2 rounded-xl bg-white"
+          >
+            <div class="w-full flex items-center justify-between">
+              <h1 class="ds-title text-xl">Card Title</h1>
+              <button
+                type="button"
+                data-toggle-star
+                aria-label="Toggle favorite"
+                aria-pressed="false"
+                class="text-slate-400 hover:text-amber-500 duration-200"
+              >
+                <i class="fa-solid fa-star pointer-events-none"></i>
+              </button>
+            </div>
+            <p class="text-slate-500 text-sm mt-3">
+              auris accumsan, venenatis autem scelerisque suspendisse, tempor
+              dictumst consectetur a. Duis penatibus.
+            </p>
+
+            <p class="mt-2 text-sm text-cyan-700 cursor-pointer font-medium">
+              Link
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll("[data-toggle-star]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const isActive = button.getAttribute("aria-pressed") === "true";
+          button.setAttribute("aria-pressed", String(!isActive));
+          button.classList.toggle("text-amber-500", !isActive);
+          button.classList.toggle("text-slate-400", isActive);
+        });
+      });
+    </script>
+  </body>
+</html>
