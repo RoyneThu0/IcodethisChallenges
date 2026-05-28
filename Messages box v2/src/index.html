@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages Box</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen h-screen flex md:items-center items-start md:mt-0 mt-5 justify-center bg-cover bg-center overflow-hidden"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1777646346045-df4bd1114148?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDUyfENEd3V3WEpBYkV3fHxlbnwwfHx8fHw%3D);
+      font-family: &quot;Manrope&quot;, sans-serif;
+    "
+  >
+    <div
+      class="absolute -top-24 -left-20 w-72 h-72 rounded-full bg-cyan-300/30 blur-3xl"
+    ></div>
+    <div
+      class="absolute -bottom-20 -right-12 w-72 h-72 rounded-full bg-sky-400/25 blur-3xl"
+    ></div>
+
+    <div
+      class="w-11/12 max-w-md bg-white/72 backdrop-blur-xl border border-white/60 p-5 rounded-3xl flex-col relative shadow-[0_25px_80px_-28px_rgba(15,23,42,0.55)] h-[88vh] md:h-[84vh] max-h-[760px] overflow-hidden"
+      id="app"
+    >
+      <button
+        id="composeBtn"
+        type="button"
+        class="absolute right-8 bottom-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-400 duration-200 active:bg-blue-700 z-10"
+      >
+        <img
+          class="object-cover"
+          src="https://png.pngtree.com/png-vector/20250306/ourmid/pngtree-a-black-feather-quill-pen-with-decorative-looping-line-beneath-png-image_15736767.png"
+          alt=""
+        />
+      </button>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-2xl font-extrabold tracking-tight text-slate-800">
+            Messages
+          </p>
+          <p class="text-xs text-slate-500 mt-1">
+            Stay in touch with your people
+          </p>
+        </div>
+        <button
+          id="settingsBtn"
+          type="button"
+          class="relative w-11 h-11 rounded-xl bg-white/70 border border-slate-200/80 shadow-sm hover:bg-white"
+          aria-label="Settings"
+        >
+          <i
+            class="fa-solid fa-gear text-slate-600 hover:text-blue-500 duration-200"
+          ></i>
+        </button>
+      </div>
+      <div
+        id="settingsMenu"
+        class="hidden absolute top-16 right-5 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg border border-slate-200 text-sm z-20 overflow-hidden"
+      >
+        <button
+          type="button"
+          data-menu-action="all"
+          class="w-full text-left px-4 py-2.5 hover:bg-slate-100"
+        >
+          Show all chats
+        </button>
+        <button
+          type="button"
+          data-menu-action="unread"
+          class="w-full text-left px-4 py-2.5 hover:bg-slate-100"
+        >
+          Show unread only
+        </button>
+      </div>
+      <div class="border-b mt-5 border-slate-200/80"></div>
+      <div class="mt-4 w-full flex items-center relative">
+        <i
+          class="fa-solid fa-magnifying-glass text-base absolute text-sky-500 ml-4"
+        ></i>
+
+        <input
+          type="text"
+          name=""
+          class="bg-white/80 border border-slate-200/90 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-sky-300 w-full py-3.5 px-5 rounded-xl pl-11 text-slate-700"
+          id="searchInput"
+          placeholder="Search"
+        />
+      </div>
+
+      <div
+        id="chatList"
+        class="flex flex-col items-center mt-4 justify-start w-full space-y-2 overflow-y-auto pr-1 h-[68%] pb-24"
+      >
+        <div
+          class="chat-item flex items-center justify-between w-full bg-white/65 border border-slate-200/70 hover:bg-white hover:shadow-lg hover:-translate-y-0.5 duration-300 p-2.5 rounded-2xl cursor-pointer"
+          data-name="Violet Webb"
+          data-preview="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitatione"
+          data-unread="true"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-14 w-14 rounded-2xl object-cover"
+              src="https://www.ibanet.org/MediaHandler?id=60e01a8d-3959-47de-ae33-850409978aae"
+              alt=""
+            />
+            <div class="mx-4">
+              <p class="font-bold text-[0.95rem] text-slate-800">Violet Webb</p>
+              <p class="text-xs text-slate-500 line-clamp-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chat-item flex items-center justify-between w-full bg-white/65 border border-slate-200/70 hover:bg-white hover:shadow-lg hover:-translate-y-0.5 duration-300 p-2.5 rounded-2xl cursor-pointer"
+          data-name="Correy burns"
+          data-preview="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitatione"
+          data-unread="false"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-14 w-14 rounded-2xl object-cover"
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJTIwcHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+              alt=""
+            />
+            <div class="mx-4">
+              <p class="font-bold text-[0.95rem] text-slate-800">
+                Correy burns
+              </p>
+              <p class="text-xs text-slate-500 line-clamp-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chat-item flex items-center justify-between w-full bg-white/65 border border-slate-200/70 hover:bg-white hover:shadow-lg hover:-translate-y-0.5 duration-300 p-2.5 rounded-2xl cursor-pointer"
+          data-name="Charlie Aguilar"
+          data-preview="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitatione"
+          data-unread="true"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-14 w-14 rounded-2xl object-cover"
+              src="https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg="
+              alt=""
+            />
+            <div class="mx-4">
+              <p class="font-bold text-[0.95rem] text-slate-800">
+                Charlie Aguilar
+              </p>
+              <p class="text-xs text-slate-500 line-clamp-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chat-item flex items-center justify-between w-full z-0 bg-white/65 border border-slate-200/70 hover:bg-white hover:shadow-lg hover:-translate-y-0.5 duration-300 p-2.5 rounded-2xl cursor-pointer"
+          data-name="Florence Hardy"
+          data-preview="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitatione"
+          data-unread="false"
+        >
+          <div class="flex items-center">
+            <img
+              class="h-14 w-14 rounded-2xl object-cover"
+              src="https://womanate.com/wp-content/uploads/2023/07/wate_russian13.jpg"
+              alt=""
+            />
+            <div class="mx-4 w-full">
+              <p class="font-bold text-[0.95rem] text-slate-800">
+                Florence Hardy
+              </p>
+              <p class="text-xs text-slate-500 line-clamp-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitatione
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="emptyState"
+        class="hidden mt-5 text-center text-slate-500 text-sm py-8"
+      >
+        No chats found.
+      </div>
+
+      <div
+        id="chatView"
+        class="hidden absolute inset-0 bg-gradient-to-b from-white/95 to-slate-100/95 backdrop-blur-lg p-5 rounded-3xl z-30 border border-white/70"
+      >
+        <div
+          class="flex items-center justify-between border-b border-slate-200 pb-3"
+        >
+          <button
+            id="backBtn"
+            type="button"
+            class="text-sky-600 hover:text-sky-700 font-semibold"
+          >
+            <i class="fa-solid fa-arrow-left mr-2"></i>Back
+          </button>
+          <p id="chatTitle" class="font-bold text-slate-800"></p>
+          <span class="w-12"></span>
+        </div>
+        <div
+          id="messagesWrap"
+          class="space-y-3 py-4 text-sm h-[74%] overflow-y-auto pr-1"
+        ></div>
+        <form
+          id="chatComposer"
+          class="absolute bottom-4 left-5 right-5 flex gap-2 bg-white/80 p-2 rounded-2xl border border-slate-200"
+        >
+          <input
+            id="chatInput"
+            type="text"
+            class="flex-1 bg-transparent border-none rounded-md px-3 py-2 focus:outline-none"
+            placeholder="Type a message"
+          />
+          <button
+            id="sendMessageBtn"
+            type="submit"
+            class="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-4 rounded-xl hover:brightness-110 active:scale-95 duration-150"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+
+      <div
+        id="composeModal"
+        class="hidden absolute inset-0 bg-black/40 z-40 items-center justify-center"
+      >
+        <div
+          class="bg-white/95 backdrop-blur-lg w-11/12 max-w-sm rounded-2xl p-4 shadow-xl border border-white/80"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <p class="font-bold text-slate-800">New Chat</p>
+            <button
+              id="closeComposeModalBtn"
+              type="button"
+              class="text-slate-500 hover:text-slate-700"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <form id="composeForm" class="space-y-3">
+            <input
+              id="composeName"
+              type="text"
+              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-sky-300"
+              placeholder="Chat name"
+              required
+            />
+            <textarea
+              id="composeMessage"
+              class="w-full border border-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-sky-300"
+              rows="3"
+              placeholder="First message"
+              required
+            ></textarea>
+            <div class="flex justify-end gap-2">
+              <button
+                id="cancelComposeBtn"
+                type="button"
+                class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="px-3 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white hover:brightness-110"
+              >
+                Create
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const chatList = document.getElementById("chatList");
+      const chatItems = [...document.querySelectorAll(".chat-item")];
+      const emptyState = document.getElementById("emptyState");
+      const chatView = document.getElementById("chatView");
+      const chatTitle = document.getElementById("chatTitle");
+      const backBtn = document.getElementById("backBtn");
+      const composeBtn = document.getElementById("composeBtn");
+      const settingsBtn = document.getElementById("settingsBtn");
+      const settingsMenu = document.getElementById("settingsMenu");
+      const composeModal = document.getElementById("composeModal");
+      const composeForm = document.getElementById("composeForm");
+      const composeName = document.getElementById("composeName");
+      const composeMessage = document.getElementById("composeMessage");
+      const cancelComposeBtn = document.getElementById("cancelComposeBtn");
+      const closeComposeModalBtn = document.getElementById(
+        "closeComposeModalBtn",
+      );
+      const chatComposer = document.getElementById("chatComposer");
+      const chatInput = document.getElementById("chatInput");
+      const messagesWrap = document.getElementById("messagesWrap");
+
+      let activeFilter = "all";
+      let activeChatItem = null;
+      const conversations = {};
+
+      chatItems.forEach((item) => {
+        conversations[item.dataset.name] = [
+          {
+            from: "incoming",
+            text: item.dataset.preview,
+          },
+        ];
+      });
+
+      function openComposeModal() {
+        composeModal.classList.remove("hidden");
+        composeModal.classList.add("flex");
+        composeName.focus();
+      }
+
+      function closeComposeModal() {
+        composeModal.classList.add("hidden");
+        composeModal.classList.remove("flex");
+        composeForm.reset();
+      }
+
+      function appendOutgoingMessage(text) {
+        const node = document.createElement("div");
+        node.className =
+          "bg-gradient-to-r from-sky-500 to-blue-600 text-white p-3 rounded-2xl rounded-br-md shadow-sm w-fit max-w-4/5 ml-auto";
+        node.textContent = text;
+        messagesWrap.append(node);
+        messagesWrap.scrollTop = messagesWrap.scrollHeight;
+      }
+
+      function appendIncomingMessage(text) {
+        const node = document.createElement("div");
+        node.className =
+          "bg-white/95 border border-slate-200 p-3 rounded-2xl rounded-bl-md shadow-sm w-fit max-w-4/5 text-slate-700";
+        node.textContent = text;
+        messagesWrap.append(node);
+        messagesWrap.scrollTop = messagesWrap.scrollHeight;
+      }
+
+      function updateChatPreview(item, text) {
+        const lines = item.querySelectorAll("p");
+        const previewLine = lines[1];
+        if (previewLine) previewLine.textContent = text;
+        item.dataset.preview = text;
+      }
+
+      function renderActiveConversation() {
+        if (!activeChatItem) return;
+
+        const chatName = activeChatItem.dataset.name;
+        const messages = conversations[chatName] || [];
+        messagesWrap.innerHTML = "";
+
+        messages.forEach((message) => {
+          if (message.from === "outgoing") {
+            appendOutgoingMessage(message.text);
+          } else {
+            appendIncomingMessage(message.text);
+          }
+        });
+      }
+
+      function renderList() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        chatItems.forEach((item) => {
+          const name = item.dataset.name.toLowerCase();
+          const preview = item.dataset.preview.toLowerCase();
+          const isUnread = item.dataset.unread === "true";
+
+          const matchesQuery = name.includes(query) || preview.includes(query);
+          const matchesFilter = activeFilter === "all" || isUnread;
+          const visible = matchesQuery && matchesFilter;
+
+          item.classList.toggle("hidden", !visible);
+          if (visible) visibleCount += 1;
+        });
+
+        emptyState.classList.toggle("hidden", visibleCount > 0);
+      }
+
+      chatList.addEventListener("click", (event) => {
+        const item = event.target.closest(".chat-item");
+        if (!item) return;
+
+        activeChatItem = item;
+        chatTitle.textContent = item.dataset.name;
+        chatView.classList.remove("hidden");
+        settingsMenu.classList.add("hidden");
+        renderActiveConversation();
+
+        chatItems.forEach((chat) =>
+          chat.classList.remove("ring-2", "ring-blue-300"),
+        );
+        item.classList.add("ring-2", "ring-blue-300");
+      });
+
+      backBtn.addEventListener("click", () => {
+        chatView.classList.add("hidden");
+      });
+
+      searchInput.addEventListener("input", renderList);
+
+      settingsBtn.addEventListener("click", () => {
+        settingsMenu.classList.toggle("hidden");
+      });
+
+      settingsMenu.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-menu-action]");
+        if (!button) return;
+
+        activeFilter = button.dataset.menuAction;
+        settingsMenu.classList.add("hidden");
+        renderList();
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !settingsBtn.contains(event.target) &&
+          !settingsMenu.contains(event.target)
+        ) {
+          settingsMenu.classList.add("hidden");
+        }
+      });
+
+      composeBtn.addEventListener("click", () => {
+        openComposeModal();
+      });
+
+      cancelComposeBtn.addEventListener("click", closeComposeModal);
+      closeComposeModalBtn.addEventListener("click", closeComposeModal);
+
+      composeModal.addEventListener("click", (event) => {
+        if (event.target === composeModal) closeComposeModal();
+      });
+
+      composeForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const name = composeName.value.trim();
+        const message = composeMessage.value.trim();
+        if (!name || !message) return;
+
+        const item = document.createElement("div");
+        item.className =
+          "chat-item flex items-center justify-between w-full bg-white/65 border border-slate-200/70 hover:bg-white hover:shadow-lg hover:-translate-y-0.5 duration-300 p-2.5 rounded-2xl cursor-pointer";
+        item.dataset.name = name;
+        item.dataset.preview = message;
+        item.dataset.unread = "true";
+
+        conversations[name] = [
+          {
+            from: "outgoing",
+            text: message,
+          },
+        ];
+
+        item.innerHTML = `
+          <div class="flex items-center w-full">
+            <img
+              class="h-14 w-14 rounded-2xl object-cover"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=60&w=3000"
+              alt=""
+            />
+            <div class="mx-4 w-full">
+              <p class="font-bold text-[0.95rem] text-slate-800">${name}</p>
+              <p class="text-xs text-slate-500 line-clamp-2">${message}</p>
+            </div>
+          </div>
+        `;
+
+        chatList.prepend(item);
+        chatItems.unshift(item);
+        searchInput.value = "";
+        activeFilter = "all";
+        renderList();
+
+        closeComposeModal();
+      });
+
+      chatComposer.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!activeChatItem) return;
+
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        const chatItemRef = activeChatItem;
+        const chatName = activeChatItem.dataset.name;
+        if (!conversations[chatName]) conversations[chatName] = [];
+
+        conversations[chatName].push({
+          from: "outgoing",
+          text,
+        });
+
+        appendOutgoingMessage(text);
+        updateChatPreview(chatItemRef, text);
+        chatItemRef.dataset.unread = "false";
+        chatInput.value = "";
+
+        const autoReply = "Hi so good to hear from you again";
+        window.setTimeout(() => {
+          conversations[chatName].push({
+            from: "incoming",
+            text: autoReply,
+          });
+
+          if (
+            activeChatItem &&
+            activeChatItem.dataset.name === chatName &&
+            !chatView.classList.contains("hidden")
+          ) {
+            appendIncomingMessage(autoReply);
+          }
+
+          updateChatPreview(chatItemRef, autoReply);
+        }, 350);
+      });
+
+      renderList();
+    </script>
+  </body>
+</html>
