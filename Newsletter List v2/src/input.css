@@ -1,0 +1,67 @@
+:root {
+  --ink: #0f2233;
+  --accent: #0b5c8a;
+  --paper: #f4efe6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background: radial-gradient(circle at 0% 0%, #ffffff 0%, var(--paper) 56%);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(50px);
+  opacity: 0.4;
+}
+
+.orb-1 {
+  top: -70px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
+  background: #7bc2e8;
+}
+
+.orb-2 {
+  right: -70px;
+  bottom: -90px;
+  width: 320px;
+  height: 320px;
+  background: #ffcf8a;
+}
+
+.grain-layer {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffffaa 1px, transparent 1px);
+  background-size: 10px 10px;
+  mix-blend-mode: soft-light;
+  opacity: 0.4;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fade-up 0.7s ease forwards;
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .orb {
+    filter: blur(40px);
+    opacity: 0.35;
+  }
+}
