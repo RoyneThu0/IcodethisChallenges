@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Placed</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      :root {
+        --ink: #1f2145;
+        --peach: #ffd6a6;
+        --mint: #b8f5cf;
+        --bubble: #c6e8ff;
+        --lemon: #fff2b8;
+        --rose: #ffc8dc;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        color: var(--ink);
+      }
+
+      .title-font {
+        font-family: "Baloo 2", cursive;
+      }
+
+      .wiggle-shadow {
+        box-shadow: 0 16px 0 #1f2145, 0 24px 48px rgba(31, 33, 69, 0.24);
+      }
+
+      .animate-pop {
+        animation: pop-in 0.55s ease-out both;
+      }
+
+      .animate-float {
+        animation: floaty 3.5s ease-in-out infinite;
+      }
+
+      @keyframes pop-in {
+        0% {
+          transform: scale(0.88) translateY(14px);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes floaty {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-6px) rotate(-3deg);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen w-full bg-[radial-gradient(circle_at_12%_10%,#ffd7ba,transparent_35%),radial-gradient(circle_at_88%_12%,#b9f7cd,transparent_33%),radial-gradient(circle_at_50%_92%,#c7e8ff,transparent_35%),linear-gradient(140deg,#fff8e8,#eaf6ff)] px-4 py-8"
+  >
+    <main
+      class="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-2xl items-center"
+    >
+      <div
+        aria-hidden="true"
+        class="absolute -left-5 top-12 h-20 w-20 rounded-full border-4 border-[var(--ink)] bg-[var(--rose)] opacity-80"
+      ></div>
+      <div
+        aria-hidden="true"
+        class="absolute -right-3 bottom-12 h-14 w-14 rounded-full border-4 border-[var(--ink)] bg-[var(--lemon)]"
+      ></div>
+
+      <section
+        class="animate-pop wiggle-shadow relative w-full overflow-hidden rounded-[2rem] border-4 border-[var(--ink)] bg-white/95 p-6 md:p-9"
+      >
+        <span
+          class="title-font absolute right-4 top-4 rotate-6 rounded-full border-2 border-[var(--ink)] bg-[var(--lemon)] px-3 py-1 text-xs font-extrabold text-[var(--ink)]"
+        >
+          yay!
+        </span>
+
+        <div class="mb-8 flex items-center justify-between gap-3">
+          <span
+            class="inline-flex items-center gap-2 rounded-full border-2 border-[var(--ink)] bg-[var(--mint)] px-3 py-1 text-xs font-extrabold tracking-wide text-[var(--ink)]"
+          >
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            CONFIRMED
+          </span>
+          <p
+            class="title-font text-sm font-extrabold uppercase tracking-[0.14em] text-slate-500"
+          >
+            ORDER #ICD-2487
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="animate-float flex h-20 w-20 items-center justify-center rounded-full border-4 border-[var(--ink)] bg-[var(--peach)] p-1.5"
+          >
+            <div
+              class="flex h-full w-full items-center justify-center rounded-full border-2 border-[var(--ink)] bg-white"
+            >
+              <i class="fa-solid fa-check text-2xl text-emerald-500"></i>
+            </div>
+          </div>
+          <h1
+            class="title-font mt-5 text-4xl font-extrabold leading-none tracking-tight text-[var(--ink)]"
+          >
+            Order Placed!
+          </h1>
+
+          <p
+            class="mt-4 max-w-md text-sm leading-relaxed text-slate-600 md:text-base"
+          >
+            Thank you for your order, you will receive it in
+            <span
+              class="ml-1 inline-flex rounded-full border-2 border-[var(--ink)] bg-[var(--mint)] px-2.5 py-0.5 font-extrabold text-[var(--ink)]"
+              >45 minutes</span
+            >
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
+          <article
+            class="rounded-3xl border-[3px] border-[var(--ink)] bg-[var(--bubble)] p-5"
+          >
+            <div class="flex items-start gap-3">
+              <img
+                class="h-16 w-16 shrink-0"
+                src="https://static.vecteezy.com/system/resources/thumbnails/018/741/992/small/white-origami-paper-plane-deliver-message-symbol-interface-theme-3d-icon-render-illustration-isolated-png.png"
+                alt="Delivery icon"
+              />
+              <div>
+                <p class="title-font text-lg font-extrabold text-[var(--ink)]">
+                  Delivery Details
+                </p>
+                <p class="mt-1 text-xs leading-relaxed text-slate-700">
+                  Your order will be delivered to this address
+                </p>
+              </div>
+            </div>
+            <p class="mt-4 text-sm font-semibold text-slate-800">
+              <i class="fa-solid fa-location-dot mr-2 text-pink-500"></i
+              >Plaça Badaloba, 08912 Badalona
+            </p>
+            <p class="mt-3 text-sm font-semibold text-slate-800">
+              <i class="fa-solid fa-phone mr-2 text-pink-500"></i>60640582
+            </p>
+            <p class="mt-3 truncate text-sm font-semibold text-slate-800">
+              <i class="fa-solid fa-envelope mr-2 text-pink-500"></i
+              >gorczany.tamara@yahoo.com
+            </p>
+          </article>
+
+          <article
+            class="rounded-3xl border-[3px] border-[var(--ink)] bg-[var(--lemon)] p-5"
+          >
+            <p
+              class="title-font text-sm font-extrabold uppercase tracking-[0.14em] text-[var(--ink)]"
+            >
+              Order Note
+            </p>
+            <p
+              class="mt-3 flex items-start text-sm font-semibold leading-relaxed text-slate-800"
+            >
+              <i class="fa-solid fa-message mr-2 mt-0.5 text-orange-500"></i>
+              No mushrooms, please 😏
+            </p>
+          </article>
+        </div>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <button
+            class="title-font w-full rounded-2xl border-[3px] border-[var(--ink)] bg-[var(--rose)] px-4 py-3 text-base font-extrabold text-[var(--ink)] transition hover:-translate-y-1"
+            type="button"
+          >
+            Track Order
+          </button>
+          <button
+            class="title-font w-full rounded-2xl border-[3px] border-[var(--ink)] bg-[var(--mint)] px-4 py-3 text-base font-extrabold text-[var(--ink)] transition hover:-translate-y-1"
+            type="button"
+          >
+            View Receipt
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
