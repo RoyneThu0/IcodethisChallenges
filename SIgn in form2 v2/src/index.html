@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In Form 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./input.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .page-bg {
+      background:
+        radial-gradient(
+          circle at 12% 8%,
+          rgba(124, 167, 255, 0.35),
+          transparent 45%
+        ),
+        radial-gradient(
+          circle at 88% 18%,
+          rgba(80, 197, 255, 0.28),
+          transparent 44%
+        ),
+        linear-gradient(180deg, #dcecff 0%, #cfe2fb 100%);
+    }
+
+    .auth-card {
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f7faff 55%,
+        #eef5ff 100%
+      );
+      border: 1px solid rgba(102, 143, 217, 0.24);
+      box-shadow:
+        0 20px 60px rgba(31, 56, 105, 0.17),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .auth-label {
+      display: inline-block;
+      margin-bottom: 0.55rem;
+      color: #334155;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .auth-input {
+      width: 100%;
+      border: 1.7px solid #d5e0f2;
+      border-radius: 0.56rem;
+      padding: 0.88rem 0.95rem;
+      font-size: 1rem;
+      color: #334155;
+      background: rgba(255, 255, 255, 0.86);
+      transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease;
+    }
+
+    .auth-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .auth-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+    }
+
+    .forgot-link {
+      color: #5fa8ef;
+      font-size: 0.92rem;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .forgot-link:hover {
+      color: #3d8ad8;
+    }
+
+    .auth-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 0.62rem;
+      padding: 0.9rem 1rem;
+      font-size: 1.04rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      background: linear-gradient(180deg, #b0becd 0%, #a6b4c4 100%);
+      box-shadow: 0 8px 22px rgba(123, 144, 170, 0.36);
+      transition:
+        transform 180ms ease,
+        filter 180ms ease;
+    }
+
+    .auth-btn:hover {
+      filter: brightness(1.03);
+      transform: translateY(-1px);
+    }
+
+    .auth-btn:active {
+      transform: translateY(0);
+    }
+
+    .wave-stack {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 138px;
+      pointer-events: none;
+    }
+
+    .wave {
+      position: absolute;
+      left: -2%;
+      width: 104%;
+      min-width: 720px;
+      will-change: transform;
+      animation-name: waveDrift;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+    }
+
+    .wave-back {
+      bottom: 5px;
+      height: 92px;
+      animation-duration: 14s;
+      animation-delay: -2s;
+    }
+
+    .wave-mid {
+      bottom: 0;
+      height: 88px;
+      animation-duration: 10s;
+      animation-delay: -1s;
+    }
+
+    .wave-front {
+      bottom: -5px;
+      height: 84px;
+      animation-duration: 7.5s;
+      animation-delay: -1.6s;
+    }
+
+    .footer-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #334155;
+    }
+
+    @keyframes waveDrift {
+      0% {
+        transform: translateX(-5.5%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(0) translateY(4px);
+      }
+
+      100% {
+        transform: translateX(5.5%) translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .auth-card {
+        min-height: 82vh;
+      }
+
+      .wave-stack {
+        height: 112px;
+      }
+
+      .wave-back {
+        height: 74px;
+      }
+
+      .wave-mid,
+      .wave-front {
+        height: 66px;
+      }
+    }
+  </style>
+
+  <body
+    class="min-h-screen page-bg flex items-center justify-center p-3 sm:p-4"
+  >
+    <main
+      class="auth-card relative w-full max-w-xl rounded-[18px] sm:rounded-[22px] overflow-hidden"
+    >
+      <section
+        class="relative z-10 w-full h-full flex items-center justify-center"
+      >
+        <form
+          class="w-full max-w-[430px] px-6 sm:px-8 pt-7 sm:pt-9 pb-28 sm:pb-32"
+          action="#"
+        >
+          <h1
+            class="text-center text-2xl sm:text-[34px] font-bold tracking-tight text-slate-700"
+          >
+            Sign In to your account
+          </h1>
+
+          <div class="mt-9 sm:mt-10">
+            <label for="email" class="auth-label">Username or Email</label>
+            <input
+              type="email"
+              id="email"
+              class="auth-input"
+              placeholder="myemail@address.com"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="mt-5">
+            <label for="password" class="auth-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="auth-input"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            />
+          </div>
+
+          <div class="mt-4 flex items-center justify-between gap-4">
+            <label
+              for="remember"
+              class="flex items-center gap-2 text-sm text-slate-600"
+            >
+              <input
+                type="checkbox"
+                id="remember"
+                class="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+              />
+              Remember Me
+            </label>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+
+          <button
+            class="auth-btn mt-7 hover:bg-sky-400 duration-300 ease-in-out"
+            type="submit"
+          >
+            Sign In
+          </button>
+
+          <p class="mt-7 text-center text-slate-500 text-sm sm:text-base">
+            Don't have an account?
+            <a href="#" class="font-semibold text-sky-600 hover:text-sky-700"
+              >Sign Up</a
+            >
+          </p>
+        </form>
+      </section>
+
+      <div class="wave-stack" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          class="wave wave-back"
+        >
+          <path
+            fill="#78acee"
+            fill-opacity="0.42"
+            d="M0,192L48,181.3C96,171,192,149,288,149.3C384,149,480,171,576,176C672,181,768,171,864,176C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+        <svg
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          class="wave wave-mid"
+        >
+          <path
+            fill="#8db9f5"
+            fill-opacity="0.56"
+            d="M0,224L60,213.3C120,203,240,181,360,186.7C480,192,600,224,720,224C840,224,960,192,1080,176C1200,160,1320,160,1380,160L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+          ></path>
+        </svg>
+        <svg
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          class="wave wave-front"
+        >
+          <path
+            fill="#84b1ee"
+            fill-opacity="0.78"
+            d="M0,256L80,250.7C160,245,320,235,480,224C640,213,800,203,960,202.7C1120,203,1280,213,1360,218.7L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <footer
+        class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 w-[92%] max-w-3xl text-[11px] sm:text-[13px] text-slate-600"
+      >
+        <ul class="grid grid-cols-2 sm:grid-cols-4 text-center gap-y-2">
+          <li><a href="#" class="footer-link">Terms of Service</a></li>
+          <li><a href="#" class="footer-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-link">Classic</a></li>
+          <li>© 2019 myBrand</li>
+        </ul>
+      </footer>
+    </main>
+  </body>
+</html>
