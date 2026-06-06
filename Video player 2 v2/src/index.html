@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Player 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./input.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <section class="player" aria-label="Video player interface">
+        <div
+          class="player__poster"
+          role="img"
+          aria-label="Movie frame preview"
+        ></div>
+
+        <div class="player__controls">
+          <div
+            class="controls__cluster controls__cluster--left"
+            aria-label="Playback controls"
+          >
+            <button class="icon-btn" type="button" aria-label="Previous">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12.8 6.9a1 1 0 0 1 1.7.7v8.8a1 1 0 0 1-1.7.7l-4.3-4.4a1 1 0 0 1 0-1.4l4.3-4.4Z"
+                />
+                <path
+                  d="M17.8 6.9a1 1 0 0 1 1.7.7v8.8a1 1 0 0 1-1.7.7l-4.3-4.4a1 1 0 0 1 0-1.4l4.3-4.4Z"
+                />
+              </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M8.6 5.8a1 1 0 0 1 1.5-.8l8.8 6a1.2 1.2 0 0 1 0 2l-8.8 6a1 1 0 0 1-1.5-.8V5.8Z"
+                />
+              </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Next">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M11.2 6.9a1 1 0 0 0-1.7.7v8.8a1 1 0 0 0 1.7.7l4.3-4.4a1 1 0 0 0 0-1.4l-4.3-4.4Z"
+                />
+                <path
+                  d="M6.2 6.9a1 1 0 0 0-1.7.7v8.8a1 1 0 0 0 1.7.7l4.3-4.4a1 1 0 0 0 0-1.4l-4.3-4.4Z"
+                />
+              </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Stop">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="6.5" y="6.5" width="11" height="11" rx="1.4" />
+              </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Playlist">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 7.5h10.8a1 1 0 1 0 0-2H6a1 1 0 1 0 0 2Z" />
+                <path d="M6 12.9h10.8a1 1 0 0 0 0-2H6a1 1 0 1 0 0 2Z" />
+                <path d="M6 18.3h6.2a1 1 0 1 0 0-2H6a1 1 0 1 0 0 2Z" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="timeline" aria-hidden="true">
+            <div class="timeline__elapsed"></div>
+          </div>
+
+          <time class="timecode" datetime="PT45H32M53S">45:32:53</time>
+
+          <div
+            class="controls__cluster controls__cluster--right"
+            aria-label="Audio and display controls"
+          >
+            <button class="icon-btn" type="button" aria-label="Volume down">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14.8 6.4a1 1 0 0 1 1.4 0 7.5 7.5 0 0 1 0 10.8 1 1 0 0 1-1.4-1.4 5.5 5.5 0 0 0 0-8 1 1 0 0 1 0-1.4Z"
+                />
+                <path
+                  d="M8.1 9.2H6.6a1.1 1.1 0 0 0-1.1 1.1v3.4c0 .6.5 1.1 1.1 1.1H8l3.1 2.4a.9.9 0 0 0 1.5-.7V7a.9.9 0 0 0-1.5-.7L8 9.2Z"
+                />
+              </svg>
+            </button>
+
+            <div class="volume" aria-hidden="true">
+              <div class="volume__value"></div>
+            </div>
+
+            <button class="icon-btn" type="button" aria-label="Volume up">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14.3 4.8a1 1 0 0 1 1.4 0 10 10 0 0 1 0 14.4 1 1 0 0 1-1.4-1.4 8 8 0 0 0 0-11.6 1 1 0 0 1 0-1.4Z"
+                />
+                <path
+                  d="M8.1 9.2H6.6a1.1 1.1 0 0 0-1.1 1.1v3.4c0 .6.5 1.1 1.1 1.1H8l3.1 2.4a.9.9 0 0 0 1.5-.7V7a.9.9 0 0 0-1.5-.7L8 9.2Z"
+                />
+              </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7.8 6.4H10a1 1 0 0 0 0-2H5.4v4.6a1 1 0 0 0 2 0V6.4ZM16.2 6.4v2.5a1 1 0 0 0 2 0V4.4h-4.6a1 1 0 0 0 0 2h2.6ZM16.2 17.6H14a1 1 0 0 0 0 2h4.6V15a1 1 0 0 0-2 0v2.6ZM7.8 17.6V15a1 1 0 1 0-2 0v4.6h4.6a1 1 0 0 0 0-2H7.8Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

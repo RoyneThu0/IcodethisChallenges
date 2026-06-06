@@ -1,0 +1,203 @@
+:root {
+  --bg: #f6d743;
+  --player-bg: #d8242a;
+  --ink: #132445;
+  --muted: #9eb3d7;
+  --accent: #ffd21f;
+  --stud: #f84a50;
+  --panel: #f7f8fb;
+  --shadow: 0 22px 0 #8e1016, 0 34px 42px rgba(21, 31, 61, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background:
+    radial-gradient(circle at 14% 10%, #ffe87a 0 14%, transparent 15%),
+    radial-gradient(circle at 88% 84%, #ffef99 0 11%, transparent 12%),
+    linear-gradient(140deg, #f7d43f 0%, #f4c81f 55%, #f0b809 100%);
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.stage {
+  width: min(960px, 100%);
+}
+
+.player {
+  position: relative;
+  background: var(--player-bg);
+  border-radius: 24px;
+  border: 4px solid #aa151b;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.player::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 10px;
+  height: 16px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #ff6870 0 44%, #e2262c 45% 100%) left
+    top / 38px 16px repeat-x;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.player__poster {
+  height: clamp(260px, 52vw, 520px);
+  width: 100%;
+  background-image:
+    linear-gradient(0deg, rgba(11, 20, 42, 0.35), rgba(11, 20, 42, 0.15)),
+    url("https://cdn.mos.cms.futurecdn.net/AC94qsVhP8gwT255igqspA.jpg");
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.42rem, 1vw, 0.7rem);
+  padding: 1rem 1.1rem 1rem;
+  border-top: 4px solid #aa151b;
+  background: var(--panel);
+}
+
+.controls__cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.22rem;
+  flex-shrink: 0;
+}
+
+.controls__cluster--left {
+  margin-right: 0.5rem;
+}
+
+.controls__cluster--right {
+  margin-left: 0.45rem;
+}
+
+.icon-btn {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 2px solid #a2b5d8;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  display: grid;
+  place-items: center;
+  line-height: 0;
+  color: var(--ink);
+  background: linear-gradient(180deg, #ffffff, #ebeff8);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.18s ease;
+}
+
+.icon-btn:hover {
+  background: linear-gradient(180deg, #ffffff, #dfe8f8);
+}
+
+.icon-btn:active {
+  transform: translateY(1px);
+}
+
+.icon-btn svg {
+  display: block;
+  width: 1.26rem;
+  height: 1.26rem;
+  fill: currentColor;
+  opacity: 0.98;
+}
+
+.timeline {
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+  height: 14px;
+  border-radius: 999px;
+  background: #ccd7ea;
+  border: 2px solid #9ab1d5;
+}
+
+.timeline__elapsed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 73%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, #ffe05d, #ffc917);
+}
+
+.timecode {
+  flex-shrink: 0;
+  font-family: "Arial Black", "Trebuchet MS", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #1d2f53;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.volume {
+  position: relative;
+  width: clamp(62px, 8vw, 96px);
+  height: 8px;
+  border-radius: 999px;
+  background: #ccd7ea;
+  border: 2px solid #9ab1d5;
+}
+
+.volume__value {
+  width: 66%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, #ff6b72, #dc262c);
+}
+
+@media (max-width: 840px) {
+  .player__controls {
+    flex-wrap: wrap;
+    row-gap: 0.65rem;
+    justify-content: center;
+  }
+
+  .controls__cluster--left {
+    margin-right: 0;
+  }
+
+  .controls__cluster--right {
+    margin-left: 0;
+  }
+
+  .timeline {
+    order: 1;
+    flex-basis: 100%;
+    margin-inline: 0.5rem;
+  }
+
+  .timecode {
+    order: 2;
+  }
+}
