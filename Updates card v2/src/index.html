@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Updates Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen flex bg-[#1b1c1e] items-center justify-center">
+    <div class="w-11/12 max-w-sm p-4 bg-[#161819] rounded-lg">
+      <div
+        class="w-full p-10 bg-[#222327] rounded-lg flex items-center flex-col"
+      >
+        <img
+          class="w-20 h-20 bg-[#171819] rounded-full p-2 mb-4"
+          src="https://cdn-icons-png.freepik.com/256/2626/2626096.png?semt=ais_incoming"
+          alt="Updates icon"
+        />
+        <p class="text-center font-semibold text-xl text-slate-300 mt-4">
+          View the latest updates
+        </p>
+        <p class="text-center mt-3 text-sm text-slate-300">
+          You'll be switched back home after you've <br />
+          been away for a while.
+        </p>
+
+        <button
+          id="viewPreferencesBtn"
+          type="button"
+          class="mt-10 bg-[#161819] text-sm w-full mx-5 py-4 text-slate-300"
+        >
+          <i class="fa-solid mr-2 fa-gear"></i>
+          View preferences
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="preferencesOverlay"
+      class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4"
+      aria-hidden="true"
+    >
+      <div
+        id="preferencesModal"
+        class="w-full max-w-sm rounded-lg bg-[#222327] p-6 text-slate-200"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="preferencesTitle"
+      >
+        <div class="flex items-center justify-between">
+          <h2 id="preferencesTitle" class="text-lg font-semibold">
+            Preferences
+          </h2>
+          <button
+            id="closePreferencesBtn"
+            type="button"
+            class="text-slate-400 hover:text-white"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <p class="mt-4 text-sm text-slate-300">
+          Choose what should happen while you are away.
+        </p>
+
+        <ul class="mt-5 space-y-4" aria-label="Preferences list">
+          <li class="flex items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-medium text-slate-100">
+                Push notifications
+              </p>
+              <p class="text-xs text-slate-400">
+                Notify when new updates arrive.
+              </p>
+            </div>
+            <label
+              for="prefNotifications"
+              class="relative inline-flex cursor-pointer items-center"
+            >
+              <input
+                id="prefNotifications"
+                type="checkbox"
+                class="peer sr-only"
+                checked
+              />
+              <span
+                class="h-6 w-11 rounded-full bg-slate-600 transition peer-checked:bg-emerald-500 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:transition peer-checked:after:translate-x-5"
+              ></span>
+            </label>
+          </li>
+
+          <li class="flex items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-medium text-slate-100">Auto switch home</p>
+              <p class="text-xs text-slate-400">
+                Return home after inactivity.
+              </p>
+            </div>
+            <label
+              for="prefAutoSwitch"
+              class="relative inline-flex cursor-pointer items-center"
+            >
+              <input
+                id="prefAutoSwitch"
+                type="checkbox"
+                class="peer sr-only"
+                checked
+              />
+              <span
+                class="h-6 w-11 rounded-full bg-slate-600 transition peer-checked:bg-emerald-500 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:transition peer-checked:after:translate-x-5"
+              ></span>
+            </label>
+          </li>
+
+          <li class="flex items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-medium text-slate-100">Weekly digest</p>
+              <p class="text-xs text-slate-400">Get a summary once per week.</p>
+            </div>
+            <label
+              for="prefWeeklyDigest"
+              class="relative inline-flex cursor-pointer items-center"
+            >
+              <input
+                id="prefWeeklyDigest"
+                type="checkbox"
+                class="peer sr-only"
+              />
+              <span
+                class="h-6 w-11 rounded-full bg-slate-600 transition peer-checked:bg-emerald-500 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:transition peer-checked:after:translate-x-5"
+              ></span>
+            </label>
+          </li>
+        </ul>
+
+        <button
+          id="donePreferencesBtn"
+          type="button"
+          class="mt-6 w-full rounded bg-[#161819] py-3 text-sm text-slate-200"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const viewPreferencesBtn = document.getElementById("viewPreferencesBtn");
+      const closePreferencesBtn = document.getElementById(
+        "closePreferencesBtn",
+      );
+      const donePreferencesBtn = document.getElementById("donePreferencesBtn");
+      const preferencesOverlay = document.getElementById("preferencesOverlay");
+      const preferencesModal = document.getElementById("preferencesModal");
+
+      function openPreferences() {
+        preferencesOverlay.classList.remove("hidden");
+        preferencesOverlay.classList.add("flex");
+        preferencesOverlay.setAttribute("aria-hidden", "false");
+      }
+
+      function closePreferences() {
+        preferencesOverlay.classList.add("hidden");
+        preferencesOverlay.classList.remove("flex");
+        preferencesOverlay.setAttribute("aria-hidden", "true");
+      }
+
+      viewPreferencesBtn.addEventListener("click", openPreferences);
+      closePreferencesBtn.addEventListener("click", closePreferences);
+      donePreferencesBtn.addEventListener("click", closePreferences);
+
+      preferencesOverlay.addEventListener("click", (event) => {
+        if (!preferencesModal.contains(event.target)) {
+          closePreferences();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closePreferences();
+        }
+      });
+    </script>
+  </body>
+</html>
