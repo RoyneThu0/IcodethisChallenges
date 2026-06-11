@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share article modal v2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen bg-gray-200 flex items-center justify-center"
+  >
+    <div class="bg-gray-200 w-full max-w-xl p-6 rounded-lg shadow-gray-400 hover:shadow-xl duration-500 ease-in-out shadow-inner">
+      <div class="flex justify-end">
+        <button
+          class="text-gray-500 hover:text-gray-700 focus:outline-none"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-xmark text-2xl"></i>
+        </button>
+      </div>
+      <h2 class="text-2xl text-center font-bold mb-4">Share this article</h2>
+      <p class="text-center">
+        If you liked this article, share it with your friends. <br />
+        They will thank you later
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-5">
+        <div
+          class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 duration-300 ease-in-out cursor-pointer"
+        >
+          <i class="fab fa-facebook-f"></i>
+          Facebook
+        </div>
+        <div
+          class="flex items-center gap-2 bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-500 duration-300 ease-in-out  cursor-pointer"
+        >
+          <i class="fab fa-twitter"></i>
+          Twitter
+        </div>
+        <div
+          class="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-pink-700 duration-300 ease-in-out cursor-pointer"
+        >
+          <i class="fab fa-reddit-alien"></i>
+          Reddit
+        </div>
+      </div>
+
+      <p class="text-center mt-4 text-black">
+        <span class="font-bold">4.5K</span> shares
+      </p>
+      <div class="flex items-center justify-center mt-10">
+        <button
+          class=" text-orange-700 px-4 py-2 rounded hover:bg-orange-700 hover:text-white duration-300 ease-in-out focus:outline-none"
+        >
+           Close this window
+        </button>   
+    </div>
+  </body>
+</html>
