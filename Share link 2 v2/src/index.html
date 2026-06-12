@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share link 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="relative min-h-screen overflow-x-hidden bg-gradient-to-br from-[#f7f2e8] to-[#c6d8f7] text-[#202432] [font-family:'Manrope',sans-serif]"
+  >
+    <div
+      class="pointer-events-none fixed -right-24 -top-32 -z-10 h-[22rem] w-[22rem] rounded-full bg-[radial-gradient(circle_at_25%_25%,#ffd785,#ff9b6a_75%)] blur-[2px] animate-pulse"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none fixed -bottom-56 -left-40 -z-10 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle_at_30%_30%,#9ecbff,#6da7f2_68%)] blur-[2px] animate-pulse"
+      aria-hidden="true"
+    ></div>
+
+    <main class="flex min-h-screen items-center justify-center p-5">
+      <section
+        class="w-full max-w-2xl origin-top rounded-3xl border border-white/60 bg-white/80 p-6 shadow-[0_18px_60px_rgba(29,40,85,0.2)] backdrop-blur md:p-8"
+      >
+        <header class="flex items-start justify-between gap-4">
+          <div>
+            <p
+              class="m-0 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#5e6678]"
+            >
+              Submit your favorite find
+            </p>
+            <h1
+              class="mt-2 [font-family:'Syne',sans-serif] text-[clamp(1.45rem,3.8vw,2rem)] leading-[1.08]"
+            >
+              Share something awesome
+            </h1>
+          </div>
+          <button
+            class="h-9 w-9 flex-shrink-0 rounded-full border-0 bg-[#edf2ff] text-base text-[#4f5d7f] transition duration-200 hover:scale-[1.02] hover:rotate-90 hover:bg-[#dce7ff] hover:text-[#26314f]"
+            aria-label="Close"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </header>
+
+        <p class="mt-4 text-[0.95rem] leading-relaxed text-[#5e6678]">
+          Great visual ideas from the community can get featured on our site and
+          even land in the weekly newsletter.
+        </p>
+
+        <form
+          class="mt-5 grid gap-[0.65rem] sm:grid-cols-[1fr_auto]"
+          action="#"
+          method="post"
+        >
+          <label class="sr-only" for="share-link">Project URL</label>
+          <input
+            id="share-link"
+            type="url"
+            placeholder="https://your-inspiration-link.com"
+            class="w-full rounded-[0.9rem] border border-[#cbd3e4] bg-white/85 px-[0.9rem] py-[0.8rem] text-[0.95rem] text-[#202432] placeholder:text-[#8790a5] transition duration-200 focus:border-[#ff6f47] focus:outline-none focus:ring-4 focus:ring-[#ff6f47]/25"
+            required
+          />
+          <button
+            type="submit"
+            class="rounded-[0.9rem] border-0 bg-gradient-to-br from-[#ff6f47] to-[#e95228] px-4 py-[0.8rem] text-[0.92rem] font-bold tracking-[0.01em] text-white shadow-[0_10px_20px_rgba(255,111,71,0.3)] transition duration-200 hover:-translate-y-px hover:shadow-[0_14px_24px_rgba(255,111,71,0.35)]"
+          >
+            Share Link
+          </button>
+        </form>
+
+        <section
+          class="mt-[1.35rem] rounded-2xl border border-[#d8e2f4] bg-gradient-to-b from-[#f2f6ff] to-[#eaf0fc] p-4"
+          aria-label="Sharing guidelines"
+        >
+          <p
+            class="m-0 text-xs font-extrabold uppercase tracking-[0.12em] text-[#576486]"
+          >
+            Sharing guidelines
+          </p>
+          <p class="mt-2.5 text-[0.86rem] leading-relaxed text-[#4d5874]">
+            We accept quality design projects: UI/UX, motion, 3D, illustration,
+            and interaction experiments.
+          </p>
+          <a
+            class="mt-2 inline-block text-[0.84rem] font-bold text-[#0b4ed1]"
+            href="#"
+            >Read full guidelines</a
+          >
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
