@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabbed UI v2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sora: ["Sora", "sans-serif"],
+            },
+            boxShadow: {
+              panel: "0 18px 40px rgba(11, 15, 33, 0.28)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="min-h-screen font-sora text-[#1a2034]"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1778789172736-e8ba37c71124?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIzfGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D);
+    "
+  >
+    <main
+      class="mx-auto my-8 w-[min(1240px,calc(100%-1.25rem))] sm:my-10 sm:w-[min(1240px,calc(100%-2.5rem))]"
+    >
+      <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div
+          class="absolute -left-24 top-4 h-72 w-72 rounded-full bg-sky-300/25 blur-3xl"
+        ></div>
+        <div
+          class="absolute -right-20 bottom-2 h-80 w-80 rounded-full bg-rose-300/25 blur-3xl"
+        ></div>
+        <div
+          class="absolute inset-0 bg-linear-to-br from-[#0f1220] via-[#171b2f] to-[#141933]"
+        ></div>
+      </div>
+
+      <section class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <article
+          class="animate-[fadeUp_.6s_ease_forwards] overflow-hidden rounded-2xl border border-white/20 bg-linear-to-b from-white/75 to-indigo-100/55 opacity-0 shadow-panel backdrop-blur-2xl"
+        >
+          <header
+            class="grid grid-cols-1 gap-2 bg-[#141c38]/95 p-3 sm:grid-cols-3"
+          >
+            <button
+              class="rounded-full bg-white px-3 py-2 text-xs font-semibold text-[#11152a] transition hover:-translate-y-px"
+              type="button"
+            >
+              Details
+            </button>
+            <button
+              class="rounded-full px-3 py-2 text-xs font-semibold text-indigo-100/80 transition hover:bg-white/10 hover:text-white"
+              type="button"
+            >
+              Tutorials
+            </button>
+            <button
+              class="rounded-full px-3 py-2 text-xs font-semibold text-indigo-100/80 transition hover:bg-white/10 hover:text-white"
+              type="button"
+            >
+              Code Snippets
+            </button>
+          </header>
+
+          <div class="grid gap-5 p-5">
+            <div>
+              <h2 class="text-[1.08rem] font-semibold">Color Palette</h2>
+              <p class="mt-1 text-xs text-slate-500">Click a chip to copy</p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              <button
+                class="flex items-center gap-2 rounded-full border border-slate-300/70 bg-white px-2 py-2 text-xs font-semibold text-slate-600 transition hover:translate-x-1 hover:border-indigo-400/60"
+                type="button"
+              >
+                <span
+                  class="h-6 w-6 rounded-full bg-[#ff5f7a] ring-2 ring-white"
+                ></span>
+                <span>#FF5F7A</span>
+              </button>
+              <button
+                class="flex items-center gap-2 rounded-full border border-slate-300/70 bg-white px-2 py-2 text-xs font-semibold text-slate-600 transition hover:translate-x-1 hover:border-indigo-400/60"
+                type="button"
+              >
+                <span
+                  class="h-6 w-6 rounded-full bg-[#f8c35d] ring-2 ring-white"
+                ></span>
+                <span>#F8C35D</span>
+              </button>
+              <button
+                class="flex items-center gap-2 rounded-full border border-slate-300/70 bg-white px-2 py-2 text-xs font-semibold text-slate-600 transition hover:translate-x-1 hover:border-indigo-400/60"
+                type="button"
+              >
+                <span
+                  class="h-6 w-6 rounded-full bg-[#37d6b8] ring-2 ring-white"
+                ></span>
+                <span>#37D6B8</span>
+              </button>
+              <button
+                class="flex items-center gap-2 rounded-full border border-slate-300/70 bg-white px-2 py-2 text-xs font-semibold text-slate-600 transition hover:translate-x-1 hover:border-indigo-400/60"
+                type="button"
+              >
+                <span
+                  class="h-6 w-6 rounded-full bg-[#5f8bff] ring-2 ring-white"
+                ></span>
+                <span>#5F8BFF</span>
+              </button>
+              <button
+                class="flex items-center gap-2 rounded-full border border-slate-300/70 bg-white px-2 py-2 text-xs font-semibold text-slate-600 transition hover:translate-x-1 hover:border-indigo-400/60"
+                type="button"
+              >
+                <span
+                  class="h-6 w-6 rounded-full bg-[#1f2431] ring-2 ring-white"
+                ></span>
+                <span>#1F2431</span>
+              </button>
+              <button
+                class="flex items-center gap-2 rounded-full border border-slate-300/70 bg-white px-2 py-2 text-xs font-semibold text-slate-600 transition hover:translate-x-1 hover:border-indigo-400/60"
+                type="button"
+              >
+                <span
+                  class="h-6 w-6 rounded-full bg-[#f2f4f8] ring-2 ring-slate-200"
+                ></span>
+                <span>#F2F4F8</span>
+              </button>
+            </div>
+
+            <div class="border-t border-slate-300/50 pt-4">
+              <p class="text-sm font-bold">Typography</p>
+              <p class="mt-2 text-sm text-slate-600">Sora Regular</p>
+              <p class="mt-1 text-sm font-semibold text-slate-700">
+                Sora SemiBold
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="animate-[fadeUp_.6s_ease_.12s_forwards] overflow-hidden rounded-2xl border border-white/20 bg-linear-to-b from-white/75 to-indigo-100/55 opacity-0 shadow-panel backdrop-blur-2xl"
+        >
+          <header
+            class="grid grid-cols-1 gap-2 bg-[#141c38]/95 p-3 sm:grid-cols-3"
+          >
+            <button
+              class="rounded-full px-3 py-2 text-xs font-semibold text-indigo-100/80 transition hover:bg-white/10 hover:text-white"
+              type="button"
+            >
+              Details
+            </button>
+            <button
+              class="rounded-full bg-white px-3 py-2 text-xs font-semibold text-[#11152a] transition hover:-translate-y-px"
+              type="button"
+            >
+              Tutorials
+            </button>
+            <button
+              class="rounded-full px-3 py-2 text-xs font-semibold text-indigo-100/80 transition hover:bg-white/10 hover:text-white"
+              type="button"
+            >
+              Code Snippets
+            </button>
+          </header>
+
+          <div class="grid gap-5 p-5">
+            <div>
+              <h2 class="text-[1.08rem] font-semibold">Tutorials</h2>
+              <p class="mt-1 text-xs text-slate-500">
+                Learn to build this component
+              </p>
+            </div>
+
+            <div class="grid gap-3">
+              <p
+                class="text-xs font-bold uppercase tracking-[0.07em] text-slate-600"
+              >
+                HTML/CSS
+              </p>
+              <a
+                href="#"
+                class="grid grid-cols-[1fr_auto] gap-x-2 gap-y-2 rounded-xl border border-slate-300/70 bg-white p-3 transition hover:-translate-y-0.5 hover:border-indigo-400/60 hover:bg-indigo-50/50"
+              >
+                <p class="text-sm font-semibold">Andrew Gabriel</p>
+                <i class="fa-solid fa-chevron-right"></i>
+                <p class="col-span-2 text-xs text-slate-500 break-all">
+                  youtube.com/watch?v=3hBk3DZ2yZ4
+                </p>
+              </a>
+              <a
+                href="#"
+                class="grid grid-cols-[1fr_auto] gap-x-2 gap-y-2 rounded-xl border border-slate-300/70 bg-white p-3 transition hover:-translate-y-0.5 hover:border-indigo-400/60 hover:bg-indigo-50/50"
+              >
+                <p class="text-sm font-semibold">Shanghai Raj</p>
+                <i class="fa-solid fa-chevron-right"></i>
+                <p class="col-span-2 text-xs text-slate-500 break-all">
+                  youtube.com/watch?v=Vjbjbcdyhvb
+                </p>
+              </a>
+            </div>
+
+            <div class="grid gap-3">
+              <p
+                class="text-xs font-bold uppercase tracking-[0.07em] text-slate-600"
+              >
+                React Native
+              </p>
+              <a
+                href="#"
+                class="grid grid-cols-[1fr_auto] gap-x-2 gap-y-2 rounded-xl border border-slate-300/70 bg-white p-3 transition hover:-translate-y-0.5 hover:border-indigo-400/60 hover:bg-indigo-50/50"
+              >
+                <p class="text-sm font-semibold">Jason Brown</p>
+                <i class="fa-solid fa-chevron-right"></i>
+                <p class="col-span-2 text-xs text-slate-500 break-all">
+                  youtube.com/watch?v=17h727ywg17
+                </p>
+              </a>
+            </div>
+
+            <p class="text-center text-xs leading-6 text-slate-500">
+              Made a tutorial with this component?
+              <a
+                href="#"
+                class="font-semibold text-indigo-600 underline underline-offset-2"
+                >Send your link</a
+              >
+              and we will feature it.
+            </p>
+          </div>
+        </article>
+
+        <article
+          class="animate-[fadeUp_.6s_ease_.24s_forwards] overflow-hidden rounded-2xl border border-white/20 bg-linear-to-b from-white/75 to-indigo-100/55 opacity-0 shadow-panel backdrop-blur-2xl md:col-span-2 xl:col-span-1"
+        >
+          <header
+            class="grid grid-cols-1 gap-2 bg-[#141c38]/95 p-3 sm:grid-cols-3"
+          >
+            <button
+              class="rounded-full px-3 py-2 text-xs font-semibold text-indigo-100/80 transition hover:bg-white/10 hover:text-white"
+              type="button"
+            >
+              Details
+            </button>
+            <button
+              class="rounded-full px-3 py-2 text-xs font-semibold text-indigo-100/80 transition hover:bg-white/10 hover:text-white"
+              type="button"
+            >
+              Tutorials
+            </button>
+            <button
+              class="rounded-full bg-white px-3 py-2 text-xs font-semibold text-[#11152a] transition hover:-translate-y-px"
+              type="button"
+            >
+              Code Snippets
+            </button>
+          </header>
+
+          <div class="grid gap-5 p-5">
+            <div>
+              <h2 class="text-[1.08rem] font-semibold">Code Snippets</h2>
+              <p class="mt-1 text-xs text-slate-500">
+                Explore community implementations
+              </p>
+            </div>
+
+            <div class="grid gap-3">
+              <a
+                href="#"
+                class="grid grid-cols-[1fr_auto] gap-x-2 gap-y-2 rounded-xl border border-slate-300/70 bg-white p-3 transition hover:-translate-y-0.5 hover:border-indigo-400/60 hover:bg-indigo-50/50"
+              >
+                <p class="text-sm font-semibold">Stephan Galescu</p>
+                <i class="fa-solid fa-chevron-right"></i>
+                <p class="col-span-2 text-xs text-slate-500 break-all">
+                  github.com/stephan/tabbed-ui-v2
+                </p>
+              </a>
+              <a
+                href="#"
+                class="grid grid-cols-[1fr_auto] gap-x-2 gap-y-2 rounded-xl border border-slate-300/70 bg-white p-3 transition hover:-translate-y-0.5 hover:border-indigo-400/60 hover:bg-indigo-50/50"
+              >
+                <p class="text-sm font-semibold">Fredric</p>
+                <i class="fa-solid fa-chevron-right"></i>
+                <p class="col-span-2 text-xs text-slate-500 break-all">
+                  github.com/fredric/ui-challenge-tab
+                </p>
+              </a>
+            </div>
+
+            <p class="text-center text-xs leading-6 text-slate-500">
+              Want your solution listed here?
+              <a
+                href="#"
+                class="font-semibold text-indigo-600 underline underline-offset-2"
+                >Share your snippet</a
+              >
+              and we will post it.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <style>
+      @keyframes fadeUp {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .animate-\[fadeUp_\.6s_ease_forwards\],
+      .animate-\[fadeUp_\.6s_ease_\.12s_forwards\],
+      .animate-\[fadeUp_\.6s_ease_\.24s_forwards\] {
+        transform: translateY(16px);
+      }
+    </style>
+  </body>
+</html>
