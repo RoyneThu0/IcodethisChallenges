@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Feedback Widgets</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <style>
+      input[type="radio"]:checked + span {
+        background: #08449e;
+        color: white;
+        border-radius: 0.5rem;
+        display: inline-block;
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        text-align: center;
+      }
+
+      .selected {
+        background: #08449e;
+        color: white;
+      }
+
+      #feedbackContainer {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.45s ease;
+      }
+
+      #feedbackContainer.open {
+        max-height: 220px;
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body class="w-screen h-screen bg-slate-100 flex items-center justify-center">
+    <!-- QUESTION 1 -->
+
+    <div
+      id="main"
+      class="w-11/12 max-w-lg bg-white p-10 rounded-xl shadow-xl flex flex-col items-center"
+    >
+      <i class="fa-solid fa-xmark w-full text-end text-2xl"></i>
+
+      <p class="text-xl font-semibold text-center mt-4">
+        1. How likely are you to answer this question?
+      </p>
+
+      <div class="w-full mt-5 flex justify-between">
+        <label
+          ><input type="radio" name="number" value="0" class="hidden" /><span
+            >0</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="1" class="hidden" /><span
+            >1</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="2" class="hidden" /><span
+            >2</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="3" class="hidden" /><span
+            >3</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="4" class="hidden" /><span
+            >4</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="5" class="hidden" /><span
+            >5</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="6" class="hidden" /><span
+            >6</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="7" class="hidden" /><span
+            >7</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="8" class="hidden" /><span
+            >8</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="number" value="9" class="hidden" /><span
+            >9</span
+          ></label
+        >
+      </div>
+
+      <div class="flex justify-between w-full mt-3 text-sm text-slate-500">
+        <p>Not likely at all</p>
+
+        <p>Extremely likely</p>
+      </div>
+
+      <div class="mt-14 w-full flex justify-between">
+        <button>Skip</button>
+
+        <button id="submitBtn" class="bg-blue-600 text-white px-4 py-1 rounded">
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- QUESTION 2 -->
+
+    <div
+      id="Rate"
+      class="hidden w-11/12 max-w-lg bg-white p-10 rounded-xl shadow-xl flex-col items-center"
+    >
+      <button
+        id="backBtn"
+        class="fa-solid fa-xmark w-full text-end text-2xl"
+      ></button>
+
+      <p class="text-xl font-semibold text-center mt-4">
+        2. How do you rate our services?
+      </p>
+
+      <div id="emoti" class="w-full mt-10">
+        <div class="flex justify-center gap-4">
+          <label>
+            <input type="radio" name="rate" value="2" class="hidden" />
+
+            <p class="text-5xl p-5 border rounded-lg">😔</p>
+          </label>
+
+          <label>
+            <input type="radio" name="rate" value="5" class="hidden" />
+
+            <p class="text-5xl p-5 border rounded-lg">😕</p>
+          </label>
+
+          <label>
+            <input type="radio" name="rate" value="10" class="hidden" />
+
+            <p class="text-5xl p-5 border rounded-lg">😁</p>
+          </label>
+        </div>
+
+        <div id="feedbackContainer">
+          <p class="font-semibold text-xl mt-8">How can we improve?</p>
+
+          <input
+            type="text"
+            placeholder="Write your message here"
+            class="w-full mt-4 p-4 border rounded-lg bg-slate-100"
+          />
+        </div>
+
+        <div class="mt-14 flex justify-between">
+          <button>Skip</button>
+
+          <button
+            id="submitBtn2"
+            class="bg-blue-600 text-white px-4 py-1 rounded"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 3 -->
+
+    <div
+      id="reco"
+      class="hidden w-11/12 max-w-lg bg-white p-10 rounded-xl shadow-xl flex-col items-center"
+    >
+      <button
+        id="backBtn3"
+        class="fa-solid fa-xmark w-full text-end text-2xl"
+      ></button>
+
+      <p class="text-xl font-semibold text-center mt-4">
+        3. Would you recommend us?
+      </p>
+
+      <div class="w-full mt-5 flex justify-between">
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >0</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >1</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >2</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >3</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >4</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >5</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >6</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >7</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >8</span
+          ></label
+        >
+
+        <label
+          ><input type="radio" name="recommend" class="hidden" /><span
+            >9</span
+          ></label
+        >
+      </div>
+
+      <div class="flex justify-between w-full mt-3 text-sm text-slate-500">
+        <p>Not likely at all</p>
+
+        <p>Extremely likely</p>
+      </div>
+
+      <div class="mt-10 flex justify-between w-full">
+        <button>Skip</button>
+
+        <button
+          id="submitBtn4"
+          class="bg-blue-600 text-white px-4 py-1 rounded"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- THANK YOU -->
+
+    <div
+      id="thanks"
+      class="hidden w-11/12 max-w-lg bg-white p-10 rounded-xl shadow-xl flex-col items-center"
+    >
+      <p class="text-4xl text-center">Thanks for submitting your answers</p>
+
+      <p class="text-6xl mt-10">😁</p>
+    </div>
+
+    <script>
+      // page navigation
+
+      submitBtn.onclick = () => {
+        main.style.display = "none";
+
+        Rate.style.display = "flex";
+      };
+
+      submitBtn2.onclick = () => {
+        Rate.style.display = "none";
+
+        reco.style.display = "flex";
+      };
+
+      submitBtn4.onclick = () => {
+        reco.style.display = "none";
+
+        thanks.style.display = "flex";
+      };
+
+      backBtn.onclick = () => {
+        Rate.style.display = "none";
+
+        main.style.display = "flex";
+      };
+
+      backBtn3.onclick = () => {
+        reco.style.display = "none";
+
+        main.style.display = "flex";
+      };
+
+      // emoji selection
+
+      const emojis = document.querySelectorAll('#Rate input[name="rate"]');
+
+      const feedback = document.getElementById("feedbackContainer");
+
+      emojis.forEach((radio) => {
+        radio.addEventListener("change", () => {
+          emojis.forEach((r) => {
+            r.nextElementSibling.classList.remove("selected");
+          });
+
+          radio.nextElementSibling.classList.add("selected");
+
+          const score = parseInt(radio.value);
+
+          if (score <= 5) {
+            feedback.classList.add("open");
+          } else {
+            feedback.classList.remove("open");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
