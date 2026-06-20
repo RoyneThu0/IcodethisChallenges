@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Info section 2.1</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="relative min-h-screen bg-purple-950 bg-cover bg-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1752509929361-4471bdb102cf?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEwMnxDRHd1d1hKQWJFd3x8ZW58MHx8fHx8);
+    "
+  >
+    <div
+      class="relative z-10 flex min-h-screen items-center justify-center px-4 py-10"
+    >
+      <div
+        class="w-full max-w-4xl rounded-[32px] bg-white/90 shadow-2xl overflow-hidden"
+      >
+        <div
+          class="grid gap-5 p-5 md:grid-cols-3 md:grid-rows-[auto_1fr] md:p-6 bg-white"
+        >
+          <div
+            class="flex items-start gap-4 rounded-3xl bg-slate-50 p-4 shadow-sm shadow-slate-200/40 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div
+              class="shrink-0 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-pink-500 to-purple-500 text-white shadow-lg shadow-pink-500/20"
+            >
+              <i class="fa-solid fa-code text-xl"></i>
+            </div>
+            <div class="space-y-2">
+              <h2 class="text-xl font-semibold text-slate-900">API</h2>
+              <p class="text-sm leading-6 text-slate-600">
+                Fast, reliable access to your data feeds helps teams move from
+                insight to impact.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-start gap-4 rounded-3xl bg-slate-50 p-4 shadow-sm shadow-slate-200/40 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div
+              class="shrink-0 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white shadow-lg shadow-sky-400/20"
+            >
+              <i class="fa-regular fa-calendar text-xl"></i>
+            </div>
+            <div class="space-y-2">
+              <h2 class="text-xl font-semibold text-slate-900">Calendar</h2>
+              <p class="text-sm leading-6 text-slate-600">
+                Schedule and sync your work with a clean timeline that stays in
+                focus.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative row-span-2 overflow-hidden rounded-[28px] bg-slate-950 text-white shadow-2xl shadow-slate-950/20"
+          >
+            <img
+              class="absolute inset-0 h-full w-full object-cover opacity-70"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6LeweUWXPwneWR29dQabP44_mfO61RQdEpiyF6S6KN_keQ9wo"
+              alt="Information snapshot"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"
+            ></div>
+            <div
+              class="relative flex h-full flex-col justify-between p-5 sm:p-6"
+            >
+              <div
+                class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-white/90"
+              >
+                <i class="fa-solid fa-star text-xs"></i>
+                Featured story
+              </div>
+              <div class="mt-auto space-y-4">
+                <p
+                  class="text-3xl font-semibold leading-tight text-white sm:text-4xl"
+                >
+                  When errors become an opportunity
+                </p>
+                <p class="max-w-xl text-sm leading-6 text-slate-200/90">
+                  Design that feels effortless: clear layout, calm pacing, and
+                  strong visuals make it easier to understand what matters most.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex items-start gap-4 rounded-3xl bg-slate-50 p-4 shadow-sm shadow-slate-200/40 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div
+              class="shrink-0 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/20"
+            >
+              <i class="fa-solid fa-life-ring text-xl"></i>
+            </div>
+            <div class="space-y-2">
+              <h2 class="text-xl font-semibold text-slate-900">Support</h2>
+              <p class="text-sm leading-6 text-slate-600">
+                A dependable support experience helps users feel confident and
+                taken care of.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-start gap-4 rounded-3xl bg-slate-50 p-4 shadow-sm shadow-slate-200/40 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div
+              class="shrink-0 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-fuchsia-500 to-pink-500 text-white shadow-lg shadow-fuchsia-500/20"
+            >
+              <i class="fa-solid fa-cube text-xl"></i>
+            </div>
+            <div class="space-y-2">
+              <h2 class="text-xl font-semibold text-slate-900">Hubs</h2>
+              <p class="text-sm leading-6 text-slate-600">
+                Keep your most important tools and content grouped in one
+                elegant place.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
