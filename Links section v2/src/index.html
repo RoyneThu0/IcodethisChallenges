@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Banking Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-slate-100 min-h-screen flex items-center justify-center p-4 text-slate-800 antialiased"
+  >
+    <div
+      class="bg-white rounded-lg shadow-[0_35px_80px_rgba(15,23,42,0.08)] p-6 md:p-8 w-full max-w-6xl space-y-6"
+    >
+      <div
+        class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
+      >
+        <div class="flex items-center gap-2 rounded-2xl bg-slate-100 p-1">
+          <button
+            class="px-5 py-2 rounded-2xl bg-slate-900 text-white text-sm font-semibold transition hover:bg-slate-800"
+          >
+            Personal
+          </button>
+          <button
+            class="px-5 py-2 rounded-2xl bg-white text-slate-600 text-sm font-semibold border border-slate-200 transition hover:bg-slate-50"
+          >
+            Business
+          </button>
+        </div>
+
+        <button
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition hover:bg-slate-100 hover:text-slate-700"
+          aria-label="Close"
+        >
+          <i class="fas fa-xmark text-base"></i>
+        </button>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm text-slate-700"
+      >
+        <div class="rounded-lg bg-slate-50 p-5 shadow-sm ring-1 ring-slate-100">
+          <div
+            class="flex items-center gap-2 mb-3 text-slate-500 text-xs uppercase font-semibold tracking-[0.2em]"
+          >
+            <i class="fas fa-coins text-[0.95rem]"></i>
+            Financing
+          </div>
+          <ul class="space-y-2 leading-6">
+            <li>Loans</li>
+            <li>Overdraft facilities</li>
+            <li>Bank guaranties</li>
+            <li>Leasing</li>
+            <li>Factoring</li>
+            <li>Trade Solutions</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-slate-50 p-5 shadow-sm ring-1 ring-slate-100">
+          <div
+            class="flex items-center gap-2 mb-3 text-slate-500 text-xs uppercase font-semibold tracking-[0.2em]"
+          >
+            <i class="fas fa-piggy-bank text-[0.95rem]"></i>
+            Savings and Investments
+          </div>
+          <ul class="space-y-2 leading-6">
+            <li>Saving accounts</li>
+            <li>Asset Management</li>
+            <li>Commercial paper</li>
+            <li>Equities</li>
+            <li>Investment Products</li>
+            <li>Cash Management</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-slate-50 p-5 shadow-sm ring-1 ring-slate-100">
+          <div
+            class="flex items-center gap-2 mb-3 text-slate-500 text-xs uppercase font-semibold tracking-[0.2em]"
+          >
+            <i class="fas fa-credit-card text-[0.95rem]"></i>
+            Transaction Banking
+          </div>
+          <ul class="space-y-2 leading-6">
+            <li>Corporate app</li>
+            <li>Internet banking</li>
+            <li>Mobile banking</li>
+            <li>Alert services</li>
+            <li>Accounts</li>
+            <li>Cards</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-slate-50 p-5 shadow-sm ring-1 ring-slate-100">
+          <div
+            class="flex items-center gap-2 mb-3 text-slate-500 text-xs uppercase font-semibold tracking-[0.2em]"
+          >
+            <i class="fas fa-chart-line text-[0.95rem]"></i>
+            Markets
+          </div>
+          <ul class="space-y-2 leading-6">
+            <li>Market Reports</li>
+            <li>Equity rates</li>
+            <li>Commodities</li>
+            <li>Equities</li>
+            <li>Foreign Exchange</li>
+            <li>Investment products</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 p-5 rounded-[28px] ring-1 ring-slate-100">
+        <h4
+          class="text-slate-600 font-semibold text-sm mb-4 tracking-[0.16em] uppercase"
+        >
+          Calculators and Tools
+        </h4>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm"
+        >
+          <div
+            class="flex items-center gap-3 p-4 bg-white rounded-3xl shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div
+              class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+            >
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="font-medium text-slate-700">Currency converter</div>
+          </div>
+          <div
+            class="flex items-center gap-3 p-4 bg-white rounded-3xl shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div
+              class="flex h-11 w-11 items-center justify-center rounded-2xl bg-pink-100 text-pink-600"
+            >
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="font-medium text-slate-700">Hourly Rate Converter</div>
+          </div>
+          <div
+            class="flex items-center gap-3 p-4 bg-white rounded-3xl shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div
+              class="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-100 text-rose-600"
+            >
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="font-medium text-slate-700">International trade</div>
+          </div>
+          <div
+            class="flex items-center gap-3 p-4 bg-white rounded-3xl shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div
+              class="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600"
+            >
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="font-medium text-slate-700">IBAN calculator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
