@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Picker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+
+    <style>
+      .scroll-thin::-webkit-scrollbar {
+        width: 6px;
+      }
+      .scroll-thin::-webkit-scrollbar-thumb {
+        background: #4c4880;
+        border-radius: 9999px;
+      }
+      .scroll-thin::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      @keyframes pop {
+        0% {
+          transform: translateY(8px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-pop {
+        animation: pop 0.18s ease-out;
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen bg-cover bg-center flex md:items-center items-start py-10 md:py-0 justify-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1511800453077-8c0afa94175f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHB1cnBsZXxlbnwwfHwwfHx8MA%3D%3D);
+    "
+  >
+    <div
+      id="picker"
+      class="w-11/12 max-w-4xl bg-[#2b2850]/95 backdrop-blur-sm rounded-2xl shadow-2xl shadow-purple-900/40 ring-1 ring-white/10 overflow-hidden sm:flex grid md:grid-cols-2 grid-cols-1 items-stretch"
+    >
+      <div
+        class="md:w-3/5 w-full bg-[#2b2850] border-r-2 border-[#1c1a31] flex flex-col"
+      >
+        <p
+          class="px-8 font-semibold text-white text-lg pt-10 flex items-center gap-2"
+        >
+          <i class="fa-regular fa-clock text-purple-300"></i>
+          Absolute time range
+        </p>
+
+        <div class="w-full flex-col flex items-center justify-center px-8">
+          <label
+            for="fromInput"
+            class="block text-white text-xs mt-8 w-full text-start"
+            >From</label
+          >
+          <div class="relative w-full mt-1">
+            <input
+              type="text"
+              id="fromInput"
+              aria-label="From"
+              autocomplete="off"
+              class="w-full py-3 pl-3 pr-10 border focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 border-[#141232] bg-[#211f3d] text-white rounded-lg transition"
+              placeholder="now-1h"
+            />
+            <i
+              class="fa-regular fa-calendar absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"
+            ></i>
+          </div>
+
+          <label
+            for="toInput"
+            class="block text-white text-xs mt-5 w-full text-start"
+            >To</label
+          >
+          <div class="relative w-full mt-1">
+            <input
+              type="text"
+              id="toInput"
+              aria-label="To"
+              autocomplete="off"
+              class="w-full py-3 pl-3 pr-10 border focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 border-[#141232] bg-[#211f3d] text-white rounded-lg transition"
+              placeholder="now"
+            />
+            <i
+              class="fa-regular fa-calendar absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"
+            ></i>
+          </div>
+
+          <p
+            id="message"
+            class="hidden w-full text-start text-xs mt-3 px-1"
+          ></p>
+        </div>
+
+        <div class="flex justify-center w-full px-8">
+          <button
+            id="applyBtn"
+            class="px-5 py-2.5 mt-5 w-full md:rounded-full rounded-lg font-semibold text-[#2b2850] bg-gradient-to-r from-purple-300 to-purple-600 hover:from-purple-200 hover:to-purple-500 hover:text-white active:scale-[0.99] shadow-lg shadow-purple-900/30 duration-150"
+          >
+            Apply time change
+          </button>
+        </div>
+
+        <p class="text-white mt-10 text-xs w-full flex items-center px-9">
+          Want to find out more?
+          <a
+            href="https://grafana.com/docs/grafana/latest/dashboards/use-dashboards/#set-dashboard-time-range"
+            target="_blank"
+            rel="noopener"
+            class="underline ml-1 cursor-pointer hover:text-blue-400"
+          >
+            Read the documentation
+          </a>
+        </p>
+
+        <div
+          class="bg-[#2b2850] md:border-t-2 border-b-2 border-[#1d1b37] py-3 mt-auto pt-6 w-full flex items-center justify-between px-5"
+        >
+          <button
+            id="tzBtn"
+            class="text-slate-300 px-3 py-1 bg-[#262448] rounded-full hover:bg-[#34315f] hover:text-white duration-200 text-sm font-medium"
+          >
+            UTC
+          </button>
+          <p
+            id="tzToggle"
+            class="underline text-xs text-slate-400 cursor-pointer hover:text-blue-400"
+          >
+            Change time zone
+          </p>
+        </div>
+      </div>
+
+      <div class="md:w-2/5 w-full bg-[#2b2850] py-2 flex flex-col">
+        <div class="flex items-center justify-between px-4">
+          <p class="font-semibold text-white mt-10">Relative time changes</p>
+          <i
+            id="closeBtn"
+            title="Close"
+            class="fa-solid mt-10 fa-xmark hidden md:block text-slate-400 hover:text-blue-400 cursor-pointer"
+          ></i>
+        </div>
+
+        <div class="px-5 mt-4">
+          <div class="relative">
+            <i
+              class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"
+            ></i>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search quick ranges"
+              autocomplete="off"
+              class="w-full py-2 pl-8 pr-3 text-sm border focus:outline-none focus:ring-2 focus:ring-purple-400 border-[#141232] bg-[#211f3d] text-white rounded-lg"
+            />
+          </div>
+        </div>
+
+        <div
+          id="rangeList"
+          class="px-5 mt-3 space-y-1 overflow-y-auto scroll-thin max-h-72"
+        ></div>
+
+        <p
+          id="loadMore"
+          class="cursor-pointer text-white hover:text-blue-400 pt-3 pb-2 px-5 text-sm select-none"
+        >
+          Load more
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const QUICK_RANGES = [
+        { label: "Last 5 minutes", from: "now-5m" },
+        { label: "Last 15 minutes", from: "now-15m" },
+        { label: "Last 30 minutes", from: "now-30m" },
+        { label: "Last 1 hour", from: "now-1h" },
+        { label: "Last 3 hours", from: "now-3h" },
+        { label: "Last 6 hours", from: "now-6h" },
+
+        { label: "Last 12 hours", from: "now-12h" },
+        { label: "Last 24 hours", from: "now-24h" },
+        { label: "Last 2 days", from: "now-2d" },
+        { label: "Last 7 days", from: "now-7d" },
+        { label: "Last 30 days", from: "now-30d" },
+        { label: "Last 90 days", from: "now-90d" },
+        { label: "Last 6 months", from: "now-6M" },
+        { label: "Last 1 year", from: "now-1y" },
+      ];
+
+      const INITIAL_COUNT = 6;
+      const TIME_ZONES = ["UTC", "Browser time", "Local time"];
+
+      const UNIT_MS = {
+        s: 1000,
+        m: 60 * 1000,
+        h: 60 * 60 * 1000,
+        d: 24 * 60 * 60 * 1000,
+        w: 7 * 24 * 60 * 60 * 1000,
+        M: 30 * 24 * 60 * 60 * 1000,
+        y: 365 * 24 * 60 * 60 * 1000,
+      };
+
+      let expanded = false;
+      let activeFrom = null;
+      let tzIndex = 0;
+
+      const fromInput = document.getElementById("fromInput");
+      const toInput = document.getElementById("toInput");
+      const rangeList = document.getElementById("rangeList");
+      const loadMore = document.getElementById("loadMore");
+      const searchInput = document.getElementById("searchInput");
+      const applyBtn = document.getElementById("applyBtn");
+      const message = document.getElementById("message");
+      const tzBtn = document.getElementById("tzBtn");
+      const tzToggle = document.getElementById("tzToggle");
+      const closeBtn = document.getElementById("closeBtn");
+
+      function renderRanges() {
+        const query = searchInput.value.trim().toLowerCase();
+        rangeList.innerHTML = "";
+
+        let pool = QUICK_RANGES;
+        if (query) {
+          pool = QUICK_RANGES.filter((r) =>
+            r.label.toLowerCase().includes(query),
+          );
+        } else if (!expanded) {
+          pool = QUICK_RANGES.slice(0, INITIAL_COUNT);
+        }
+
+        if (pool.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "text-slate-500 text-sm py-3 text-center";
+          empty.textContent = "No matching ranges";
+          rangeList.appendChild(empty);
+        }
+
+        pool.forEach((r) => {
+          const item = document.createElement("button");
+          const isActive = r.from === activeFrom;
+          item.className =
+            "w-full flex items-center justify-between text-left text-white hover:bg-purple-500/80 duration-200 px-4 py-2.5 rounded-xl text-sm " +
+            (isActive ? "bg-purple-600 font-medium" : "");
+          item.innerHTML =
+            "<span>" +
+            r.label +
+            "</span>" +
+            (isActive ? '<i class="fa-solid fa-check text-xs"></i>' : "");
+          item.addEventListener("click", () => selectQuickRange(r));
+          rangeList.appendChild(item);
+        });
+
+        // Hide "Load more" when searching or fully expanded
+        loadMore.style.display =
+          query || expanded || QUICK_RANGES.length <= INITIAL_COUNT
+            ? "none"
+            : "block";
+      }
+
+      function selectQuickRange(r) {
+        fromInput.value = r.from;
+        toInput.value = "now";
+        activeFrom = r.from;
+        renderRanges();
+        showMessage(
+          "Selected " + r.label.toLowerCase() + ". Press Apply to confirm.",
+          "info",
+        );
+      }
+
+      function parseToken(token) {
+        token = token.trim();
+        if (!token) return null;
+        if (token.toLowerCase() === "now") return new Date();
+
+        const m = token.match(/^now\s*([-+])\s*(\d+)\s*([smhdwMy])$/i);
+        if (m) {
+          const sign = m[1] === "-" ? -1 : 1;
+          const amount = parseInt(m[2], 10);
+          const unit = m[3];
+          if (!UNIT_MS[unit]) return null;
+          return new Date(Date.now() + sign * amount * UNIT_MS[unit]);
+        }
+
+        const parsed = new Date(token);
+        return isNaN(parsed.getTime()) ? null : parsed;
+      }
+
+      function formatDate(d) {
+        const useUTC = TIME_ZONES[tzIndex] === "UTC";
+        const opts = {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        };
+        if (useUTC) opts.timeZone = "UTC";
+        return new Intl.DateTimeFormat("en-GB", opts).format(d);
+      }
+
+      function showMessage(text, type) {
+        message.classList.remove("hidden");
+        message.classList.add("animate-pop");
+        const colors = {
+          error: "text-red-300",
+          success: "text-emerald-300",
+          info: "text-purple-200",
+        };
+        message.className =
+          "w-full text-start text-xs mt-3 px-1 animate-pop " +
+          (colors[type] || "text-slate-300");
+        message.innerHTML = text;
+
+        void message.offsetWidth;
+        message.classList.add("animate-pop");
+      }
+
+      applyBtn.addEventListener("click", () => {
+        const from = parseToken(fromInput.value || fromInput.placeholder);
+        const to = parseToken(toInput.value || toInput.placeholder);
+
+        if (!from) {
+          showMessage(
+            'Invalid "From" value. Try <code>now-1h</code> or a date.',
+            "error",
+          );
+          return;
+        }
+        if (!to) {
+          showMessage(
+            'Invalid "To" value. Try <code>now</code> or a date.',
+            "error",
+          );
+          return;
+        }
+        if (from.getTime() > to.getTime()) {
+          showMessage('"From" is after "To" — check your range.', "error");
+          return;
+        }
+
+        const tz = TIME_ZONES[tzIndex];
+        showMessage(
+          '<span class="font-semibold">Range applied</span> (' +
+            tz +
+            ")<br>" +
+            formatDate(from) +
+            ' <span class="text-slate-400">&rarr;</span> ' +
+            formatDate(to),
+          "success",
+        );
+      });
+
+      function cycleTz() {
+        tzIndex = (tzIndex + 1) % TIME_ZONES.length;
+        tzBtn.textContent = TIME_ZONES[tzIndex];
+      }
+      tzBtn.addEventListener("click", cycleTz);
+      tzToggle.addEventListener("click", cycleTz);
+
+      loadMore.addEventListener("click", () => {
+        expanded = true;
+        renderRanges();
+      });
+
+      searchInput.addEventListener("input", renderRanges);
+
+      closeBtn.addEventListener("click", () => {
+        fromInput.value = "";
+        toInput.value = "";
+        activeFrom = null;
+        message.classList.add("hidden");
+        searchInput.value = "";
+        expanded = false;
+        renderRanges();
+      });
+
+      [fromInput, toInput].forEach((el) =>
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") applyBtn.click();
+        }),
+      );
+
+      renderRanges();
+    </script>
+  </body>
+</html>
