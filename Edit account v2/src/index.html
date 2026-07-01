@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .animate-slide-up {
+        animation: slideInUp 0.5s ease-out;
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-6"
+  >
+    <div
+      class="w-full max-w-md flex-col shadow-xl rounded-lg animate-slide-up hover:shadow-2xl transition-shadow duration-300"
+    >
+      <div
+        class="w-full bg-blue-50 p-5 sm:p-7 flex items-center justify-between rounded-t-lg shadow-2xl shadow-blue-200 transition-all duration-300"
+      >
+        <p class="font-semibold text-lg sm:text-xl text-gray-800">
+          Edit Your Account
+        </p>
+        <i
+          class="fa-solid fa-xmark text-gray-600 cursor-pointer hover:text-gray-900 hover:scale-125 transition-all duration-200"
+        ></i>
+      </div>
+      <div class="w-full bg-white p-6 sm:p-10 flex-col">
+        <label for="name" class="text-gray-800 text-xs font-semibold block mb-2"
+          >NAME</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="pl-3 pr-4 py-2 mb-5 w-full border relative border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200 placeholder-gray-400"
+          placeholder="Name"
+        />
+        <label
+          for="email"
+          class="text-gray-800 text-xs font-semibold block mb-2 mt-6 sm:mt-10"
+          >EMAIL</label
+        >
+        <input
+          type="text"
+          id="email"
+          class="pl-3 pr-4 py-2 mb-6 sm:mb-5 w-full border relative border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200 placeholder-gray-400"
+          placeholder="youremail@what.com"
+        />
+
+        <label for="dob" class="text-gray-800 text-xs font-semibold block mb-3"
+          >DATE OF BIRTH</label
+        >
+        <div
+          class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full"
+        >
+          <input
+            type="month"
+            id="month"
+            class="pl-3 py-2 flex w-full border border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
+            placeholder="Month"
+          />
+          <input
+            type="datetime-local"
+            id="date"
+            class="pl-3 py-2 flex w-full border border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
+            placeholder="Date"
+          />
+          <input
+            type="text"
+            id="year"
+            class="pl-3 py-2 flex w-full border border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200 placeholder-gray-400"
+            placeholder="Year"
+          />
+        </div>
+      </div>
+      <div
+        class="w-full bg-blue-50 p-5 sm:p-7 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 sm:space-x-3 rounded-b-lg shadow-2xl"
+      >
+        <button
+          class="w-full sm:flex-1 rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 hover:shadow-md active:bg-gray-300 py-3 font-medium transition-all duration-200 transform hover:scale-105 active:scale-95"
+        >
+          Cancel
+        </button>
+        <button
+          class="w-full sm:flex-1 rounded-md text-white bg-orange-500 hover:bg-orange-600 hover:shadow-md active:bg-orange-700 py-3 font-medium transition-all duration-200 transform hover:scale-105 active:scale-95"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
