@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Announcements</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    />
+    <style>
+      :root {
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+      }
+
+      body {
+        background: #0f172a;
+      }
+
+      .card {
+        background: #1e293b;
+        box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.6);
+      }
+
+      .announcement {
+        opacity: 1;
+        transform: translateY(0);
+        overflow: hidden;
+        background: #273449;
+        transition:
+          opacity 320ms ease,
+          transform 320ms ease,
+          height 320ms ease,
+          margin 320ms ease,
+          padding 320ms ease,
+          background 200ms ease;
+      }
+
+      .announcement:hover {
+        background: #2f3e57;
+      }
+
+      .announcement.fade-out {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+        height: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      #ann-wrapper {
+        overflow: hidden;
+      }
+
+      .dismiss-btn {
+        transition:
+          background 160ms ease,
+          color 160ms ease;
+      }
+
+      .btn-primary {
+        background: #6366f1;
+        transition:
+          background 160ms ease,
+          transform 160ms ease;
+      }
+      .btn-primary:hover {
+        background: #4f46e5;
+        transform: translateY(-1px);
+      }
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+      .btn-primary:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      #empty-state {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1686593686409-43456910d65c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHB1cnBsZSUyMHdhbGxwYXBlcnxlbnwwfDB8MHx8fDA%3D);
+    "
+  >
+    <div
+      id="ann-wrapper"
+      class="card w-11/12 max-w-md p-8 rounded-3xl flex flex-col"
+    >
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span
+            class="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-300"
+          >
+            <i class="fa-solid fa-bell"></i>
+          </span>
+          <div>
+            <h1 class="text-lg font-bold text-white leading-tight">
+              Announcements
+            </h1>
+            <p
+              id="announcement-count"
+              class="text-xs font-medium text-indigo-300/80"
+            >
+              2 unread
+            </p>
+          </div>
+        </div>
+        <span
+          id="count-badge"
+          class="text-sm font-bold text-white bg-indigo-500 px-3 py-1 rounded-full"
+          >2</span
+        >
+      </div>
+
+      <div id="ann-list" class="mt-6 flex flex-col gap-3">
+        <div class="announcement w-full p-4 rounded-2xl">
+          <div class="w-full flex items-start justify-between gap-3">
+            <p class="text-sm text-gray-100 leading-relaxed">
+              Ms. Philips is away this week. I am going to replace her.
+            </p>
+            <div class="flex items-center gap-1 shrink-0">
+              <button
+                aria-label="More options"
+                class="text-gray-400 hover:text-white w-8 h-8 rounded-lg hover:bg-white/10 transition"
+              >
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+              <button
+                aria-label="Dismiss announcement"
+                class="dismiss-btn text-gray-400 hover:text-white w-8 h-8 rounded-lg hover:bg-rose-500/80"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="w-full flex items-center justify-between mt-3">
+            <div class="flex items-center gap-2">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1l6fbVIlb9dXMPu06Tnl5wO-v_cEi2a2Yw&s"
+                alt="Hettie Marshall"
+                class="w-8 h-8 rounded-full object-cover"
+              />
+              <p class="text-sm font-semibold text-gray-200">Hettie Marshall</p>
+            </div>
+            <p class="text-xs text-gray-400">2 hours ago</p>
+          </div>
+        </div>
+
+        <div class="announcement w-full p-4 rounded-2xl">
+          <div class="w-full flex items-start justify-between gap-3">
+            <p class="text-sm text-gray-100 leading-relaxed">
+              Bring your books! We will read the next 2 chapters.
+            </p>
+            <div class="flex items-center gap-1 shrink-0">
+              <button
+                aria-label="More options"
+                class="text-gray-400 hover:text-white w-8 h-8 rounded-lg hover:bg-white/10 transition"
+              >
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+              <button
+                aria-label="Dismiss announcement"
+                class="dismiss-btn text-gray-400 hover:text-white w-8 h-8 rounded-lg hover:bg-rose-500/80"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="w-full flex items-center justify-between mt-3">
+            <div class="flex items-center gap-2">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1l6fbVIlb9dXMPu06Tnl5wO-v_cEi2a2Yw&s"
+                alt="Hettie Marshall"
+                class="w-8 h-8 rounded-full object-cover"
+              />
+              <p class="text-sm font-semibold text-gray-200">Hettie Marshall</p>
+            </div>
+            <p class="text-xs text-gray-400">3 hours ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="empty-state"
+        class="mt-6 flex flex-col items-center justify-center py-10 text-center"
+      >
+        <span
+          class="flex items-center justify-center w-14 h-14 rounded-2xl bg-emerald-500/15 text-emerald-300 text-xl"
+        >
+          <i class="fa-solid fa-check"></i>
+        </span>
+        <p class="mt-4 text-sm font-semibold text-gray-200">
+          You're all caught up
+        </p>
+        <p class="mt-1 text-xs text-gray-400">
+          No new announcements right now.
+        </p>
+      </div>
+
+      <div class="mt-8 flex items-center justify-center">
+        <button
+          id="dismiss-all"
+          class="btn-primary text-white font-semibold px-6 py-2.5 rounded-xl w-full flex items-center justify-center gap-2"
+        >
+          <i class="fa-solid fa-check"></i>
+          Dismiss all
+        </button>
+      </div>
+    </div>
+    <script>
+      function updateCount() {
+        const countEl = document.getElementById("announcement-count");
+        const badge = document.getElementById("count-badge");
+        const emptyState = document.getElementById("empty-state");
+        const dismissAll = document.getElementById("dismiss-all");
+        const remaining = document.querySelectorAll(
+          ".announcement:not(.fade-out)",
+        ).length;
+
+        countEl.textContent = `${remaining} unread`;
+        if (badge) badge.textContent = remaining;
+
+        if (dismissAll) dismissAll.disabled = remaining === 0;
+        if (emptyState)
+          emptyState.style.display = remaining === 0 ? "flex" : "none";
+      }
+
+      function removeWithFade(el, timeout = 500) {
+        if (!el || !el.classList) return;
+        if (el.classList.contains("fade-out")) return;
+
+        // Measure current paddings/margins and height, then set them as inline
+        const cs = getComputedStyle(el);
+        el.style.height = el.scrollHeight + "px";
+        el.style.paddingTop = cs.paddingTop;
+        el.style.paddingBottom = cs.paddingBottom;
+        el.style.marginTop = cs.marginTop;
+        el.style.marginBottom = cs.marginBottom;
+
+        // Force layout so the starting values are applied
+        void el.offsetHeight;
+
+        // Add class that transitions height/padding/margin to zero and fades out
+        el.classList.add("fade-out");
+        updateCount();
+
+        let finished = false;
+        const onEnd = (ev) => {
+          // wait for the transition on this element
+          if (ev.target !== el) return;
+          if (finished) return;
+          finished = true;
+          el.removeEventListener("transitionend", onEnd);
+          if (el.parentNode) el.remove();
+          updateCount();
+        };
+
+        el.addEventListener("transitionend", onEnd);
+
+        // Fallback
+        setTimeout(() => {
+          if (finished) return;
+          finished = true;
+          el.removeEventListener("transitionend", onEnd);
+          if (el.parentNode) el.remove();
+          updateCount();
+        }, timeout);
+      }
+
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest && e.target.closest(".dismiss-btn");
+        if (btn) {
+          const ann = btn.closest(".announcement");
+          if (ann) removeWithFade(ann);
+        }
+      });
+
+      const dismissAll = document.getElementById("dismiss-all");
+      if (dismissAll) {
+        dismissAll.addEventListener("click", () => {
+          const items = Array.from(
+            document.querySelectorAll(".announcement:not(.fade-out)"),
+          );
+          if (items.length === 0) return updateCount();
+          items.forEach((a, i) => {
+            // small stagger for nicer visual
+            setTimeout(() => removeWithFade(a), i * 60);
+          });
+        });
+      }
+
+      updateCount();
+    </script>
+  </body>
+</html>
