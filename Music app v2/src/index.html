@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music app</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      :root {
+        --bg: #f4f4f3;
+        --surface: #ffffff;
+        --surface-muted: #f8f8f8;
+        --line: #e7e7e7;
+        --text: #111111;
+        --text-soft: #6b6b6b;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--text);
+      }
+
+      .chip-scroll,
+      .cards-scroll,
+      .songs-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: #cfcfcf transparent;
+      }
+
+      .chip-scroll::-webkit-scrollbar,
+      .cards-scroll::-webkit-scrollbar,
+      .songs-scroll::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      .chip-scroll::-webkit-scrollbar-thumb,
+      .cards-scroll::-webkit-scrollbar-thumb,
+      .songs-scroll::-webkit-scrollbar-thumb {
+        background: #d0d0d0;
+        border-radius: 9999px;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center bg-cover bg-center px-3 py-6 md:p-8"
+    style="
+      background-image: radial-gradient(
+        circle at top,
+        #ffffff 0%,
+        var(--bg) 65%
+      );
+    "
+  >
+    <div
+      class="w-full max-w-md py-5 px-4 md:px-5 bg-[var(--surface)] border border-[var(--line)] shadow-sm rounded-3xl flex flex-col relative"
+    >
+      <div class="flex items-center justify-between">
+        <p class="text-[var(--text)] text-2xl font-semibold tracking-tight">
+          Browse
+        </p>
+        <button
+          class="h-10 w-10 rounded-full bg-[var(--surface-muted)] border border-[var(--line)] text-[var(--text-soft)] hover:text-[var(--text)] transition duration-200"
+        >
+          <i class="fa-solid fa-sliders"></i>
+        </button>
+      </div>
+      <ul class="chip-scroll flex overflow-x-auto gap-2 justify-start mt-4">
+        <li
+          class="min-w-max py-2 px-3 text-sm font-medium bg-[var(--text)] text-white rounded-full"
+        >
+          New music
+        </li>
+        <li
+          class="min-w-max py-2 px-3 text-sm font-medium text-[var(--text-soft)] border border-[var(--line)] hover:bg-[var(--surface-muted)] transition duration-200 rounded-full"
+        >
+          Playlists
+        </li>
+        <li
+          class="min-w-max py-2 px-3 text-sm font-medium text-[var(--text-soft)] border border-[var(--line)] hover:bg-[var(--surface-muted)] transition duration-200 rounded-full"
+        >
+          Top Charts
+        </li>
+        <li
+          class="min-w-max py-2 px-3 text-sm font-medium text-[var(--text-soft)] border border-[var(--line)] hover:bg-[var(--surface-muted)] transition duration-200 rounded-full"
+        >
+          Genres
+        </li>
+        <li
+          class="min-w-max py-2 px-3 text-sm font-medium text-[var(--text-soft)] border border-[var(--line)] hover:bg-[var(--surface-muted)] transition duration-200 rounded-full"
+        >
+          Favourites
+        </li>
+      </ul>
+
+      <div
+        class="cards-scroll w-full mt-4 border-t border-[var(--line)] flex overflow-x-auto gap-3 p-3"
+      >
+        <div
+          class="hover:bg-[var(--surface-muted)] duration-200 p-3 rounded-2xl border border-[var(--line)] w-10/12 min-w-xs"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-[var(--text)]">
+              Molly Santana
+            </p>
+            <p
+              class="text-xs border text-[var(--text-soft)] bg-[var(--surface-muted)] border-[var(--line)] rounded-full py-1 px-2"
+            >
+              NEW ALBUM
+            </p>
+          </div>
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/6144d106ee0f834ae92b4f60/1714083207550-OF27Q5PX4AMCYB44AP19/Ready+for+some+new+tunes+to+burst+into+your+Friday+goals%3F+Look+no+further+than+hip-hop+artist+Molly+Santana+preparing+to+ignite+audio+flames+to+the+masses+courtesy+of+her+much-needed+self-titled+new+LP..jpg"
+            alt=""
+            class="w-full h-40 object-cover rounded-xl mt-3"
+          />
+        </div>
+        <div
+          class="hover:bg-[var(--surface-muted)] duration-200 p-3 rounded-2xl border border-[var(--line)] w-10/12 min-w-xs"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-[var(--text)]">Future</p>
+            <p
+              class="text-xs border text-[var(--text-soft)] bg-[var(--surface-muted)] border-[var(--line)] rounded-full py-1 px-2"
+            >
+              NEW SONG
+            </p>
+          </div>
+          <img
+            src="https://i.pinimg.com/736x/70/cb/a8/70cba80c1a11d86ac8bd2a0e08a7fd04.jpg"
+            alt=""
+            class="w-full h-40 object-cover rounded-xl mt-3"
+          />
+        </div>
+        <div
+          class="hover:bg-[var(--surface-muted)] duration-200 p-3 rounded-2xl border border-[var(--line)] w-10/12 min-w-xs"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-[var(--text)]">Travis Scott</p>
+            <p
+              class="text-xs border text-[var(--text-soft)] bg-[var(--surface-muted)] border-[var(--line)] rounded-full py-1 px-2"
+            >
+              TOP TRENDING
+            </p>
+          </div>
+          <img
+            src="https://www.chromethemer.com/download/hd-wallpapers/travis-scott-3840x2160.jpg"
+            alt=""
+            class="w-full h-40 object-cover rounded-xl mt-3"
+          />
+        </div>
+      </div>
+      <div class="songs-scroll flex flex-col h-72 overflow-y-auto pr-1 mt-1">
+        <div class="flex items-center justify-between">
+          <p class="text-[var(--text)] text-xl font-semibold tracking-tight">
+            Hot Songs
+          </p>
+          <a
+            href="#"
+            class="text-sm text-[var(--text-soft)] hover:text-[var(--text)] transition"
+            >See all</a
+          >
+        </div>
+        <ul>
+          <li
+            class="flex items-center hover:bg-[var(--surface-muted)] duration-200 rounded-xl p-2 justify-between mt-2"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-[var(--text)] font-semibold">What did I miss</p>
+                <p class="text-[var(--text-soft)] text-sm">Drake</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-[var(--text-soft)] text-xl"></i>
+          </li>
+          <li
+            class="flex items-center hover:bg-[var(--surface-muted)] duration-200 rounded-xl p-2 justify-between mt-2"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2736cfd9a7353f98f5165ea6160"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-[var(--text)] font-semibold">Mariah i'm drunk</p>
+                <p class="text-[var(--text-soft)] text-sm">Travis Scott</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-[var(--text-soft)] text-xl"></i>
+          </li>
+          <li
+            class="flex items-center hover:bg-[var(--surface-muted)] duration-200 rounded-xl p-2 justify-between mt-2"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://media.pitchfork.com/photos/6647781e5e7496a0e98d7a9c/1:1/w_450%2Cc_limit/Ian-%2520Valedictorian.jpeg"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-[var(--text)] font-semibold">Magic Johnson</p>
+                <p class="text-[var(--text-soft)] text-sm">Ian</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-[var(--text-soft)] text-xl"></i>
+          </li>
+          <li
+            class="flex items-center hover:bg-[var(--surface-muted)] duration-200 rounded-xl p-2 justify-between mt-2 mb-28"
+          >
+            <div class="w-full flex items-center gap-3">
+              <img
+                src="https://cdn-images.dzcdn.net/images/cover/6ded031c1b728f080b25ff9ca3643358/1900x1900-000000-80-0-0.jpg"
+                alt=""
+                class="w-16 h-16 object-cover rounded-full"
+              />
+              <div class="flex flex-col gap-0">
+                <p class="text-[var(--text)] font-semibold">2 Rich</p>
+                <p class="text-[var(--text-soft)] text-sm">Molly Santana</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-plus text-[var(--text-soft)] text-xl"></i>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="flex flex-col items-center bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-2 justify-between absolute bottom-3 left-4 right-4"
+      >
+        <div class="flex items-center justify-between w-full">
+          <div
+            class="bg-[var(--line)] h-1 absolute bottom-35 left-3 right-3 rounded-full"
+          >
+            <div class="bg-[var(--text)] w-2/3 h-1 rounded-full"></div>
+          </div>
+          <div class="w-full flex items-center mx-auto gap-3">
+            <img
+              src="https://i.scdn.co/image/ab67616d00001e0299d858ce7de823cb7c88304f"
+              alt=""
+              class="w-16 h-16 object-cover rounded-full"
+            />
+            <div class="flex flex-col gap-0">
+              <p class="text-[var(--text)] font-semibold">Chain swangin</p>
+              <p class="text-[var(--text-soft)] text-sm">Molly Santana</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button
+              class="h-10 w-10 rounded-full bg-[var(--surface-muted)] text-[var(--text-soft)] hover:text-[var(--text)] transition"
+            >
+              <i class="fa-solid fa-pause text-sm"></i>
+            </button>
+            <button
+              class="h-10 w-10 rounded-full bg-[var(--text)] text-white transition"
+            >
+              <i class="fa-solid fa-play text-sm"></i>
+            </button>
+          </div>
+        </div>
+
+        <ul
+          class="grid grid-cols-4 w-full items-center justify-center gap-2 mt-2 bg-transparent p-2"
+        >
+          <li class="flex flex-col items-center text-[var(--text)]">
+            <i class="fa-solid fa-house text-xl"></i>
+            <span class="text-[var(--text)] text-sm">Home</span>
+          </li>
+          <li class="flex flex-col items-center">
+            <i
+              class="fa-solid fa-fire-flame-curved text-xl text-[var(--text-soft)]"
+            ></i>
+            <span class="text-[var(--text-soft)] text-sm">Trending</span>
+          </li>
+          <li class="flex flex-col items-center">
+            <i
+              class="fa-solid fa-magnifying-glass text-xl text-[var(--text-soft)]"
+            ></i>
+            <span class="text-[var(--text-soft)] text-sm">Search</span>
+          </li>
+          <li class="flex flex-col items-center">
+            <i
+              class="fa-solid fa-folder-open text-xl text-[var(--text-soft)]"
+            ></i>
+            <span class="text-[var(--text-soft)] text-sm">Library</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
