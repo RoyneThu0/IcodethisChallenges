@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="relative w-screen min-h-screen overflow-hidden flex items-center justify-center px-4 py-10"
+  >
+    <style>
+      :root {
+        --violet-1: #7c3aed;
+        --violet-2: #9333ea;
+        --pink-1: #ec4899;
+        --bg-solid: #160825;
+      }
+
+      body {
+        font-family: "Sora", sans-serif;
+        background: var(--bg-solid);
+      }
+
+      .glass-card {
+        position: relative;
+        z-index: 1;
+        background: linear-gradient(145deg, #ffffff21, #ffffff10);
+        border: 1px solid #ffffff30;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 25px 70px #0d041a8a;
+      }
+
+      .glass-btn {
+        color: #fff;
+        border: 1px solid #ffffff1f;
+        box-shadow: 0 8px 20px #12042466;
+      }
+
+      .glass-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-purple {
+        background: #7c3aed;
+      }
+
+      .btn-pink {
+        background: #ec4899;
+      }
+
+      .btn-violet {
+        background: #8b5cf6;
+      }
+
+      .toast-enter {
+        animation: toast-enter 0.35s ease-out forwards;
+      }
+
+      .toast-exit {
+        animation: toast-exit 0.25s ease-in forwards;
+      }
+
+      .toast {
+        background: linear-gradient(145deg, #ffffff30, #ffffff14);
+        border: 1px solid #ffffff3d;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 12px 28px #13062366;
+        color: #faf5ff;
+      }
+
+      .toast-success {
+        border-left: 4px solid #c084fc;
+      }
+
+      .toast-error {
+        border-left: 4px solid #f472b6;
+      }
+
+      .toast-info {
+        border-left: 4px solid #a78bfa;
+      }
+
+      @keyframes toast-enter {
+        from {
+          opacity: 0;
+          transform: translateX(40px) scale(0.96);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+      }
+
+      @keyframes toast-exit {
+        from {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+
+        to {
+          opacity: 0;
+          transform: translateX(40px) scale(0.96);
+        }
+      }
+    </style>
+
+    <div
+      class="glass-card w-full max-w-2xl rounded-3xl p-7 md:p-10 text-center"
+    >
+      <p class="text-violet-100/90 mb-8 text-sm md:text-base">
+        Click a button to make a notification pop up.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+        <button
+          id="showSuccess"
+          class="glass-btn btn-purple font-semibold px-5 py-3 rounded-xl transition-all"
+        >
+          Purple Success
+        </button>
+        <button
+          id="showError"
+          class="glass-btn btn-pink font-semibold px-5 py-3 rounded-xl transition-all"
+        >
+          Pink Alert
+        </button>
+        <button
+          id="showInfo"
+          class="glass-btn btn-violet font-semibold px-5 py-3 rounded-xl transition-all"
+        >
+          Violet Message
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="notificationContainer"
+      class="fixed top-6 right-6 w-[min(92vw,24rem)] space-y-3 z-50"
+    ></div>
+
+    <script>
+      const container = document.getElementById("notificationContainer");
+
+      const presets = {
+        success: {
+          className: "toast toast-success",
+          textClass: "text-violet-50",
+          icon: "fa-check",
+          message: "Order updated successfully.",
+        },
+        error: {
+          className: "toast toast-error",
+          textClass: "text-pink-50",
+          icon: "fa-triangle-exclamation",
+          message: "An error occurred while processing your request.",
+        },
+        info: {
+          className: "toast toast-info",
+          textClass: "text-violet-50",
+          icon: "fa-envelope",
+          message: "New message received.",
+        },
+      };
+
+      function removeToast(toast) {
+        toast.classList.remove("toast-enter");
+        toast.classList.add("toast-exit");
+        toast.addEventListener("animationend", () => toast.remove(), {
+          once: true,
+        });
+      }
+
+      function showToast(type) {
+        const config = presets[type];
+        const toast = document.createElement("article");
+
+        toast.className = `toast-enter w-full ${config.className} ${config.textClass} rounded-xl p-4 flex items-center justify-between gap-4`;
+        toast.innerHTML = `
+          <p class="pr-4"><i class="fa-solid ${config.icon} mr-2 text-base"></i>${config.message}</p>
+          <button class="toast-close hover:text-white transition-colors" aria-label="Close notification">
+            <i class="fas fa-times text-lg"></i>
+          </button>
+        `;
+
+        toast
+          .querySelector(".toast-close")
+          .addEventListener("click", () => removeToast(toast));
+        container.prepend(toast);
+
+        const timeoutId = setTimeout(() => removeToast(toast), 4200);
+        toast.addEventListener("mouseenter", () => clearTimeout(timeoutId), {
+          once: true,
+        });
+      }
+
+      document
+        .getElementById("showSuccess")
+        .addEventListener("click", () => showToast("success"));
+      document
+        .getElementById("showError")
+        .addEventListener("click", () => showToast("error"));
+      document
+        .getElementById("showInfo")
+        .addEventListener("click", () => showToast("info"));
+
+      setTimeout(() => showToast("info"), 300);
+    </script>
+  </body>
+</html>
