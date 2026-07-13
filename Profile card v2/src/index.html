@@ -15,28 +15,75 @@
     />
   </head>
   <body
-    class="bg-gray-100 w-screen min-h-screen flex items-center justify-center"
+    class="bg-gray-100 w-screen min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1696550579939-6d5134d4bfc1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDUzfHx8ZW58MHx8fHx8);
+    "
   >
     <div
-      class="bg-white p-10 rounded-lg w-11/12 max-w-md shadow-lg flex flex-col gap-5"
+      class="bg-white p-10 rounded-lg w-11/12 max-w-sm shadow-inner shadow-gray-300 flex flex-col gap-5"
     >
       <div class="w-full flex items-center justify-between">
         <div class="rounded-full flex items-center">
           <div
             class="bg-white hover:shadow-inner shadow-sm duration-300 transition-all ease-in-out shadow-gray-300 hover:shadow-gray-300 w-7 py-2 pl-5 pr-3 rounded-l-full flex items-center justify-center"
           >
-            <i class="fa-solid fa-envelope"></i>
+            <i class="fa-solid text-violet-400 fa-envelope"></i>
           </div>
           <div
             class="bg-white hover:shadow-inner shadow-sm duration-300 transition-all ease-in-out shadow-gray-300 hover:shadow-gray-300 w-7 py-2 pr-5 pl-3 rounded-r-full flex items-center justify-center"
           >
-            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid text-violet-400 fa-bell"></i>
           </div>
         </div>
         <div
           class="bg-white hover:shadow-inner shadow-sm duration-300 transition-all ease-in-out shadow-gray-300 hover:shadow-gray-300 w-7 h-7 rounded-full flex items-center justify-center"
         >
-          <i class="fa-solid fa-plus"></i>
+          <i class="fa-solid text-violet-400 fa-plus"></i>
+        </div>
+      </div>
+      <div
+        class="flex border-b border-spacing-3 pb-5 border-gray-200 items-center gap-3"
+      >
+        <div class="w-20 h-20 shrink-0 rounded-full bg-white">
+          <img
+            src="https://images.unsplash.com/photo-1782918050221-05d839fb88f0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHdvb2QlMjBkZXNpZ258ZW58MHwyfDB8fHww"
+            alt="profile"
+            class="w-full h-full object-cover rounded-full"
+          />
+        </div>
+        <div class="text-white text-lg font-semibold">
+          <h1 class="text-violet-400">MFwoodDesign</h1>
+          <p class="text-sm text-gray-800 font-light">
+            Hand painted unique decorations for your home. Send us your ideas
+            and we'll bring them to life
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-wrap sm:flex-nowrap items-center justify-center">
+        <div class="flex w-full flex-col items-center justify-center">
+          <p class="text-gray-800 text-sm font-light">Likes</p>
+          <p class="font-extrabold text-xl text-violet-400">2,345</p>
+        </div>
+        <div class="flex w-full flex-col items-center justify-center">
+          <p class="text-gray-800 text-sm font-light">Followers</p>
+          <p class="font-extrabold text-xl text-violet-400">1,234</p>
+        </div>
+      </div>
+      <div class="bg-gray-100 rounded-xl shadow-gray-500 shadow-inner p-5">
+        <div class="flex w-full justify-end">
+          <p><i class="fa-solid fa-xmark"></i></p>
+        </div>
+        <p class="text-gray-400 text-sm font-light">
+          Say more about your mission and goals on your page.It may help people
+          find it more easily
+        </p>
+        <div class="flex items-center justify-center">
+          <button
+            class="text-purple-500 text-xs font-semibold mt-5 bg-white shadow-lg px-4 py-2 rounded-full hover:shadow-inner hover:shadow-gray-400 duration-300 ease-in-out"
+          >
+            Update Profile
+          </button>
         </div>
       </div>
     </div>
