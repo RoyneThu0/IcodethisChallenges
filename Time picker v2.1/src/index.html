@@ -15,28 +15,52 @@
       referrerpolicy="noreferrer"
     />
   </head>
-  <body class="w-screen h-screen bg-blue-100 flex items-center justify-center">
-    <div class="flex w-11/12 max-w-lg items-center space-x-6">
+  <body
+    class="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,#f8fbff_0%,#dbeafe_38%,#c7d2fe_100%)] flex items-center justify-center px-4 py-10"
+  >
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute -left-24 top-12 h-64 w-64 rounded-full bg-sky-300/35 blur-3xl"
+      ></div>
+      <div
+        class="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-indigo-300/35 blur-3xl"
+      ></div>
+    </div>
+
+    <div class="relative flex w-full max-w-2xl items-center gap-5 sm:gap-6">
       <div>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdBKPXGSRFTmMreqgDXGn3dInv5gVR4cLl5kMoHpaljw&s=10"
+          src="https://png.pngtree.com/png-vector/20230915/ourmid/pngtree-black-vintage-alarm-clock-png-image_10081629.png"
           alt=""
-          class="w-10"
+          class="w-12 drop-shadow-md sm:w-14"
         />
       </div>
 
-      <div class="relative bg-white rounded-md shadow-lg w-full max-w-lg">
+      <i
+        class="fa-solid fa-caret-right absolute left-15 top-1/2 -translate-y-1/2 text-3xl text-white drop-shadow-[0_4px_10px_rgba(59,130,246,0.35)] sm:left-17 sm:text-4xl"
+        aria-hidden="true"
+      ></i>
+
+      <div
+        class="relative w-full max-w-xl overflow-hidden rounded-3xl border border-white/70 bg-white/75 shadow-[0_25px_80px_rgba(59,130,246,0.18)] backdrop-blur-xl"
+      >
         <div
-          class="w-0 h-0 absolute -left-6 top-15 border-t-[20px] border-t-transparent border-r-[25px] border-r-white border-b-[20px] border-b-transparent"
+          class="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.65))]"
         ></div>
-        <div class="bg-gray-100 flex items-center justify-center w-full p-3">
-          <h2 class="text-center text-blue-900 font-semibold text-lg">
+        <div
+          class="relative flex items-center justify-center w-full border-b border-slate-200/80 bg-slate-50/80 px-6 py-4"
+        >
+          <h2
+            class="text-center text-sm font-semibold tracking-[0.35em] text-slate-600 sm:text-base"
+          >
             SELECT TIME
           </h2>
         </div>
-        <div class="flex justify-center space-x-4 p-10">
+        <div
+          class="relative flex flex-col items-center justify-center gap-4 p-6 sm:flex-row sm:gap-5 sm:p-10"
+        >
           <select
-            class="border rounded-md px-4 py-2 text-blue-900 text-lg focus:outline-none"
+            class="min-w-20 rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-center text-lg font-semibold text-slate-800 shadow-sm outline-none transition duration-200 hover:-translate-y-0.5 hover:shadow-md focus:border-sky-400 focus:ring-4 focus:ring-sky-200/70"
           >
             <option>1</option>
             <option>2</option>
@@ -53,7 +77,7 @@
           </select>
 
           <select
-            class="border rounded-md px-4 py-2 text-blue-900 text-lg focus:outline-none"
+            class="min-w-24 rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-center text-lg font-semibold text-slate-800 shadow-sm outline-none transition duration-200 hover:-translate-y-0.5 hover:shadow-md focus:border-sky-400 focus:ring-4 focus:ring-sky-200/70"
           >
             <option>00</option>
             <option>01</option>
@@ -118,7 +142,7 @@
           </select>
 
           <select
-            class="border rounded-md px-4 py-2 text-blue-900 text-lg focus:outline-none"
+            class="min-w-24 rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-center text-lg font-semibold uppercase tracking-[0.2em] text-slate-800 shadow-sm outline-none transition duration-200 hover:-translate-y-0.5 hover:shadow-md focus:border-sky-400 focus:ring-4 focus:ring-sky-200/70"
           >
             <option>am</option>
             <option>pm</option>
