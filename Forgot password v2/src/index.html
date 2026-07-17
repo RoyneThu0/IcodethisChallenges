@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="min-h-screen w-screen flex md:items-center items-start justify-center p-4 md:p-8"
+    style="font-family: &quot;Manrope&quot;, sans-serif"
+  >
+    <div
+      class="w-full max-w-4xl bg-white/90 backdrop-blur-sm border border-slate-200 shadow-[0_20px_80px_-40px_rgba(15,23,42,0.45)] rounded-2xl flex flex-col md:p-10 p-4"
+    >
+      <p class="text-end flex-wrap text-slate-600 text-sm md:text-base">
+        You dont have an account?
+        <span
+          class="text-sky-700 hover:text-sky-600 hover:underline cursor-pointer font-semibold"
+          >Sign up</span
+        >
+      </p>
+      <div class="mt-10 md:w-5/12 mx-auto">
+        <p
+          class="md:text-4xl text-2xl text-center font-extrabold tracking-tight text-slate-900 leading-tight"
+        >
+          Did you forget your password?
+        </p>
+
+        <p
+          class="mt-4 mb-6 text-base md:text-lg text-slate-600 text-center leading-relaxed"
+        >
+          Enter the email address you're using for your account below and we
+          will send you a password reset link.
+        </p>
+        <label for="email" class="text-sm font-semibold text-slate-700"
+          >Email Address</label
+        >
+        <input
+          type="email"
+          id="email"
+          class="mt-2 w-full py-4 px-4 border border-slate-300 bg-white rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-sky-200 focus:border-sky-500 transition"
+          placeholder="myemail@address.com"
+        />
+        <button
+          class="mt-4 w-full py-4 bg-slate-900 text-white rounded-xl font-semibold tracking-wide shadow-[0_10px_30px_-12px_rgba(15,23,42,0.65)] hover:bg-slate-800 active:scale-[0.99] transition"
+        >
+          Request Reset link
+        </button>
+
+        <div class="mt-5 text-center">
+          <a
+            href="sign-up.html"
+            class="text-sky-700 hover:text-sky-600 hover:underline cursor-pointer font-medium"
+          >
+            Back to Sign In</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
