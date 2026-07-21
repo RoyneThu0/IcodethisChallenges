@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sms Share</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.3/build/css/intlTelInput.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+
+    <style>
+      .iti {
+        width: 100%;
+      }
+
+      .iti__dropdown-content {
+        z-index: 50;
+      }
+
+      .iti__selected-country-primary,
+      .iti__search-input {
+        color: #111827;
+      }
+    </style>
+  </head>
+  <body class="w-screen h-screen bg-gray-100 flex items-center justify-center">
+    <div class="w-11/12 max-w-xl bg-white rounded-lg shadow-xl p-10">
+      <div class="flex justify-end">
+        <i
+          class="fa-solid fa-xmark hover:text-gray-500 cursor-pointer text-xl"
+        ></i>
+      </div>
+      <h1 class="font-bold text-start text-xl mb-3">
+        Send install link to mobile device
+      </h1>
+      <p class="text-gray-500 mb-4">
+        Send via SMS or visit the private URL on the mobile device to install
+        this app directly to the device.
+      </p>
+      <div
+        class="flex items-stretch border border-gray-300 rounded-lg relative"
+      >
+        <div class="w-full p-1">
+          <input
+            type="tel"
+            id="sms-input"
+            class="w-full p-3 focus:outline-none"
+            placeholder="Enter phone number"
+          />
+        </div>
+        <button
+          id="send-btn"
+          class="bg-blue-500 rounded-r-lg hover:bg-blue-600 transition-colors text-white px-6 py-3"
+        >
+          Send
+        </button>
+      </div>
+      <p id="validation-message" class="text-red-500 text-sm mt-2 hidden">
+        Please enter a valid phone number.
+      </p>
+      <div class="mt-7">
+        <p class="text-sm font-semibold">SHARE LINK</p>
+        <div class="flex items-center justify-between mt-3">
+          <p id="share-link" class="text-gray-500 text-xs">
+            http://www.staggeringbeauty.com/
+          </p>
+          <button
+            id="copy-btn"
+            class="cursor-pointer text-blue-400 hover:underline"
+            type="button"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.3/build/js/intlTelInput.min.js"></script>
+    <script>
+      const smsInput = document.getElementById("sms-input");
+      const sendBtn = document.getElementById("send-btn");
+      const copyBtn = document.getElementById("copy-btn");
+      const shareLinkElement = document.getElementById("share-link");
+      const validationMessage = document.getElementById("validation-message");
+
+      const iti = window.intlTelInput(smsInput, {
+        initialCountry: "us",
+        countrySearch: false,
+        strictMode: true,
+        separateDialCode: true,
+        loadUtils: () =>
+          import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.3/build/js/utils.js"),
+      });
+
+      const hideValidation = () => validationMessage.classList.add("hidden");
+      const showValidation = () => validationMessage.classList.remove("hidden");
+
+      smsInput.addEventListener("input", hideValidation);
+      smsInput.addEventListener("countrychange", hideValidation);
+
+      sendBtn.addEventListener("click", () => {
+        if (!smsInput.value.trim() || !iti.isValidNumber()) {
+          showValidation();
+          return;
+        }
+
+        hideValidation();
+
+        const internationalNumber = iti.getNumber();
+        const shareUrl = shareLinkElement.textContent.trim();
+        const smsBody = encodeURIComponent(`Install link: ${shareUrl}`);
+        window.location.href = `sms:${internationalNumber}?body=${smsBody}`;
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        const shareUrl = shareLinkElement.textContent.trim();
+
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          copyBtn.textContent = "Copied";
+
+          setTimeout(() => {
+            copyBtn.textContent = "Copy";
+          }, 1400);
+        } catch {
+          copyBtn.textContent = "Failed";
+
+          setTimeout(() => {
+            copyBtn.textContent = "Copy";
+          }, 1400);
+        }
+      });
+    </script>
+  </body>
+</html>
