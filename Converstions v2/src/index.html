@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversations</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="w-screen bg-gray-100 min-h-screen flex items-center justify-center"
+  >
+    <div
+      class="w-11/12 max-w-7xl h-[1000px] p-4 md:p-10 flex flex-col lg:flex-row items-start justify-center gap-4"
+    >
+      <div
+        class="w-full lg:w-1/3 p-2 md:p-5 space-y-4 h-full max-h-96 lg:max-h-full overflow-y-auto"
+      >
+        <div
+          class="w-full bg-white rounded-2xl shadow-lg flex flex-col conversation-card cursor-pointer"
+          data-conversation-id="1"
+        >
+          <div class="grid grid-cols-[auto_1fr_auto] rounded-2xl items-start">
+            <p
+              class="px-3 md:px-5 py-3 bg-pink-400 rounded-tl-2xl rounded-br-2xl text-white text-sm md:text-base"
+            >
+              1
+            </p>
+            <p class="px-3 md:px-5 py-3 w-full text-center">
+              <i class="fa-solid fa-ellipsis text-lg md:text-xl"></i>
+            </p>
+            <p
+              class="invisible px-3 md:px-5 py-3 bg-pink-400 rounded-tl-2xl rounded-br-2xl text-white text-sm md:text-base"
+            >
+              1
+            </p>
+          </div>
+          <div
+            class="flex bg-white rounded-b-2xl shadow-lg flex-col items-center mt-4"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1765219169975-0affcd0faea2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGhlYWRzaG90fGVufDB8MnwwfHx8MA%3D%3D"
+              alt=""
+              class="w-11/12 max-w-sm rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            />
+            <p
+              class="mt-2 text-lg md:text-2xl flex items-center font-semibold px-2 text-center"
+            >
+              <i
+                class="fa-solid fa-circle text-xs text-green-500 animate-pulse mr-2"
+              ></i
+              >Nora Delgado
+            </p>
+            <p class="text-sm md:text-base">Interaction Designer</p>
+
+            <div class="mt-4 flex items-center mb-6 px-4 w-full">
+              <button
+                class="px-8 md:px-16 w-full text-lg md:text-xl py-2 md:py-3 border-2 border-blue-400 rounded-full text-blue-400"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white rounded-2xl shadow-lg flex flex-col conversation-card cursor-pointer"
+          data-conversation-id="2"
+        >
+          <div class="grid grid-cols-[auto_1fr_auto] brtre rounded-2xl items-start">
+            <p
+              class="px-3 md:px-5 py-3 bg-pink-400 rounded-tl-2xl rounded-br-2xl text-white text-sm md:text-base"
+            >
+              2
+            </p>
+            <p class="px-3 md:px-5 py-3 w-full text-center">
+              <i class="fa-solid fa-ellipsis text-lg md:text-xl"></i>
+            </p>
+            <p
+              class="invisible px-3 md:px-5 py-3 bg-pink-400 rounded-tl-2xl rounded-br-2xl text-white text-sm md:text-base"
+            >
+              2
+            </p>
+          </div>
+          <div class="flex bg-white rounded-b-2xl flex-col items-center mt-4">
+            <img
+              src="https://images.unsplash.com/photo-1765219109828-1a02934e3917?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGhlYWRzaG90fGVufDB8MnwwfHx8MA%3D%3D"
+              alt=""
+              class="w-11/12 max-w-sm rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            />
+            <p
+              class="mt-2 text-lg md:text-2xl flex items-center font-semibold px-2 text-center"
+            >
+              <i
+                class="fa-solid fa-circle text-xs text-green-500 animate-pulse mr-2"
+              ></i
+              >Maya Chen
+            </p>
+            <p class="text-sm md:text-base">Art Director</p>
+
+            <div class="mt-4 flex items-center mb-6 px-4 w-full">
+              <button
+                class="px-8 md:px-16 w-full text-lg md:text-xl py-2 md:py-3 border-2 border-blue-400 rounded-full text-blue-400"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white rounded-2xl shadow-lg flex flex-col conversation-card cursor-pointer"
+          data-conversation-id="3"
+        >
+          <div class="grid grid-cols-[auto_1fr_auto] brtre rounded-2xl items-start">
+            <p
+              class="px-3 md:px-5 py-3 bg-pink-400 rounded-tl-2xl rounded-br-2xl text-white text-sm md:text-base"
+            >
+              3
+            </p>
+            <p class="px-3 md:px-5 py-3 w-full text-center">
+              <i class="fa-solid fa-ellipsis text-lg md:text-xl"></i>
+            </p>
+            <p
+              class="invisible px-3 md:px-5 py-3 bg-pink-400 rounded-tl-2xl rounded-br-2xl text-white text-sm md:text-base"
+            >
+              3
+            </p>
+          </div>
+          <div
+            class="flex bg-white rounded-b-2xl shadow-2xl flex-col items-center mt-4"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1655874819398-c6dfbec68ac7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGhlYWRzaG90fGVufDB8MnwwfHx8MA%3D%3D"
+              alt=""
+              class="w-11/12 max-w-sm rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            />
+            <p
+              class="mt-2 text-lg md:text-2xl flex items-center font-semibold px-2 text-center"
+            >
+              <i
+                class="fa-solid fa-circle text-xs text-green-500 animate-pulse mr-2"
+              ></i
+              >Luca Romero
+            </p>
+            <p class="text-sm md:text-base">Product Strategist</p>
+
+            <div class="mt-4 flex items-center mb-6 px-4 w-full">
+              <button
+                class="px-8 md:px-16 w-full text-lg md:text-xl py-2 md:py-3 border-2 border-blue-400 rounded-full text-blue-400"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full lg:w-2/3 bg-white rounded-2xl shadow-lg flex flex-col min-h-96 lg:min-h-full"
+      >
+        <div
+          class="w-full flex bg-white shadow-4xl shadow-white rounded-2xl overflow-hidden items-start justify-between"
+        >
+          <h2
+            id="active-conversation-name"
+            class="text-lg md:text-2xl font-semibold px-4 md:px-6 py-4"
+          >
+            Nora Delgado
+          </h2>
+          <button
+            class="self-start flex items-center justify-center text-lg md:text-xl text-white bg-gray-400 px-3 md:px-5 py-3 rounded-tr-2xl rounded-bl-2xl"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="w-full mx-auto h-full flex flex-col justify-between">
+          <div
+            id="conversation-messages"
+            class="p-2 md:p-4 space-y-4 overflow-y-auto flex-1"
+          ></div>
+
+          <div
+            class="border-t border-gray-300 bg-gray-50 px-2 md:px-4 py-2 md:py-3 flex items-center space-x-2 md:space-x-3"
+          >
+            <input
+              type="text"
+              placeholder="Type your message here"
+              class="flex-1 px-2 md:px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm md:text-base"
+            />
+            <button class="flex-shrink-0">
+              <img
+                src="https://img.icons8.com/material-rounded/24/image.png"
+                class="w-4 h-4 md:w-5 md:h-5"
+                alt="image"
+              />
+            </button>
+            <button class="flex-shrink-0">
+              <img
+                src="https://img.icons8.com/material-rounded/24/camera.png"
+                class="w-4 h-4 md:w-5 md:h-5"
+                alt="camera"
+              />
+            </button>
+            <button class="flex-shrink-0">
+              <img
+                src="https://img.icons8.com/material-rounded/24/microphone.png"
+                class="w-4 h-4 md:w-5 md:h-5"
+                alt="mic"
+              />
+            </button>
+            <button
+              class="bg-blue-500 text-white px-2 md:px-4 py-2 rounded-lg text-sm md:text-base flex-shrink-0"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const conversations = {
+        1: {
+          name: "Nora Delgado",
+          avatar:
+            "https://images.unsplash.com/photo-1765219169975-0affcd0faea2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGhlYWRzaG90fGVufDB8MnwwfHx8MA%3D%3D",
+          messages: [
+            { type: "me", time: "13:32", text: ["Hey!", "Okay, let me know!"] },
+            { type: "system", text: "2 new messages" },
+            {
+              type: "them",
+              time: "14:04",
+              text: ["Hey!", "Ready in 5?"],
+            },
+          ],
+        },
+        2: {
+          name: "Maya Chen",
+          avatar:
+            "https://images.unsplash.com/photo-1765219109828-1a02934e3917?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGhlYWRzaG90fGVufDB8MnwwfHx8MA%3D%3D",
+          messages: [
+            {
+              type: "them",
+              time: "09:12",
+              text: [
+                "Morning! Could you review the latest hero banner mockup?",
+              ],
+            },
+            {
+              type: "me",
+              time: "09:15",
+              text: ["On it. I will send notes in 20 minutes."],
+            },
+            {
+              type: "them",
+              time: "09:41",
+              text: ["Perfect, thanks. Client meeting starts at 10."],
+            },
+          ],
+        },
+        3: {
+          name: "Luca Romero",
+          avatar:
+            "https://images.unsplash.com/photo-1655874819398-c6dfbec68ac7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGhlYWRzaG90fGVufDB8MnwwfHx8MA%3D%3D",
+          messages: [
+            {
+              type: "me",
+              time: "18:03",
+              text: ["Quick check, are we aligned on the launch timeline?"],
+            },
+            {
+              type: "them",
+              time: "18:07",
+              text: [
+                "Yes. We can ship onboarding this Friday.",
+                "Pricing page goes live Monday.",
+              ],
+            },
+            { type: "system", text: "1 new message" },
+            {
+              type: "them",
+              time: "18:10",
+              text: ["I added risks in the planning doc."],
+            },
+          ],
+        },
+      };
+
+      const cards = document.querySelectorAll(".conversation-card");
+      const nameEl = document.getElementById("active-conversation-name");
+      const messagesEl = document.getElementById("conversation-messages");
+
+      const meBubbleClass =
+        "inline-block bg-blue-600 text-white p-2 rounded-lg mt-1 text-sm md:text-base";
+      const meFirstBubbleClass =
+        "inline-block bg-gradient-to-b from-blue-300 to-blue-500 text-white p-2 rounded-lg mt-1 text-sm md:text-base";
+      const themBubbleClass =
+        "bg-gray-100 text-gray-800 p-2 rounded-lg mt-1 w-fit text-sm md:text-base";
+
+      function renderMessages(conversationId) {
+        const conversation = conversations[conversationId];
+        if (!conversation) {
+          return;
+        }
+
+        nameEl.textContent = conversation.name;
+        messagesEl.innerHTML = "";
+
+        conversation.messages.forEach((item) => {
+          if (item.type === "me") {
+            const block = document.createElement("div");
+            block.className = "text-right";
+
+            const meta = document.createElement("p");
+            meta.className = "text-xs md:text-sm text-gray-400";
+            meta.innerHTML = `You <span class="ml-2">${item.time}</span>`;
+            block.appendChild(meta);
+
+            item.text.forEach((line, index) => {
+              const bubble = document.createElement("div");
+              bubble.className =
+                index === 0 ? meFirstBubbleClass : meBubbleClass;
+              bubble.textContent = line;
+              block.appendChild(bubble);
+
+              if (index !== item.text.length - 1) {
+                block.appendChild(document.createElement("br"));
+              }
+            });
+
+            messagesEl.appendChild(block);
+          }
+
+          if (item.type === "system") {
+            const wrap = document.createElement("div");
+            wrap.className = "flex justify-center";
+
+            const tag = document.createElement("span");
+            tag.className =
+              "bg-pink-400 text-white text-xs md:text-sm px-3 py-1 rounded-full";
+            tag.textContent = item.text;
+
+            wrap.appendChild(tag);
+            messagesEl.appendChild(wrap);
+          }
+
+          if (item.type === "them") {
+            const wrap = document.createElement("div");
+            wrap.className = "flex items-start space-x-2 md:space-x-3";
+
+            const img = document.createElement("img");
+            img.src = conversation.avatar;
+            img.alt = `${conversation.name} profile`;
+            img.className =
+              "w-8 h-8 md:w-10 md:h-10 rounded-full object-cover flex-shrink-0";
+
+            const content = document.createElement("div");
+            content.className = "flex-1 min-w-0";
+
+            const meta = document.createElement("p");
+            meta.className = "font-semibold text-gray-800 text-sm md:text-base";
+            meta.innerHTML = `${conversation.name} <span class="text-xs md:text-sm text-gray-500">${item.time}</span>`;
+            content.appendChild(meta);
+
+            item.text.forEach((line) => {
+              const bubble = document.createElement("div");
+              bubble.className = themBubbleClass;
+              bubble.textContent = line;
+              content.appendChild(bubble);
+            });
+
+            wrap.appendChild(img);
+            wrap.appendChild(content);
+            messagesEl.appendChild(wrap);
+          }
+        });
+      }
+
+      function setActiveCard(selectedId) {
+        cards.forEach((card) => {
+          const isActive = card.dataset.conversationId === selectedId;
+          card.classList.toggle("ring-2", isActive);
+          card.classList.toggle("ring-blue-300", isActive);
+        });
+      }
+
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const id = card.dataset.conversationId;
+          renderMessages(id);
+          setActiveCard(id);
+        });
+      });
+
+      renderMessages("1");
+      setActiveCard("1");
+    </script>
+  </body>
+</html>
