@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Summary</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    class="w-screen min-h-screen flex md:items-center items-start justify-center px-3 py-8 md:py-0 font-['Manrope'] bg-[radial-gradient(circle_at_15%_15%,#ffd49f_0%,transparent_38%),radial-gradient(circle_at_88%_80%,#ffba77_0%,transparent_32%),linear-gradient(135deg,#f8883b_0%,#f26722_45%,#d84d0f_100%)]"
+  >
+    <div
+      class="bg-[#fff6e8] rounded-2xl w-11/12 max-w-lg flex flex-col overflow-hidden shadow-[0_24px_45px_rgba(5,46,111,0.25)]"
+    >
+      <div
+        class="relative w-full h-48 md:h-56 bg-[url('https://cdn.prod.website-files.com/62e81a6c2171bd40143e605c/68c82b2b6d0e06cf9091938a_Popeyes_Hot_Ones_Full_Menu_Lineup.jpg')] bg-size-[100%_auto] bg-center bg-no-repeat"
+      >
+        <div
+          class="absolute inset-0 bg-[linear-gradient(120deg,rgba(5,46,111,0.8),rgba(5,46,111,0.38))]"
+        ></div>
+        <div class="absolute w-full -bottom-20 flex justify-center">
+          <div
+            class="w-32 h-32 rounded-full border-4 border-[#ffe1bf] shadow-lg shadow-[rgba(5,46,111,0.35)]"
+          >
+            <img
+              src="https://embroideres.com/files/4417/4336/4809/Popeyes_Round_Logo_embroidery_design.jpg"
+              alt=""
+              class="w-full h-full object-cover rounded-full"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-col p-10">
+        <p class="mt-2 text-center text-[#052e6f]/80">
+          Your Popeyes order from
+        </p>
+        <p
+          class="font-['Bree_Serif'] tracking-[0.02em] text-[#052e6f] text-xl text-center"
+        >
+          Popeyes Louisiana Kitchen
+        </p>
+      </div>
+      <div class="space-y-2 px-7">
+        <div class="grid grid-cols-3">
+          <div class="flex items-center justify-start">
+            <p class="text-sm font-semibold text-[#052e6f] text-nowrap">
+              3 Pc Signature Chicken | Spicy
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p
+              class="px-2 py-1 rounded-md border border-[#f5b17b] bg-[#fff7ef] text-[#052e6f]"
+            >
+              <i class="fa-solid fa-minus"></i>
+            </p>
+            <p class="mx-3 text-[#052e6f] font-bold">1</p>
+            <p
+              class="px-2 py-1 rounded-md border border-[#f5b17b] bg-[#fff7ef] text-[#052e6f]"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p class="text-lg font-bold text-[#052e6f] ml-2">£10.99</p>
+            <p
+              class="ml-2 w-5 h-5 flex items-center justify-center bg-white/90 border border-[#ffd1aa] group hover:bg-[#ffe4cb] rounded-full"
+            >
+              <i
+                class="fa-solid text-[#d27434] group-hover:text-[#bb3e0b] fa-xmark"
+              ></i>
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-3">
+          <div class="flex items-center justify-start">
+            <p class="text-sm font-semibold text-[#052e6f] text-nowrap">
+              Cajun Fries | Large
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p
+              class="px-2 py-1 rounded-md border border-[#f5b17b] bg-[#fff7ef] text-[#052e6f]"
+            >
+              <i class="fa-solid fa-minus"></i>
+            </p>
+            <p class="mx-3 text-[#052e6f] font-bold">2</p>
+            <p
+              class="px-2 py-1 rounded-md border border-[#f5b17b] bg-[#fff7ef] text-[#052e6f]"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </p>
+          </div>
+          <div class="flex items-center justify-end">
+            <p class="text-lg font-bold text-[#052e6f] ml-2">£50.99</p>
+            <p
+              class="ml-2 w-5 h-5 flex items-center justify-center bg-white/90 border border-[#ffd1aa] group hover:bg-[#ffe4cb] rounded-full"
+            >
+              <i
+                class="fa-solid text-[#d27434] group-hover:text-[#bb3e0b] fa-xmark"
+              ></i>
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center justify-start">
+          <button
+            class="border border-[#052e6f]/45 bg-white/80 px-3 py-2 rounded-lg text-[#052e6f] hover:bg-[#f26722] hover:text-white hover:border-[#f26722] transition-colors duration-200"
+          >
+            <i class="fa-solid fa-martini-glass-citrus mr-1"></i>Add Strawberry
+            Lemonade
+          </button>
+        </div>
+      </div>
+      <div class="mt-8 px-5">
+        <div
+          class="w-full p-5 rounded-lg border border-[#f9c08f] bg-[repeating-linear-gradient(-45deg,#fff3e3,#fff3e3_9px,#ffead1_9px,#ffead1_18px)]"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-[#052e6f]/80">Subtotal</p>
+            <p class="text-lg text-[#052e6f] font-bold">£61.98</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-[#052e6f]/80">Shipping</p>
+            <p class="text-lg text-[#052e6f] font-bold">£5.00</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-[#052e6f]/80">Total (inc. VAT)</p>
+            <p class="text-lg text-[#052e6f] font-bold">£66.98</p>
+          </div>
+        </div>
+      </div>
+      <p class="my-5 italic text-[#052e6f] text-center">
+        Took chick-fil-a recipe.....
+      </p>
+      <div class="mt-5 px-7 mb-5">
+        <button
+          class="w-full text-white py-4 rounded-lg font-extrabold tracking-wide transition-transform duration-200 hover:-translate-y-px bg-[linear-gradient(180deg,#ff8e45_0%,#f26722_55%,#dd5012_100%)] shadow-[0_10px_20px_rgba(210,74,13,0.35)]"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
