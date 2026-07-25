@@ -49,43 +49,62 @@
           ←
         </button>
 
-        <div class="flex gap-3 text-center">
-          <div
-            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-400 min-w-36"
+        <div class="flex gap-3 text-center" id="date-options">
+          <button
+            type="button"
+            data-date-chip
+            data-date="Tue 30, Apr 2019"
+            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-500 min-w-36 transition duration-200 hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
           >
             <div class="font-medium">Tue 30, Apr</div>
             <div class="text-sm">No flights</div>
-          </div>
-          <div
-            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-400 min-w-36"
+          </button>
+          <button
+            type="button"
+            data-date-chip
+            data-date="Wed 01, May 2019"
+            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-500 min-w-36 transition duration-200 hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
           >
             <div class="font-medium">Wed 01, May</div>
             <div class="text-sm">No flights</div>
-          </div>
-          <div
-            class="px-4 py-3 rounded-xl bg-amber-100/70 text-slate-900 shadow-md shadow-amber-200/50 min-w-36"
+          </button>
+          <button
+            type="button"
+            data-date-chip
+            data-date="Thu 02, May 2019"
+            class="px-4 py-3 rounded-xl bg-amber-100/70 text-slate-900 shadow-md shadow-amber-200/50 min-w-36 ring-2 ring-amber-300 transition duration-200 hover:bg-amber-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+            aria-pressed="true"
           >
             <div class="font-semibold">Thu 02, May</div>
             <div class="text-sm">From <strong>$264</strong></div>
-          </div>
-          <div
-            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-400 min-w-36"
+          </button>
+          <button
+            type="button"
+            data-date-chip
+            data-date="Fri 03, May 2019"
+            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-500 min-w-36 transition duration-200 hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
           >
             <div class="font-medium">Fri 03, May</div>
             <div class="text-sm">No flights</div>
-          </div>
-          <div
-            class="px-4 py-3 rounded-xl bg-white text-slate-800 shadow-md shadow-slate-100 min-w-36"
+          </button>
+          <button
+            type="button"
+            data-date-chip
+            data-date="Sat 04, May 2019"
+            class="px-4 py-3 rounded-xl bg-white text-slate-800 shadow-md shadow-slate-100 min-w-36 transition duration-200 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
           >
             <div class="font-semibold">Sat 04, May</div>
             <div class="text-sm">From <strong>$254</strong></div>
-          </div>
-          <div
-            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-400 min-w-36"
+          </button>
+          <button
+            type="button"
+            data-date-chip
+            data-date="Sun 05, May 2019"
+            class="px-4 py-3 bg-slate-100 rounded-xl text-slate-500 min-w-36 transition duration-200 hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
           >
             <div class="font-medium">Sun 05, May</div>
             <div class="text-sm">No flights</div>
-          </div>
+          </button>
         </div>
 
         <button
@@ -97,6 +116,7 @@
 
       <div class="text-center mb-8 px-4 sm:px-6">
         <div
+          id="selected-date"
           class="text-sm font-medium text-slate-500 mb-4 tracking-wide uppercase"
         >
           Thu 02, May 2019
@@ -139,4 +159,50 @@
       </div>
     </div>
   </body>
+  <script>
+    const dateChips = document.querySelectorAll("[data-date-chip]");
+    const selectedDate = document.getElementById("selected-date");
+
+    const activeClasses = [
+      "bg-amber-100/70",
+      "text-slate-900",
+      "shadow-md",
+      "shadow-amber-200/50",
+      "ring-2",
+      "ring-amber-300",
+    ];
+    const inactiveClasses = [
+      "bg-slate-100",
+      "text-slate-500",
+      "bg-white",
+      "text-slate-800",
+      "shadow-slate-100",
+      "hover:bg-slate-200",
+      "hover:bg-slate-50",
+    ];
+
+    dateChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        dateChips.forEach((item) => {
+          item.classList.remove(...activeClasses);
+          item.classList.remove("font-semibold");
+          item.classList.add(
+            "bg-slate-100",
+            "text-slate-500",
+            "hover:bg-slate-200",
+          );
+          item.setAttribute("aria-pressed", "false");
+        });
+
+        chip.classList.remove(...inactiveClasses);
+        chip.classList.add(...activeClasses);
+        chip.classList.remove("hover:bg-slate-200", "hover:bg-slate-50");
+        chip.setAttribute("aria-pressed", "true");
+
+        if (selectedDate) {
+          selectedDate.textContent = chip.dataset.date;
+        }
+      });
+    });
+  </script>
 </html>
