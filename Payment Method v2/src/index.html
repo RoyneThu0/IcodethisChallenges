@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Method</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="bg-linear-to-br from-sky-300 via-cyan-200 to-blue-300 w-screen min-h-screen flex items-center justify-center p-4 md:p-6"
+  >
+    <div
+      class="bg-white p-6 md:p-10 w-11/12 max-w-5xl rounded-3xl shadow-2xl shadow-cyan-200/60"
+    >
+      <div
+        class="flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-4"
+      >
+        <div class="flex items-center justify-center flex-col min-w-28">
+          <img
+            src="https://pngimg.com/d/shopping_cart_PNG70.png"
+            alt=""
+            class="h-11 object-contain drop-shadow-sm"
+          />
+          <p
+            class="text-center text-sm mt-2 font-semibold text-blue-900 tracking-wide"
+          >
+            Shopping Cart
+          </p>
+        </div>
+        <div
+          class="w-full md:w-14 h-0.5 bg-linear-to-r from-slate-300 via-slate-400 to-slate-300 rounded-full"
+        ></div>
+        <div class="flex items-center justify-center flex-col min-w-28">
+          <img
+            src="https://www.freeiconspng.com/uploads/location-icon-map-png-15.png"
+            alt=""
+            class="h-11 object-contain drop-shadow-sm"
+          />
+          <p
+            class="text-center text-sm mt-2 font-semibold text-blue-900 tracking-wide"
+          >
+            Delivery Address
+          </p>
+        </div>
+        <div
+          class="w-full md:w-14 h-0.5 bg-linear-to-r from-slate-300 via-slate-400 to-slate-300 rounded-full"
+        ></div>
+        <div class="flex items-center justify-center flex-col min-w-28">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/10473/10473692.png"
+            alt=""
+            class="h-11 object-contain drop-shadow-sm"
+          />
+          <p
+            class="text-center text-sm mt-2 font-semibold text-blue-900 tracking-wide"
+          >
+            Payment Method
+          </p>
+        </div>
+        <div
+          class="w-full md:w-14 h-0.5 bg-linear-to-r from-slate-300 via-slate-400 to-slate-300 rounded-full"
+        ></div>
+        <div class="flex items-center justify-center flex-col min-w-28">
+          <img
+            src="https://www.freeiconspng.com/uploads/document-icon-28.png"
+            alt=""
+            class="h-11 object-contain drop-shadow-sm"
+          />
+          <p
+            class="text-center text-sm mt-2 font-semibold text-blue-900 tracking-wide"
+          >
+            Preview Order
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 md:mt-10 p-2 md:p-6">
+        <p class="text-xl text-gray-500 mb-1 tracking-wide">PAYMENT METHOD</p>
+        <div
+          class="w-full flex items-stretch justify-start md:flex-nowrap flex-wrap gap-4 mt-5"
+        >
+          <div
+            class="w-full md:w-1/5 flex items-center flex-col space-y-4 bg-slate-50 rounded-2xl py-5 px-3"
+          >
+            <div
+              class="w-10/12 border-2 border-blue-400 rounded-lg p-4 bg-white shadow-lg"
+            >
+              <img
+                src="https://logos-world.net/wp-content/uploads/2020/06/Visa-Logo-2006.png"
+                alt=""
+                class="w-full mx-auto max-w-20"
+              />
+            </div>
+            <div
+              class="w-10/12 border-2 border-blue-400 rounded-lg p-4 bg-white shadow-lg"
+            >
+              <img
+                src="https://www.top-bank.ch/images/logo_540/paypal.png"
+                alt=""
+                class="w-full mx-auto max-w-20"
+              />
+            </div>
+            <div
+              class="w-10/12 border-2 border-blue-400 rounded-lg p-4 bg-white shadow-lg"
+            >
+              <img
+                src="https://images.vexels.com/media/users/3/144838/isolated/preview/0e8ecc882dcf98521ef01d2163416fc9-bitcoin-logo.png"
+                alt=""
+                class="w-full mx-auto max-w-20"
+              />
+            </div>
+          </div>
+          <div
+            class="w-full md:w-4/5 bg-gray-100 rounded-2xl shadow-xl p-5 md:p-7"
+          >
+            <p class="text-xl text-gray-500 mb-1 tracking-wide">
+              PAYMENT METHOD
+            </p>
+
+            <label for="cardNumber" class="text-gray-700">Card Number</label>
+            <input
+              id="cardNumber"
+              type="text"
+              placeholder="123 4567 8912 3456"
+              class="w-full px-4 py-3 rounded border border-gray-300 mb-4 mt-1 bg-white/95 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <div
+              class="flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0 mb-6"
+            >
+              <div
+                class="flex items-center rounded-md p-1 w-full md:w-1/2 justify-between shadow-sm bg-white/90"
+              >
+                <div class="flex flex-col items-start">
+                  <label for="expirationDate"> Expiration Date</label>
+                  <input
+                    id="expirationDate"
+                    type="text"
+                    placeholder="MM/YY"
+                    class="w-full px-2 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+                <p class="text-xl">
+                  <i class="fa-solid fa-check text-green-400"></i>
+                </p>
+              </div>
+              <div
+                class="flex items-center rounded-md p-1 w-full md:w-1/2 justify-between shadow-sm bg-white/90"
+              >
+                <div class="flex flex-col items-start">
+                  <label for="cvv"> CVV</label>
+                  <input
+                    id="cvv"
+                    type="text"
+                    placeholder="123"
+                    class="w-full px-2 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+                <p class="text-xl">
+                  <i class="fa-solid fa-check text-green-400"></i>
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col space-x-4 mb-4">
+              <label for="cardHolderName" class="text-gray-700"
+                >Card Holder Name</label
+              >
+              <input
+                id="cardHolderName"
+                type="text"
+                placeholder="John Doe"
+                class="w-full px-3 py-2 rounded border border-gray-300 mt-1 bg-white/95 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+
+            <button
+              class="w-full bg-blue-400 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-200 shadow-lg shadow-blue-300/40"
+            >
+              Confirm Payment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
