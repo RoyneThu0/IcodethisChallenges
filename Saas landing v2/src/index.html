@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saas Landing</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1638272181967-7d3772a91265?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHB1cnBsZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D);
+      background-color: #1a1a2e;
+    "
+  >
+    <div
+      class="flex min-h-screen justify-center px-4 py-6 sm:px-6 sm:py-10 lg:px-10"
+    >
+      <div
+        class="flex h-fit w-full max-w-7xl flex-col items-center justify-start rounded-3xl bg-[#3a3850]/90 p-6 shadow-2xl shadow-[#120f24]/40 sm:p-8 lg:p-10"
+      >
+        <nav class="w-full">
+          <div class="flex items-center justify-center sm:justify-end">
+            <ul
+              class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 text-sm text-white sm:justify-end sm:gap-x-6 sm:text-base"
+            >
+              <li>
+                <a href="#home" class="hover:underline hover:text-[#6d63ff]"
+                  >Browse</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:underline hover:text-[#6d63ff]"
+                  >Support</a
+                >
+              </li>
+              <li>
+                <a href="#blog" class="hover:underline hover:text-[#6d63ff]"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:underline hover:text-[#6d63ff]"
+                  >Sign In</a
+                >
+              </li>
+              <li>
+                <button class="rounded bg-[#6d63ff] px-4 py-2 text-white">
+                  Sign up
+                </button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div
+          class="mt-16 grid w-full grid-cols-1 gap-10 md:mt-24 md:w-10/12 md:grid-cols-2 md:gap-6 lg:mt-32"
+        >
+          <div
+            class="order-2 z-100 flex flex-col justify-center text-center md:order-1 md:text-left"
+          >
+            <p
+              class="mb-4 text-3xl leading-tight text-white sm:text-4xl lg:text-5xl"
+            >
+              You're never paying full <br class="hidden sm:block" />
+              price for software again.
+            </p>
+            <p class="max-w-xl text-sm leading-7 text-white/85 sm:text-base">
+              We'll send you the hottest deals straight to your inbox so you're
+              always in on the best kept software secrets.
+            </p>
+
+            <div
+              class="mt-6 flex w-full flex-col items-stretch justify-start gap-3 sm:flex-row sm:items-center sm:gap-0"
+            >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+                class="w-full rounded-lg border border-gray-400 bg-white/5 p-3 text-white placeholder:text-white/60 sm:w-2/3 sm:rounded-r-none"
+              />
+              <button
+                class="rounded-lg bg-[#6c64ff] px-4 py-3 text-white transition hover:bg-[#7b73ff] sm:ml-2 sm:rounded-l-none"
+              >
+                Sign up
+              </button>
+            </div>
+          </div>
+          <div
+            class="order-1 relative flex min-h-70 items-center justify-center md:order-2 sm:min-h-90"
+          >
+            <img
+              src="https://png.pngtree.com/png-vector/20250610/ourmid/pngtree-modern-silver-desktop-computer-monitor-mockup-png-image_16508290.png"
+              alt=""
+              class="relative z-10 h-auto w-64 max-w-full object-cover sm:w-80 lg:w-104"
+            />
+            <svg
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 sm:h-115 sm:w-115 lg:h-155 lg:w-155"
+            >
+              <path
+                fill="#302f45"
+                d="M39.4,-41.6C51.1,-27.6,60.8,-13.8,59.4,-1.4C58,11,45.5,22,33.8,29.1C22,36.2,11,39.4,0.7,38.6C-9.6,37.9,-19.1,33.3,-33.5,26.2C-47.8,19.1,-67,9.6,-67.4,-0.4C-67.8,-10.3,-49.4,-20.7,-35.1,-34.7C-20.7,-48.7,-10.3,-66.4,1.7,-68.2C13.8,-69.9,27.6,-55.7,39.4,-41.6Z"
+                transform="translate(100 100)"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="mt-16 grid w-full grid-cols-1 gap-6 rounded-3xl bg-[#2d2c41] p-5 pb-8 md:mt-24 md:w-10/12 md:grid-cols-3 lg:mt-32 lg:p-6 lg:pb-10"
+        >
+          <div class="flex flex-col items-center justify-center text-center">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/66eddfbefcd4ef7b3be3ccc3/b9cd0bc8-822e-4edc-8786-083988dd0cdb/16.png"
+              alt=""
+              class="h-28 w-28 object-contain sm:h-32 sm:w-32 lg:h-40 lg:w-40"
+            />
+            <p class="mt-4 text-center font-semibold text-white">
+              We partner with the hottest <br />
+              tech companies.
+            </p>
+            <p
+              class="mt-2 text-center text-sm leading-6 text-white/80 sm:text-base"
+            >
+              We're talking Evernote, MailChimp, Depositphotos... just to name a
+              few.
+            </p>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center">
+            <img
+              src="https://static.vecteezy.com/system/resources/thumbnails/069/413/881/small_2x/purple-thumbs-up-icon-on-lavender-background-png.png"
+              alt=""
+              class="h-28 w-28 object-contain sm:h-32 sm:w-32 lg:h-40 lg:w-40"
+            />
+            <p class="mt-4 text-center font-semibold text-white">
+              We run insane deals on their products.
+            </p>
+            <p
+              class="mt-2 text-center text-sm leading-6 text-white/80 sm:text-base"
+            >
+              But don't sleep on it! Our deals sell out within a couple weeks.
+            </p>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center">
+            <img
+              src="https://cdn3d.iconscout.com/3d/premium/thumb/purple-coin-8662899-6892724.png"
+              alt=""
+              class="h-28 w-28 object-contain sm:h-32 sm:w-32 lg:h-40 lg:w-40"
+            />
+            <p class="mt-4 text-center font-semibold text-white">
+              You save thousands of dollars.
+            </p>
+            <p
+              class="mt-2 text-center text-sm leading-6 text-white/80 sm:text-base"
+            >
+              And build up a full arsenal of tools to grow your business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
