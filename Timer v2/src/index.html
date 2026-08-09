@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      .progress {
+        background: conic-gradient(
+          #4ade80 0%,
+          #4ade80 calc(var(--progress) * 1%),
+          transparent calc(var(--progress) * 1%),
+          transparent 100%
+        );
+        transition: background 1s linear;
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body
+    class="flex min-h-screen items-center justify-center bg-cover bg-center bg-[#2c9e9b] px-4 py-8"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1521080755838-d2311117f767?q=80&w=2162&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    "
+  >
+    <div
+      class="w-full max-w-xs overflow-hidden rounded-3xl p-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.24)]"
+      style="
+        background: linear-gradient(to bottom, #38b2ac, #42a5d8 55%, #5b9df0);
+      "
+    >
+      <div
+        class="mb-5 flex items-center justify-between rounded-full bg-white/15 px-2 py-1.5 text-[0.65rem] uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm"
+      >
+        <div class="px-3 py-1.5 font-semibold">Alarm</div>
+        <div
+          class="rounded-full bg-white/30 px-3 py-1.5 font-semibold text-white shadow-sm"
+        >
+          Timer
+        </div>
+        <div class="px-3 py-1.5 font-semibold">Stopwatch</div>
+      </div>
+
+      <div class="relative mt-8">
+        <div
+          id="circle"
+          class="relative mx-auto flex h-40 w-40 items-center justify-center rounded-full bg-white/90 text-3xl font-semibold text-slate-800 shadow-[0_0_0_14px_rgba(255,255,255,0.16)]"
+        >
+          <div class="progress p-1">
+            <div class="h-full w-full rounded-full bg-white"></div>
+          </div>
+          <span id="timer" class="relative z-10">25:00</span>
+        </div>
+      </div>
+
+      <div class="mt-10 flex justify-center gap-5">
+        <button
+          id="resetBtn"
+          class="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-xl text-slate-700 shadow-lg transition-transform duration-200 hover:scale-105"
+          aria-label="Reset timer"
+        >
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        <button
+          id="pauseBtn"
+          class="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-xl text-white shadow-lg transition-transform duration-200 hover:scale-105"
+          aria-label="Pause timer"
+        >
+          <i class="fa-solid fa-pause"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let timeLeft = 25 * 60;
+      let countdown;
+      let isPaused = false;
+
+      const timerDisplay = document.getElementById("timer");
+      const pauseBtn = document.getElementById("pauseBtn");
+      const resetBtn = document.getElementById("resetBtn");
+
+      function updatePauseButton() {
+        pauseBtn.innerHTML = isPaused
+          ? '<i class="fa-solid fa-play"></i>'
+          : '<i class="fa-solid fa-pause"></i>';
+      }
+
+      function displayTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        const progress = (seconds / (25 * 60)) * 100;
+
+        timerDisplay.textContent = `${minutes}:${
+          remainingSeconds < 10 ? "0" : ""
+        }${remainingSeconds}`;
+        document
+          .querySelector(".progress")
+          .style.setProperty("--progress", progress);
+      }
+
+      function startTimer() {
+        countdown = setInterval(() => {
+          if (!isPaused && timeLeft > 0) {
+            timeLeft--;
+            displayTime(timeLeft);
+          } else if (timeLeft <= 0) {
+            clearInterval(countdown);
+            countdown = null;
+            alert("Time's up!");
+          }
+        }, 1000);
+      }
+
+      pauseBtn.addEventListener("click", () => {
+        isPaused = !isPaused;
+        updatePauseButton();
+        if (!countdown) startTimer();
+      });
+
+      resetBtn.addEventListener("click", () => {
+        clearInterval(countdown);
+        countdown = null;
+        timeLeft = 25 * 60;
+        isPaused = false;
+        updatePauseButton();
+        displayTime(timeLeft);
+      });
+
+      updatePauseButton();
+      displayTime(timeLeft);
+    </script>
+  </body>
+</html>
