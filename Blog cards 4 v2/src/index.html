@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Cards 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Poppins", "sans-serif"] },
+            colors: {
+              canvas: "#EFEDFB",
+              ink: "#3F4A75",
+              body: "#6E7391",
+              muted: "#9CA1BC",
+            },
+            boxShadow: {
+              card: "0 18px 40px -12px rgba(76, 74, 140, 0.18)",
+              "card-hover": "0 28px 55px -12px rgba(76, 74, 140, 0.28)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-canvas font-sans">
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div class="grid items-start gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <article
+          class="overflow-hidden rounded-xl bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+        >
+          <img
+            src="https://media.istockphoto.com/id/1924316236/photo/focus-on-the-smiling-brunette-woman-sitting-with-her-friend-outdoors-during-the-autumn-season.jpg?s=612x612&w=0&k=20&c=QosHOEzb8U_ShcDao8yLFbS_UqkOxnTRjVdDSO72aB4="
+            alt="Work Image"
+            class="h-56 w-full object-cover"
+          />
+          <div class="px-8 pb-6 pt-8">
+            <h2 class="mb-6 text-[27px] font-light leading-snug text-ink">
+              How To Build Trust At Work
+            </h2>
+            <p class="text-[13px] leading-[2.2] text-body">
+              You will undoubtedly have dreams. Whether you dream of having the
+              perfect house with the perfect car, or you dream of settling down
+              to have a family, even if you dream of retiring by the time you're
+              40, the one key to success is doing something about it. It may
+              sound obvious but if you dream of retiring before you reach 40 and
+              yet you aimlessly skip
+            </p>
+            <div
+              class="mt-7 flex items-center justify-between border-t border-[#EDEDF4] pt-6"
+            >
+              <div class="flex items-center">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1l6fbVIlb9dXMPu06Tnl5wO-v_cEi2a2Yw&s=10"
+                  alt="Nina Ford"
+                  class="h-10 w-10 rounded-full object-cover"
+                />
+                <div class="ml-3">
+                  <p class="text-sm font-semibold text-ink">Nina Ford</p>
+                  <p class="text-xs font-light text-muted">Manager</p>
+                </div>
+              </div>
+              <span class="text-sm font-light text-body">8 Apr</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="relative overflow-visible rounded-xl bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover lg:-translate-y-4 lg:hover:-translate-y-5"
+        >
+          <span
+            class="absolute -top-4 left-6 z-10 animate-pulse rounded-md bg-[#F5487F] px-3 py-1.5 text-[11px] font-semibold tracking-wide text-white shadow-lg"
+            >NEW</span
+          >
+          <div class="overflow-hidden rounded-xl">
+            <img
+              src="https://media.istockphoto.com/id/482478715/photo/enjoying-the-sun.jpg?s=612x612&w=0&k=20&c=ZgWFECW1bGWNeCH6zFrTI69HoObKLTAu6P2wr6LZAtA="
+              alt="Motivation"
+              class="h-56 w-full object-cover"
+            />
+            <div class="px-8 pb-6 pt-8">
+              <h2 class="mb-6 text-[27px] font-light leading-snug text-ink">
+                How Do You Get Up And Go Forward
+              </h2>
+              <p class="text-[13px] leading-[2.2] text-body">
+                You will undoubtedly have dreams. Whether you dream of having
+                the perfect house with the perfect car, or you dream of settling
+                down to have a family, even if you dream of retiring by the time
+                you're 40, the one key to success is doing something about it.
+                It may sound obvious but if you dream of retiring before you
+                reach 40 and yet you aimlessly skip
+              </p>
+              <div
+                class="mt-7 flex items-center justify-between border-t border-[#EDEDF4] pt-6"
+              >
+                <div class="flex items-center">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1l6fbVIlb9dXMPu06Tnl5wO-v_cEi2a2Yw&s=10"
+                    alt="Lura Reeves"
+                    class="h-10 w-10 rounded-full object-cover"
+                  />
+                  <div class="ml-3">
+                    <p class="text-sm font-semibold text-ink">Lura Reeves</p>
+                    <p class="text-xs font-light text-muted">Manager</p>
+                  </div>
+                </div>
+                <span class="text-sm font-light text-body">8 Apr</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="overflow-hidden rounded-xl bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+        >
+          <img
+            src="https://thumbs.dreamstime.com/b/hiker-man-hiking-forest-20931795.jpg"
+            alt="Adventure"
+            class="h-56 w-full object-cover"
+          />
+          <div class="px-8 pb-6 pt-8">
+            <h2 class="mb-6 text-[27px] font-light leading-snug text-ink">
+              Accomplish Great Things In Your Life
+            </h2>
+            <p class="text-[13px] leading-[2.2] text-body">
+              You will undoubtedly have dreams. Whether you dream of having the
+              perfect house with the perfect car, or you dream of settling down
+              to have a family, even if you dream of retiring by the time you're
+              40, the one key to success is doing something about it. It may
+              sound obvious but if you dream of retiring before you reach 40 and
+              yet you aimlessly skip
+            </p>
+            <div
+              class="mt-7 flex items-center justify-between border-t border-[#EDEDF4] pt-6"
+            >
+              <div class="flex items-center">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIqzDf587uSHW0xIYOWjf9TP2cilFgis9KUQ&s"
+                  alt="Ola Mann"
+                  class="h-10 w-10 rounded-full object-cover"
+                />
+                <div class="ml-3">
+                  <p class="text-sm font-semibold text-ink">Ola Mann</p>
+                  <p class="text-xs font-light text-muted">Manager</p>
+                </div>
+              </div>
+              <span class="text-sm font-light text-body">8 Apr</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
