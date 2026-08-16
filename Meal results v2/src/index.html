@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="flex min-h-screen w-full items-center justify-center bg-gray-100 p-4 sm:p-6"
+  >
+    <div
+      class="w-full max-w-5xl rounded-lg bg-white p-5 shadow-lg shadow-gray-900/5 sm:p-8"
+    >
+      <div class="mb-6 flex flex-col gap-1.5">
+        <h1 class="text-2xl font-semibold tracking-tight text-gray-400">
+          Results for <span class="text-gray-900">“Avocado”</span>
+        </h1>
+        <p class="text-sm text-gray-500">3 results found</p>
+      </div>
+
+      <div class="mb-6 flex flex-wrap items-center gap-3">
+        <button
+          type="button"
+          class="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-1 text-sm font-medium text-gray-700 shadow-sm transition hover:border-gray-400 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+        >
+          <i
+            class="fa-solid fa-sliders text-xs text-gray-400"
+            aria-hidden="true"
+          ></i>
+          <span>Filters</span>
+          <span
+            class="rounded-full bg-gray-200 px-2 py-0.5 text-xs font-semibold tabular-nums text-gray-700"
+            >3</span
+          >
+        </button>
+        <div class="flex flex-wrap gap-2">
+          <span
+            class="flex items-center gap-1.5 rounded-full bg-blue-600 py-1 pl-3 pr-1.5 text-sm font-medium text-white shadow-sm shadow-blue-600/20"
+          >
+            Vegetarian
+            <button
+              type="button"
+              aria-label="Remove Vegetarian filter"
+              class="flex size-5 items-center justify-center rounded-full text-white/70 transition hover:bg-white/20 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-white"
+            >
+              <i class="fa-solid fa-xmark text-xs" aria-hidden="true"></i>
+            </button>
+          </span>
+          <span
+            class="flex items-center gap-1.5 rounded-full bg-blue-600 py-1 pl-3 pr-1.5 text-sm font-medium text-white shadow-sm shadow-blue-600/20"
+          >
+            Protein
+            <button
+              type="button"
+              aria-label="Remove Protein filter"
+              class="flex size-5 items-center justify-center rounded-full text-white/70 transition hover:bg-white/20 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-white"
+            >
+              <i class="fa-solid fa-xmark text-xs" aria-hidden="true"></i>
+            </button>
+          </span>
+          <span
+            class="flex items-center gap-1.5 rounded-full bg-blue-600 py-1 pl-3 pr-1.5 text-sm font-medium text-white shadow-sm shadow-blue-600/20"
+          >
+            Dinner
+            <button
+              type="button"
+              aria-label="Remove Dinner filter"
+              class="flex size-5 items-center justify-center rounded-full text-white/70 transition hover:bg-white/20 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-white"
+            >
+              <i class="fa-solid fa-xmark text-xs" aria-hidden="true"></i>
+            </button>
+          </span>
+        </div>
+        <div class="ml-auto flex items-center gap-2">
+          <span class="text-sm text-gray-500">Choose display</span>
+          <div class="flex gap-2">
+            <button
+              type="button"
+              aria-label="List view"
+              class="rounded-md border border-gray-300 bg-white p-2 text-sm text-gray-500 transition hover:border-gray-400 hover:bg-gray-50 hover:text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              aria-label="Grid view"
+              aria-pressed="true"
+              class="rounded-md border border-blue-200 bg-blue-100 p-2 text-sm text-blue-700 transition hover:bg-blue-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              <i
+                class="fa-solid fa-table-cells-large fa-fw"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          class="group rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-900/10"
+        >
+          <img
+            src="https://www.indianhealthyrecipes.com/wp-content/uploads/2023/09/avocado-sandwich-recipe.jpg"
+            alt="Avocado sandwich with boiled egg"
+            loading="lazy"
+            class="mb-3 h-40 w-full rounded-lg bg-gray-100 object-cover"
+          />
+          <div class="flex items-start justify-between gap-2">
+            <h2
+              class="font-semibold leading-snug text-gray-900 transition-colors group-hover:text-blue-700"
+            >
+              Avocado sandwich with boiled egg
+            </h2>
+            <button
+              type="button"
+              aria-label="Save Avocado sandwich with boiled egg"
+              class="-mr-1 -mt-1 shrink-0 rounded-md p-1 text-lg leading-none text-gray-300 transition hover:bg-gray-50 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              <i class="fa-regular fa-bookmark fa-fw" aria-hidden="true"></i>
+            </button>
+          </div>
+          <p class="mt-1.5 flex items-center gap-1.5 text-sm text-gray-500">
+            <i class="fa-regular fa-clock text-gray-400" aria-hidden="true"></i>
+            Under 1 hour
+          </p>
+        </div>
+
+        <div
+          class="group rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-900/10"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1562629609-49c10e58c2a6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZvY2FkbyUyMHNhbGFkJTIwd2l0aCUyMGJyb2NvbGxpfGVufDB8MnwwfHx8MA%3D%3D"
+            alt="Fresh avocado salad with broccoli"
+            loading="lazy"
+            class="mb-3 h-40 w-full rounded-lg bg-gray-100 object-cover"
+          />
+          <div class="flex items-start justify-between gap-2">
+            <h2
+              class="font-semibold leading-snug text-gray-900 transition-colors group-hover:text-blue-700"
+            >
+              Fresh avocado salad with broccoli
+            </h2>
+            <button
+              type="button"
+              aria-label="Save Fresh avocado salad with broccoli"
+              class="-mr-1 -mt-1 shrink-0 rounded-md p-1 text-lg leading-none text-gray-300 transition hover:bg-gray-50 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              <i class="fa-regular fa-bookmark fa-fw" aria-hidden="true"></i>
+            </button>
+          </div>
+          <p class="mt-1.5 flex items-center gap-1.5 text-sm text-gray-500">
+            <i class="fa-regular fa-clock text-gray-400" aria-hidden="true"></i>
+            Under 1 hour
+          </p>
+        </div>
+
+        <div
+          class="group rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-900/10"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1545775210-00729451dbe5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YXZvY2FkbyUyMGFuZCUyMHNwaW5hY2glMjBwZXN0byUyMHNwYWdldHRpfGVufDB8MnwwfHx8MA%3D%3D"
+            alt="Avocado and spinach pesto spaghetti"
+            loading="lazy"
+            class="mb-3 h-40 w-full rounded-lg bg-gray-100 object-cover"
+          />
+          <div class="flex items-start justify-between gap-2">
+            <h2
+              class="font-semibold leading-snug text-gray-900 transition-colors group-hover:text-blue-700"
+            >
+              Avocado and spinach pesto spaghetti
+            </h2>
+            <button
+              type="button"
+              aria-label="Save Avocado and spinach pesto spaghetti"
+              class="-mr-1 -mt-1 shrink-0 rounded-md p-1 text-lg leading-none text-gray-300 transition hover:bg-gray-50 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+              <i class="fa-regular fa-bookmark fa-fw" aria-hidden="true"></i>
+            </button>
+          </div>
+          <p class="mt-1.5 flex items-center gap-1.5 text-sm text-gray-500">
+            <i class="fa-regular fa-clock text-gray-400" aria-hidden="true"></i>
+            Under 1 hour
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
