@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttons Kit</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+
+    <style>
+      :root {
+        --raise-dark: rgba(174, 184, 209, 0.55);
+        --raise-light: #ffffff;
+      }
+
+      .raised {
+        background: #ffffff;
+        box-shadow:
+          6px 6px 14px var(--raise-dark),
+          -6px -6px 14px var(--raise-light);
+        transition:
+          box-shadow 200ms ease,
+          transform 200ms ease;
+      }
+      .raised:hover,
+      .pressable:hover .raised {
+        box-shadow:
+          9px 9px 20px var(--raise-dark),
+          -9px -9px 20px var(--raise-light);
+      }
+      .raised:active,
+      .pressable:active .raised {
+        box-shadow:
+          inset 4px 4px 9px var(--raise-dark),
+          inset -4px -4px 9px var(--raise-light);
+      }
+
+      .menu {
+        box-shadow:
+          6px 6px 16px var(--raise-dark),
+          -6px -6px 16px var(--raise-light);
+      }
+
+      .sunken {
+        background: #e3e7f0;
+        box-shadow:
+          inset 5px 5px 11px var(--raise-dark),
+          inset -5px -5px 11px var(--raise-light);
+      }
+
+      .accent {
+        background-image: linear-gradient(135deg, #7280f8 0%, #5a68ee 100%);
+        box-shadow:
+          6px 6px 16px rgba(90, 104, 238, 0.4),
+          -6px -6px 14px var(--raise-light);
+        transition:
+          box-shadow 200ms ease,
+          transform 200ms ease;
+      }
+      .accent:hover {
+        box-shadow:
+          9px 9px 22px rgba(90, 104, 238, 0.45),
+          -9px -9px 20px var(--raise-light);
+      }
+      .accent:active {
+        box-shadow:
+          inset 4px 4px 10px rgba(64, 78, 205, 0.55),
+          inset -3px -3px 8px rgba(255, 255, 255, 0.35);
+      }
+
+      :focus-visible,
+      .sort-toggle:focus-visible + label,
+      .pressable:focus-visible .raised {
+        outline: 2px solid #5a68ee;
+        outline-offset: 4px;
+      }
+      .pressable:focus-visible {
+        outline: none;
+      }
+
+      .sort-toggle:checked + label .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen bg-[#eef0f6] text-[#33406b] flex items-center justify-center px-6 py-16 antialiased"
+  >
+    <main
+      class="w-full max-w-4xl flex flex-col items-center gap-14 lg:items-stretch lg:gap-16"
+    >
+      <div
+        class="flex flex-col items-center gap-14 lg:flex-row lg:items-end lg:justify-between lg:gap-8"
+      >
+        <div class="flex items-start gap-8 sm:gap-12">
+          <button
+            type="button"
+            class="pressable flex flex-col items-center gap-3"
+          >
+            <span
+              class="raised grid h-20 w-20 place-items-center rounded-full sm:h-24 sm:w-24"
+            >
+              <i
+                class="fa-solid fa-box-archive fa-fw text-2xl"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <span class="text-sm font-semibold">History</span>
+          </button>
+
+          <button
+            type="button"
+            class="pressable flex flex-col items-center gap-3"
+          >
+            <span
+              class="raised grid h-20 w-20 place-items-center rounded-full sm:h-24 sm:w-24"
+            >
+              <i
+                class="fa-solid fa-award fa-fw text-2xl"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <span class="text-sm font-semibold">Awards</span>
+          </button>
+
+          <button
+            type="button"
+            class="pressable flex flex-col items-center gap-3"
+          >
+            <span
+              class="raised grid h-20 w-20 place-items-center rounded-full sm:h-24 sm:w-24"
+            >
+              <i
+                class="fa-solid fa-lightbulb fa-fw text-2xl"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <span class="text-sm font-semibold">Ideas</span>
+          </button>
+        </div>
+
+        <div class="relative w-56">
+          <input
+            type="checkbox"
+            id="sort-toggle"
+            class="peer sort-toggle sr-only"
+          />
+          <label
+            for="sort-toggle"
+            class="raised flex w-full cursor-pointer items-center justify-between rounded-2xl px-6 py-4 text-sm font-semibold select-none"
+          >
+            <span>Sort</span>
+            <i
+              class="fa-solid fa-chevron-down text-xs transition-transform duration-200"
+              aria-hidden="true"
+            ></i>
+          </label>
+
+          <div
+            class="menu invisible absolute left-0 top-[calc(100%+0.75rem)] z-10 w-full translate-y-1 rounded-2xl bg-white p-2 opacity-0 transition duration-200 peer-checked:visible peer-checked:translate-y-0 peer-checked:opacity-100"
+          >
+            <button
+              type="button"
+              class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold hover:bg-[#eef0f6]"
+            >
+              <i class="fa-solid fa-calendar-days fa-fw" aria-hidden="true"></i>
+              <span>Sort by date</span>
+            </button>
+            <button
+              type="button"
+              class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold hover:bg-[#eef0f6]"
+            >
+              <i
+                class="fa-solid fa-arrow-down-a-z fa-fw"
+                aria-hidden="true"
+              ></i>
+              <span>Sort alphabetically</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <form
+        class="sunken flex w-full items-center rounded-full p-2 pl-6 lg:w-[68%]"
+      >
+        <label for="search" class="sr-only">Search</label>
+        <i
+          class="fa-solid fa-magnifying-glass fa-fw text-lg text-[#8a94b4]"
+          aria-hidden="true"
+        ></i>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search"
+          class="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm font-medium outline-none placeholder:text-[#8a94b4]"
+        />
+        <button
+          type="submit"
+          class="raised shrink-0 rounded-full px-7 py-3 text-sm font-semibold"
+        >
+          Search
+        </button>
+      </form>
+
+      <div
+        class="flex flex-col items-center gap-10 lg:flex-row lg:justify-between lg:gap-8"
+      >
+        <button
+          type="button"
+          class="accent flex shrink-0 items-center gap-3 rounded-full px-8 py-4 text-sm font-semibold text-white"
+        >
+          <i class="fa-solid fa-right-to-bracket fa-fw" aria-hidden="true"></i>
+          <span>Import your data</span>
+        </button>
+
+        <nav aria-label="Footer">
+          <ul
+            class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm font-medium text-[#98a2bd]"
+          >
+            <li><a href="#" class="rounded hover:text-[#33406b]">About</a></li>
+            <li aria-hidden="true">&bull;</li>
+            <li>
+              <a href="#" class="rounded hover:text-[#33406b]">Privacy</a>
+            </li>
+            <li aria-hidden="true">&bull;</li>
+            <li><a href="#" class="rounded hover:text-[#33406b]">Terms</a></li>
+            <li aria-hidden="true">&bull;</li>
+            <li>
+              <a href="#" class="rounded hover:text-[#33406b]"
+                >Software and Licenses</a
+              >
+            </li>
+            <li aria-hidden="true">&bull;</li>
+            <li>
+              <button
+                type="button"
+                class="flex items-center gap-2 rounded hover:text-[#33406b]"
+              >
+                <span>English</span>
+                <i
+                  class="fa-solid fa-chevron-down text-xs"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>
