@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download status</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      @property --progress {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 0;
+      }
+
+      body {
+        background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+      }
+
+      .progress-ring {
+        position: relative;
+        display: grid;
+        place-items: center;
+        padding: var(--ring-width, 4px);
+        border-radius: 9999px;
+        background: conic-gradient(
+          from 0deg,
+          #93c5fd 0deg,
+          #2563eb calc(var(--progress) * 3.6deg),
+          #d1d5db calc(var(--progress) * 3.6deg)
+        );
+        transition: --progress 140ms linear;
+      }
+
+      .progress-ring__done {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: conic-gradient(from 0deg, #6ee7b7, #059669, #6ee7b7);
+        opacity: 0;
+        transition: opacity 500ms ease;
+      }
+
+      [data-ring="complete"] .progress-ring__done,
+      [data-status-row="complete"] .progress-ring__done {
+        opacity: 1;
+      }
+
+      .progress-ring__face {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        display: grid;
+        place-items: center;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="flex min-h-screen w-full items-center justify-center p-4 text-slate-900 antialiased sm:p-6"
+    data-page-state="idle"
+  >
+    <main class="relative w-full max-w-md">
+      <header class="mb-5 flex items-end justify-between gap-4">
+        <div>
+          <p
+            class="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-slate-400"
+          >
+            Cloud sync
+          </p>
+          <h1 class="mt-1 text-2xl font-semibold tracking-tight">
+            Download status
+          </h1>
+        </div>
+        <button
+          id="download-trigger"
+          type="button"
+          data-ring="idle"
+          aria-label="Start download"
+          style="--ring-width: 5px"
+          class="progress-ring group h-16 w-16 shrink-0 outline-none focus-visible:ring-4 focus-visible:ring-slate-900/15"
+        >
+          <span class="progress-ring__done"></span>
+          <span
+            class="progress-ring__face bg-white shadow-sm transition-colors duration-300 group-hover:bg-black"
+          >
+            <i
+              id="trigger-icon"
+              class="fa-solid fa-cloud-arrow-down fa-fw text-xl text-slate-400 transition-colors duration-300 group-hover:text-white"
+            ></i>
+          </span>
+        </button>
+      </header>
+
+      <section
+        class="rounded-lg border-4 border-gray-300 bg-white p-4 shadow-xl shadow-slate-900/5 sm:p-5"
+      >
+        <div class="rounded-lg border-2 border-gray-300 bg-gray-100 p-4">
+          <div class="flex items-baseline justify-between gap-3">
+            <p class="text-sm font-medium text-slate-700">
+              <i class="fa-solid fa-database fa-fw mr-1 text-slate-400"></i>
+              Cloud storage
+            </p>
+            <p
+              data-storage-label
+              class="text-xs font-medium tabular-nums text-slate-500"
+            >
+              256 GB of 1 TB
+            </p>
+          </div>
+          <div
+            class="mt-3 h-2.5 w-full overflow-hidden rounded-full border border-gray-300 bg-white"
+          >
+            <div
+              data-storage-bar
+              class="h-full rounded-full bg-black transition-[width] duration-500 ease-out"
+              style="width: 25%"
+            ></div>
+          </div>
+        </div>
+
+        <ul class="my-2">
+          <li
+            data-status-row="complete"
+            class="flex items-center gap-3 border-b-2 border-gray-300 px-2 py-4 sm:gap-4"
+          >
+            <span
+              data-status-indicator
+              class="progress-ring h-11 w-11 shrink-0 sm:h-12 sm:w-12"
+              style="--progress: 100"
+            >
+              <span class="progress-ring__done"></span>
+              <span class="progress-ring__face bg-white">
+                <i
+                  data-status-icon
+                  class="fa-solid fa-check fa-fw text-emerald-500"
+                ></i>
+              </span>
+            </span>
+            <div class="min-w-0 flex-1">
+              <p class="text-sm font-semibold">File syncing</p>
+              <p
+                data-status-message
+                class="mt-0.5 truncate text-sm text-slate-500"
+              >
+                1,204 files &middot; up to date
+              </p>
+            </div>
+            <button
+              type="button"
+              aria-label="Sync settings"
+              class="shrink-0 rounded-lg px-1.5 py-1 text-xl text-gray-300 outline-none transition-colors duration-300 hover:text-black focus-visible:text-black"
+            >
+              <i class="fa-solid fa-gear fa-fw"></i>
+            </button>
+          </li>
+
+          <li
+            data-status-row="loading"
+            class="flex items-center gap-3 border-b-2 border-gray-300 px-2 py-4 sm:gap-4"
+          >
+            <span
+              data-status-indicator
+              class="progress-ring h-11 w-11 shrink-0 sm:h-12 sm:w-12"
+              style="--progress: 13"
+            >
+              <span class="progress-ring__done"></span>
+              <span class="progress-ring__face bg-white">
+                <i
+                  data-status-icon
+                  class="fa-solid fa-cloud-arrow-up fa-fw text-blue-500"
+                ></i>
+              </span>
+            </span>
+            <div class="min-w-0 flex-1">
+              <p class="text-sm font-semibold">Updating cloud</p>
+              <p
+                data-status-message
+                class="mt-0.5 truncate text-sm text-slate-500"
+              >
+                0.4 GB of 2.8 GB
+              </p>
+            </div>
+            <span
+              data-status-meta
+              class="shrink-0 text-sm font-semibold tabular-nums text-blue-600"
+              >13%</span
+            >
+          </li>
+
+          <li
+            data-status-row="waiting"
+            class="flex items-center gap-3 px-2 py-4 sm:gap-4"
+          >
+            <span
+              data-status-indicator
+              class="progress-ring h-11 w-11 shrink-0 sm:h-12 sm:w-12"
+              style="--progress: 0"
+            >
+              <span class="progress-ring__done"></span>
+              <span class="progress-ring__face bg-white">
+                <i
+                  data-status-icon
+                  class="fa-solid fa-hourglass-half fa-fw text-slate-400"
+                ></i>
+              </span>
+            </span>
+            <div class="min-w-0 flex-1">
+              <p class="text-sm font-semibold">Updating solutions</p>
+              <p
+                data-status-message
+                class="mt-0.5 truncate text-sm text-slate-500"
+              >
+                24 modules queued
+              </p>
+            </div>
+            <span
+              data-status-meta
+              class="shrink-0 rounded-lg border border-gray-300 bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-500"
+              >Queued</span
+            >
+          </li>
+        </ul>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            class="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-gray-300 px-4 py-2.5 text-sm font-semibold text-slate-700 outline-none transition-colors duration-300 hover:border-black hover:text-black focus-visible:border-black"
+          >
+            Go to downloads
+            <i class="fa-solid fa-arrow-right fa-fw text-xs"></i>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const page = document.body;
+      const trigger = document.querySelector("#download-trigger");
+      const triggerIcon = document.querySelector("#trigger-icon");
+      const cloudRow = document.querySelector('[data-status-row="loading"]');
+      const solutionsRow = document.querySelector(
+        '[data-status-row="waiting"]',
+      );
+      const storageBar = document.querySelector("[data-storage-bar]");
+      const storageLabel = document.querySelector("[data-storage-label]");
+
+      const ICONS = {
+        waiting: "fa-solid fa-hourglass-half fa-fw text-slate-400",
+        loading: "fa-solid fa-cloud-arrow-up fa-fw text-blue-500",
+        complete: "fa-solid fa-check fa-fw text-emerald-500",
+      };
+
+      const META = {
+        waiting:
+          "shrink-0 rounded-lg border border-gray-300 bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-500",
+        loading: "shrink-0 text-sm font-semibold tabular-nums text-blue-600",
+        complete:
+          "shrink-0 rounded-lg border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600",
+      };
+
+      const CLOUD_SHARE = 0.65;
+      const START = 13 * CLOUD_SHARE;
+      const STEP = 1.9;
+
+      let overall = START;
+      let timer = null;
+      let iconTimer = null;
+
+      const setProgress = (el, value) =>
+        el.style.setProperty("--progress", value);
+
+      const setStatus = (row, state, message, meta) => {
+        row.dataset.statusRow = state;
+        row.querySelector("[data-status-message]").textContent = message;
+        row.querySelector("[data-status-icon]").className = ICONS[state];
+        const metaEl = row.querySelector("[data-status-meta]");
+        metaEl.className = META[state];
+        metaEl.textContent = meta;
+      };
+
+      const setTrigger = (state, label, icon) => {
+        trigger.dataset.ring = state;
+        trigger.setAttribute("aria-label", label);
+        triggerIcon.className = `fa-solid ${icon} fa-fw text-xl transition-colors duration-300 group-hover:text-white ${
+          state === "complete" ? "text-emerald-500" : "text-slate-400"
+        }`;
+      };
+
+      const render = () => {
+        const cloud = Math.min(100, overall / CLOUD_SHARE);
+        const solutions = Math.max(
+          0,
+          (overall - CLOUD_SHARE * 100) / (1 - CLOUD_SHARE),
+        );
+
+        const done = ((overall - START) / (100 - START)) * 100;
+        setProgress(trigger, done);
+
+        if (cloud < 100) {
+          setStatus(
+            cloudRow,
+            "loading",
+            `${((2.8 * cloud) / 100).toFixed(1)} GB of 2.8 GB`,
+            `${Math.round(cloud)}%`,
+          );
+          setProgress(cloudRow.querySelector("[data-status-indicator]"), cloud);
+        } else {
+          setStatus(cloudRow, "complete", "2.8 GB \u00b7 up to date", "Done");
+          setProgress(cloudRow.querySelector("[data-status-indicator]"), 100);
+
+          if (solutions < 100) {
+            setStatus(
+              solutionsRow,
+              "loading",
+              `${Math.round((24 * solutions) / 100)} of 24 modules`,
+              `${Math.round(solutions)}%`,
+            );
+          } else {
+            setStatus(solutionsRow, "complete", "24 modules installed", "Done");
+          }
+          setProgress(
+            solutionsRow.querySelector("[data-status-indicator]"),
+            solutions,
+          );
+        }
+
+        storageBar.style.width = `${25 + done * 0.062}%`;
+        storageLabel.textContent = `${Math.round(256 + done * 0.62)} GB of 1 TB`;
+      };
+
+      const finish = () => {
+        page.dataset.pageState = "complete";
+        trigger.disabled = false;
+        setTrigger("complete", "Restart download", "fa-check");
+        iconTimer = window.setTimeout(
+          () => setTrigger("complete", "Restart download", "fa-rotate-right"),
+          1400,
+        );
+      };
+
+      const reset = () => {
+        window.clearInterval(timer);
+        window.clearTimeout(iconTimer);
+        overall = START;
+        page.dataset.pageState = "idle";
+        setTrigger("idle", "Start download", "fa-cloud-arrow-down");
+        setStatus(solutionsRow, "waiting", "24 modules queued", "Queued");
+        setProgress(solutionsRow.querySelector("[data-status-indicator]"), 0);
+        setProgress(trigger, 0);
+        render();
+      };
+
+      trigger.addEventListener("click", () => {
+        if (page.dataset.pageState === "complete") {
+          reset();
+          return;
+        }
+
+        page.dataset.pageState = "loading";
+        trigger.disabled = true;
+        setTrigger("loading", "Downloading", "fa-cloud-arrow-down");
+
+        timer = window.setInterval(() => {
+          overall = Math.min(100, overall + STEP);
+          render();
+          if (overall >= 100) {
+            window.clearInterval(timer);
+            window.setTimeout(finish, 500);
+          }
+        }, 80);
+      });
+
+      render();
+    </script>
+  </body>
+</html>
