@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassy Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      @keyframes blob-y {
+        0%,
+        100% {
+          transform: translateY(-14px);
+        }
+        50% {
+          transform: translateY(14px);
+        }
+      }
+      @keyframes blob-x {
+        0%,
+        100% {
+          transform: translateX(-18px);
+        }
+        50% {
+          transform: translateX(18px);
+        }
+      }
+      .blob-y {
+        animation: blob-y 6s ease-in-out infinite;
+      }
+      .blob-x {
+        animation: blob-x 8s ease-in-out infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .blob-y,
+        .blob-x {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-[#c5c9df]"
+  >
+    <div class="w-10/12 max-w-[330px] relative">
+      <div
+        class="absolute inset-x-9 -top-10 -bottom-10 bg-blue-950 rounded-2xl -z-10"
+      ></div>
+      <div
+        class="w-full relative bg-white rounded-2xl flex items-center justify-center shadow-xl"
+      >
+        <div
+          class="relative w-full min-h-[360px] p-8 rounded-2xl overflow-hidden"
+        >
+          <div
+            class="bg-purple-300 blob-y z-10 w-28 h-28 rounded-full absolute top-4 right-8"
+          ></div>
+          <div
+            class="bg-teal-300 blob-x z-10 w-44 h-44 rounded-full absolute -bottom-12 -left-8"
+          ></div>
+        </div>
+        <div
+          class="z-100 absolute w-full backdrop-blur-2xl rounded-2xl h-full p-8"
+        >
+          <p
+            class="text-end text-xl hover:text-blue-900 cursor-pointer duration-300"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </p>
+
+          <div class="w-full flex items-center justify-center mt-1">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkz669GqYXZi6NvbMitrnCpgJKnwp02GeyHQ&s"
+              alt=""
+              class="w-24 h-24 rounded-full border-4 border-white hover:scale-110 hover:border-blue-900 hover:border-4 hover:shadow-xl shadow-gray-500/40 duration-300 ease-in-out"
+            />
+          </div>
+          <p
+            class="font-serif text-lg font-semibold text-blue-900 text-center mt-3"
+          >
+            Daniela Joffrion
+          </p>
+          <p class="text-center text-blue-900 text-sm font-light mt-1">
+            <i class="fa-solid fa-location-dot"></i> Atlanta, GA
+          </p>
+
+          <div class="w-full flex justify-center mt-5">
+            <button
+              class="bg-blue-900 text-white py-1.5 px-3 text-sm rounded-full hover:bg-blue-500 transition duration-300 shadow-xl"
+            >
+              View Content
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
