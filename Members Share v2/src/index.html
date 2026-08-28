@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Share</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+      :root {
+        --page: #242741;
+        --panel: #353653;
+        --panel-deep: #2b2c4a;
+        --line: #5c5d7b;
+        --copy: #f4f3fa;
+        --accent: #7280ff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        color: var(--copy);
+        font-family: "Nunito Sans", sans-serif;
+        background: var(--page);
+      }
+      .share-panel {
+        width: min(100%, 811px);
+        min-height: 555px;
+        padding: 48px;
+        background: var(--panel);
+        border: 1px solid rgba(255, 255, 255, 0.025);
+        border-radius: 22px;
+        box-shadow: 0 24px 45px rgba(10, 12, 34, 0.17);
+      }
+      .back-button {
+        width: 53px;
+        height: 53px;
+        color: var(--panel-deep);
+        background: #fff;
+        border-radius: 50%;
+        font-size: 20px;
+      }
+      .settings {
+        color: #e8e7f2;
+      }
+      .settings i {
+        color: #e8e7f2;
+        font-size: 25px;
+      }
+      .share-title {
+        margin-top: 29px;
+        color: var(--copy);
+        font-size: clamp(28px, 3vw, 32px);
+        font-weight: 400;
+        line-height: 1.22;
+      }
+      .member-picker {
+        min-height: 80px;
+        margin-top: 37px;
+        padding: 13px 15px;
+        border: 1px solid var(--line);
+        border-radius: 42px;
+      }
+      .member-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        height: 52px;
+        padding: 4px 18px 4px 5px;
+        color: var(--copy);
+        background: #505174;
+        border: 1px solid #696b91;
+        border-radius: 30px;
+        font-size: 18px;
+        white-space: nowrap;
+      }
+      .member-chip + .member-chip {
+        margin-left: 7px;
+      }
+      .avatar {
+        width: 42px;
+        height: 42px;
+        object-fit: cover;
+        border: 2px solid #d8d8e8;
+        border-radius: 50%;
+      }
+      .notify-row {
+        margin-top: 28px;
+      }
+      .notify-row input {
+        appearance: none;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        border: 2px solid #5d5f82;
+        border-radius: 3px;
+        background: transparent;
+      }
+      .notify-row input:checked {
+        border-color: var(--accent);
+        background: var(--accent);
+        box-shadow: inset 0 0 0 6px var(--panel);
+      }
+      .notify-row label {
+        margin-left: 9px;
+        color: #e7e6f1;
+        font-size: 18px;
+      }
+      .feedback {
+        color: var(--accent);
+        font-size: 17px;
+      }
+      .action-button {
+        min-width: 144px;
+        height: 66px;
+        border-radius: 4px;
+        font-size: 21px;
+      }
+      .cancel-button {
+        color: #e5e4f0;
+        background: #292a49;
+      }
+      .send-button {
+        color: #fff;
+        background: var(--accent);
+        box-shadow: 0 6px 14px rgba(89, 99, 220, 0.2);
+      }
+      @media (max-width: 640px) {
+        .share-panel {
+          min-height: auto;
+          padding: 28px 22px;
+          border-radius: 16px;
+        }
+        .settings p {
+          display: none;
+        }
+        .member-picker {
+          overflow-x: auto;
+        }
+        .footer {
+          align-items: flex-start;
+          flex-direction: column-reverse;
+          gap: 24px;
+        }
+        .footer-actions {
+          width: 100%;
+        }
+        .action-button {
+          flex: 1;
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="w-screen min-h-screen p-5 flex items-center justify-center">
+    <main class="share-panel">
+      <div class="w-full flex items-center justify-between">
+        <button
+          class="back-button flex items-center justify-center"
+          aria-label="Go back"
+        >
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+        </button>
+        <div class="settings flex items-center justify-end gap-3">
+          <p>Settings</p>
+          <p>
+            <i class="fa-solid fa-gear"></i>
+          </p>
+        </div>
+      </div>
+      <div>
+        <h1 class="share-title">
+          Share with people <br />
+          and groups
+        </h1>
+      </div>
+      <div class="member-picker flex items-center">
+        <span class="member-chip"
+          ><img
+            class="avatar"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+            alt=""
+          />Emma James</span
+        >
+        <span class="member-chip"
+          ><img
+            class="avatar"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+            alt=""
+          />Jim Fanges</span
+        >
+        <input
+          type="text"
+          class="min-w-0 flex-1 border-none outline-none bg-transparent text-white placeholder:text-white/50"
+          placeholder="Search here"
+          aria-label="Search people and groups"
+        />
+      </div>
+      <div class="notify-row flex items-center justify-start gap-0">
+        <input type="checkbox" name="notify" id="notify" />
+        <label for="notify">Notify people</label>
+      </div>
+      <div class="footer w-full mt-14 flex items-center justify-between">
+        <p class="feedback hover:underline">Send feedback</p>
+        <div class="footer-actions flex justify-end gap-6">
+          <button class="action-button cancel-button px-10 py-4">Cancel</button>
+
+          <button class="action-button send-button px-10 py-4">Send</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
