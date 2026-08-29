@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Review</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="w-screen min-h-screen bg-gray-100 flex items-center justify-center p-4 sm:p-6 md:p-10"
+  >
+    <div
+      class="relative mx-auto bg-red-200 p-4 sm:p-6 md:p-8 rounded-xl w-[92%] max-w-2xl flex items-center justify-center"
+    >
+      <div
+        class="absolute w-[95%] max-w-xl bg-white rounded-xl p-5 sm:p-6 md:p-8"
+      >
+        <div class="flex items-center justify-between gap-3">
+          <h2 class="text-base sm:text-lg font-bold">Overall Rating</h2>
+          <button
+            class="text-gray-500 hover:bg-gray-700 hover:text-white duration-300 ease-in-out w-10 h-10 bg-gray-200 rounded-full"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="flex justify-start mt-3">
+          <ul class="flex items-center gap-1">
+            <button
+              type="button"
+              class="rating-star w-8 h-8 sm:w-9 sm:h-9 rounded-sm text-base sm:text-lg border-2 border-gray-100 flex items-center justify-center bg-white cursor-pointer transition-transform hover:scale-105"
+              data-rating="1"
+              aria-label="Rate 1 star"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </button>
+            <button
+              type="button"
+              class="rating-star w-8 h-8 sm:w-9 sm:h-9 rounded-sm text-base sm:text-lg border-2 border-gray-100 flex items-center justify-center bg-white cursor-pointer transition-transform hover:scale-105"
+              data-rating="2"
+              aria-label="Rate 2 stars"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </button>
+            <button
+              type="button"
+              class="rating-star w-8 h-8 sm:w-9 sm:h-9 rounded-sm text-base sm:text-lg border border-gray-100 flex items-center justify-center bg-white cursor-pointer transition-transform hover:scale-105"
+              data-rating="3"
+              aria-label="Rate 3 stars"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </button>
+            <button
+              type="button"
+              class="rating-star w-8 h-8 sm:w-9 sm:h-9 rounded-sm text-base sm:text-lg border-2 border-gray-100 flex items-center justify-center bg-white cursor-pointer transition-transform hover:scale-105"
+              data-rating="4"
+              aria-label="Rate 4 stars"
+            >
+              <i class="fa-solid fa-star text-yellow-500"></i>
+            </button>
+
+            <button
+              type="button"
+              class="rating-star w-8 h-8 sm:w-9 sm:h-9 rounded-sm text-base sm:text-lg border-2 border-gray-100 flex items-center justify-center bg-white cursor-pointer transition-transform hover:scale-105"
+              data-rating="5"
+              aria-label="Rate 5 stars"
+            >
+              <i class="fa-solid fa-star text-gray-300"></i>
+            </button>
+          </ul>
+        </div>
+        <p class="text-[10px] sm:text-xs mt-1">Click to rate</p>
+
+        <div class="w-full mt-4">
+          <label for="title" class="block text-sm font-semibold text-gray-700"
+            >Review title</label
+          >
+          <input
+            type="text"
+            id="title"
+            class="mt-1 block w-full h-9 sm:h-10 p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 text-sm"
+            placeholder="Example: Easy to use"
+          />
+        </div>
+
+        <p class="mt-5 text-sm sm:text-base font-semibold">
+          Would you recommend this product to a friend?
+        </p>
+        <div class="w-full max-w-[10rem] flex justify-start gap-2 mt-2">
+          <div class="w-full">
+            <input
+              type="radio"
+              id="recommend-yes"
+              name="recommend"
+              value="yes"
+              class="hidden peer"
+            />
+            <label
+              for="recommend-yes"
+              class="cursor-pointer inline-flex items-center justify-center w-full h-9 sm:h-10 border border-gray-200 rounded-md text-gray-700 font-semibold peer-checked:bg-blue-500 peer-checked:text-white text-sm"
+            >
+              Yes
+            </label>
+          </div>
+          <div class="w-full">
+            <input
+              type="radio"
+              id="recommend-no"
+              name="recommend"
+              value="no"
+              class="hidden peer"
+            />
+            <label
+              for="recommend-no"
+              class="cursor-pointer inline-flex items-center justify-center w-full h-9 sm:h-10 border border-gray-200 rounded-md text-gray-700 font-semibold peer-checked:bg-blue-500 peer-checked:text-white text-sm"
+            >
+              No
+            </label>
+          </div>
+        </div>
+        <div class="mt-5">
+          <label for="review" class="font-semibold text-sm text-gray-700"
+            >Product review</label
+          >
+          <textarea
+            id="review"
+            rows="4"
+            class="block w-full p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 text-sm"
+            placeholder="Write your review here..."
+          ></textarea>
+        </div>
+
+        <div
+          class="w-full flex flex-col sm:flex-row items-center justify-between mt-3 gap-2"
+        >
+          <div class="w-full">
+            <label for="nickname" class="font-semibold text-xs text-gray-700"
+              >Nickname</label
+            >
+            <input
+              type="text"
+              id="nickname"
+              class="mt-1 block w-full h-9 sm:h-10 p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 text-sm"
+              placeholder="Example: bob27"
+            />
+          </div>
+          <div class="w-full">
+            <label for="email" class="font-semibold text-xs text-gray-700"
+              >Email Address (will not be published)</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="mt-1 block w-full h-9 sm:h-10 p-2 border border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 text-sm"
+              placeholder="Example: your@email.com"
+            />
+          </div>
+        </div>
+        <div class="mt-5 flex items-center justify-start gap-2">
+          <input
+            type="checkbox"
+            name="t&c"
+            id="t&c"
+            class="w-4 h-4 sm:w-5 sm:h-5"
+          />
+          <label for="t&c" class="text-xs sm:text-sm text-gray-700"
+            >I agree to the terms and conditions</label
+          >
+        </div>
+        <p class="text-[10px] sm:text-xs text-gray-400 mt-4 leading-relaxed">
+          You will be able to recieve emails in connection to this review(e.g if
+          others comment on your review). All emails contain the option to
+          unsubscribe. We can use the text and star rating from your review in
+          other marketing.
+        </p>
+        <div class="flex items-center w-full justify-start mt-4">
+          <button
+            class="px-5 sm:px-7 py-2.5 sm:py-3 bg-black text-white rounded-md text-sm sm:text-base"
+          >
+            Submit product review
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const stars = document.querySelectorAll(".rating-star");
+
+      function setRating(rating) {
+        stars.forEach((star) => {
+          const starValue = Number(star.dataset.rating);
+          const icon = star.querySelector("i");
+          const isFilled = starValue <= rating;
+
+          icon.classList.toggle("text-yellow-500", isFilled);
+          icon.classList.toggle("text-gray-300", !isFilled);
+        });
+      }
+
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          setRating(Number(star.dataset.rating));
+        });
+      });
+
+      setRating(4);
+    </script>
+  </body>
+</html>
