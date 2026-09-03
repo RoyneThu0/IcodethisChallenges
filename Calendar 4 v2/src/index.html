@@ -25,7 +25,6 @@
       <div
         class="grid w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] md:grid-cols-[1fr_20rem] lg:grid-cols-[1fr_24rem]"
       >
-        <!-- Calendar -->
         <section class="bg-[#2a1a63] p-6 sm:p-10">
           <header class="mb-8 flex items-center gap-4">
             <button
@@ -60,7 +59,6 @@
           <div id="calendarDays" class="grid grid-cols-7 gap-y-1"></div>
         </section>
 
-        <!-- Day detail -->
         <aside class="flex flex-col bg-[#241a55] p-6 sm:p-8">
           <div class="text-center">
             <p
@@ -86,7 +84,6 @@
       </div>
     </div>
 
-    <!-- Add event dialog -->
     <div
       id="eventModal"
       class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
@@ -224,7 +221,11 @@
           for (const [k, list] of Object.entries(parsed)) {
             parsed[k] = list.map((e, i) =>
               typeof e === "string"
-                ? { title: e, time: "", color: COLOR_KEYS[i % COLOR_KEYS.length] }
+                ? {
+                    title: e,
+                    time: "",
+                    color: COLOR_KEYS[i % COLOR_KEYS.length],
+                  }
                 : e,
             );
           }
@@ -239,13 +240,12 @@
       function save() {
         try {
           localStorage.setItem(STORE_KEY, JSON.stringify(events));
-        } catch {
-          /* private mode — keep the in-memory copy */
-        }
+        } catch {}
       }
 
       const eventsOn = (date) =>
-        events[keyOf(date.getFullYear(), date.getMonth(), date.getDate())] || [];
+        events[keyOf(date.getFullYear(), date.getMonth(), date.getDate())] ||
+        [];
 
       const sameDay = (a, b) =>
         a.getFullYear() === b.getFullYear() &&
@@ -398,7 +398,9 @@
           <button type="button" data-color="${c}" aria-label="${c}" aria-pressed="${
             c === newColor
           }" class="size-7 rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
-            c === newColor ? "ring-2 ring-white ring-offset-2 ring-offset-[#2a1a63]" : ""
+            c === newColor
+              ? "ring-2 ring-white ring-offset-2 ring-offset-[#2a1a63]"
+              : ""
           }" style="background:${COLORS[c]}"></button>`,
         ).join("");
       }
