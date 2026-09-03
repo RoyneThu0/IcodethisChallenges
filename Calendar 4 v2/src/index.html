@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar 4</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="min-h-screen bg-[#100b2e] p-4 font-sans text-white antialiased sm:p-8"
+  >
+    <div
+      class="mx-auto flex min-h-[calc(100vh-2rem)] max-w-6xl items-center justify-center sm:min-h-[calc(100vh-4rem)]"
+    >
+      <div
+        class="grid w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] md:grid-cols-[1fr_20rem] lg:grid-cols-[1fr_24rem]"
+      >
+        <!-- Calendar -->
+        <section class="bg-[#2a1a63] p-6 sm:p-10">
+          <header class="mb-8 flex items-center gap-4">
+            <button
+              id="prevMonth"
+              type="button"
+              aria-label="Previous month"
+              class="grid size-8 place-items-center rounded-full border border-white/40 text-xs text-white/80 transition hover:border-white hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400"
+            >
+              <i class="fa-solid fa-chevron-left fa-fw"></i>
+            </button>
+            <h1
+              id="monthYear"
+              class="text-lg font-bold tracking-wide uppercase sm:text-xl"
+            ></h1>
+            <button
+              id="nextMonth"
+              type="button"
+              aria-label="Next month"
+              class="grid size-8 place-items-center rounded-full border border-white/40 text-xs text-white/80 transition hover:border-white hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400"
+            >
+              <i class="fa-solid fa-chevron-right fa-fw"></i>
+            </button>
+          </header>
+
+          <div
+            class="mb-4 grid grid-cols-7 text-center text-[0.7rem] font-bold tracking-[0.15em] text-white/90 sm:text-xs"
+          >
+            <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span
+            ><span>THU</span><span>FRI</span><span>SAT</span>
+          </div>
+
+          <div id="calendarDays" class="grid grid-cols-7 gap-y-1"></div>
+        </section>
+
+        <!-- Day detail -->
+        <aside class="flex flex-col bg-[#241a55] p-6 sm:p-8">
+          <div class="text-center">
+            <p
+              id="selectedWeekday"
+              class="text-lg font-bold tracking-wide uppercase sm:text-xl"
+            ></p>
+            <p id="selectedDate" class="mt-1 text-lg text-white/90"></p>
+          </div>
+
+          <div
+            id="eventList"
+            class="my-8 flex flex-1 flex-col justify-center gap-3"
+          ></div>
+
+          <button
+            id="addEventBtn"
+            type="button"
+            class="w-full rounded-full bg-gradient-to-r from-[#c026d3] to-[#e879f9] py-4 text-sm font-bold tracking-[0.15em] text-white shadow-[0_10px_30px_-5px_rgba(217,70,239,0.7)] transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
+          >
+            ADD EVENT
+          </button>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Add event dialog -->
+    <div
+      id="eventModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+    >
+      <div
+        class="w-full max-w-sm rounded-2xl bg-[#2a1a63] p-6 shadow-2xl ring-1 ring-white/10"
+      >
+        <h2 class="mb-1 text-lg font-bold">Add event</h2>
+        <p id="modalDate" class="mb-5 text-sm text-[#8f7dc9]"></p>
+
+        <label class="mb-1 block text-xs font-semibold tracking-wide uppercase"
+          >Title</label
+        >
+        <input
+          id="eventInput"
+          type="text"
+          placeholder="Team stand-up"
+          class="mb-4 w-full rounded-lg bg-[#1b1145] px-3 py-2 text-white placeholder-[#6f5fae] focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400"
+        />
+
+        <label class="mb-1 block text-xs font-semibold tracking-wide uppercase"
+          >Time</label
+        >
+        <input
+          id="eventTime"
+          type="time"
+          value="09:00"
+          class="mb-4 w-full rounded-lg bg-[#1b1145] px-3 py-2 text-white [color-scheme:dark] focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400"
+        />
+
+        <label class="mb-2 block text-xs font-semibold tracking-wide uppercase"
+          >Colour</label
+        >
+        <div id="colorPicker" class="mb-6 flex gap-3"></div>
+
+        <div class="flex justify-end gap-3">
+          <button
+            id="cancelEvent"
+            type="button"
+            class="rounded-full px-5 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            Cancel
+          </button>
+          <button
+            id="saveEvent"
+            type="button"
+            class="rounded-full bg-gradient-to-r from-[#c026d3] to-[#e879f9] px-6 py-2 text-sm font-bold text-white shadow-lg transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const MONTHS = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const WEEKDAYS = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const COLORS = {
+        green: "#34d399",
+        blue: "#38bdf8",
+        orange: "#fb923c",
+        pink: "#f472b6",
+        yellow: "#facc15",
+      };
+      const COLOR_KEYS = Object.keys(COLORS);
+      const MAX_DOTS = 5;
+      const STORE_KEY = "calendar4Events";
+
+      const pad = (n) => String(n).padStart(2, "0");
+      const keyOf = (y, m, d) => `${y}-${pad(m + 1)}-${pad(d)}`;
+
+      const today = new Date();
+      let viewYear = today.getFullYear();
+      let viewMonth = today.getMonth();
+      let selected = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate(),
+      );
+      let newColor = "green";
+
+      function seed() {
+        const y = today.getFullYear();
+        const m = today.getMonth();
+        const last = new Date(y, m + 1, 0).getDate();
+        const on = (d, list) =>
+          d <= last ? { [keyOf(y, m, d)]: list } : undefined;
+        return Object.assign(
+          {},
+          on(4, [
+            { title: "Design review", time: "09:30", color: "green" },
+            { title: "Lunch with Ada", time: "12:30", color: "blue" },
+            { title: "Deploy v2", time: "17:00", color: "orange" },
+          ]),
+          on(5, [
+            { title: "Yoga class", time: "07:00", color: "green" },
+            { title: "Sprint planning", time: "11:00", color: "orange" },
+          ]),
+          on(14, [{ title: "Dentist", time: "15:15", color: "blue" }]),
+          on(20, [
+            { title: "Flight to Nairobi", time: "06:40", color: "orange" },
+            { title: "Client workshop", time: "10:00", color: "pink" },
+            { title: "Team dinner", time: "19:30", color: "yellow" },
+          ]),
+        );
+      }
+
+      function load() {
+        try {
+          const raw = localStorage.getItem(STORE_KEY);
+          if (!raw) return seed();
+          const parsed = JSON.parse(raw);
+          // Tolerate the older shape where each event was a plain string.
+          for (const [k, list] of Object.entries(parsed)) {
+            parsed[k] = list.map((e, i) =>
+              typeof e === "string"
+                ? { title: e, time: "", color: COLOR_KEYS[i % COLOR_KEYS.length] }
+                : e,
+            );
+          }
+          return parsed;
+        } catch {
+          return seed();
+        }
+      }
+
+      let events = load();
+
+      function save() {
+        try {
+          localStorage.setItem(STORE_KEY, JSON.stringify(events));
+        } catch {
+          /* private mode — keep the in-memory copy */
+        }
+      }
+
+      const eventsOn = (date) =>
+        events[keyOf(date.getFullYear(), date.getMonth(), date.getDate())] || [];
+
+      const sameDay = (a, b) =>
+        a.getFullYear() === b.getFullYear() &&
+        a.getMonth() === b.getMonth() &&
+        a.getDate() === b.getDate();
+
+      const fmtTime = (t) => {
+        if (!t) return "";
+        const [h, m] = t.split(":").map(Number);
+        const suffix = h < 12 ? "AM" : "PM";
+        return `${((h + 11) % 12) + 1}:${pad(m)} ${suffix}`;
+      };
+
+      const $ = (id) => document.getElementById(id);
+      const grid = $("calendarDays");
+      const list = $("eventList");
+      const modal = $("eventModal");
+
+      function renderCalendar() {
+        $("monthYear").innerHTML =
+          `${MONTHS[viewMonth].toUpperCase()}, <span class="font-normal">${viewYear}</span>`;
+        grid.innerHTML = "";
+
+        const offset = new Date(viewYear, viewMonth, 1).getDay();
+        const days = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+        for (let i = 0; i < offset; i++) {
+          grid.appendChild(document.createElement("div"));
+        }
+
+        for (let d = 1; d <= days; d++) {
+          const date = new Date(viewYear, viewMonth, d);
+          const dayEvents = events[keyOf(viewYear, viewMonth, d)] || [];
+          const isSelected = sameDay(date, selected);
+          const isToday = sameDay(date, today);
+
+          const dots = dayEvents
+            .slice(0, MAX_DOTS)
+            .map(
+              (e) =>
+                `<span class="size-1.5 rounded-full" style="background:${
+                  COLORS[e.color] || COLORS.green
+                }"></span>`,
+            )
+            .join("");
+          const overflow =
+            dayEvents.length > MAX_DOTS
+              ? `<span class="text-[0.6rem] leading-none text-white/70">+${dayEvents.length - MAX_DOTS}</span>`
+              : "";
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.dataset.day = d;
+          btn.setAttribute("aria-pressed", String(isSelected));
+          btn.setAttribute(
+            "aria-label",
+            `${MONTHS[viewMonth]} ${d}, ${viewYear} — ${dayEvents.length} event${
+              dayEvents.length === 1 ? "" : "s"
+            }`,
+          );
+          btn.className =
+            "group flex flex-col items-center gap-1.5 py-2 focus:outline-none";
+          btn.innerHTML = `
+            <span class="grid size-11 place-items-center rounded-full text-xl transition ${
+              isSelected
+                ? "bg-gradient-to-br from-[#d926f0] to-[#e879f9] font-bold text-white shadow-[0_0_25px_5px_rgba(217,70,239,0.45)]"
+                : isToday
+                  ? "text-white ring-1 ring-fuchsia-400/70 group-hover:bg-white/10"
+                  : "text-white/85 group-hover:bg-white/10 group-focus-visible:bg-white/10"
+            }">${d}</span>
+            <span class="flex h-1.5 items-center gap-1">${dots}${overflow}</span>`;
+          grid.appendChild(btn);
+        }
+      }
+
+      function renderEvents() {
+        $("selectedWeekday").textContent =
+          WEEKDAYS[selected.getDay()].toUpperCase();
+        $("selectedDate").textContent = `${MONTHS[selected.getMonth()].slice(
+          0,
+          3,
+        )} ${selected.getDate()}`;
+
+        const dayEvents = eventsOn(selected);
+        if (!dayEvents.length) {
+          list.innerHTML = `
+            <div class="flex flex-col items-center gap-5 text-center">
+              <i class="fa-regular fa-calendar text-7xl text-[#3a2d76]"></i>
+              <p class="text-lg text-[#8f7dc9]">No events for this day</p>
+            </div>`;
+          return;
+        }
+
+        list.innerHTML = dayEvents
+          .slice()
+          .sort((a, b) => (a.time || "").localeCompare(b.time || ""))
+          .map(
+            (e, i) => `
+            <div class="group flex items-center gap-3 rounded-xl bg-white/5 p-3 transition hover:bg-white/10">
+              <span class="size-2.5 shrink-0 rounded-full" style="background:${
+                COLORS[e.color] || COLORS.green
+              }"></span>
+              <div class="min-w-0 flex-1">
+                <p class="truncate font-semibold">${escapeHtml(e.title)}</p>
+                ${
+                  e.time
+                    ? `<p class="text-xs text-[#8f7dc9]">${fmtTime(e.time)}</p>`
+                    : ""
+                }
+              </div>
+              <button type="button" data-remove="${i}" aria-label="Delete ${escapeHtml(
+                e.title,
+              )}" class="grid size-7 shrink-0 place-items-center rounded-full text-[#8f7dc9] opacity-0 transition group-hover:opacity-100 hover:bg-white/10 hover:text-white focus:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400">
+                <i class="fa-solid fa-xmark fa-fw"></i>
+              </button>
+            </div>`,
+          )
+          .join("");
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      }
+
+      function render() {
+        renderCalendar();
+        renderEvents();
+      }
+
+      function shiftMonth(delta) {
+        const d = new Date(viewYear, viewMonth + delta, 1);
+        viewYear = d.getFullYear();
+        viewMonth = d.getMonth();
+        render();
+      }
+
+      function renderColorPicker() {
+        $("colorPicker").innerHTML = COLOR_KEYS.map(
+          (c) => `
+          <button type="button" data-color="${c}" aria-label="${c}" aria-pressed="${
+            c === newColor
+          }" class="size-7 rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+            c === newColor ? "ring-2 ring-white ring-offset-2 ring-offset-[#2a1a63]" : ""
+          }" style="background:${COLORS[c]}"></button>`,
+        ).join("");
+      }
+
+      function openModal() {
+        $("modalDate").textContent = `${
+          WEEKDAYS[selected.getDay()]
+        }, ${MONTHS[selected.getMonth()]} ${selected.getDate()}, ${selected.getFullYear()}`;
+        $("eventInput").value = "";
+        renderColorPicker();
+        modal.classList.replace("hidden", "flex");
+        $("eventInput").focus();
+      }
+
+      function closeModal() {
+        modal.classList.replace("flex", "hidden");
+        $("addEventBtn").focus();
+      }
+
+      function saveEvent() {
+        const title = $("eventInput").value.trim();
+        if (!title) {
+          $("eventInput").focus();
+          return;
+        }
+        const k = keyOf(
+          selected.getFullYear(),
+          selected.getMonth(),
+          selected.getDate(),
+        );
+        (events[k] ||= []).push({
+          title,
+          time: $("eventTime").value,
+          color: newColor,
+        });
+        save();
+        closeModal();
+        render();
+      }
+
+      grid.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-day]");
+        if (!btn) return;
+        selected = new Date(viewYear, viewMonth, Number(btn.dataset.day));
+        render();
+      });
+
+      list.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-remove]");
+        if (!btn) return;
+        const k = keyOf(
+          selected.getFullYear(),
+          selected.getMonth(),
+          selected.getDate(),
+        );
+        const sorted = events[k]
+          .slice()
+          .sort((a, b) => (a.time || "").localeCompare(b.time || ""));
+        const target = sorted[Number(btn.dataset.remove)];
+        events[k] = events[k].filter((ev) => ev !== target);
+        if (!events[k].length) delete events[k];
+        save();
+        render();
+      });
+
+      $("colorPicker").addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-color]");
+        if (!btn) return;
+        newColor = btn.dataset.color;
+        renderColorPicker();
+      });
+
+      $("prevMonth").onclick = () => shiftMonth(-1);
+      $("nextMonth").onclick = () => shiftMonth(1);
+      $("addEventBtn").onclick = openModal;
+      $("cancelEvent").onclick = closeModal;
+      $("saveEvent").onclick = saveEvent;
+
+      $("eventInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") saveEvent();
+      });
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+
+      render();
+    </script>
+  </body>
+</html>
