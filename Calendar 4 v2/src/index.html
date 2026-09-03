@@ -78,7 +78,7 @@
             type="button"
             class="w-full rounded-full bg-gradient-to-r from-[#c026d3] to-[#e879f9] py-4 text-sm font-bold tracking-[0.15em] text-white shadow-[0_10px_30px_-5px_rgba(217,70,239,0.7)] transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-[0.98]"
           >
-            ADD EVENT
+            <i class="fa-solid fa-plus fa-fw mr-2"></i>ADD EVENT
           </button>
         </aside>
       </div>
@@ -95,7 +95,7 @@
         <p id="modalDate" class="mb-5 text-sm text-[#8f7dc9]"></p>
 
         <label class="mb-1 block text-xs font-semibold tracking-wide uppercase"
-          >Title</label
+          ><i class="fa-solid fa-pen fa-fw mr-1.5 text-[#8f7dc9]"></i>Title</label
         >
         <input
           id="eventInput"
@@ -105,7 +105,7 @@
         />
 
         <label class="mb-1 block text-xs font-semibold tracking-wide uppercase"
-          >Time</label
+          ><i class="fa-regular fa-clock fa-fw mr-1.5 text-[#8f7dc9]"></i>Time</label
         >
         <input
           id="eventTime"
@@ -115,9 +115,14 @@
         />
 
         <label class="mb-2 block text-xs font-semibold tracking-wide uppercase"
-          >Colour</label
+          ><i class="fa-solid fa-palette fa-fw mr-1.5 text-[#8f7dc9]"></i>Colour</label
         >
-        <div id="colorPicker" class="mb-6 flex gap-3"></div>
+        <div id="colorPicker" class="mb-4 flex gap-3"></div>
+
+        <label class="mb-2 block text-xs font-semibold tracking-wide uppercase"
+          ><i class="fa-solid fa-icons fa-fw mr-1.5 text-[#8f7dc9]"></i>Icon</label
+        >
+        <div id="iconPicker" class="mb-6 grid grid-cols-8 gap-1.5"></div>
 
         <div class="flex justify-end gap-3">
           <button
@@ -132,7 +137,7 @@
             type="button"
             class="rounded-full bg-gradient-to-r from-[#c026d3] to-[#e879f9] px-6 py-2 text-sm font-bold text-white shadow-lg transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            Save
+            <i class="fa-solid fa-check fa-fw mr-1.5"></i>Save
           </button>
         </div>
       </div>
@@ -170,6 +175,17 @@
         yellow: "#facc15",
       };
       const COLOR_KEYS = Object.keys(COLORS);
+      const ICONS = [
+        "fa-calendar-day",
+        "fa-briefcase",
+        "fa-plane",
+        "fa-utensils",
+        "fa-dumbbell",
+        "fa-cake-candles",
+        "fa-heart-pulse",
+        "fa-graduation-cap",
+      ];
+      const DEFAULT_ICON = ICONS[0];
       const MAX_DOTS = 5;
       const STORE_KEY = "calendar4Events";
 
@@ -185,6 +201,7 @@
         today.getDate(),
       );
       let newColor = "green";
+      let newIcon = DEFAULT_ICON;
 
       function seed() {
         const y = today.getFullYear();
@@ -195,19 +212,66 @@
         return Object.assign(
           {},
           on(4, [
-            { title: "Design review", time: "09:30", color: "green" },
-            { title: "Lunch with Ada", time: "12:30", color: "blue" },
-            { title: "Deploy v2", time: "17:00", color: "orange" },
+            {
+              title: "Design review",
+              time: "09:30",
+              color: "green",
+              icon: "fa-briefcase",
+            },
+            {
+              title: "Lunch with Ada",
+              time: "12:30",
+              color: "blue",
+              icon: "fa-utensils",
+            },
+            {
+              title: "Deploy v2",
+              time: "17:00",
+              color: "orange",
+              icon: "fa-calendar-day",
+            },
           ]),
           on(5, [
-            { title: "Yoga class", time: "07:00", color: "green" },
-            { title: "Sprint planning", time: "11:00", color: "orange" },
+            {
+              title: "Yoga class",
+              time: "07:00",
+              color: "green",
+              icon: "fa-dumbbell",
+            },
+            {
+              title: "Sprint planning",
+              time: "11:00",
+              color: "orange",
+              icon: "fa-briefcase",
+            },
           ]),
-          on(14, [{ title: "Dentist", time: "15:15", color: "blue" }]),
+          on(14, [
+            {
+              title: "Dentist",
+              time: "15:15",
+              color: "blue",
+              icon: "fa-heart-pulse",
+            },
+          ]),
           on(20, [
-            { title: "Flight to Nairobi", time: "06:40", color: "orange" },
-            { title: "Client workshop", time: "10:00", color: "pink" },
-            { title: "Team dinner", time: "19:30", color: "yellow" },
+            {
+              title: "Flight to Nairobi",
+              time: "06:40",
+              color: "orange",
+              icon: "fa-plane",
+            },
+            {
+              title: "Client workshop",
+              time: "10:00",
+              color: "pink",
+              icon: "fa-graduation-cap",
+            },
+            {
+              title: "Team dinner",
+              time: "19:30",
+              color: "yellow",
+              icon: "fa-cake-candles",
+            },
           ]),
         );
       }
@@ -225,8 +289,9 @@
                     title: e,
                     time: "",
                     color: COLOR_KEYS[i % COLOR_KEYS.length],
+                    icon: DEFAULT_ICON,
                   }
-                : e,
+                : { icon: DEFAULT_ICON, ...e },
             );
           }
           return parsed;
@@ -345,14 +410,18 @@
           .map(
             (e, i) => `
             <div class="group flex items-center gap-3 rounded-xl bg-white/5 p-3 transition hover:bg-white/10">
-              <span class="size-2.5 shrink-0 rounded-full" style="background:${
+              <span class="grid size-9 shrink-0 place-items-center rounded-full text-sm" style="background:${
                 COLORS[e.color] || COLORS.green
-              }"></span>
+              }26;color:${COLORS[e.color] || COLORS.green}">
+                <i class="fa-solid ${e.icon || DEFAULT_ICON} fa-fw"></i>
+              </span>
               <div class="min-w-0 flex-1">
                 <p class="truncate font-semibold">${escapeHtml(e.title)}</p>
                 ${
                   e.time
-                    ? `<p class="text-xs text-[#8f7dc9]">${fmtTime(e.time)}</p>`
+                    ? `<p class="text-xs text-[#8f7dc9]"><i class="fa-regular fa-clock fa-fw mr-1"></i>${fmtTime(
+                        e.time,
+                      )}</p>`
                     : ""
                 }
               </div>
@@ -405,12 +474,29 @@
         ).join("");
       }
 
+      function renderIconPicker() {
+        $("iconPicker").innerHTML = ICONS.map(
+          (ic) => `
+          <button type="button" data-icon="${ic}" aria-label="${ic.replace(
+            "fa-",
+            "",
+          )}" aria-pressed="${
+            ic === newIcon
+          }" class="grid aspect-square w-full place-items-center rounded-lg text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+            ic === newIcon
+              ? "bg-white/20 text-white"
+              : "bg-[#1b1145] text-[#8f7dc9] hover:bg-white/10 hover:text-white"
+          }"><i class="fa-solid ${ic} fa-fw"></i></button>`,
+        ).join("");
+      }
+
       function openModal() {
         $("modalDate").textContent = `${
           WEEKDAYS[selected.getDay()]
         }, ${MONTHS[selected.getMonth()]} ${selected.getDate()}, ${selected.getFullYear()}`;
         $("eventInput").value = "";
         renderColorPicker();
+        renderIconPicker();
         modal.classList.replace("hidden", "flex");
         $("eventInput").focus();
       }
@@ -435,6 +521,7 @@
           title,
           time: $("eventTime").value,
           color: newColor,
+          icon: newIcon,
         });
         save();
         closeModal();
@@ -471,6 +558,13 @@
         if (!btn) return;
         newColor = btn.dataset.color;
         renderColorPicker();
+      });
+
+      $("iconPicker").addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-icon]");
+        if (!btn) return;
+        newIcon = btn.dataset.icon;
+        renderIconPicker();
       });
 
       $("prevMonth").onclick = () => shiftMonth(-1);
