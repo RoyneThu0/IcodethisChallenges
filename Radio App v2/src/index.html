@@ -42,17 +42,27 @@
       </div>
       <p class="mt-5 text-center text-xl">Mojo Radio</p>
       <div class="w-full mt-5 grid grid-cols-3 items-center justify-center">
-        <div class="p-4 flex items-center justify-center">
+        <button
+          id="previous-frequency"
+          type="button"
+          class="p-4 flex items-center justify-center cursor-pointer"
+          aria-label="Tune to previous frequency"
+        >
           <i class="fa-solid fa-chevron-left text-5xl text-white/40"></i>
-        </div>
+        </button>
         <div
           class="w-40 h-40 rounded-full bg-white/30 border flex items-center justify-center"
         >
-          <p class="text-4xl text-white">93.2</p>
+          <p id="frequency" class="text-4xl text-white">93.2</p>
         </div>
-        <div class="p-4 flex items-center justify-center">
+        <button
+          id="next-frequency"
+          type="button"
+          class="p-4 flex items-center justify-center cursor-pointer"
+          aria-label="Tune to next frequency"
+        >
           <i class="fa-solid fa-chevron-right text-5xl text-white/40"></i>
-        </div>
+        </button>
       </div>
       <p class="text-center text-white/90 mt-4 text-2xl">Love Mode (5:26)</p>
       <p class="text-center font-light textwhite/70">JOAKIM KARUD</p>
@@ -61,7 +71,17 @@
         <div
           class="bg-[#231c3a] rounded-xl shadow-lg p-6 w-full max-w-xl mx-auto mt-8"
         >
-          <div class="relative h-24 flex flex-col justify-end">
+          <div
+            id="tuner-track"
+            class="relative h-24 flex flex-col justify-end cursor-pointer"
+            role="slider"
+            tabindex="0"
+            aria-label="Radio frequency"
+            aria-valuemin="90"
+            aria-valuemax="97"
+            aria-valuenow="93.2"
+            aria-valuetext="93.2 FM"
+          >
             <div
               class="absolute left-0 right-0 top-0 flex justify-between items-end h-16"
             >
@@ -79,6 +99,7 @@
             ></div>
 
             <div
+              id="tuner-thumb"
               class="absolute left-1/2 top-12 -translate-x-1/2 -translate-y-1/2 z-10"
             >
               <div
@@ -103,7 +124,6 @@
           </div>
         </div>
         <script>
-          // Render ticks dynamically for ruler
           const ticksContainer = document.getElementById("ticks");
           if (ticksContainer) {
             for (let i = 0; i <= 40; i++) {
@@ -116,6 +136,79 @@
               ticksContainer.appendChild(tick);
             }
           }
+
+          const frequency = document.getElementById("frequency");
+          const tunerTrack = document.getElementById("tuner-track");
+          const tunerThumb = document.getElementById("tuner-thumb");
+          const previousFrequency =
+            document.getElementById("previous-frequency");
+          const nextFrequency = document.getElementById("next-frequency");
+          const minFrequency = 90;
+          const maxFrequency = 97;
+          let currentFrequency = 93.2;
+          let isDragging = false;
+
+          const updateFrequency = (value) => {
+            currentFrequency = Math.min(
+              maxFrequency,
+              Math.max(minFrequency, Math.round(value * 10) / 10),
+            );
+            const percentage =
+              ((currentFrequency - minFrequency) /
+                (maxFrequency - minFrequency)) *
+              100;
+            frequency.textContent = currentFrequency.toFixed(1);
+            tunerThumb.style.left = `${percentage}%`;
+            tunerTrack.setAttribute(
+              "aria-valuenow",
+              currentFrequency.toFixed(1),
+            );
+            tunerTrack.setAttribute(
+              "aria-valuetext",
+              `${currentFrequency.toFixed(1)} FM`,
+            );
+          };
+
+          const setFrequencyFromPointer = (event) => {
+            const bounds = tunerTrack.getBoundingClientRect();
+            const percentage = Math.min(
+              1,
+              Math.max(0, (event.clientX - bounds.left) / bounds.width),
+            );
+            updateFrequency(
+              minFrequency + percentage * (maxFrequency - minFrequency),
+            );
+          };
+
+          previousFrequency.addEventListener("click", () =>
+            updateFrequency(currentFrequency - 0.1),
+          );
+          nextFrequency.addEventListener("click", () =>
+            updateFrequency(currentFrequency + 0.1),
+          );
+          tunerTrack.addEventListener("click", setFrequencyFromPointer);
+          tunerTrack.addEventListener("pointerdown", (event) => {
+            isDragging = true;
+            tunerTrack.setPointerCapture(event.pointerId);
+            setFrequencyFromPointer(event);
+          });
+          tunerTrack.addEventListener("pointermove", (event) => {
+            if (isDragging) setFrequencyFromPointer(event);
+          });
+          tunerTrack.addEventListener("pointerup", () => {
+            isDragging = false;
+          });
+          tunerTrack.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
+              event.preventDefault();
+              updateFrequency(currentFrequency - 0.1);
+            }
+            if (event.key === "ArrowRight" || event.key === "ArrowUp") {
+              event.preventDefault();
+              updateFrequency(currentFrequency + 0.1);
+            }
+          });
+          updateFrequency(currentFrequency);
         </script>
       </div>
       <div class="mt-10" id="state">
