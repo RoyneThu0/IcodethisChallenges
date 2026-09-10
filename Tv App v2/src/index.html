@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TV App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="bg-[#18393a] text-white min-h-screen font-sans">
+    <div class="flex flex-col md:flex-row h-screen overflow-hidden">
+      <aside
+        class="bg-[#142e2f] w-full md:w-64 flex-shrink-0 p-4 md:pt-10 md:pb-10 overflow-x-auto"
+      >
+        <nav
+          class="flex flex-row md:flex-col gap-2 md:gap-4 justify-between md:justify-start"
+        >
+          <div class="flex flex-col gap-2 md:gap-4 w-full">
+            <a
+              href="#"
+              data-category="movies"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>MOVIES</span>
+              <span class="text-xs text-gray-400">18 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="music"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>MUSIC</span>
+              <span class="text-xs text-gray-400">9 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="series"
+              class="bg-[#1ec6c6] text-white rounded-r-full pl-4 pr-2 py-1 font-semibold flex justify-between items-center"
+            >
+              <span>SERIES</span>
+              <span class="text-xs text-white">6 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="live"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>LIVE</span>
+              <span class="text-xs text-gray-400">16 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="science"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>SCIENCE</span>
+              <span class="text-xs text-gray-400">11 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="sports"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>SPORTS</span>
+              <span class="text-xs text-gray-400">6 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="news"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>NEWS</span>
+              <span class="text-xs text-gray-400">14 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="kids"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>KIDS</span>
+              <span class="text-xs text-gray-400">9 Channels</span>
+            </a>
+            <a
+              href="#"
+              data-category="lifestyle"
+              class="text-gray-300 hover:text-white text-sm md:text-base flex justify-between items-center"
+            >
+              <span>LIFESTYLE</span>
+              <span class="text-xs text-gray-400">6 Channels</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="flex-1 flex flex-col overflow-y-auto">
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between px-4 pt-4 md:pt-8"
+        >
+          <div class="w-full flex flex-col items-center justify-center">
+            <div
+              class="flex justify-center w-full gap-4 md:gap-8 text-sm md:text-base"
+            >
+              <span
+                data-schedule="now"
+                class="text-[#1ec6c6] font-semibold border-b-2 border-[#1ec6c6] pb-1"
+                >NOW</span
+              >
+              <span
+                data-schedule="coming-up"
+                class="text-gray-400 hover:text-white cursor-pointer"
+                >COMMING UP</span
+              >
+              <span
+                data-schedule="tonight"
+                class="text-gray-400 hover:text-white cursor-pointer"
+                >TONIGHT</span
+              >
+              <span
+                data-schedule="today"
+                class="text-gray-400 hover:text-white cursor-pointer"
+                >TODAY</span
+              >
+            </div>
+            <div
+              class="flex w-full justify-center gap-4 mt-10 md:mt-0 text-xs md:text-sm"
+            >
+              <span
+                data-sort="popular"
+                class="text-[#1ec6c6] font-semibold cursor-pointer"
+                >Popular</span
+              >
+              <span
+                data-sort="new"
+                class="text-gray-400 hover:text-white cursor-pointer"
+                >New</span
+              >
+              <span
+                data-sort="rated"
+                class="text-gray-400 hover:text-white cursor-pointer"
+                >Highest Rated</span
+              >
+            </div>
+          </div>
+          <div class="ml-auto flex items-center mt-2 md:mt-0">
+            <button
+              id="menu-toggle"
+              type="button"
+              aria-label="Toggle categories"
+              aria-expanded="true"
+              class="focus:outline-none"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <p
+          id="app-status"
+          class="px-4 text-xs text-gray-400 min-h-5"
+          aria-live="polite"
+        ></p>
+
+        <section class="px-4 py-4 md:py-8">
+          <div
+            id="show-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <div
+              data-category="movies"
+              tabindex="0"
+              role="button"
+              class="interactive-card cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://i.pinimg.com/736x/2b/9c/35/2b9c35619f7d61a53a3537be234226c5.jpg"
+                alt="Vikings"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">VIKINGS</h3>
+                  <p class="text-xs text-gray-400">Portage S4, Ep8</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-2/3 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">28 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              data-category="movies"
+              tabindex="0"
+              role="button"
+              class="interactive-card cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/featured/game-of-thrones-92acb30ilmkjbmu9.jpg"
+                alt="Game of Thrones"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">GAME OF THRONES</h3>
+                  <p class="text-xs text-gray-400">The Red Woman S6, Ep1</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/2 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">13 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              data-category="series"
+              tabindex="0"
+              role="button"
+              class="interactive-card cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://images8.alphacoders.com/431/thumb-1920-431311.jpg"
+                alt="The Big Bang Theory"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">THE BIG BANG THEORY</h3>
+                  <p class="text-xs text-gray-400">
+                    The Viewing Party S9, Ep12
+                  </p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/6 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">5 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              data-category="series"
+              tabindex="0"
+              role="button"
+              class="interactive-card cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/hd/orange-is-the-new-black-reznikov-h08ydgtyz3sacygh.jpg"
+                alt="Orange is the New Black"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">ORANGE IS THE NEW ...</h3>
+                  <p class="text-xs text-gray-400">Trust no bitch S3, Ep13</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/2 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">12 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              data-category="series"
+              tabindex="0"
+              role="button"
+              class="interactive-card cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/hd/mr-robot-season-1-nnew08scfcxj45vp.jpg"
+                alt="Mr. Robot"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">MR. ROBOT</h3>
+                  <p class="text-xs text-gray-400">W1ter0se S1 Ep6</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-3/4 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">38 min. left</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              data-category="series"
+              tabindex="0"
+              role="button"
+              class="interactive-card cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] bg-[#223e3f] rounded-lg overflow-hidden shadow-lg flex flex-col"
+            >
+              <img
+                src="https://wallpapers.com/images/hd/modern-family-dvd-poster-cover-qlhbavon5k0kmbhn.jpg"
+                alt="Modern Family"
+                class="w-full h-60 object-cover"
+              />
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-bold">MODERN FAMILY</h3>
+                  <p class="text-xs text-gray-400">Phil on wire S3, Ep2</p>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="w-1/6 h-1 bg-[#1ec6c6] rounded-full"></div>
+                  <span class="text-xs text-gray-400 ml-2">5 min. left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="px-4 pb-8">
+          <h2 class="text-lg font-bold mb-4 text-[#1ec6c6]">FEATURED</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <img
+              src="https://wallpapers.com/images/featured/family-guy-background-j5ot9chu6yso3frz.jpg"
+              alt="Family Guy"
+              class="featured-art cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] rounded-lg h-24 w-full object-cover"
+              tabindex="0"
+            />
+            <img
+              src="https://wallpapercat.com/w/full/9/1/1/366310-3840x2160-desktop-4k-the-man-from-uncle-background-photo.jpg"
+              alt="The Man from U.N.C.L.E."
+              class="featured-art cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] rounded-lg h-24 w-full object-cover"
+              tabindex="0"
+            />
+            <img
+              src="https://wallpapers.com/images/featured/star-wars-plzcoaffexgf4h81.jpg"
+              alt="Star Wars"
+              class="featured-art cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] rounded-lg h-24 w-full object-cover"
+              tabindex="0"
+            />
+            <img
+              src="https://wallpapers.com/images/hd/deadpool-with-a-kiddie-backpack-32q4okcs0ro3xp1g.jpg"
+              alt="Deadpool"
+              class="featured-art cursor-pointer transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#1ec6c6] rounded-lg h-24 w-full object-cover"
+              tabindex="0"
+            />
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      const sidebar = document.querySelector("aside");
+      const menuToggle = document.querySelector("#menu-toggle");
+      const status = document.querySelector("#app-status");
+      const categoryLinks = document.querySelectorAll("a[data-category]");
+      const cards = [...document.querySelectorAll(".interactive-card")];
+      const showGrid = document.querySelector("#show-grid");
+      const scheduleTabs = document.querySelectorAll("[data-schedule]");
+      const sortTabs = document.querySelectorAll("[data-sort]");
+
+      const setStatus = (message) => {
+        status.textContent = message;
+      };
+
+      const setActiveTab = (tabs, activeTab) => {
+        tabs.forEach((tab) => {
+          tab.classList.toggle("text-[#1ec6c6]", tab === activeTab);
+          tab.classList.toggle("font-semibold", tab === activeTab);
+          tab.classList.toggle("text-gray-400", tab !== activeTab);
+        });
+      };
+
+      categoryLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const category = link.dataset.category;
+          let visibleCount = 0;
+
+          categoryLinks.forEach((item) => {
+            item.classList.toggle("bg-[#1ec6c6]", item === link);
+            item.classList.toggle("text-white", item === link);
+            item.classList.toggle("font-semibold", item === link);
+            item.classList.toggle("text-gray-300", item !== link);
+            item.classList.toggle("rounded-r-full", item === link);
+            item.classList.toggle("pl-4", item === link);
+            item.classList.toggle("pr-2", item === link);
+            item.classList.toggle("py-1", item === link);
+          });
+          cards.forEach((card) => {
+            const isVisible = card.dataset.category === category;
+            card.classList.toggle("hidden", !isVisible);
+            visibleCount += Number(isVisible);
+          });
+
+          setStatus(
+            visibleCount
+              ? `${link.querySelector("span").textContent} channels`
+              : `No ${category} programs are listed yet.`,
+          );
+        });
+      });
+
+      scheduleTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          setActiveTab(scheduleTabs, tab);
+          setStatus(`${tab.textContent.trim()} schedule selected`);
+        });
+      });
+
+      sortTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          setActiveTab(sortTabs, tab);
+          const sortedCards = [...cards].sort((first, second) => {
+            if (tab.dataset.sort === "new")
+              return second
+                .querySelector("h3")
+                .textContent.localeCompare(
+                  first.querySelector("h3").textContent,
+                );
+            if (tab.dataset.sort === "rated")
+              return second
+                .querySelector(".bg-\\[\\#1ec6c6\\]")
+                .className.localeCompare(
+                  first.querySelector(".bg-\\[\\#1ec6c6\\]").className,
+                );
+            return cards.indexOf(first) - cards.indexOf(second);
+          });
+          sortedCards.forEach((card) => showGrid.appendChild(card));
+          setStatus(`${tab.textContent.trim()} programs`);
+        });
+      });
+
+      menuToggle.addEventListener("click", () => {
+        const isCollapsed = sidebar.classList.toggle("hidden");
+        menuToggle.setAttribute("aria-expanded", String(!isCollapsed));
+        setStatus(isCollapsed ? "Categories hidden" : "Categories shown");
+      });
+
+      document
+        .querySelectorAll(".interactive-card, .featured-art")
+        .forEach((item) => {
+          const selectItem = () =>
+            setStatus(
+              `${item.alt || item.querySelector("h3").textContent} selected`,
+            );
+          item.addEventListener("click", selectItem);
+          item.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              selectItem();
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
