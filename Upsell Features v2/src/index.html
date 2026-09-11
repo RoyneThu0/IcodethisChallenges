@@ -3,145 +3,183 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upsell Features</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <link href="./output.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="noreferrer"
     />
-    <title>Upsell Features</title>
   </head>
   <body
-    class="w-screen h-screen bg-gradient-to-br from-gray-600 via-gray-800 to-black/90 flex items-center justify-center"
+    class="relative min-h-screen overflow-hidden bg-[#403c5c] px-4 py-16 font-sans text-slate-200 antialiased"
   >
-    <div class="w-11/12 max-w-5xl bg-gray-900 rounded-sm">
-      <div class="p-10 border-b-2 border-black">
-        <p class="text-center text-2xl text-gray-400 font-semibold">
-          Optional features and services
-        </p>
-      </div>
-      <div class="sm:flex grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-        <div class="md:w-1/4 w-full bg-gray-900 border-r-2 border-black p-10">
-          <p class="text-center text-gray-400">Email Distribution</p>
-          <p class="text-center text-gray-400 text-5xl mt-2 font-semibold">
-            $7
-          </p>
-          <p class="mt-4 text-center text-gray-600">Per month</p>
-          <ul class="mt-5">
-            <li class="text-start text-gray-400">
-              <i class="fa-solid fa-circle text-xs text-gray-300 mr-2"></i
+    <!-- ambient blobs -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+      <div
+        class="absolute -left-24 top-[55%] h-[28rem] w-[24rem] rounded-full bg-gradient-to-br from-fuchsia-500 via-pink-500 to-rose-400 opacity-80 blur-[90px]"
+      ></div>
+      <div
+        class="absolute left-[8%] top-[12%] h-40 w-36 rounded-full bg-gradient-to-br from-rose-400 to-amber-400 opacity-60 blur-[70px]"
+      ></div>
+      <div
+        class="absolute right-[10%] top-[70%] h-44 w-40 rounded-full bg-gradient-to-br from-orange-400 to-rose-500 opacity-60 blur-[70px]"
+      ></div>
+      <div
+        class="absolute right-[2%] top-[38%] h-28 w-28 rounded-full bg-gradient-to-br from-fuchsia-400 to-purple-500 opacity-50 blur-[60px]"
+      ></div>
+    </div>
+
+    <main
+      class="relative mx-auto w-full max-w-5xl overflow-hidden rounded-md bg-[#1c1b2e] shadow-2xl shadow-black/40 ring-1 ring-white/5"
+    >
+      <header class="border-b border-black/40 px-8 py-9">
+        <h1 class="text-center text-2xl font-bold text-slate-200">
+          Optional Features and Services
+        </h1>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-4">
+        <!-- Email Distribution -->
+        <section
+          class="flex flex-col border-b border-black/40 px-8 py-8 md:border-b-0 md:border-r"
+        >
+          <h2 class="text-center text-sm font-semibold text-slate-300">
+            Email Distribution
+          </h2>
+          <p class="mt-3 text-center text-5xl font-bold text-slate-200">$7</p>
+          <p class="mt-2 text-center text-sm text-slate-500">per month</p>
+          <ul class="mt-8 space-y-1.5 text-sm text-slate-300">
+            <li>
+              <i
+                class="fa-solid fa-circle fa-fw mr-1 align-middle text-[6px] text-slate-400"
+              ></i
               >Unlimited email lists
             </li>
-            <li class="text-start text-gray-400">
-              <i class="fa-solid fa-circle text-xs text-gray-300 mr-2"></i>Auto
-              updates
+            <li>
+              <i
+                class="fa-solid fa-circle fa-fw mr-1 align-middle text-[6px] text-slate-400"
+              ></i
+              >Auto-updates
             </li>
           </ul>
-          <div class="w-full flex items-center justify-center mt-8">
+          <div class="mt-auto flex justify-center pt-10">
             <button
-              class="border-2 text-gray-400 px-4 py-2 rounded-full hover:bg-gray-800"
+              class="rounded-full border border-slate-500 px-6 py-2 text-sm font-semibold text-slate-200 transition hover:border-rose-400 hover:bg-rose-500/10 hover:text-rose-300"
             >
-              Add to cart
+              Add to Cart
             </button>
           </div>
-        </div>
-        <div class="md:w-1/4 w-full bg-gray-900 border-r-2 border-black p-10">
-          <p class="text-center text-gray-400">Analytics</p>
-          <p class="text-center text-gray-400 text-5xl mt-2 font-semibold">
-            $5
-          </p>
-          <p class="mt-4 text-center text-gray-600">Per month</p>
-          <p class="mt-5 text-center text-gray-400">
+        </section>
+
+        <!-- Analytics -->
+        <section
+          class="flex flex-col border-b border-black/40 px-8 py-8 md:border-b-0 md:border-r"
+        >
+          <h2 class="text-center text-sm font-semibold text-slate-300">
+            Analytics
+          </h2>
+          <p class="mt-3 text-center text-5xl font-bold text-slate-200">$5</p>
+          <p class="mt-2 text-center text-sm text-slate-500">per month</p>
+          <p class="mt-8 text-center text-sm text-slate-300">
             Detailed analytics and stats of your lists
           </p>
-          <div class="w-full flex items-center justify-center mt-8">
+          <div class="mt-auto flex justify-center pt-10">
             <button
-              class="border-2 text-gray-400 px-4 py-2 rounded-full hover:bg-gray-800"
+              class="rounded-full border border-slate-500 px-6 py-2 text-sm font-semibold text-slate-200 transition hover:border-rose-400 hover:bg-rose-500/10 hover:text-rose-300"
             >
-              Add to cart
+              Add to Cart
             </button>
           </div>
-        </div>
-        <div class="md:w-2/4 w-full bg-gray-800">
-          <div
-            class="w-full bg-gray-900 text-white rounded-lg shadow-xl overflow-hidden"
-          >
-            <div class="divide-y divide-gray-700">
-              <div class="flex justify-between items-center px-6 py-4">
-                <p class="text-lg">Email Distribution Analysis</p>
-                <div class="flex items-center space-x-4">
-                  <span class="text-2xl font-semibold"
-                    >$12<span class="text-sm text-gray-400">/mo</span></span
-                  >
-                  <button
-                    class="px-4 py-1 border border-pink-500 rounded-full text-pink-400 hover:bg-pink-500 hover:text-white transition"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
+        </section>
 
-              <div class="flex justify-between items-center px-6 py-4">
-                <p class="text-lg">Review tracker</p>
-                <div class="flex items-center space-x-4">
-                  <span class="text-2xl font-semibold"
-                    >$8<span class="text-sm text-gray-400">/mo</span></span
-                  >
-                  <button
-                    class="px-4 py-1 border border-pink-500 rounded-full text-pink-400 hover:bg-pink-500 hover:text-white transition"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-
-              <div class="flex justify-between items-center px-6 py-4">
-                <p class="text-lg">Similarity Matching</p>
-                <div class="flex items-center space-x-4">
-                  <span class="text-2xl font-semibold"
-                    >$12<span class="text-sm text-gray-400">/mo</span></span
-                  >
-                  <button
-                    class="px-4 py-1 border border-pink-500 rounded-full text-pink-400 hover:bg-pink-500 hover:text-white transition"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-
-              <div
-                class="relative flex justify-between items-center px-6 py-4 bg-gray-800"
+        <!-- Add-on list -->
+        <section class="divide-y divide-white/5 md:col-span-2">
+          <div class="flex items-center justify-between gap-4 px-8 py-6">
+            <p class="text-sm font-semibold">Email Distribution Analysis</p>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold"
+                >$12<span class="ml-0.5 text-xs font-normal text-slate-400"
+                  >/mo</span
+                ></span
               >
-                <div
-                  class="absolute -top-2 -left-8 transform -rotate-45 bg-pink-500 text-white text-xs px-12 py-1 font-semibold shadow-lg"
-                >
-                  Best Value
-                </div>
-                <div>
-                  <p class="text-lg">Saving Pack</p>
-                  <p class="text-xs text-gray-400">
-                    Includes everything from above
-                  </p>
-                </div>
-                <div class="flex items-center space-x-4">
-                  <span class="text-2xl font-semibold"
-                    >$25<span class="text-sm text-gray-400">/mo</span></span
-                  >
-                  <button
-                    class="px-4 py-1 border border-pink-500 rounded-full text-pink-400 hover:bg-pink-500 hover:text-white transition"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
+              <button
+                class="shrink-0 rounded-full border border-rose-400/70 px-4 py-1.5 text-sm font-semibold text-slate-200 transition hover:bg-rose-500 hover:text-white"
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
-        </div>
+
+          <div class="flex items-center justify-between gap-4 px-8 py-6">
+            <p class="text-sm font-semibold">Review tracker</p>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold"
+                >$8<span class="ml-0.5 text-xs font-normal text-slate-400"
+                  >/mo</span
+                ></span
+              >
+              <button
+                class="shrink-0 rounded-full border border-rose-400/70 px-4 py-1.5 text-sm font-semibold text-slate-200 transition hover:bg-rose-500 hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-4 px-8 py-6">
+            <p class="text-sm font-semibold">Similarity Matching</p>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold"
+                >$12<span class="ml-0.5 text-xs font-normal text-slate-400"
+                  >/mo</span
+                ></span
+              >
+              <button
+                class="shrink-0 rounded-full border border-rose-400/70 px-4 py-1.5 text-sm font-semibold text-slate-200 transition hover:bg-rose-500 hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="relative flex items-center justify-between gap-4 overflow-hidden py-6 pl-20 pr-8"
+          >
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute left-0 top-0 h-16 w-16 overflow-hidden"
+            >
+              <span
+                class="absolute -left-6 top-2 w-24 -rotate-45 bg-gradient-to-r from-rose-500 to-pink-500 py-0.5 text-center text-[10px] font-semibold tracking-wide text-white shadow-lg"
+                >Best Value</span
+              >
+            </div>
+            <div>
+              <p class="text-sm font-semibold">Saving Pack</p>
+              <p class="text-xs text-slate-400">
+                Includes everything from above
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold"
+                >$25<span class="ml-0.5 text-xs font-normal text-slate-400"
+                  >/mo</span
+                ></span
+              >
+              <button
+                class="shrink-0 rounded-full border border-rose-400/70 px-4 py-1.5 text-sm font-semibold text-slate-200 transition hover:bg-rose-500 hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
+    </main>
   </body>
 </html>
