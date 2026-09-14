@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giveaway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center text-white"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1542401886-65d6c61db217?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVzZXJ0fGVufDB8MHwwfHx8MA%3D%3D);
+    "
+  >
+    <div
+      class="mx-auto w-[min(960px,calc(100vw-32px))] py-6 md:w-[min(960px,calc(100vw-80px))] md:py-8"
+    >
+      <div
+        class="group relative rounded-[18px] border border-white/40 bg-white/25 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm duration-500 ease-in-out hover:bg-white md:p-7"
+      >
+        <div
+          class="absolute left-0 right-0 -top-8 mb-8 flex justify-center md:-top-10"
+        >
+          <span
+            class="inline-block rounded-xl bg-[#0f1a2f]/90 px-5 py-2.5 text-center text-[clamp(1.5rem,1.4vw,2rem)] font-black uppercase tracking-[0.08em] text-[#3984f2] shadow-[0_16px_22px_rgba(0,0,0,0.18)]"
+          >
+            GIVEAWAY
+          </span>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-between gap-6 md:flex-row md:items-center md:gap-8"
+        >
+          <div class="w-full max-w-[760px] text-center md:pl-3 md:text-left">
+            <h1
+              class="text-[clamp(1.7rem,3.5vw,2.6rem)] font-black uppercase leading-[0.96] tracking-[-0.06em] text-white transition-colors duration-500 group-hover:text-black md:text-[clamp(1.9rem,1.8vw,2.7rem)]"
+            >
+              JACOB & CO Grand Complication Masterpiece Bugatti Chiron
+              Tourbillon Rose Gold
+            </h1>
+
+            <p
+              class="mx-auto mt-5 max-w-[500px] text-[clamp(0.95rem,1.8vw,1.35rem)] leading-[1.2] text-slate-100/85 transition-colors duration-500 group-hover:text-black md:mx-0"
+            >
+              Grand Complication Masterpiece Bugatti Chiron Tourbillon Rose Gold
+              is a true symbol of luxury and innovation.
+            </p>
+
+            <div class="mt-6">
+              <p
+                class="mb-3 text-[clamp(0.95rem,1.5vw,1.2rem)] font-extrabold uppercase tracking-[0.02em] text-slate-100/90 transition-colors duration-500 group-hover:text-black"
+              >
+                ENDS IN:
+              </p>
+
+              <div id="countdown" class="flex gap-4"></div>
+            </div>
+
+            <button
+              class="mt-7 w-full max-w-[330px] rounded-xl bg-gradient-to-b from-[#fadbbc] to-[#7b4f32] px-4 py-3 text-[clamp(1.35rem,2.6vw,2.1rem)] font-bold leading-none tracking-[-0.04em] text-white shadow-[0_14px_22px_rgba(236,108,142,0.28)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_28px_rgba(236,108,142,0.38)]"
+            >
+              Make It Yours
+            </button>
+          </div>
+
+          <div
+            class="relative mt-4 flex w-full items-center justify-center md:absolute md:-right-16 md:top-1/2 md:mt-0 md:w-auto md:-translate-y-1/2 md:justify-center md:pr-4 lg:-right-28"
+          >
+            <div
+              class="flex w-full max-w-[300px] items-center justify-center md:max-w-[360px]"
+            >
+              <img
+                src="https://www.datocms-assets.com/99008/1711636462-bu200-40-aa-aa-bbrua.webp?auto=compress%2Cformat"
+                alt="Jacob & co Bugatti watch"
+                class="w-[min(100%,380px)] max-w-[390px] drop-shadow-[0_18px_28px_rgba(0,0,0,0.26)] md:scale-[0.96]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function startCountdown(durationInSeconds, elementId) {
+        const countdownEl = document.getElementById(elementId);
+
+        function updateCountdown() {
+          const hours = String(Math.floor(durationInSeconds / 3600)).padStart(
+            2,
+            "0",
+          );
+          const minutes = String(
+            Math.floor((durationInSeconds % 3600) / 60),
+          ).padStart(2, "0");
+          const seconds = String(durationInSeconds % 60).padStart(2, "0");
+
+          countdownEl.innerHTML = `
+            <div class="flex h-[82px] w-[78px] flex-col items-center justify-center rounded-xl bg-[#0e172a]/80 px-3 py-3 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
+              <span class="text-[clamp(1.7rem,2vw,2.1rem)] font-extrabold leading-none tracking-[-0.08em] text-white">${hours}</span>
+              <small class="mt-2 text-[0.52rem] tracking-[0.18em] text-slate-100/80 uppercase">HOURS</small>
+            </div>
+            <div class="flex h-[82px] w-[78px] flex-col items-center justify-center rounded-xl bg-[#0e172a]/80 px-3 py-3 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
+              <span class="text-[clamp(1.7rem,2vw,2.1rem)] font-extrabold leading-none tracking-[-0.08em] text-white">${minutes}</span>
+              <small class="mt-2 text-[0.52rem] tracking-[0.18em] text-slate-100/80 uppercase">MINUTES</small>
+            </div>
+            <div class="flex h-[82px] w-[78px] flex-col items-center justify-center rounded-xl bg-[#0e172a]/80 px-3 py-3 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
+              <span class="text-[clamp(1.7rem,2vw,2.1rem)] font-extrabold leading-none tracking-[-0.08em] text-white">${seconds}</span>
+              <small class="mt-2 text-[0.52rem] tracking-[0.18em] text-slate-100/80 uppercase">SECONDS</small>
+            </div>
+          `;
+
+          if (durationInSeconds > 0) {
+            durationInSeconds--;
+            setTimeout(updateCountdown, 1000);
+          }
+        }
+
+        updateCountdown();
+      }
+
+      startCountdown(86400, "countdown");
+    </script>
+  </body>
+</html>
