@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Interest</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen bg-gradient-to-br bg-cover bg-center flex items-center justify-center"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1667227283849-24396056348f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z3JheXxlbnwwfDB8MHx8fDA%3D);
+    "
+  >
+    <div class="w-11/12 max-w-4xl p-10 flex flex-col">
+      <div class="px-20 flex items-center justify-center">
+        <div class="flex flex-col items-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-tr from-gray-300 to-gray-500 rounded-full p-1"
+          >
+            <div
+              class="w-full h-full bg-gradient-to-r from-yellow-400 from-50% to-90% to-yellow-600 rounded-full flex items-end justify-center overflow-clip"
+            >
+              <p class="">
+                <i class="fa-solid fa-user text-4xl text-gray-800"></i>
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-2 text-xs font-semibold text-white text-nowrap">
+            Create Account
+          </p>
+        </div>
+        <div class="w-1/3 h-1 bg-gray-400 -translate-y-4"></div>
+        <div class="flex flex-col items-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-tr from-gray-300 to-gray-500 rounded-full p-1"
+          >
+            <div
+              class="w-full h-full bg-gradient-to-r from-yellow-400 from-50% to-90% to-yellow-600 rounded-full flex items-center justify-center overflow-clip"
+            >
+              <p class="">
+                <i class="fa-solid fa-camera text-3xl text-gray-800"></i>
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-2 text-xs font-semibold text-white text-nowrap">
+            Set your interests
+          </p>
+        </div>
+        <div class="w-1/3 h-1 bg-gray-400 -translate-y-4"></div>
+
+        <div class="flex flex-col items-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-tr from-gray-300 to-gray-500 rounded-full p-1"
+          >
+            <div
+              class="w-full h-full bg-gradient-to-r from-yellow-400 from-50% to-90% to-yellow-600 rounded-full flex items-center justify-center overflow-clip"
+            >
+              <p class="">
+                <i class="fa-solid fa-people-group text-3xl text-gray-800"></i>
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-2 text-xs font-semibold text-white text-nowrap">
+            Customize your profile
+          </p>
+        </div>
+      </div>
+      <div
+        class="w-full bg-white/40 hover:bg-white duration-300 ease-in-out p-10 mt-3 rounded-xl"
+      >
+        <p class="text-xl font-semibold text-center">Choose your interests</p>
+
+        <div class="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 mt-4 gap-4">
+          <div class="p-4">
+            <div
+              class="md:w-28 md:h-28 sm:w-20 sm:h-20 w-16 h-16 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://i.pinimg.com/564x/81/0e/0f/810e0fe392c15ce61d94319394e0caed.jpg"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i
+                    class="fa-solid fa-check text-white md:text-4xl sm:text-3xl text-2xl"
+                  ></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">FITNESS</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1753857791386-5a37ca2a9b11?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdyYXklMjBkZXNpZ258ZW58MHwyfDB8fHww"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">DESIGN</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://i.pinimg.com/1200x/c4/c2/8b/c4c28b81e7cf9b401fbb8cfbea0a6987.jpg"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">EDUCATION</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1782079186608-83e6d9c65c2f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRpeSUyMGNyYWZ0c3xlbnwwfDJ8MHx8fDA%3D"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center text-nowrap">
+                DIY CRAFTS
+              </p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1644942803588-fbae66bb0d72?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Z3JheSUyMGhvbWUlMjBkZWNvcnxlbnwwfDJ8MHx8fDA%3D"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">HOME</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1707425445845-59d3dfc62642?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3JheSUyMGZvb2QlMjBhbmQlMjBkcmlua3xlbnwwfDJ8MHx8fDA%3D"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">FOOD&DRINK</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1533557188897-ef2bc7257ba3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JheSUyMGhhaXJ8ZW58MHwyfDB8fHww"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">HAIR&BEAUTY</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1712447052246-3cf5a34f82b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGJsYWNrJTIwYW5kJTIwd2lodGUlMjBnYXJkZW5pbmd8ZW58MHwyfDB8fHww"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">GARDENING</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://s1.cdn.autoevolution.com/images/news/low-lambo-revuelto-v12-hpev-is-on-digital-fire-with-revolver-wheels-and-widebody-212717_1.jpg"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">CARS</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <div
+              class="w-28 h-28 rounded-full flex flex-col interest-item"
+              onclick="toggleSelection(this)"
+            >
+              <div class="relative w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1712954601619-a6abdf0f5d0b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGdyYXklMjB0cmF2ZWx8ZW58MHwyfDB8fHww"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full hover:scale-110 transition-all duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600 interest-image"
+                />
+                <div
+                  class="absolute inset-0 rounded-full bg-gray-500/30 bg-opacity-70 items-center justify-center check-overlay"
+                  style="display: none"
+                >
+                  <i class="fa-solid fa-check text-white text-4xl"></i>
+                </div>
+              </div>
+              <p class="mt-2 font-semibold text-center">TRAVEL</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 flex justify-center">
+          <button
+            class="bg-gray-300 px-6 py-2 rounded-full font-semibold hover:bg-gray-500 hover:text-white hover:shadow-lg hover:shadow-gray-400 transition-all duration-300"
+          >
+            Next<i class="fa-solid fa-arrow-right ml-3"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .interest-item.selected .interest-image {
+        filter: grayscale(100%);
+      }
+
+      .interest-item.selected .check-overlay {
+        display: flex !important;
+      }
+
+      .interest-item {
+        width: 4rem !important;
+        height: 4rem !important;
+      }
+
+      @media (min-width: 640px) {
+        .interest-item {
+          width: 5rem !important;
+          height: 5rem !important;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .interest-item {
+          width: 7rem !important;
+          height: 7rem !important;
+        }
+      }
+
+      .check-overlay i {
+        font-size: 1.5rem;
+      }
+
+      @media (min-width: 640px) {
+        .check-overlay i {
+          font-size: 1.875rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .check-overlay i {
+          font-size: 2.25rem;
+        }
+      }
+    </style>
+
+    <script>
+      function toggleSelection(element) {
+        const isSelected = element.classList.contains("selected");
+
+        if (isSelected) {
+          // Deselect
+          element.classList.remove("selected");
+        } else {
+          // Select
+          element.classList.add("selected");
+        }
+      }
+    </script>
+  </body>
+</html>
