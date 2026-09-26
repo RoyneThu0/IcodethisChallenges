@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Interface Dashboard</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @property --accent {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #c4e45c;
+      }
+      @property --sec {
+        syntax: "<integer>";
+        inherits: false;
+        initial-value: 0;
+      }
+      @property --min {
+        syntax: "<integer>";
+        inherits: false;
+        initial-value: 0;
+      }
+
+      .cluster {
+        transition: --accent 0.6s ease;
+      }
+
+      .tk-minor {
+        stroke: rgb(255 255 255 / 0.25);
+        stroke-width: 1;
+      }
+      .tk-major {
+        stroke: #fff;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+      }
+      .tk-red {
+        stroke: #ff453a;
+      }
+      .labels {
+        fill: rgb(255 255 255 / 0.7);
+        font-size: 11px;
+        font-weight: 500;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+      .arc-value {
+        stroke: var(--accent);
+        stroke-dasharray: var(--v) 360;
+        filter: drop-shadow(0 0 6px var(--accent));
+        animation: sweep-arc 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+      }
+      .needle {
+        fill: var(--accent);
+        filter: drop-shadow(0 0 4px var(--accent));
+        transform-box: view-box;
+        transform-origin: 120px 120px;
+        transform: rotate(var(--to));
+        animation: sweep-needle 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+      }
+      @keyframes sweep-arc {
+        from {
+          stroke-dasharray: 0 360;
+        }
+      }
+      @keyframes sweep-needle {
+        from {
+          transform: rotate(-135deg);
+        }
+      }
+
+      .call-timer::before {
+        counter-reset: min var(--min) sec var(--sec);
+        content: counter(min, decimal-leading-zero) ":"
+          counter(sec, decimal-leading-zero);
+        animation:
+          tick-sec 60s steps(60) infinite,
+          tick-min 3600s steps(60) infinite;
+      }
+      @keyframes tick-sec {
+        to {
+          --sec: 60;
+        }
+      }
+      @keyframes tick-min {
+        to {
+          --min: 60;
+        }
+      }
+
+      .route {
+        stroke-dasharray: 1;
+        animation: draw-route 1.4s ease-out both;
+      }
+      @keyframes draw-route {
+        from {
+          stroke-dashoffset: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="grid min-h-screen place-items-center bg-black p-4 font-sans text-white antialiased sm:p-8"
+  >
+    <main
+      class="cluster group relative w-full max-w-[1280px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-[radial-gradient(120%_90%_at_50%_0%,#1b1d20_0%,#08090a_55%,#000_100%)] px-5 pt-5 pb-6 shadow-[0_40px_120px_-20px_rgb(0_0_0/0.9),inset_0_1px_0_rgb(255_255_255/0.08)] sm:px-10 sm:pt-7 has-[#mode-sport:checked]:[--accent:#ffb340] has-[#mode-sportplus:checked]:[--accent:#ff5a4f] has-[#mode-track:checked]:[--accent:#bf5af2]"
+    >
+      <div
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-[radial-gradient(50%_70%_at_50%_110%,color-mix(in_oklab,var(--accent)_22%,transparent),transparent)]"
+      ></div>
+
+      <header
+        class="relative flex items-center justify-between text-sm font-semibold tabular-nums"
+      >
+        <div class="flex items-center gap-3">
+          <span>10:42</span>
+          <span class="flex items-center gap-1.5 text-xs text-white/60">
+            <i class="fa-solid fa-signal"></i>5G
+          </span>
+        </div>
+        <p
+          class="hidden text-[0.65rem] font-medium tracking-[0.5em] text-white/45 uppercase sm:block"
+        >
+          Aston Martin
+        </p>
+        <div class="flex items-center gap-4 text-xs text-white/60">
+          <span class="flex items-center gap-1.5">
+            <i class="fa-solid fa-temperature-half"></i>18°C
+          </span>
+          <span
+            class="rounded-full border border-[var(--accent)]/40 px-2.5 py-0.5 text-[0.65rem] tracking-widest text-[var(--accent)] uppercase"
+          >
+            <span class="group-has-[#mode-gt:checked]:inline hidden">GT</span>
+            <span class="group-has-[#mode-sport:checked]:inline hidden"
+              >Sport</span
+            >
+            <span class="group-has-[#mode-sportplus:checked]:inline hidden"
+              >Sport+</span
+            >
+            <span class="group-has-[#mode-track:checked]:inline hidden"
+              >Track</span
+            >
+          </span>
+        </div>
+      </header>
+
+      <div
+        class="relative mt-6 grid grid-cols-2 items-center gap-x-4 gap-y-8 lg:grid-cols-[1fr_minmax(0,380px)_1fr] lg:gap-8"
+      >
+        <section
+          class="relative mx-auto aspect-square w-full max-w-[340px]"
+          aria-label="Speed 72 miles per hour"
+        >
+          <svg viewBox="0 0 240 240" class="size-full">
+            <defs>
+              <radialGradient id="face" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#1c1e21" />
+                <stop offset="100%" stop-color="#050506" />
+              </radialGradient>
+            </defs>
+            <circle
+              cx="120"
+              cy="120"
+              r="118"
+              fill="url(#face)"
+              stroke="rgb(255 255 255 / 0.08)"
+            />
+            <circle
+              cx="120"
+              cy="120"
+              r="112"
+              fill="none"
+              stroke="rgb(255 255 255 / 0.08)"
+              stroke-width="3"
+              stroke-dasharray="270 360"
+              pathLength="360"
+              transform="rotate(135 120 120)"
+            />
+            <circle
+              class="arc-value"
+              style="--v: 121.5"
+              cx="120"
+              cy="120"
+              r="112"
+              fill="none"
+              stroke-width="3"
+              stroke-linecap="round"
+              pathLength="360"
+              transform="rotate(135 120 120)"
+            />
+            <g>
+              <line
+                class="tk-major"
+                x1="45.0"
+                y1="195.0"
+                x2="52.8"
+                y2="187.2"
+              />
+              <line
+                class="tk-minor"
+                x1="34.9"
+                y1="183.1"
+                x2="38.9"
+                y2="180.2"
+              />
+              <line
+                class="tk-minor"
+                x1="26.5"
+                y1="170.0"
+                x2="30.9"
+                y2="167.6"
+              />
+              <line
+                class="tk-minor"
+                x1="20.2"
+                y1="155.7"
+                x2="24.9"
+                y2="154.0"
+              />
+              <line
+                class="tk-major"
+                x1="16.0"
+                y1="140.7"
+                x2="26.8"
+                y2="138.5"
+              />
+              <line
+                class="tk-minor"
+                x1="14.1"
+                y1="125.2"
+                x2="19.1"
+                y2="125.0"
+              />
+              <line
+                class="tk-minor"
+                x1="14.5"
+                y1="109.6"
+                x2="19.5"
+                y2="110.1"
+              />
+              <line class="tk-minor" x1="17.2" y1="94.2" x2="22.0" y2="95.5" />
+              <line class="tk-major" x1="22.1" y1="79.4" x2="32.2" y2="83.6" />
+              <line class="tk-minor" x1="29.1" y1="65.5" x2="33.4" y2="68.1" />
+              <line class="tk-minor" x1="38.1" y1="52.8" x2="41.9" y2="55.9" />
+              <line class="tk-minor" x1="48.8" y1="41.5" x2="52.2" y2="45.2" />
+              <line class="tk-major" x1="61.1" y1="31.9" x2="67.2" y2="41.0" />
+              <line class="tk-minor" x1="74.7" y1="24.2" x2="76.8" y2="28.7" />
+              <line class="tk-minor" x1="89.2" y1="18.6" x2="90.7" y2="23.3" />
+              <line
+                class="tk-minor"
+                x1="104.4"
+                y1="15.1"
+                x2="105.2"
+                y2="20.1"
+              />
+              <line
+                class="tk-major"
+                x1="120.0"
+                y1="14.0"
+                x2="120.0"
+                y2="25.0"
+              />
+              <line
+                class="tk-minor"
+                x1="135.6"
+                y1="15.1"
+                x2="134.8"
+                y2="20.1"
+              />
+              <line
+                class="tk-minor"
+                x1="150.8"
+                y1="18.6"
+                x2="149.3"
+                y2="23.3"
+              />
+              <line
+                class="tk-minor"
+                x1="165.3"
+                y1="24.2"
+                x2="163.2"
+                y2="28.7"
+              />
+              <line
+                class="tk-major"
+                x1="178.9"
+                y1="31.9"
+                x2="172.8"
+                y2="41.0"
+              />
+              <line
+                class="tk-minor"
+                x1="191.2"
+                y1="41.5"
+                x2="187.8"
+                y2="45.2"
+              />
+              <line
+                class="tk-minor"
+                x1="201.9"
+                y1="52.8"
+                x2="198.1"
+                y2="55.9"
+              />
+              <line
+                class="tk-minor"
+                x1="210.9"
+                y1="65.5"
+                x2="206.6"
+                y2="68.1"
+              />
+              <line
+                class="tk-major"
+                x1="217.9"
+                y1="79.4"
+                x2="207.8"
+                y2="83.6"
+              />
+              <line
+                class="tk-minor"
+                x1="222.8"
+                y1="94.2"
+                x2="218.0"
+                y2="95.5"
+              />
+              <line
+                class="tk-minor"
+                x1="225.5"
+                y1="109.6"
+                x2="220.5"
+                y2="110.1"
+              />
+              <line
+                class="tk-minor"
+                x1="225.9"
+                y1="125.2"
+                x2="220.9"
+                y2="125.0"
+              />
+              <line
+                class="tk-major"
+                x1="224.0"
+                y1="140.7"
+                x2="213.2"
+                y2="138.5"
+              />
+              <line
+                class="tk-minor"
+                x1="219.8"
+                y1="155.7"
+                x2="215.1"
+                y2="154.0"
+              />
+              <line
+                class="tk-minor"
+                x1="213.5"
+                y1="170.0"
+                x2="209.1"
+                y2="167.6"
+              />
+              <line
+                class="tk-minor"
+                x1="205.1"
+                y1="183.1"
+                x2="201.1"
+                y2="180.2"
+              />
+              <line
+                class="tk-major"
+                x1="195.0"
+                y1="195.0"
+                x2="187.2"
+                y2="187.2"
+              />
+            </g>
+            <g class="labels">
+              <text x="62.0" y="178.0">0</text>
+              <text x="39.6" y="136.0">20</text>
+              <text x="44.2" y="88.6">40</text>
+              <text x="74.4" y="51.8">60</text>
+              <text x="120.0" y="38.0">80</text>
+              <text x="165.6" y="51.8">100</text>
+              <text x="195.8" y="88.6">120</text>
+              <text x="200.4" y="136.0">140</text>
+              <text x="178.0" y="178.0">160</text>
+            </g>
+            <polygon
+              class="needle"
+              style="--to: -13.5deg"
+              points="120,12 122.6,46 117.4,46"
+            />
+          </svg>
+          <div
+            class="absolute inset-0 flex flex-col items-center justify-center pt-4"
+          >
+            <span
+              class="text-[clamp(2.75rem,6vw,4.5rem)] leading-none font-extralight tabular-nums"
+              >72</span
+            >
+            <span
+              class="mt-1 text-[0.55rem] font-semibold tracking-[0.15em] sm:text-[0.65rem] sm:tracking-[0.3em] text-white/50 uppercase"
+              >mph</span
+            >
+            <span
+              class="mt-4 hidden items-center gap-1.5 rounded-full bg-white/5 px-2.5 py-1 text-[0.65rem] text-white/60 tabular-nums sm:flex"
+            >
+              <i class="fa-solid fa-gauge-high text-[var(--accent)]"></i>
+              Limit 70
+            </span>
+          </div>
+        </section>
+
+        <section
+          class="relative order-last col-span-2 mx-auto flex h-[360px] w-full max-w-[420px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.05] shadow-[inset_0_1px_0_rgb(255_255_255/0.12),0_20px_60px_-20px_rgb(0_0_0/0.8)] backdrop-blur-2xl lg:order-none lg:col-span-1"
+        >
+          <div
+            class="hidden flex-1 flex-col items-center justify-center px-6 text-center group-has-[#app-phone:checked]:flex"
+          >
+            <div class="relative">
+              <span
+                class="absolute inset-0 animate-ping rounded-full bg-[#30d158]/30 group-has-[[name=call]:checked]:hidden"
+              ></span>
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&fit=crop&crop=face"
+                alt="Robert"
+                class="relative size-20 rounded-full object-cover ring-2 ring-white/15"
+              />
+            </div>
+            <h2 class="mt-4 text-2xl font-semibold tracking-tight">Robert</h2>
+
+            <p
+              class="mt-1 text-sm text-white/55 group-has-[[name=call]:checked]:hidden"
+            >
+              Incoming call · mobile
+            </p>
+            <p
+              class="mt-1 hidden items-center gap-2 text-sm text-[#30d158] tabular-nums group-has-[#call-accept:checked]:flex"
+            >
+              <span class="size-1.5 rounded-full bg-[#30d158]"></span>
+              <span class="call-timer"></span>
+            </p>
+            <p
+              class="mt-1 hidden text-sm text-white/55 group-has-[#call-decline:checked]:block"
+            >
+              Call declined
+            </p>
+
+            <div
+              class="mt-7 flex gap-10 group-has-[[name=call]:checked]:hidden"
+            >
+              <label
+                for="call-decline"
+                class="flex cursor-pointer flex-col items-center gap-2 text-xs text-white/60"
+              >
+                <span
+                  class="grid size-14 place-items-center rounded-full bg-[#ff453a] text-xl text-white shadow-[0_8px_24px_-6px_#ff453a] transition hover:scale-105 active:scale-95"
+                >
+                  <i class="fa-solid fa-phone rotate-[135deg]"></i>
+                </span>
+                Decline
+              </label>
+              <label
+                for="call-accept"
+                class="flex cursor-pointer flex-col items-center gap-2 text-xs text-white/60"
+              >
+                <span
+                  class="grid size-14 place-items-center rounded-full bg-[#30d158] text-xl text-white shadow-[0_8px_24px_-6px_#30d158] transition hover:scale-105 active:scale-95"
+                >
+                  <i class="fa-solid fa-phone"></i>
+                </span>
+                Accept
+              </label>
+            </div>
+
+            <div
+              class="mt-7 hidden gap-5 group-has-[#call-accept:checked]:flex"
+            >
+              <label
+                class="grid size-12 cursor-pointer place-items-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/15 has-[:checked]:bg-white has-[:checked]:text-black"
+              >
+                <input type="checkbox" class="sr-only" />
+                <i class="fa-solid fa-microphone-slash fa-fw"></i>
+              </label>
+              <button
+                type="button"
+                class="grid size-12 cursor-pointer place-items-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/15"
+              >
+                <i class="fa-solid fa-table-cells fa-fw"></i>
+              </button>
+              <label
+                for="call-decline"
+                class="grid size-12 cursor-pointer place-items-center rounded-full bg-[#ff453a] text-white transition hover:scale-105 active:scale-95"
+              >
+                <i class="fa-solid fa-phone fa-fw rotate-[135deg]"></i>
+              </label>
+            </div>
+
+            <label
+              for="call-accept"
+              class="mt-7 hidden cursor-pointer items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium transition hover:bg-white/15 group-has-[#call-decline:checked]:flex"
+            >
+              <i class="fa-solid fa-phone text-[#30d158]"></i>
+              Call back
+            </label>
+          </div>
+
+          <div
+            class="relative hidden flex-1 flex-col group-has-[#app-nav:checked]:flex"
+          >
+            <svg
+              viewBox="0 0 400 280"
+              preserveAspectRatio="xMidYMid slice"
+              class="absolute inset-0 size-full"
+              aria-hidden="true"
+            >
+              <rect width="400" height="280" fill="#0d0f11" />
+              <path
+                d="M0 60 Q160 40 400 90 M0 190 Q200 170 400 220 M80 0 Q70 150 110 280 M300 0 Q280 140 320 280 M180 0 L200 280"
+                stroke="rgb(255 255 255 / 0.07)"
+                stroke-width="10"
+                fill="none"
+              />
+              <path
+                d="M0 120 Q120 110 210 140 T400 150 M40 0 L20 280 M250 0 Q240 120 260 280"
+                stroke="rgb(255 255 255 / 0.04)"
+                stroke-width="5"
+                fill="none"
+              />
+              <path
+                d="M120 0 Q150 60 110 120 T160 210"
+                stroke="#16323f"
+                stroke-width="18"
+                fill="none"
+                opacity="0.6"
+              />
+              <path
+                class="route"
+                pathLength="1"
+                d="M200 290 L200 190 Q200 150 240 148 L400 150"
+                stroke="var(--accent)"
+                stroke-width="7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+              <circle cx="200" cy="232" r="11" fill="#fff" />
+              <path d="M200 224 L206 238 L200 234 L194 238 Z" fill="#000" />
+            </svg>
+
+            <div
+              class="relative m-3 flex items-center gap-4 rounded-2xl bg-black/60 p-4 backdrop-blur-xl"
+            >
+              <i
+                class="fa-solid fa-arrow-turn-up rotate-90 text-3xl text-[var(--accent)]"
+              ></i>
+              <div>
+                <p class="text-2xl font-semibold tabular-nums">0.4 mi</p>
+                <p class="text-sm text-white/60">Park Lane</p>
+              </div>
+            </div>
+
+            <div
+              class="relative mt-auto m-3 flex items-center justify-between rounded-2xl bg-black/60 px-4 py-3 text-sm backdrop-blur-xl tabular-nums"
+            >
+              <span class="font-semibold"
+                >10:58
+                <span class="font-normal text-white/50">arrival</span></span
+              >
+              <span class="text-white/60">16 min · 7.2 mi</span>
+            </div>
+          </div>
+
+          <div
+            class="hidden flex-1 flex-col justify-center gap-5 px-7 group-has-[#app-music:checked]:flex"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="grid size-24 shrink-0 place-items-center rounded-2xl bg-[linear-gradient(135deg,var(--accent),#1c3b33_70%)] shadow-[0_12px_30px_-10px_var(--accent)]"
+              >
+                <i class="fa-solid fa-compact-disc text-3xl text-black/40"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="truncate text-lg font-semibold">Midnight City</p>
+                <p class="truncate text-sm text-white/55">M83</p>
+                <p class="mt-2 text-xs text-white/40">
+                  <i class="fa-brands fa-apple"></i> Music
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="h-1 overflow-hidden rounded-full bg-white/15">
+                <div class="h-full w-[42%] rounded-full bg-white"></div>
+              </div>
+              <div
+                class="mt-1.5 flex justify-between text-[0.65rem] text-white/45 tabular-nums"
+              >
+                <span>1:45</span><span>-2:19</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center gap-8">
+              <button
+                type="button"
+                aria-label="Previous track"
+                class="grid size-12 cursor-pointer place-items-center rounded-full text-xl text-white/75 transition hover:bg-white/10 hover:text-white active:scale-90"
+              >
+                <i class="fa-solid fa-backward-step fa-fw"></i>
+              </button>
+              <label
+                class="group/play grid size-16 cursor-pointer place-items-center rounded-full bg-white text-2xl text-black shadow-[0_10px_30px_-8px_rgb(255_255_255/0.45)] transition hover:scale-105 active:scale-95 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[var(--accent)] has-[:focus-visible]:ring-offset-2 has-[:focus-visible]:ring-offset-black"
+                aria-label="Play or pause"
+              >
+                <input type="checkbox" class="sr-only" />
+                <span class="group-has-[:checked]/play:hidden">
+                  <i class="fa-solid fa-pause fa-fw"></i>
+                </span>
+                <span class="hidden pl-0.5 group-has-[:checked]/play:block">
+                  <i class="fa-solid fa-play fa-fw"></i>
+                </span>
+              </label>
+              <button
+                type="button"
+                aria-label="Next track"
+                class="grid size-12 cursor-pointer place-items-center rounded-full text-xl text-white/75 transition hover:bg-white/10 hover:text-white active:scale-90"
+              >
+                <i class="fa-solid fa-forward-step fa-fw"></i>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="hidden flex-1 flex-col gap-5 px-6 pt-6 group-has-[#app-settings:checked]:flex"
+          >
+            <div>
+              <p
+                class="mb-3 text-[0.65rem] font-semibold tracking-[0.25em] text-white/45 uppercase"
+              >
+                Drive mode
+              </p>
+              <div
+                class="grid grid-cols-4 gap-1 rounded-2xl bg-black/40 p-1 text-xs font-semibold"
+              >
+                <label
+                  class="cursor-pointer rounded-xl py-2.5 text-center text-white/60 transition hover:text-white has-[:checked]:bg-[var(--accent)] has-[:checked]:text-black"
+                >
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="mode-gt"
+                    class="sr-only"
+                    checked
+                  />
+                  GT
+                </label>
+                <label
+                  class="cursor-pointer rounded-xl py-2.5 text-center text-white/60 transition hover:text-white has-[:checked]:bg-[var(--accent)] has-[:checked]:text-black"
+                >
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="mode-sport"
+                    class="sr-only"
+                  />
+                  Sport
+                </label>
+                <label
+                  class="cursor-pointer rounded-xl py-2.5 text-center text-white/60 transition hover:text-white has-[:checked]:bg-[var(--accent)] has-[:checked]:text-black"
+                >
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="mode-sportplus"
+                    class="sr-only"
+                  />
+                  Sport+
+                </label>
+                <label
+                  class="cursor-pointer rounded-xl py-2.5 text-center text-white/60 transition hover:text-white has-[:checked]:bg-[var(--accent)] has-[:checked]:text-black"
+                >
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="mode-track"
+                    class="sr-only"
+                  />
+                  Track
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="divide-y divide-white/10 rounded-2xl bg-black/40 text-sm"
+            >
+              <label
+                class="flex cursor-pointer items-center justify-between px-4 py-3"
+              >
+                <span class="flex items-center gap-3">
+                  <i class="fa-solid fa-volume-high fa-fw text-white/50"></i>
+                  Sports exhaust
+                </span>
+                <input type="checkbox" class="peer sr-only" checked />
+                <span
+                  class="relative h-6 w-10 rounded-full bg-white/15 transition peer-checked:bg-[var(--accent)] after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-4"
+                ></span>
+              </label>
+              <label
+                class="flex cursor-pointer items-center justify-between px-4 py-3"
+              >
+                <span class="flex items-center gap-3">
+                  <i class="fa-solid fa-road fa-fw text-white/50"></i>
+                  Lane keep assist
+                </span>
+                <input type="checkbox" class="peer sr-only" />
+                <span
+                  class="relative h-6 w-10 rounded-full bg-white/15 transition peer-checked:bg-[var(--accent)] after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-4"
+                ></span>
+              </label>
+            </div>
+          </div>
+
+          <nav
+            class="relative m-3 mt-0 grid grid-cols-4 gap-1 rounded-2xl bg-black/50 p-1.5 backdrop-blur-xl"
+            aria-label="Apps"
+          >
+            <label
+              class="grid h-11 cursor-pointer place-items-center rounded-xl text-white/50 transition hover:text-white has-[:checked]:bg-white/12 has-[:checked]:text-[var(--accent)]"
+              title="Settings"
+            >
+              <input
+                type="radio"
+                name="app"
+                id="app-settings"
+                class="sr-only"
+              />
+              <i class="fa-solid fa-sliders fa-fw"></i>
+            </label>
+            <label
+              class="grid h-11 cursor-pointer place-items-center rounded-xl text-white/50 transition hover:text-white has-[:checked]:bg-white/12 has-[:checked]:text-[var(--accent)]"
+              title="Navigation"
+            >
+              <input type="radio" name="app" id="app-nav" class="sr-only" />
+              <i class="fa-solid fa-location-arrow fa-fw"></i>
+            </label>
+            <label
+              class="grid h-11 cursor-pointer place-items-center rounded-xl text-white/50 transition hover:text-white has-[:checked]:bg-white/12 has-[:checked]:text-[var(--accent)]"
+              title="Phone"
+            >
+              <input
+                type="radio"
+                name="app"
+                id="app-phone"
+                class="sr-only"
+                checked
+              />
+              <i class="fa-solid fa-phone fa-fw"></i>
+            </label>
+            <label
+              class="grid h-11 cursor-pointer place-items-center rounded-xl text-white/50 transition hover:text-white has-[:checked]:bg-white/12 has-[:checked]:text-[var(--accent)]"
+              title="Music"
+            >
+              <input type="radio" name="app" id="app-music" class="sr-only" />
+              <i class="fa-solid fa-music fa-fw"></i>
+            </label>
+          </nav>
+
+          <input type="radio" name="call" id="call-accept" class="sr-only" />
+          <input type="radio" name="call" id="call-decline" class="sr-only" />
+        </section>
+
+        <!-- Tachometer -->
+        <section
+          class="relative mx-auto aspect-square w-full max-w-[340px]"
+          aria-label="Engine 3,200 rpm, gear D3"
+        >
+          <svg viewBox="0 0 240 240" class="size-full">
+            <circle
+              cx="120"
+              cy="120"
+              r="118"
+              fill="url(#face)"
+              stroke="rgb(255 255 255 / 0.08)"
+            />
+            <circle
+              cx="120"
+              cy="120"
+              r="112"
+              fill="none"
+              stroke="rgb(255 255 255 / 0.08)"
+              stroke-width="3"
+              stroke-dasharray="270 360"
+              pathLength="360"
+              transform="rotate(135 120 120)"
+            />
+            <circle
+              cx="120"
+              cy="120"
+              r="112"
+              fill="none"
+              stroke="#ff453a"
+              stroke-width="3"
+              stroke-dasharray="0 219.4 50.6 90"
+              pathLength="360"
+              transform="rotate(135 120 120)"
+              opacity="0.8"
+            />
+            <circle
+              class="arc-value"
+              style="--v: 108"
+              cx="120"
+              cy="120"
+              r="112"
+              fill="none"
+              stroke-width="3"
+              stroke-linecap="round"
+              pathLength="360"
+              transform="rotate(135 120 120)"
+            />
+            <g>
+              <line
+                class="tk-major"
+                x1="45.0"
+                y1="195.0"
+                x2="52.8"
+                y2="187.2"
+              />
+              <line
+                class="tk-minor"
+                x1="34.9"
+                y1="183.1"
+                x2="38.9"
+                y2="180.2"
+              />
+              <line
+                class="tk-minor"
+                x1="26.5"
+                y1="170.0"
+                x2="30.9"
+                y2="167.6"
+              />
+              <line
+                class="tk-minor"
+                x1="20.2"
+                y1="155.7"
+                x2="24.9"
+                y2="154.0"
+              />
+              <line
+                class="tk-major"
+                x1="16.0"
+                y1="140.7"
+                x2="26.8"
+                y2="138.5"
+              />
+              <line
+                class="tk-minor"
+                x1="14.1"
+                y1="125.2"
+                x2="19.1"
+                y2="125.0"
+              />
+              <line
+                class="tk-minor"
+                x1="14.5"
+                y1="109.6"
+                x2="19.5"
+                y2="110.1"
+              />
+              <line class="tk-minor" x1="17.2" y1="94.2" x2="22.0" y2="95.5" />
+              <line class="tk-major" x1="22.1" y1="79.4" x2="32.2" y2="83.6" />
+              <line class="tk-minor" x1="29.1" y1="65.5" x2="33.4" y2="68.1" />
+              <line class="tk-minor" x1="38.1" y1="52.8" x2="41.9" y2="55.9" />
+              <line class="tk-minor" x1="48.8" y1="41.5" x2="52.2" y2="45.2" />
+              <line class="tk-major" x1="61.1" y1="31.9" x2="67.2" y2="41.0" />
+              <line class="tk-minor" x1="74.7" y1="24.2" x2="76.8" y2="28.7" />
+              <line class="tk-minor" x1="89.2" y1="18.6" x2="90.7" y2="23.3" />
+              <line
+                class="tk-minor"
+                x1="104.4"
+                y1="15.1"
+                x2="105.2"
+                y2="20.1"
+              />
+              <line
+                class="tk-major"
+                x1="120.0"
+                y1="14.0"
+                x2="120.0"
+                y2="25.0"
+              />
+              <line
+                class="tk-minor"
+                x1="135.6"
+                y1="15.1"
+                x2="134.8"
+                y2="20.1"
+              />
+              <line
+                class="tk-minor"
+                x1="150.8"
+                y1="18.6"
+                x2="149.3"
+                y2="23.3"
+              />
+              <line
+                class="tk-minor"
+                x1="165.3"
+                y1="24.2"
+                x2="163.2"
+                y2="28.7"
+              />
+              <line
+                class="tk-major"
+                x1="178.9"
+                y1="31.9"
+                x2="172.8"
+                y2="41.0"
+              />
+              <line
+                class="tk-minor"
+                x1="191.2"
+                y1="41.5"
+                x2="187.8"
+                y2="45.2"
+              />
+              <line
+                class="tk-minor"
+                x1="201.9"
+                y1="52.8"
+                x2="198.1"
+                y2="55.9"
+              />
+              <line
+                class="tk-minor"
+                x1="210.9"
+                y1="65.5"
+                x2="206.6"
+                y2="68.1"
+              />
+              <line
+                class="tk-major"
+                x1="217.9"
+                y1="79.4"
+                x2="207.8"
+                y2="83.6"
+              />
+              <line
+                class="tk-minor"
+                x1="222.8"
+                y1="94.2"
+                x2="218.0"
+                y2="95.5"
+              />
+              <line
+                class="tk-minor tk-red"
+                x1="225.5"
+                y1="109.6"
+                x2="220.5"
+                y2="110.1"
+              />
+              <line
+                class="tk-minor tk-red"
+                x1="225.9"
+                y1="125.2"
+                x2="220.9"
+                y2="125.0"
+              />
+              <line
+                class="tk-major tk-red"
+                x1="224.0"
+                y1="140.7"
+                x2="213.2"
+                y2="138.5"
+              />
+              <line
+                class="tk-minor tk-red"
+                x1="219.8"
+                y1="155.7"
+                x2="215.1"
+                y2="154.0"
+              />
+              <line
+                class="tk-minor tk-red"
+                x1="213.5"
+                y1="170.0"
+                x2="209.1"
+                y2="167.6"
+              />
+              <line
+                class="tk-minor tk-red"
+                x1="205.1"
+                y1="183.1"
+                x2="201.1"
+                y2="180.2"
+              />
+              <line
+                class="tk-major tk-red"
+                x1="195.0"
+                y1="195.0"
+                x2="187.2"
+                y2="187.2"
+              />
+            </g>
+            <g class="labels">
+              <text x="62.0" y="178.0">0</text>
+              <text x="39.6" y="136.0">1</text>
+              <text x="44.2" y="88.6">2</text>
+              <text x="74.4" y="51.8">3</text>
+              <text x="120.0" y="38.0">4</text>
+              <text x="165.6" y="51.8">5</text>
+              <text x="195.8" y="88.6">6</text>
+              <text x="200.4" y="136.0">7</text>
+              <text x="178.0" y="178.0">8</text>
+            </g>
+            <polygon
+              class="needle"
+              style="--to: -27deg"
+              points="120,12 122.6,46 117.4,46"
+            />
+          </svg>
+          <div
+            class="absolute inset-0 flex flex-col items-center justify-center pt-4"
+          >
+            <span
+              class="text-[clamp(2.75rem,6vw,4.5rem)] leading-none font-light text-[var(--accent)]"
+              >D<sub class="ml-0.5 align-baseline text-[0.4em] text-white/70"
+                >3</sub
+              ></span
+            >
+            <span
+              class="mt-1 text-[0.55rem] font-semibold tracking-[0.15em] sm:text-[0.65rem] sm:tracking-[0.3em] text-white/50 uppercase"
+              >×1000 rpm</span
+            >
+            <span
+              class="mt-4 hidden items-center gap-2 text-[0.65rem] font-semibold tracking-widest text-white/35 sm:flex"
+            >
+              <span>P</span><span>R</span><span>N</span
+              ><span class="text-white">D</span><span>M</span>
+            </span>
+          </div>
+        </section>
+      </div>
+
+      <footer
+        class="relative mt-6 grid grid-cols-2 gap-6 text-xs text-white/55 tabular-nums lg:grid-cols-[1fr_minmax(0,380px)_1fr] lg:gap-8"
+      >
+        <div class="mx-auto flex w-full max-w-[260px] items-center gap-3">
+          <i class="fa-solid fa-gas-pump fa-fw text-white/70"></i>
+          <div class="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+            <div class="h-full w-[70%] rounded-full bg-[var(--accent)]"></div>
+          </div>
+          <span>312 mi</span>
+        </div>
+        <div class="hidden items-center justify-center gap-6 lg:flex">
+          <span
+            ><i class="fa-solid fa-road mr-1.5 text-white/40"></i>12,408
+            mi</span
+          >
+          <span
+            ><i class="fa-solid fa-leaf mr-1.5 text-white/40"></i>24.1 mpg</span
+          >
+        </div>
+        <div class="mx-auto flex w-full max-w-[260px] items-center gap-3">
+          <i class="fa-solid fa-oil-can fa-fw text-white/70"></i>
+          <div class="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+            <div class="h-full w-[45%] rounded-full bg-[var(--accent)]"></div>
+          </div>
+          <span>92°C</span>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
