@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload</title>
+    <link rel="stylesheet" href="./input.css" />
+  </head>
+  <body>
+    <div class="upload-panel">
+      <header class="panel-header">FILE UPLOAD</header>
+
+      <main class="panel-body panel-body-empty">
+        <div class="upload-stack">
+          <input id="fileInput" type="file" multiple hidden />
+
+          <div
+            id="dropZone"
+            class="cloud-dropzone"
+            aria-label="Upload area"
+            tabindex="0"
+            role="button"
+          >
+            <div class="cloud-inner">
+              <div id="dropLabel" class="cloud-label">
+                Drag and drop files here
+              </div>
+              <div class="cloud-or">OR</div>
+              <button id="selectButton" class="select-button" type="button">
+                SELECT FILES
+              </button>
+            </div>
+          </div>
+
+          <ul id="fileList" class="file-list" aria-live="polite"></ul>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const dropZone = document.getElementById("dropZone");
+      const selectButton = document.getElementById("selectButton");
+      const dropLabel = document.getElementById("dropLabel");
+      const fileList = document.getElementById("fileList");
+
+      function updateLabel(files) {
+        if (!files || files.length === 0) {
+          dropLabel.textContent = "Drag and drop files here";
+          return;
+        }
+
+        const count = files.length;
+        dropLabel.textContent =
+          count === 1 ? "1 file selected" : `${count} files selected`;
+      }
+
+      function renderFiles(files) {
+        fileList.innerHTML = "";
+
+        if (!files || files.length === 0) {
+          return;
+        }
+
+        [...files].forEach((file) => {
+          const item = document.createElement("li");
+          item.className = "file-item";
+
+          const name = document.createElement("span");
+          name.className = "file-name";
+          name.textContent = file.name;
+
+          const size = document.createElement("span");
+          size.className = "file-size";
+          size.textContent = `${(file.size / 1024).toFixed(1)} KB`;
+
+          item.append(name, size);
+          fileList.appendChild(item);
+        });
+      }
+
+      function handleFiles(files) {
+        if (!files || files.length === 0) return;
+        updateLabel(files);
+        renderFiles(files);
+      }
+
+      const openFilePicker = () => fileInput.click();
+
+      selectButton.addEventListener("click", openFilePicker);
+      dropZone.addEventListener("click", openFilePicker);
+      dropZone.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openFilePicker();
+        }
+      });
+
+      ["dragenter", "dragover"].forEach((eventName) => {
+        dropZone.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          dropZone.classList.add("drag-over");
+        });
+      });
+
+      ["dragleave", "drop"].forEach((eventName) => {
+        dropZone.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          dropZone.classList.remove("drag-over");
+        });
+      });
+
+      dropZone.addEventListener("drop", (event) => {
+        handleFiles(event.dataTransfer.files);
+      });
+
+      fileInput.addEventListener("change", () => {
+        handleFiles(fileInput.files);
+      });
+    </script>
+  </body>
+</html>
