@@ -46,7 +46,9 @@
               class="menu-content mx-2 grid grid-rows-[0fr] px-6 py-0 bg-orange-600 text-white opacity-0 transition-all duration-300 ease-out motion-reduce:transition-none"
               aria-hidden="true"
             >
-              <div class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
                 <div class="menu-item">
                   <h3 class="font-bold text-lg">BUTTERMILK FRIED CHICKEN</h3>
                   <p class="text-2xl font-bold">$12</p>
@@ -89,7 +91,9 @@
               class="menu-content mx-2 grid grid-rows-[0fr] px-6 py-0 bg-red-400 text-white opacity-0 transition-all duration-300 ease-out motion-reduce:transition-none"
               aria-hidden="true"
             >
-              <div class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div
+                class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
                 <div class="menu-item relative">
                   <h3 class="font-bold text-lg">BUTTERMILK FRIED CHICKEN</h3>
                   <p class="text-2xl font-bold">$12</p>
@@ -159,7 +163,9 @@
               class="menu-content mx-2 grid grid-rows-[0fr] px-6 py-0 bg-gray-400 text-white opacity-0 transition-all duration-300 ease-out motion-reduce:transition-none"
               aria-hidden="true"
             >
-              <div class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
                 <div class="menu-item">
                   <h3 class="font-bold text-lg">FRESH SALADS</h3>
                   <p class="text-2xl font-bold">$9</p>
@@ -202,7 +208,9 @@
               class="menu-content mx-2 grid grid-rows-[0fr] px-6 py-0 bg-orange-400 text-white opacity-0 transition-all duration-300 ease-out motion-reduce:transition-none"
               aria-hidden="true"
             >
-              <div class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                class="min-h-0 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
                 <div class="menu-item">
                   <h3 class="font-bold text-lg">ESPRESSO</h3>
                   <p class="text-2xl font-bold">$3</p>
@@ -267,17 +275,16 @@
             .setAttribute("aria-expanded", String(isOpen));
           content.inert = !isOpen;
           header.addEventListener("click", function () {
-            const shouldOpen = !content.classList.contains("is-open");
+            const button = section.querySelector(".expand-btn");
+            const shouldOpen = button.getAttribute("aria-expanded") !== "true";
 
-            sections.forEach((otherSection) => {
-              const otherContent = otherSection.querySelector(".menu-content");
-              if (
-                otherSection !== section &&
-                otherContent.classList.contains("is-open")
-              ) {
-                setSectionOpen(otherSection, false);
-              }
-            });
+            if (shouldOpen) {
+              sections.forEach((otherSection) => {
+                if (otherSection !== section) {
+                  setSectionOpen(otherSection, false);
+                }
+              });
+            }
 
             setSectionOpen(section, shouldOpen);
           });
