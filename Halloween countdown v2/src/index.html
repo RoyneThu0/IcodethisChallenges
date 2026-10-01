@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haloween Countdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen bg-cover bg-center text-white flex flex-col items-center justify-center p-4"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1477516561410-f0b5dd8319e4?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    "
+  >
+    <div
+      class="w-[92%] max-w-4xl bg-[#1a0505]/80 border border-red-300/40 p-4 sm:p-8 lg:p-10 rounded-xl shadow-[0_0_35px_rgba(239,68,68,0.38)] backdrop-blur-sm"
+    >
+      <div
+        class="w-full p-4 sm:p-8 lg:p-10 flex items-center justify-center flex-col"
+      >
+        <p
+          class="text-4xl sm:text-5xl lg:text-6xl text-center font-serif font-semibold text-red-50 tracking-[0.15em] leading-none"
+        >
+          HALLOWEEN
+        </p>
+
+        <div
+          id="count"
+          class="flex flex-wrap items-center justify-center w-full gap-3 sm:gap-4 lg:gap-6 mt-6 sm:mt-8 text-red-50"
+        >
+          <div
+            class="min-w-[90px] sm:min-w-[110px] p-3 sm:p-4 text-center font-serif flex items-center flex-col justify-center font-semibold"
+          >
+            <span
+              id="months"
+              class="text-4xl sm:text-5xl lg:text-7xl text-white"
+              >00</span
+            >
+            <p
+              class="text-[10px] sm:text-xs uppercase tracking-wide text-red-100/90"
+            >
+              Months
+            </p>
+          </div>
+          <div
+            class="min-w-[90px] sm:min-w-[110px] p-3 sm:p-4 text-center font-serif flex items-center flex-col justify-center font-semibold"
+          >
+            <span id="days" class="text-4xl sm:text-5xl lg:text-7xl text-white"
+              >00</span
+            >
+            <p
+              class="text-[10px] sm:text-xs uppercase tracking-wide text-red-100/90"
+            >
+              Days
+            </p>
+          </div>
+          <div
+            class="min-w-[90px] sm:min-w-[110px] p-3 sm:p-4 text-center font-serif flex items-center flex-col justify-center font-semibold"
+          >
+            <span id="hours" class="text-4xl sm:text-5xl lg:text-7xl text-white"
+              >00</span
+            >
+            <p
+              class="text-[10px] sm:text-xs uppercase tracking-wide text-red-100/90"
+            >
+              Hours
+            </p>
+          </div>
+          <div
+            class="min-w-[90px] sm:min-w-[110px] p-3 sm:p-4 text-center font-serif flex items-center flex-col justify-center font-semibold"
+          >
+            <span
+              id="minutes"
+              class="text-4xl sm:text-5xl lg:text-7xl text-white"
+              >00</span
+            >
+            <p
+              class="text-[10px] sm:text-xs uppercase tracking-wide text-red-100/90"
+            >
+              Minutes
+            </p>
+          </div>
+          <div
+            class="min-w-[90px] sm:min-w-[110px] p-3 sm:p-4 text-center font-serif flex items-center flex-col justify-center font-semibold"
+          >
+            <span
+              id="seconds"
+              class="text-4xl sm:text-5xl lg:text-7xl text-white"
+              >00</span
+            >
+            <p
+              class="text-[10px] sm:text-xs uppercase tracking-wide text-red-100/90"
+            >
+              Seconds
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const targetDate = new Date("2026-10-31T00:00:00").getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+
+      const distance = targetDate - now;
+
+      const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+      const days = Math.floor(
+        (distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24),
+      );
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("months").innerText = months;
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("months").innerText = "00";
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+      }
+    }, 1000);
+  </script>
+</html>
