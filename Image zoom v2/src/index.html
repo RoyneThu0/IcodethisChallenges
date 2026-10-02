@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Zoom Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="input.css" />
+    <style>
+      #modalImage {
+        transition: transform 0.2s ease;
+        transform-origin: center center;
+      }
+    </style>
+  </head>
+  <body
+    class="flex min-h-screen items-center justify-center bg-cover bg-center px-3 py-6 font-sans"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1657215374010-786fefd1dbbc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbHxlbnwwfHwwfHx8MA%3D%3D);
+    "
+  >
+    <div
+      class="grid w-full max-w-[23rem] grid-cols-2 gap-2 rounded-[1.1rem] border border-white/10 bg-teal-200/10 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_12px_24px_rgba(15,99,104,0.08)] backdrop-blur-sm"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1634832802205-192349ef3bc8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fDRrfGVufDB8MnwwfHx8MA%3D%3D"
+        alt="1"
+        class="aspect-square cursor-pointer rounded-[1.1rem] border border-white/60 object-cover shadow-[0_18px_35px_rgba(10,57,60,0.18)] transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_18px_30px_rgba(26,78,83,0.22)] hover:saturate-105"
+        onclick="openModal(this.src)"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1755662692041-6724f8d57d5f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fDRrfGVufDB8MnwwfHx8MA%3D%3D"
+        alt="2"
+        class="aspect-square cursor-pointer rounded-[1.1rem] border border-white/60 object-cover shadow-[0_18px_35px_rgba(10,57,60,0.18)] transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_18px_30px_rgba(26,78,83,0.22)] hover:saturate-105"
+        onclick="openModal(this.src)"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1663490878462-b16b3b9a0561?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fDRrfGVufDB8MnwwfHx8MA%3D%3D"
+        alt="3"
+        class="aspect-square cursor-pointer rounded-[1.1rem] border border-white/60 object-cover shadow-[0_18px_35px_rgba(10,57,60,0.18)] transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_18px_30px_rgba(26,78,83,0.22)] hover:saturate-105"
+        onclick="openModal(this.src)"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1693853121076-357921e387db?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fDRrfGVufDB8MnwwfHx8MA%3D%3D"
+        alt="4"
+        class="aspect-square cursor-pointer rounded-[1.1rem] border border-white/60 object-cover shadow-[0_18px_35px_rgba(10,57,60,0.18)] transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_18px_30px_rgba(26,78,83,0.22)] hover:saturate-105"
+        onclick="openModal(this.src)"
+      />
+    </div>
+
+    <div
+      id="modal"
+      class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+      onclick="closeModal()"
+    >
+      <div
+        class="relative flex w-11/12 flex-col items-center rounded-2xl bg-white/95 p-3 shadow-[0_28px_60px_rgba(10,33,36,0.22)] md:w-[34rem] lg:w-[36rem]"
+        onclick="event.stopPropagation()"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute right-2 top-2 z-10 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-200 text-base font-bold text-gray-600 transition hover:bg-gray-300 hover:text-gray-800"
+        >
+          ✕
+        </button>
+
+        <div
+          id="imageContainer"
+          class="relative flex w-full justify-center overflow-hidden rounded-[1.1rem] bg-[linear-gradient(135deg,rgba(238,240,240,0.9),rgba(255,255,255,1))]"
+        >
+          <div
+            id="zoomLens"
+            class="pointer-events-none absolute z-20 hidden rounded-full border-2 border-white/90 bg-white/10 shadow-[0_14px_30px_rgba(15,32,36,0.25)]"
+          ></div>
+          <img
+            id="modalImage"
+            src=""
+            alt="Zoomed"
+            class="relative z-10 max-h-[70vh] rounded-lg object-contain shadow-[0_12px_28px_rgba(15,27,30,0.18)]"
+          />
+        </div>
+
+        <div class="mt-4 flex w-full items-center justify-center space-x-4">
+          <button
+            onclick="zoomOut()"
+            class="rounded-full bg-gray-200 px-2 py-1 text-sm transition hover:bg-gray-300"
+          >
+            -
+          </button>
+          <input
+            id="zoomSlider"
+            type="range"
+            min="1"
+            max="3"
+            step="0.1"
+            value="1"
+            class="w-2/3 min-w-0 accent-[#1fb0aa]"
+            oninput="setZoom(this.value)"
+          />
+          <button
+            onclick="zoomIn()"
+            class="rounded-full bg-gray-200 px-2 py-1 text-sm transition hover:bg-gray-300"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("modal");
+      const modalImage = document.getElementById("modalImage");
+      const zoomSlider = document.getElementById("zoomSlider");
+      const imageContainer = document.getElementById("imageContainer");
+      const zoomLens = document.getElementById("zoomLens");
+
+      let zoomLevel = 1;
+      const lensSize = 130;
+      const minZoom = 1;
+      const maxZoom = 3;
+      let lastPointer = null;
+
+      function clampZoom(value) {
+        return Math.min(maxZoom, Math.max(minZoom, value));
+      }
+
+      function updateCursorMode() {
+        if (zoomLevel > 1) {
+          imageContainer.style.cursor = "none";
+        } else {
+          imageContainer.style.cursor = "default";
+          zoomLens.classList.add("hidden");
+        }
+      }
+
+      function openModal(src) {
+        modal.classList.remove("hidden");
+        modalImage.src = src;
+        modalImage.style.transform = "scale(1)";
+        modalImage.style.transformOrigin = "center center";
+        zoomSlider.value = 1;
+        zoomLevel = 1;
+        lastPointer = null;
+        updateCursorMode();
+      }
+
+      function closeModal() {
+        modal.classList.add("hidden");
+        zoomLens.classList.add("hidden");
+        lastPointer = null;
+      }
+
+      function setZoom(value) {
+        zoomLevel = clampZoom(parseFloat(value));
+        modalImage.style.transform = `scale(${zoomLevel})`;
+
+        if (zoomLevel > 1 && lastPointer) {
+          updateLensPosition(lastPointer);
+        } else if (zoomLevel <= 1) {
+          modalImage.style.transformOrigin = "center center";
+        }
+
+        updateCursorMode();
+      }
+
+      function zoomIn() {
+        const nextZoom = clampZoom(zoomLevel + 0.1);
+        zoomSlider.value = nextZoom.toFixed(1);
+        setZoom(nextZoom);
+      }
+
+      function zoomOut() {
+        const nextZoom = clampZoom(zoomLevel - 0.1);
+        zoomSlider.value = nextZoom.toFixed(1);
+        setZoom(nextZoom);
+      }
+
+      function updateLensPosition(e) {
+        lastPointer = e;
+
+        if (zoomLevel <= 1) {
+          zoomLens.classList.add("hidden");
+          return;
+        }
+
+        const containerRect = imageContainer.getBoundingClientRect();
+        const imageRect = modalImage.getBoundingClientRect();
+
+        const xInImage = Math.min(
+          Math.max(e.clientX - imageRect.left, 0),
+          imageRect.width,
+        );
+        const yInImage = Math.min(
+          Math.max(e.clientY - imageRect.top, 0),
+          imageRect.height,
+        );
+
+        const clampedX = Math.min(
+          Math.max(xInImage, lensSize / 2),
+          imageRect.width - lensSize / 2,
+        );
+        const clampedY = Math.min(
+          Math.max(yInImage, lensSize / 2),
+          imageRect.height - lensSize / 2,
+        );
+
+        const lensLeft = e.clientX - containerRect.left - lensSize / 2;
+        const lensTop = e.clientY - containerRect.top - lensSize / 2;
+
+        const scaledWidth = imageRect.width * zoomLevel;
+        const scaledHeight = imageRect.height * zoomLevel;
+        const backgroundX = Math.max(
+          -(scaledWidth - imageRect.width),
+          Math.min(0, -(clampedX * zoomLevel - lensSize / 2)),
+        );
+        const backgroundY = Math.max(
+          -(scaledHeight - imageRect.height),
+          Math.min(0, -(clampedY * zoomLevel - lensSize / 2)),
+        );
+
+        zoomLens.style.width = `${lensSize}px`;
+        zoomLens.style.height = `${lensSize}px`;
+        zoomLens.style.left = `${Math.max(0, Math.min(lensLeft, containerRect.width - lensSize))}px`;
+        zoomLens.style.top = `${Math.max(0, Math.min(lensTop, containerRect.height - lensSize))}px`;
+        zoomLens.style.backgroundImage = `url('${modalImage.src}')`;
+        zoomLens.style.backgroundSize = `${scaledWidth}px ${scaledHeight}px`;
+        zoomLens.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
+        zoomLens.style.backgroundRepeat = "no-repeat";
+        zoomLens.classList.remove("hidden");
+
+        modalImage.style.transformOrigin = `${(clampedX / imageRect.width) * 100}% ${(clampedY / imageRect.height) * 100}%`;
+      }
+
+      // Hover to zoom follow mouse
+      imageContainer.addEventListener("pointermove", updateLensPosition);
+      imageContainer.addEventListener("pointerleave", () => {
+        zoomLens.classList.add("hidden");
+        lastPointer = null;
+      });
+
+      // Close modal with ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
