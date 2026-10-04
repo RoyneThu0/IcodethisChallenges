@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Pad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-cover bg-center flex items-center justify-center p-5 text-slate-800"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1733666940935-95d7e9e42ed2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGdyZWVufGVufDB8MHwwfHx8MA%3D%3D);
+    "
+  >
+    <div
+      class="relative w-full max-w-[360px] rounded-lg border border-white/60 bg-white/80 p-5 shadow-[0_25px_80px_rgba(79,70,229,0.18)] backdrop-blur-md"
+    >
+      <div id="dialerScreen" class="screen screen-active" aria-hidden="false">
+        <div class="mb-6 min-h-[28px] px-2 text-center">
+          <div
+            id="phoneNumber"
+            class="text-2xl font-semibold tracking-[0.18em] text-slate-700"
+          ></div>
+        </div>
+
+        <div class="mt-1 grid grid-cols-3 gap-3 place-items-center">
+          <button type="button" onclick="press('1')" class="dial-btn">
+            <span class="digit">1</span>
+            <span class="letters">&nbsp;</span>
+          </button>
+          <button type="button" onclick="press('2')" class="dial-btn">
+            <span class="digit">2</span>
+            <span class="letters">ABC</span>
+          </button>
+          <button type="button" onclick="press('3')" class="dial-btn">
+            <span class="digit">3</span>
+            <span class="letters">DEF</span>
+          </button>
+
+          <button type="button" onclick="press('4')" class="dial-btn">
+            <span class="digit">4</span>
+            <span class="letters">GHI</span>
+          </button>
+          <button type="button" onclick="press('5')" class="dial-btn">
+            <span class="digit">5</span>
+            <span class="letters">JKL</span>
+          </button>
+          <button type="button" onclick="press('6')" class="dial-btn">
+            <span class="digit">6</span>
+            <span class="letters">MNO</span>
+          </button>
+
+          <button type="button" onclick="press('7')" class="dial-btn">
+            <span class="digit">7</span>
+            <span class="letters">PQRS</span>
+          </button>
+          <button type="button" onclick="press('8')" class="dial-btn">
+            <span class="digit">8</span>
+            <span class="letters">TUV</span>
+          </button>
+          <button type="button" onclick="press('9')" class="dial-btn">
+            <span class="digit">9</span>
+            <span class="letters">WXYZ</span>
+          </button>
+
+          <button type="button" onclick="press('*')" class="dial-btn">
+            <span class="digit">*</span>
+            <span class="letters">&nbsp;</span>
+          </button>
+          <button type="button" onclick="press('0')" class="dial-btn">
+            <span class="digit">0</span>
+            <span class="letters">+</span>
+          </button>
+          <button type="button" onclick="press('#')" class="dial-btn">
+            <span class="digit">#</span>
+            <span class="letters">&nbsp;</span>
+          </button>
+        </div>
+
+        <div class="mt-6 flex items-center justify-between px-2">
+          <button
+            type="button"
+            class="action-btn add-btn"
+            aria-label="Add contact"
+          >
+            <i class="fa-solid fa-plus text-xl"></i>
+          </button>
+          <button
+            type="button"
+            onclick="startCall()"
+            class="call-btn"
+            aria-label="Call"
+          >
+            <i class="fa-solid fa-phone text-xl"></i>
+          </button>
+          <button
+            type="button"
+            onclick="backspace()"
+            class="action-btn delete-btn"
+            aria-label="Delete"
+          >
+            <i class="fa-solid fa-delete-left text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="callScreen" class="screen" aria-hidden="true">
+        <div
+          class="flex min-h-[440px] flex-col items-center justify-between py-8 text-center"
+        >
+          <div class="space-y-3">
+            <div
+              class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 text-indigo-500 shadow-inner"
+            >
+              <i class="fa-solid fa-user text-4xl"></i>
+            </div>
+            <p
+              id="callStatus"
+              class="text-sm font-medium uppercase tracking-[0.2em] text-slate-500"
+            >
+              Calling
+            </p>
+            <p
+              id="callNumber"
+              class="text-2xl font-semibold tracking-wide text-slate-800"
+            ></p>
+          </div>
+
+          <button
+            type="button"
+            onclick="endCall()"
+            class="end-call-btn"
+            aria-label="End call"
+          >
+            <i class="fa-solid fa-phone-slash text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .screen {
+        animation: screen-enter 0.35s ease both;
+      }
+
+      .screen[aria-hidden="true"] {
+        display: none;
+      }
+
+      @keyframes screen-enter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .dial-btn {
+        display: flex;
+        height: 82px;
+        width: 82px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        border: 1px solid rgba(34, 197, 94, 0.26);
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 1),
+          rgba(239, 246, 255, 0.9)
+        );
+        box-shadow:
+          0 10px 18px rgba(148, 163, 184, 0.15),
+          inset 0 2px 0 rgba(255, 255, 255, 0.95);
+        color: #0f172a;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .dial-btn:hover {
+        transform: translateY(-2px);
+        border-color: rgba(34, 197, 94, 0.75);
+        box-shadow:
+          0 16px 20px rgba(92, 142, 255, 0.14),
+          inset 0 2px 0 rgba(255, 255, 255, 0.95);
+      }
+
+      .dial-btn:active {
+        transform: scale(0.98);
+        background: linear-gradient(
+          145deg,
+          rgba(220, 252, 231, 1),
+          rgba(224, 242, 254, 0.9)
+        );
+      }
+
+      .digit {
+        font-size: 1.85rem;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.06em;
+      }
+
+      .letters {
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+
+      .action-btn,
+      .call-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease;
+      }
+
+      .action-btn {
+        height: 52px;
+        width: 52px;
+        border-radius: 9999px;
+        color: #475569;
+        background: rgba(148, 163, 184, 0.08);
+      }
+
+      .action-btn:hover {
+        transform: translateY(-2px);
+        background: rgba(148, 163, 184, 0.16);
+      }
+
+      .call-btn {
+        height: 72px;
+        width: 72px;
+        border-radius: 9999px;
+        background: linear-gradient(
+          135deg,
+          #34d399 0%,
+          #22c55e 40%,
+          #14b8a6 100%
+        );
+        color: white;
+        box-shadow: 0 14px 22px rgba(34, 197, 94, 0.35);
+      }
+
+      .call-btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 18px 28px rgba(34, 197, 94, 0.45);
+      }
+
+      .end-call-btn {
+        display: flex;
+        height: 72px;
+        width: 72px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        background: linear-gradient(135deg, #fb7185, #e11d48);
+        color: white;
+        box-shadow: 0 14px 22px rgba(225, 29, 72, 0.3);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .end-call-btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 18px 28px rgba(225, 29, 72, 0.4);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .screen,
+        .dial-btn,
+        .action-btn,
+        .call-btn,
+        .end-call-btn {
+          animation: none;
+          transition: none;
+        }
+      }
+    </style>
+
+    <script>
+      let phoneNumber = "";
+      const phoneNumberDisplay = document.getElementById("phoneNumber");
+      const dialerScreen = document.getElementById("dialerScreen");
+      const callScreen = document.getElementById("callScreen");
+      const callNumberDisplay = document.getElementById("callNumber");
+      const callStatusDisplay = document.getElementById("callStatus");
+
+      function formatNumber(num) {
+        const clean = num.replace(/\D/g, "");
+        if (!clean) return "";
+
+        return clean.replace(/(\d{4})(\d{3})(\d{0,3})/, (match, g1, g2, g3) => {
+          return g3 ? `${g1} ${g2} ${g3}` : g2 ? `${g1} ${g2}` : g1;
+        });
+      }
+
+      function press(num) {
+        if (phoneNumber.length < 11) {
+          phoneNumber += num;
+          phoneNumberDisplay.textContent = formatNumber(phoneNumber);
+        }
+      }
+
+      function backspace() {
+        phoneNumber = phoneNumber.slice(0, -1);
+        phoneNumberDisplay.textContent = formatNumber(phoneNumber);
+      }
+
+      function startCall() {
+        const formattedNumber = formatNumber(phoneNumber);
+        callNumberDisplay.textContent = formattedNumber || "No number entered";
+        callStatusDisplay.textContent = formattedNumber
+          ? "Calling"
+          : "Enter a number";
+        dialerScreen.setAttribute("aria-hidden", "true");
+        callScreen.setAttribute("aria-hidden", "false");
+      }
+
+      function endCall() {
+        callScreen.setAttribute("aria-hidden", "true");
+        dialerScreen.setAttribute("aria-hidden", "false");
+      }
+    </script>
+  </body>
+</html>
