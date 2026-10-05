@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body class="flex items-center justify-center h-screen bg-gray-700">
+    <div
+      class="w-80 bg-gradient-to-b from-gray-800 to-gray-900 text-white rounded-2xl shadow-2xl overflow-hidden"
+    >
+      <div class="flex justify-between items-center px-4 py-3">
+        <i
+          class="fas fa-arrow-left text-gray-400 hover:text-white cursor-pointer"
+        ></i>
+        <i
+          class="fas fa-ellipsis-v text-gray-400 hover:text-white cursor-pointer"
+        ></i>
+      </div>
+
+      <div class="flex justify-center">
+        <img
+          src="https://ic.c4assets.com/vps/oblivion/F4E76D67-9B11-4221-809F6AC3DFBB4124.jpg?imformat=chrome&resize=700px:*"
+          alt="Album Art"
+          class="rounded-lg shadow-lg w-48 h-48 object-cover"
+        />
+      </div>
+
+      <div class="text-center mt-4 mb-2">
+        <h2 id="trackTitle" class="text-lg font-semibold">
+          Oblivion Soundtrack
+        </h2>
+        <p id="trackArtist" class="text-sm text-gray-400">
+          M83 - Oblivion (ft. Susanne Sundfor)
+        </p>
+      </div>
+
+      <div class="px-6 mt-4">
+        <div class="flex justify-between text-xs text-gray-400">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+        <div
+          class="relative w-full bg-gray-700 h-1 rounded-full mt-1 cursor-pointer"
+          id="progressContainer"
+        >
+          <div
+            id="progressBar"
+            class="bg-blue-400 h-1 rounded-full w-0 transition-all duration-100"
+          ></div>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-5 mt-5 mb-4">
+        <button
+          id="shuffleBtn"
+          type="button"
+          class="p-3 rounded-full hover:bg-gray-700 transition"
+          aria-label="Shuffle songs"
+        >
+          <i class="fas fa-random"></i>
+        </button>
+        <button
+          id="prevBtn"
+          type="button"
+          class="p-3 rounded-full hover:bg-gray-700 transition"
+          aria-label="Previous song"
+        >
+          <i class="fas fa-backward"></i>
+        </button>
+        <button
+          id="playPauseBtn"
+          class="p-4 bg-blue-500 w-10 h-10 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-600"
+        >
+          <i id="playIcon" class="fas fa-play"></i>
+        </button>
+        <button
+          id="nextBtn"
+          type="button"
+          class="p-3 rounded-full hover:bg-gray-700 transition"
+          aria-label="Next song"
+        >
+          <i class="fas fa-forward"></i>
+        </button>
+        <button
+          id="loopBtn"
+          type="button"
+          class="p-3 rounded-full hover:bg-gray-700 transition"
+          aria-label="Repeat current song"
+        >
+          <i class="fas fa-infinity"></i>
+        </button>
+      </div>
+
+      <div class="border-t border-gray-700 px-3 py-4 text-sm">
+        <button
+          type="button"
+          class="song-item flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-white transition hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          data-title="Supercell"
+          data-artist="M83 - Supercell"
+          data-image="https://ic.c4assets.com/vps/oblivion/F4E76D67-9B11-4221-809F6AC3DFBB4124.jpg?imformat=chrome&resize=700px:*"
+          data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        >
+          <span>Supercell</span><span>05:13</span>
+        </button>
+        <button
+          type="button"
+          class="song-item mt-1 flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-white transition hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          data-title="Tech 49"
+          data-artist="M83 - Tech 49"
+          data-image="https://ic.c4assets.com/vps/oblivion/F4E76D67-9B11-4221-809F6AC3DFBB4124.jpg?imformat=chrome&resize=700px:*"
+          data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        >
+          <span>Tech 49</span><span>03:11</span>
+        </button>
+        <button
+          type="button"
+          class="song-item mt-1 flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-white transition hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          data-title="The Library"
+          data-artist="M83 - The Library"
+          data-image="https://ic.c4assets.com/vps/oblivion/F4E76D67-9B11-4221-809F6AC3DFBB4124.jpg?imformat=chrome&resize=700px:*"
+          data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        >
+          <span>The Library</span><span>04:24</span>
+        </button>
+        <button
+          type="button"
+          class="song-item mt-1 flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-white transition hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          data-title="Horatius"
+          data-artist="M83 - Horatius"
+          data-image="https://ic.c4assets.com/vps/oblivion/F4E76D67-9B11-4221-809F6AC3DFBB4124.jpg?imformat=chrome&resize=700px:*"
+          data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+        >
+          <span>Horatius</span><span>03:55</span>
+        </button>
+      </div>
+    </div>
+
+    <audio
+      id="audio"
+      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    ></audio>
+
+    <script>
+      const playPauseBtn = document.getElementById("playPauseBtn");
+      const playIcon = document.getElementById("playIcon");
+      const audio = document.getElementById("audio");
+      const progressBar = document.getElementById("progressBar");
+      const progressContainer = document.getElementById("progressContainer");
+      const currentTimeEl = document.getElementById("currentTime");
+      const durationEl = document.getElementById("duration");
+      const trackTitleEl = document.getElementById("trackTitle");
+      const trackArtistEl = document.getElementById("trackArtist");
+      const albumArt = document.querySelector("img[alt='Album Art']");
+      const songItems = Array.from(document.querySelectorAll(".song-item"));
+      const shuffleBtn = document.getElementById("shuffleBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const loopBtn = document.getElementById("loopBtn");
+
+      let isPlaying = false;
+      let isShuffle = false;
+      let isLooping = false;
+      let currentTrackIndex = 0;
+
+      function setActiveSong(button) {
+        songItems.forEach((item) => {
+          item.classList.toggle("bg-gray-700/80", item === button);
+          item.classList.toggle("ring-1", item === button);
+          item.classList.toggle("ring-blue-400", item === button);
+        });
+
+        const title = button.dataset.title;
+        const artist = button.dataset.artist;
+        const image = button.dataset.image;
+        const src = button.dataset.src;
+
+        trackTitleEl.textContent = title;
+        trackArtistEl.textContent = artist;
+        albumArt.src = image;
+        audio.src = src;
+        audio.load();
+
+        if (isPlaying) {
+          audio.play();
+        }
+      }
+
+      function chooseTrack(index) {
+        currentTrackIndex = (index + songItems.length) % songItems.length;
+        setActiveSong(songItems[currentTrackIndex]);
+      }
+
+      function getRandomTrackIndex() {
+        let nextIndex = currentTrackIndex;
+        while (nextIndex === currentTrackIndex) {
+          nextIndex = Math.floor(Math.random() * songItems.length);
+        }
+        return nextIndex;
+      }
+
+      // Format time (seconds → mm:ss)
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
+      }
+
+      // Play or pause
+      playPauseBtn.addEventListener("click", () => {
+        if (isPlaying) {
+          audio.pause();
+        } else {
+          audio.play();
+        }
+      });
+
+      audio.addEventListener("play", () => {
+        isPlaying = true;
+        playIcon.className = "fas fa-pause";
+      });
+
+      audio.addEventListener("pause", () => {
+        isPlaying = false;
+        playIcon.className = "fas fa-play";
+      });
+
+      // Update progress bar
+      audio.addEventListener("timeupdate", () => {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+      });
+
+      // Show duration
+      audio.addEventListener("loadedmetadata", () => {
+        durationEl.textContent = formatTime(audio.duration);
+      });
+
+      audio.addEventListener("ended", () => {
+        if (isLooping) {
+          audio.currentTime = 0;
+          audio.play();
+          return;
+        }
+
+        const nextIndex = isShuffle
+          ? getRandomTrackIndex()
+          : (currentTrackIndex + 1) % songItems.length;
+        chooseTrack(nextIndex);
+        if (isPlaying) {
+          audio.play();
+        }
+      });
+
+      // Seek functionality
+      progressContainer.addEventListener("click", (e) => {
+        const width = progressContainer.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      });
+
+      songItems.forEach((songItem, index) => {
+        songItem.addEventListener("click", () => {
+          currentTrackIndex = index;
+          setActiveSong(songItem);
+        });
+      });
+
+      shuffleBtn.addEventListener("click", () => {
+        isShuffle = !isShuffle;
+        shuffleBtn.classList.toggle("bg-blue-500", isShuffle);
+        shuffleBtn.classList.toggle("text-white", isShuffle);
+      });
+
+      prevBtn.addEventListener("click", () => {
+        const prevIndex = isShuffle
+          ? getRandomTrackIndex()
+          : (currentTrackIndex - 1 + songItems.length) % songItems.length;
+        chooseTrack(prevIndex);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const nextIndex = isShuffle
+          ? getRandomTrackIndex()
+          : (currentTrackIndex + 1) % songItems.length;
+        chooseTrack(nextIndex);
+      });
+
+      loopBtn.addEventListener("click", () => {
+        isLooping = !isLooping;
+        audio.loop = isLooping;
+        loopBtn.classList.toggle("bg-blue-500", isLooping);
+        loopBtn.classList.toggle("text-white", isLooping);
+      });
+
+      setActiveSong(songItems[0]);
+    </script>
+  </body>
+</html>
