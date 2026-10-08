@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photograph Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: Inter, "Segoe UI", sans-serif;
+      }
+      .profile-shell {
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+      }
+      .cover::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.12),
+          rgba(15, 23, 42, 0.48)
+        );
+      }
+      .gallery-grid img {
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+      .gallery-grid img:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen w-full bg-slate-200 flex items-center justify-center p-4">
+    <div class="profile-shell w-full max-w-[360px] bg-white overflow-hidden">
+      <div
+        class="cover relative flex min-h-[390px] flex-col justify-between bg-cover bg-center px-5 pb-5 pt-4 text-white"
+        style="background-image: url('https://images.ctfassets.net/s5n2t79q9icq/7wY5DvUPDvuDlzHEYZ3b7G/3a323e1cfcb1f29d3a1ade905ee178ac/Babe984goqiqwuefhcosb_1920x1000.jpg?q=80'); background-position: center 60%;"
+      >
+        <div class="relative z-10 flex items-center justify-between">
+          <button id="backBtn" class="flex items-center gap-2 rounded-full bg-white/20 px-3 py-2 text-sm font-medium tracking-wide text-white/90 backdrop-blur-sm transition hover:bg-white/30">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Back</span>
+          </button>
+          <h2 class="absolute left-1/2 -translate-x-1/2 text-lg font-semibold text-white">Peter Parker</h2>
+          <button class="rounded-full bg-white/20 px-3 py-2 text-lg text-white/90 backdrop-blur-sm transition hover:bg-white/30" aria-label="More options">
+              <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
+
+        <div class="relative z-10 mx-auto -mt-3 flex w-full max-w-[290px] flex-col items-center">
+          <img
+            class="h-24 w-24 rounded-full border-4 border-gray-300 object-cover shadow-lg"
+            src="https://i.pinimg.com/736x/27/0b/82/270b8280837fbe2e9520451f6a80fbf2.jpg"
+            alt="Profile Picture"
+          />
+          <div class="mt-6 flex w-full items-center justify-between text-center">
+            <div>
+              <p id="followersCount" class="text-xl font-semibold">230</p>
+              <p class="mt-0.5 text-sm text-white/85">Followers</p>
+            </div>
+            <div>
+              <p class="text-xl font-semibold">140</p>
+              <p class="mt-0.5 text-sm text-white/85">Following</p>
+            </div>
+            <div>
+              <p class="text-xl font-semibold">15</p>
+              <p class="mt-0.5 text-sm text-white/85">Albums</p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex w-full overflow-hidden rounded-full border border-white/80 bg-white/10 backdrop-blur-sm">
+            <button id="followBtn" class="flex flex-1 items-center justify-center gap-2 py-3 text-sm font-medium text-white transition hover:bg-white/15">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Follow</span>
+            </button>
+            <button id="messageBtn" class="flex flex-1 items-center justify-center gap-2 border-l border-white/80 py-3 text-sm font-medium text-white transition hover:bg-white/15">
+              <i class="fa-regular fa-comment"></i>
+              <span>Message</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white px-4 pb-4">
+        <div class="flex items-center justify-between border-t border-slate-100 pt-4">
+          <button id="prevAlbum" class="flex h-8 w-8 items-center justify-center text-slate-500 transition hover:text-slate-900" aria-label="Previous album">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="text-center">
+            <p id="albumName" class="text-lg font-semibold text-slate-900">Portraits</p>
+            <p id="albumMeta" class="text-xs uppercase tracking-[0.2em] text-slate-500">25 Photos</p>
+          </div>
+
+          <button id="nextAlbum" class="flex h-8 w-8 items-center justify-center text-slate-500 transition hover:text-slate-900" aria-label="Next album">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div id="gallery" class="gallery-grid mt-4 grid grid-cols-3 gap-2">
+          <img class="h-24 w-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqay-oaywx2WrowS3Ylgc4m251177CnMUHJg&s" alt="Gallery photo 1" />
+          <img class="h-24 w-full object-cover" src="https://w0.peakpx.com/wallpaper/366/606/HD-wallpaper-spider-man-2-city-lights-new-york-spider-man.jpg" alt="Gallery photo 2" />
+          <img class="h-24 w-full object-cover" src="https://c4.wallpaperflare.com/wallpaper/708/591/638/new-york-game-peter-parker-spider-man-ps4-hd-wallpaper-preview.jpg" alt="Gallery photo 3" />
+          <img class="h-24 w-full object-cover" src="https://i0.wp.com/www.thewrap.com/wp-content/uploads/2025/05/Spider-Noir.jpg?fit=990%2C557&quality=89&ssl=1" alt="Gallery photo 4" />
+          <img class="h-24 w-full object-cover" src="https://wallpapersok.com/images/thumbnail/the-amazing-spiderman-takes-flight-iwt4198fmoc9wzda.webp" alt="Gallery photo 5" />
+          <img class="h-24 w-full object-cover" src="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:425,cw:1150,ch:1150,q:80,w:1150/bEx2fkPZbckwtih4yY7jX3.jpg" alt="Gallery photo 6" />
+        </div>
+        <div id="galleryPagination" class="mt-3 hidden items-center justify-between text-xs text-slate-500" aria-live="polite">
+          <button id="prevPage" class="flex items-center gap-2 py-1 transition hover:text-slate-900" aria-label="Previous photos">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Previous</span>
+          </button>
+          <span id="pageIndicator"></span>
+          <button id="nextPage" class="flex items-center gap-2 py-1 transition hover:text-slate-900" aria-label="Next photos">
+            <span>Next</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const albums = [
+        {
+          name: "Portraits",
+          meta: "25 Photos",
+          images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqay-oaywx2WrowS3Ylgc4m251177CnMUHJg&s",
+            "https://w0.peakpx.com/wallpaper/366/606/HD-wallpaper-spider-man-2-city-lights-new-york-spider-man.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/708/591/638/new-york-game-peter-parker-spider-man-ps4-hd-wallpaper-preview.jpg",
+            "https://i0.wp.com/www.thewrap.com/wp-content/uploads/2025/05/Spider-Noir.jpg?fit=990%2C557&quality=89&ssl=1",
+            "https://wallpapersok.com/images/thumbnail/the-amazing-spiderman-takes-flight-iwt4198fmoc9wzda.webp",
+            "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:425,cw:1150,ch:1150,q:80,w:1150/bEx2fkPZbckwtih4yY7jX3.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQByUCN4FjbI0of6DLRTEhEE1emZKFwgq_7sMx735ENHw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh64VK32vwzJeluDRan1Sd53Jt9jHIpB_sgFofM0vesQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRR55YeD4qu-x1gsXplJWuQvjjKeOOG7EmPQpIUiVe7g&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-YsVhHhq2ejfm6HRlznXkyWsDwfwgJVasMR_EgSIuig&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhtzriMuYVUVAEUjkq-rzAaqBnFQnS6LrMv1xdA4yYg&s"
+          ]
+        },
+        {
+          name: "Street Life",
+          meta: "18 Photos",
+          images: [
+            "https://i.ebayimg.com/images/g/ihgAAOSw8lRnbt3n/s-l400.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS657bQhrd2WdpUOSrBo1pmder4WZhzk9AX_w&s",
+            "https://w0.peakpx.com/wallpaper/366/606/HD-wallpaper-spider-man-2-city-lights-new-york-spider-man.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/708/591/638/new-york-game-peter-parker-spider-man-ps4-hd-wallpaper-preview.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqay-oaywx2WrowS3Ylgc4m251177CnMUHJg&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfBWTD_jh4LTk8WAaMjS2178mat26Xok0hLviX7ZuiTQ&s=10"
+          ]
+        },
+        {
+          name: "Travel",
+          meta: "31 Photos",
+          images: [
+            "https://i.ebayimg.com/images/g/ihgAAOSw8lRnbt3n/s-l400.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS657bQhrd2WdpUOSrBo1pmder4WZhzk9AX_w&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqay-oaywx2WrowS3Ylgc4m251177CnMUHJg&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq_Ynv1DeY3DCkxO1ZfxuCheTjcramvSWtn0jCMq_YOA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAgJxOI585dvhMNh2wajmXeGfsdiI836pB606wLEx7fA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5XV4T_u95fwNFLSkaRW__Kc4ATUux0HdfqLX25s4qCA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYdFa2O4HFKYYLIvWlK0oZumrXSJgyyy9BkHFWJ1tC2Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLG5P_3AI0_JCliHlbdJZJEACnJtvD99pWvgnV1yQQ_Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh7XwguXnzq-f_ti3TARmmCUYvo7LPtpVgg19Ww4VUrA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZId_C5iVtHO2kyWVlZVaHu7UcIz_OwZrg1pjELpG7qw&s"
+          ]
+        }
+      ];
+
+      let albumIndex = 0;
+      let galleryPage = 0;
+      const imagesPerPage = 6;
+      const gallery = document.getElementById("gallery");
+      const albumName = document.getElementById("albumName");
+      const albumMeta = document.getElementById("albumMeta");
+      const galleryPagination = document.getElementById("galleryPagination");
+      const pageIndicator = document.getElementById("pageIndicator");
+      const followBtn = document.getElementById("followBtn");
+      const messageBtn = document.getElementById("messageBtn");
+      const followersCount = document.getElementById("followersCount");
+
+      function renderAlbum() {
+        const album = albums[albumIndex];
+        const pageCount = Math.ceil(album.images.length / imagesPerPage);
+        galleryPage = Math.min(galleryPage, pageCount - 1);
+        albumName.textContent = album.name;
+        albumMeta.textContent = album.meta;
+        gallery.innerHTML = album.images
+          .slice(galleryPage * imagesPerPage, (galleryPage + 1) * imagesPerPage)
+          .map(
+            (src) =>
+              `<img class="h-24 w-full object-cover" src="${src}" alt="${album.name} photo" />`
+          )
+          .join("");
+        galleryPagination.classList.toggle("hidden", pageCount <= 1);
+        galleryPagination.classList.toggle("flex", pageCount > 1);
+        pageIndicator.textContent = `${galleryPage + 1} / ${pageCount}`;
+        document.getElementById("prevPage").disabled = galleryPage === 0;
+        document.getElementById("nextPage").disabled = galleryPage === pageCount - 1;
+      }
+
+      document.getElementById("prevAlbum").addEventListener("click", () => {
+        albumIndex = (albumIndex - 1 + albums.length) % albums.length;
+        galleryPage = 0;
+        renderAlbum();
+      });
+
+      document.getElementById("nextAlbum").addEventListener("click", () => {
+        albumIndex = (albumIndex + 1) % albums.length;
+        galleryPage = 0;
+        renderAlbum();
+      });
+
+      document.getElementById("prevPage").addEventListener("click", () => {
+        if (galleryPage > 0) {
+          galleryPage -= 1;
+          renderAlbum();
+        }
+      });
+
+      document.getElementById("nextPage").addEventListener("click", () => {
+        if ((galleryPage + 1) * imagesPerPage < albums[albumIndex].images.length) {
+          galleryPage += 1;
+          renderAlbum();
+        }
+      });
+
+      followBtn.addEventListener("click", () => {
+        const isFollowing = followBtn.dataset.following === "true";
+        followBtn.dataset.following = String(!isFollowing);
+        followBtn.innerHTML = isFollowing
+          ? '<i class="fa-solid fa-user-plus"></i><span>Follow</span>'
+          : '<i class="fa-solid fa-check"></i><span>Following</span>';
+
+        const count = Number(followersCount.textContent.replace(/,/g, ""));
+        const nextCount = isFollowing ? count - 1 : count + 1;
+        followersCount.textContent = nextCount;
+      });
+
+      messageBtn.addEventListener("click", () => {
+        const isSent = messageBtn.dataset.sent === "true";
+        messageBtn.dataset.sent = String(!isSent);
+        messageBtn.innerHTML = isSent
+          ? '<i class="fa-solid fa-comment"></i><span>Message</span>'
+          : '<i class="fa-solid fa-paper-plane"></i><span>Sent</span>';
+      });
+
+      document.getElementById("backBtn").addEventListener("click", () => {
+        document.body.classList.toggle("bg-slate-100");
+      });
+
+      renderAlbum();
+    </script>
+  </body>
+</html>
