@@ -23,10 +23,14 @@
         class="relative w-full z-20 sm:flex grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1"
       >
         <div
-          class="md:w-2/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out relative overflow-hidden"
+          class="absolute inset-x-0 top-0 hidden h-28 bg-gray-700 md:block"
+          style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 65%)"
+        ></div>
+        <div
+          class="relative z-10 md:w-2/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out overflow-hidden"
         >
           <div
-            class="absolute inset-x-0 top-0 h-28 bg-gray-700 z-0"
+            class="absolute inset-x-0 top-0 h-28 bg-gray-700 z-0 md:hidden"
             style="clip-path: polygon(0 0, 100% 0, 100% 45%, 0 30%)"
           ></div>
           <h1 class="text-lime-500 font-bold text-xl text-center relative z-10">LIGHT</h1>
@@ -50,7 +54,7 @@
               <p class="text-gray-300">SSL Protection</p>
 
               <div
-                class="absolute left-1/2 top-1/2 h-1 w-28 -translate-x-1/2 -translate-y-1/2 -rotate-12 bg-black"
+                class="absolute left-1/2 top-1/2 h-1 w-[60%] -translate-x-1/2 -translate-y-1/2 -rotate-12 bg-black"
               ></div>
             </li>
           </ul>
@@ -63,7 +67,7 @@
           </div>
         </div>
         <div
-          class="md:w-3/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out md:border-x-2 border-gray-500"
+          class="relative z-10 md:w-3/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out md:border-x-2 border-gray-500"
         >
           <h1 class="text-teal-500 font-bold text-xl text-center">STARTUP</h1>
 
@@ -95,7 +99,7 @@
           </div>
         </div>
         <div
-          class="md:w-4/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out"
+          class="relative z-10 md:w-4/6 w-full p-5 flex flex-col hover:bg-white transition-all hover:-translate-y-4 duration-500 ease-in-out"
         >
           <h1 class="text-sky-500 font-bold text-xl text-center">BIG BOY</h1>
 
