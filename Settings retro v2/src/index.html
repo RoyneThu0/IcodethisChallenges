@@ -204,13 +204,17 @@
             <i class="fa-solid fa-angle-right text-sm opacity-90"></i>
           </div>
 
-          <div
-            class="flex items-center justify-between gap-3 border-t border-white/[0.03] py-2.5"
+          <button
+            id="volume-settings-button"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="volume-settings-dialog"
+            class="flex w-full items-center justify-between gap-3 border-t border-white/[0.03] py-2.5 text-left hover:text-[#5de0df] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#5de0df]"
           >
             <span>Volume</span>
             <span class="ml-auto mr-2 text-xs opacity-75">Ringtone</span>
             <i class="fa-solid fa-angle-right text-sm opacity-90"></i>
-          </div>
+          </button>
 
           <div class="mb-3">
             <label for="vibrate-on" class="mb-1.5 block text-sm">Vibrate On To</label>
@@ -281,5 +285,93 @@
         </div>
       </main>
     </div>
+
+    <dialog
+      id="volume-settings-dialog"
+      aria-labelledby="volume-settings-title"
+      class="fixed inset-0 m-auto w-[390px] max-w-[calc(100vw-2rem)] rounded-none border-0 bg-[#252d36] p-0 text-[#d9d9d9] shadow-[0_16px_32px_rgba(0,0,0,0.45)] backdrop:bg-transparent"
+    >
+      <div class="px-6 pb-5 pt-5">
+        <h2 id="volume-settings-title" class="sr-only">Volume settings</h2>
+
+        <div class="mb-6">
+          <label for="ringtone-volume" class="mb-3 block text-sm">Ringtone</label>
+          <input
+            id="ringtone-volume"
+            type="range"
+            min="0"
+            max="100"
+            value="75"
+            style="--value: 75%"
+            class="h-1 w-full cursor-pointer appearance-none rounded-full [background:linear-gradient(90deg,#58d5d3_0%,#58d5d3_var(--value),#10171b_var(--value),#10171b_100%)] [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#58d5d3] [&::-webkit-slider-thumb]:bg-white [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#58d5d3] [&::-moz-range-thumb]:bg-white"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="notification-volume" class="mb-3 block text-sm"
+            >Text Tone &amp; Notifications</label
+          >
+          <input
+            id="notification-volume"
+            type="range"
+            min="0"
+            max="100"
+            value="45"
+            style="--value: 45%"
+            class="h-1 w-full cursor-pointer appearance-none rounded-full [background:linear-gradient(90deg,#58d5d3_0%,#58d5d3_var(--value),#10171b_var(--value),#10171b_100%)] [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#58d5d3] [&::-webkit-slider-thumb]:bg-white [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#58d5d3] [&::-moz-range-thumb]:bg-white"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="alarm-volume" class="mb-3 block text-sm">Alarm</label>
+          <input
+            id="alarm-volume"
+            type="range"
+            min="0"
+            max="100"
+            value="62"
+            style="--value: 62%"
+            class="h-1 w-full cursor-pointer appearance-none rounded-full [background:linear-gradient(90deg,#58d5d3_0%,#58d5d3_var(--value),#10171b_var(--value),#10171b_100%)] [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#58d5d3] [&::-webkit-slider-thumb]:bg-white [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#58d5d3] [&::-moz-range-thumb]:bg-white"
+          />
+        </div>
+
+        <div class="flex justify-center">
+          <button
+            id="volume-settings-save"
+            type="button"
+            class="min-w-[130px] rounded-full border-[3px] border-[#55d8d5] bg-white px-7 py-1 text-base font-semibold text-[#8b8980] transition hover:bg-[#e9ffff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      const volumeDialog = document.querySelector("#volume-settings-dialog");
+      const volumeButton = document.querySelector("#volume-settings-button");
+      const volumeSaveButton = document.querySelector("#volume-settings-save");
+
+      volumeDialog.querySelectorAll('input[type="range"]').forEach((range) => {
+        const updateTrack = () => {
+          const min = Number(range.min || 0);
+          const max = Number(range.max || 100);
+          const value = Number(range.value || 0);
+          range.style.setProperty(
+            "--value",
+            `${((value - min) / (max - min)) * 100}%`,
+          );
+        };
+
+        range.addEventListener("input", updateTrack);
+        updateTrack();
+      });
+
+      volumeButton.addEventListener("click", () => volumeDialog.showModal());
+      volumeSaveButton.addEventListener("click", () => volumeDialog.close());
+      volumeDialog.addEventListener("click", (event) => {
+        if (event.target === volumeDialog) volumeDialog.close();
+      });
+    </script>
   </body>
 </html>
