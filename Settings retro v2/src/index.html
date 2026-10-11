@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings retro</title>
-    <link rel="stylesheet" href="./input.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -13,155 +13,271 @@
       referrerpolicy="noreferrer"
     />
   </head>
-  <body>
-    <div class="settings-shell">
-      <aside class="settings-panel left-panel">
-        <div class="nav-top">
-          <h2>Settings</h2>
-          <div class="toggle-list">
-            <div class="toggle-row">
+  <body
+    class="flex min-h-screen items-center justify-center bg-[#141b1d] bg-[radial-gradient(circle_at_top_left,rgba(77,109,115,0.35),transparent_30%),linear-gradient(180deg,#0d1517_0%,#1b2024_100%)] p-5 font-[Segoe_UI,Inter,sans-serif] text-[#edf8fb]"
+  >
+    <div
+      class="grid min-h-[600px] w-[760px] max-w-[92vw] grid-cols-[0.98fr_1.32fr] overflow-hidden rounded-[18px] bg-[linear-gradient(180deg,#20282d_0%,#181f22_100%)] shadow-[0_20px_40px_rgba(0,0,0,0.45)] max-[700px]:min-h-0 max-[700px]:grid-cols-1"
+    >
+      <aside
+        class="bg-[linear-gradient(180deg,#476b71_0%,#406169_100%)] px-5 py-4"
+      >
+        <div class="pt-1">
+          <h2 class="mb-4 text-xl font-bold tracking-[-0.06em]">Settings</h2>
+
+          <div class="mb-[18px] flex flex-col gap-3">
+            <div class="flex items-center justify-between gap-3 text-[15px]">
               <span>Airplane mode</span>
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
+              <label class="relative inline-flex h-[26px] w-12 shrink-0 cursor-pointer items-center">
+                <input type="checkbox" class="peer sr-only" />
+                <span
+                  class="absolute inset-0 rounded-full bg-[#202b2e] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] transition peer-checked:bg-[#5de0df] peer-focus-visible:ring-2 peer-focus-visible:ring-white"
+                ></span>
+                <span
+                  class="absolute left-1 h-[18px] w-[18px] rounded-full bg-[#f5f5f5] shadow-[0_2px_6px_rgba(0,0,0,0.24)] transition peer-checked:translate-x-[22px]"
+                ></span>
               </label>
             </div>
 
-            <div class="toggle-row">
+            <div class="flex items-center justify-between gap-3 text-[15px]">
               <span>Wi‑Fi</span>
-              <label class="switch amber">
-                <input type="checkbox" checked />
-                <span class="slider round"></span>
+              <label class="relative inline-flex h-[26px] w-12 shrink-0 cursor-pointer items-center">
+                <input type="checkbox" checked class="peer sr-only" />
+                <span
+                  class="absolute inset-0 rounded-full bg-[#202b2e] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] transition peer-checked:bg-[#f1a74f] peer-focus-visible:ring-2 peer-focus-visible:ring-white"
+                ></span>
+                <span
+                  class="absolute left-1 h-[18px] w-[18px] rounded-full bg-[#f5f5f5] shadow-[0_2px_6px_rgba(0,0,0,0.24)] transition peer-checked:translate-x-[22px]"
+                ></span>
               </label>
             </div>
 
-            <div class="toggle-row">
+            <div class="flex items-center justify-between gap-3 text-[15px]">
               <span>Bluetooth</span>
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
+              <label class="relative inline-flex h-[26px] w-12 shrink-0 cursor-pointer items-center">
+                <input type="checkbox" class="peer sr-only" />
+                <span
+                  class="absolute inset-0 rounded-full bg-[#202b2e] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] transition peer-checked:bg-[#5de0df] peer-focus-visible:ring-2 peer-focus-visible:ring-white"
+                ></span>
+                <span
+                  class="absolute left-1 h-[18px] w-[18px] rounded-full bg-[#f5f5f5] shadow-[0_2px_6px_rgba(0,0,0,0.24)] transition peer-checked:translate-x-[22px]"
+                ></span>
               </label>
             </div>
 
-            <div class="toggle-row">
+            <div class="flex items-center justify-between gap-3 text-[15px]">
               <span>Notifications</span>
-              <label class="switch amber">
-                <input type="checkbox" checked />
-                <span class="slider round"></span>
+              <label class="relative inline-flex h-[26px] w-12 shrink-0 cursor-pointer items-center">
+                <input type="checkbox" checked class="peer sr-only" />
+                <span
+                  class="absolute inset-0 rounded-full bg-[#202b2e] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] transition peer-checked:bg-[#f1a74f] peer-focus-visible:ring-2 peer-focus-visible:ring-white"
+                ></span>
+                <span
+                  class="absolute left-1 h-[18px] w-[18px] rounded-full bg-[#f5f5f5] shadow-[0_2px_6px_rgba(0,0,0,0.24)] transition peer-checked:translate-x-[22px]"
+                ></span>
               </label>
             </div>
           </div>
         </div>
 
-        <nav class="menu-list" aria-label="Settings menu">
-          <button type="button" class="menu-item">
+        <nav class="mt-2 flex flex-col gap-2.5" aria-label="Settings menu">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-3 rounded-xl bg-[rgba(15,27,31,0.38)] px-3.5 py-3 text-left text-base font-semibold tracking-[-0.04em] shadow-[inset_0_-1px_0_rgba(255,255,255,0.03)] transition hover:bg-[rgba(15,27,31,0.52)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
             <span>Software Update</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-85"></i>
           </button>
-          <button type="button" class="menu-item">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-3 rounded-xl bg-[rgba(15,27,31,0.38)] px-3.5 py-3 text-left text-base font-semibold tracking-[-0.04em] shadow-[inset_0_-1px_0_rgba(255,255,255,0.03)] transition hover:bg-[rgba(15,27,31,0.52)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
             <span>General Settings</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-85"></i>
           </button>
-          <button type="button" class="menu-item">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-3 rounded-xl bg-[rgba(15,27,31,0.38)] px-3.5 py-3 text-left text-base font-semibold tracking-[-0.04em] shadow-[inset_0_-1px_0_rgba(255,255,255,0.03)] transition hover:bg-[rgba(15,27,31,0.52)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
             <span>Apps</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-85"></i>
           </button>
-          <button type="button" class="menu-item">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-3 rounded-xl bg-[rgba(15,27,31,0.38)] px-3.5 py-3 text-left text-base font-semibold tracking-[-0.04em] shadow-[inset_0_-1px_0_rgba(255,255,255,0.03)] transition hover:bg-[rgba(15,27,31,0.52)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
             <span>Storage</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-85"></i>
           </button>
-          <button type="button" class="menu-item">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-3 rounded-xl bg-[rgba(15,27,31,0.38)] px-3.5 py-3 text-left text-base font-semibold tracking-[-0.04em] shadow-[inset_0_-1px_0_rgba(255,255,255,0.03)] transition hover:bg-[rgba(15,27,31,0.52)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
             <span>Data Usage</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-85"></i>
           </button>
-          <button type="button" class="menu-item">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-3 rounded-xl bg-[rgba(15,27,31,0.38)] px-3.5 py-3 text-left text-base font-semibold tracking-[-0.04em] shadow-[inset_0_-1px_0_rgba(255,255,255,0.03)] transition hover:bg-[rgba(15,27,31,0.52)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
             <span>Security</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-85"></i>
           </button>
-          <button type="button" class="menu-item last-item">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between gap-3 rounded-xl bg-[rgba(15,27,31,0.38)] px-3.5 py-3 text-left text-base font-semibold tracking-[-0.04em] shadow-[inset_0_-1px_0_rgba(255,255,255,0.03)] transition hover:bg-[rgba(15,27,31,0.52)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
             <span>Other Settings</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-85"></i>
           </button>
         </nav>
       </aside>
 
-      <main class="settings-panel right-panel">
-        <section class="content-group">
-          <h3>Display &amp; Brightness</h3>
+      <main
+        class="flex flex-col bg-[linear-gradient(180deg,#1d2528_0%,#202b2e_100%)] px-5 py-[18px] max-[700px]:px-4 max-[700px]:py-4"
+      >
+        <section
+          class="rounded-2xl bg-[rgba(24,35,39,0.72)] px-3 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+        >
+          <h3 class="mb-3.5 text-lg font-bold tracking-[-0.06em]">
+            Display &amp; Brightness
+          </h3>
 
-          <div class="slider-block">
-            <label for="brightness">Brightness</label>
-            <input id="brightness" type="range" min="0" max="100" value="55" />
+          <div class="mb-3">
+            <label for="brightness" class="mb-1.5 block text-sm">Brightness</label>
+            <input
+              id="brightness"
+              type="range"
+              min="0"
+              max="100"
+              value="55"
+              class="w-full cursor-pointer accent-[#5de0df]"
+            />
           </div>
 
-          <div class="toggle-row">
+          <div class="flex items-center justify-between gap-3 text-[15px]">
             <span>Auto Brightness</span>
-            <label class="switch">
-              <input type="checkbox" checked />
-              <span class="slider round"></span>
+            <label class="relative inline-flex h-[26px] w-12 shrink-0 cursor-pointer items-center">
+              <input type="checkbox" checked class="peer sr-only" />
+              <span
+                class="absolute inset-0 rounded-full bg-[#202b2e] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] transition peer-checked:bg-[#5de0df] peer-focus-visible:ring-2 peer-focus-visible:ring-white"
+              ></span>
+              <span
+                class="absolute left-1 h-[18px] w-[18px] rounded-full bg-[#f5f5f5] shadow-[0_2px_6px_rgba(0,0,0,0.24)] transition peer-checked:translate-x-[22px]"
+              ></span>
             </label>
           </div>
 
-          <div class="text-row">
+          <div
+            class="flex items-center justify-between gap-3 border-t border-white/[0.03] py-2.5 font-medium"
+          >
             <span>Text Style</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-90"></i>
           </div>
 
-          <div class="toggle-row">
+          <div class="flex items-center justify-between gap-3 text-[15px]">
             <span>Bold Text</span>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
+            <label class="relative inline-flex h-[26px] w-12 shrink-0 cursor-pointer items-center">
+              <input type="checkbox" class="peer sr-only" />
+              <span
+                class="absolute inset-0 rounded-full bg-[#202b2e] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] transition peer-checked:bg-[#5de0df] peer-focus-visible:ring-2 peer-focus-visible:ring-white"
+              ></span>
+              <span
+                class="absolute left-1 h-[18px] w-[18px] rounded-full bg-[#f5f5f5] shadow-[0_2px_6px_rgba(0,0,0,0.24)] transition peer-checked:translate-x-[22px]"
+              ></span>
             </label>
           </div>
         </section>
 
-        <section class="content-group second-group">
-          <h3>Display &amp; Brightness</h3>
+        <section
+          class="mt-4 rounded-2xl bg-[rgba(29,38,42,0.86)] px-3 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+        >
+          <h3 class="mb-3.5 text-lg font-bold tracking-[-0.06em]">
+            Display &amp; Brightness
+          </h3>
 
-          <div class="option-row">
+          <div
+            class="flex items-center justify-between gap-3 border-t border-white/[0.03] py-2.5"
+          >
             <span>Ringtone</span>
-            <span class="meta">Some music that is set</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <span class="ml-auto mr-2 text-xs opacity-75">Some music that is set</span>
+            <i class="fa-solid fa-angle-right text-sm opacity-90"></i>
           </div>
 
-          <div class="option-row">
+          <div
+            class="flex items-center justify-between gap-3 border-t border-white/[0.03] py-2.5"
+          >
             <span>Volume</span>
-            <span class="meta">Ringtone</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <span class="ml-auto mr-2 text-xs opacity-75">Ringtone</span>
+            <i class="fa-solid fa-angle-right text-sm opacity-90"></i>
           </div>
 
-          <div class="slider-row">
-            <label for="vibrate-on">Vibrate On To</label>
-            <input id="vibrate-on" type="range" min="0" max="100" value="55" />
+          <div class="mb-3">
+            <label for="vibrate-on" class="mb-1.5 block text-sm">Vibrate On To</label>
+            <input
+              id="vibrate-on"
+              type="range"
+              min="0"
+              max="100"
+              value="55"
+              class="w-full cursor-pointer accent-[#5de0df]"
+            />
           </div>
 
-          <div class="option-row narrow-row">
+          <div
+            class="flex items-center justify-between gap-3 border-t border-white/[0.03] py-2"
+          >
             <span>Text Tone &amp; Notifications</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-90"></i>
           </div>
 
-          <div class="slider-row">
-            <label for="screen-lock">Screen Lock S</label>
-            <input id="screen-lock" type="range" min="0" max="100" value="55" />
+          <div class="mb-3">
+            <label for="screen-lock" class="mb-1.5 block text-sm">Screen Lock S</label>
+            <input
+              id="screen-lock"
+              type="range"
+              min="0"
+              max="100"
+              value="55"
+              class="w-full cursor-pointer accent-[#5de0df]"
+            />
           </div>
 
-          <div class="option-row narrow-row">
+          <div
+            class="flex items-center justify-between gap-3 border-t border-white/[0.03] py-2"
+          >
             <span>Alarm</span>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right text-sm opacity-90"></i>
           </div>
 
-          <div class="slider-row">
-            <label for="dial-tone">Dial Pad Tone</label>
-            <input id="dial-tone" type="range" min="0" max="100" value="55" />
+          <div>
+            <label for="dial-tone" class="mb-1.5 block text-sm">Dial Pad Tone</label>
+            <input
+              id="dial-tone"
+              type="range"
+              min="0"
+              max="100"
+              value="55"
+              class="w-full cursor-pointer accent-[#5de0df]"
+            />
           </div>
-
-          <button type="button" class="save-mini">Save</button>
         </section>
 
-        <div class="footer-actions">
-          <button type="button" class="primary-button">Save</button>
-          <button type="button" class="secondary-button">Reset</button>
+        <div
+          class="mt-auto flex justify-center gap-4 pt-4 max-[700px]:flex-col"
+        >
+          <button
+            type="button"
+            class="min-w-[150px] rounded-full bg-[linear-gradient(180deg,#68e5df_0%,#4ad8da_100%)] px-[18px] py-3 text-base font-bold text-[#11313b] shadow-[0_10px_18px_rgba(74,216,218,0.2)] transition hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white max-[700px]:w-full"
+          >
+            Save
+          </button>
+          <button
+            type="button"
+            class="min-w-[150px] rounded-full border-2 border-[#5de0df]/80 bg-white/[0.18] px-[18px] py-3 text-base font-bold text-[#edf8fb] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] transition hover:bg-[#5de0df] hover:text-[#11313b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white max-[700px]:w-full"
+          >
+            Reset
+          </button>
         </div>
       </main>
     </div>
