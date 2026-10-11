@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings retro</title>
+    <link rel="stylesheet" href="./input.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body>
+    <div class="settings-shell">
+      <aside class="settings-panel left-panel">
+        <div class="nav-top">
+          <h2>Settings</h2>
+          <div class="toggle-list">
+            <div class="toggle-row">
+              <span>Airplane mode</span>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="toggle-row">
+              <span>Wi‑Fi</span>
+              <label class="switch amber">
+                <input type="checkbox" checked />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="toggle-row">
+              <span>Bluetooth</span>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="toggle-row">
+              <span>Notifications</span>
+              <label class="switch amber">
+                <input type="checkbox" checked />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <nav class="menu-list" aria-label="Settings menu">
+          <button type="button" class="menu-item">
+            <span>Software Update</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button type="button" class="menu-item">
+            <span>General Settings</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button type="button" class="menu-item">
+            <span>Apps</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button type="button" class="menu-item">
+            <span>Storage</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button type="button" class="menu-item">
+            <span>Data Usage</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button type="button" class="menu-item">
+            <span>Security</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <button type="button" class="menu-item last-item">
+            <span>Other Settings</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </nav>
+      </aside>
+
+      <main class="settings-panel right-panel">
+        <section class="content-group">
+          <h3>Display &amp; Brightness</h3>
+
+          <div class="slider-block">
+            <label for="brightness">Brightness</label>
+            <input id="brightness" type="range" min="0" max="100" value="55" />
+          </div>
+
+          <div class="toggle-row">
+            <span>Auto Brightness</span>
+            <label class="switch">
+              <input type="checkbox" checked />
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="text-row">
+            <span>Text Style</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+
+          <div class="toggle-row">
+            <span>Bold Text</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="content-group second-group">
+          <h3>Display &amp; Brightness</h3>
+
+          <div class="option-row">
+            <span>Ringtone</span>
+            <span class="meta">Some music that is set</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+
+          <div class="option-row">
+            <span>Volume</span>
+            <span class="meta">Ringtone</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+
+          <div class="slider-row">
+            <label for="vibrate-on">Vibrate On To</label>
+            <input id="vibrate-on" type="range" min="0" max="100" value="55" />
+          </div>
+
+          <div class="option-row narrow-row">
+            <span>Text Tone &amp; Notifications</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+
+          <div class="slider-row">
+            <label for="screen-lock">Screen Lock S</label>
+            <input id="screen-lock" type="range" min="0" max="100" value="55" />
+          </div>
+
+          <div class="option-row narrow-row">
+            <span>Alarm</span>
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+
+          <div class="slider-row">
+            <label for="dial-tone">Dial Pad Tone</label>
+            <input id="dial-tone" type="range" min="0" max="100" value="55" />
+          </div>
+
+          <button type="button" class="save-mini">Save</button>
+        </section>
+
+        <div class="footer-actions">
+          <button type="button" class="primary-button">Save</button>
+          <button type="button" class="secondary-button">Reset</button>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
