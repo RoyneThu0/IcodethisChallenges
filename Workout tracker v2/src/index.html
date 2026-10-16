@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @property --ring-progress {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 20%;
+      }
+
+      #distance-ring {
+        background: conic-gradient(
+          from 0deg,
+          #ff4b88 0% var(--ring-progress),
+          transparent var(--ring-progress) 100%
+        );
+        transition: --ring-progress 700ms ease-in-out;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #distance-ring {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-teal-700 min-h-screen flex items-center justify-center font-sans"
+    style="
+      background-image: url(https://images.unsplash.com/photo-1779698762134-c34ef2d8820e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D);
+    "
+  >
+    <div
+      class="w-[360px] bg-white rounded-md overflow-hidden shadow-[0_25px_40px_rgba(2,6,23,0.45)]"
+    >
+      <div class="bg-teal-600 text-center py-4">
+        <div class="text-white text-sm tracking-wider">WEDNESDAY</div>
+        <div class="text-teal-100 text-xs mt-1">May 04 2016, 07:30</div>
+      </div>
+
+      <div class="p-6 bg-white">
+        <div class="flex justify-center">
+          <div class="relative flex items-center justify-center w-36 h-36">
+            <div
+              class="absolute inset-0 rounded-full bg-pink-200 flex items-center justify-center"
+            >
+              <div
+                id="distance-ring"
+                class="w-[90%] h-[90%] rounded-full"
+              ></div>
+            </div>
+
+            <div
+              class="absolute inset-5 rounded-full bg-white flex flex-col items-center justify-center"
+            >
+              <div
+                id="distance-total"
+                class="text-4xl text-gray-700 font-light"
+                data-base-distance="4.8"
+              >
+                4.8
+              </div>
+              <div class="text-xs text-gray-400 tracking-wider mt-1">KM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center text-gray-500">
+          <div class="text-center">
+            <div class="text-xs">TIME</div>
+            <div class="text-2xl text-gray-700 font-semibold">23:40</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs">CALORIES</div>
+            <div
+              id="calories-total"
+              class="text-2xl text-gray-700 font-semibold"
+              data-base-calories="510"
+            >
+              510
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-teal-600 p-6 text-teal-50">
+        <div class="text-center text-lg mb-4 font-light">Latest activities</div>
+        <ul class="space-y-4">
+          <li
+            class="flex items-center justify-between gap-2"
+            data-workout-distance="11"
+            data-workout-calories="478"
+          >
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-person-running text-white text-xl"></i>
+              <div>
+                <div class="text-sm font-semibold">11 Km</div>
+              </div>
+            </div>
+            <div class="text-sm">1h 20 min</div>
+            <div class="text-sm">478 calories</div>
+            <input
+              class="h-5 w-5 cursor-pointer accent-pink-500"
+              type="checkbox"
+              aria-label="Add 11 Km run to total"
+            />
+          </li>
+          <li
+            class="flex items-center justify-between gap-2"
+            data-workout-distance="45"
+            data-workout-calories="865"
+          >
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-bicycle text-white text-xl"></i>
+              <div>
+                <div class="text-sm font-semibold">45 Km</div>
+              </div>
+            </div>
+            <div class="text-sm">2h 37 min</div>
+            <div class="text-sm">865 calories</div>
+            <input
+              class="h-5 w-5 cursor-pointer accent-pink-500"
+              type="checkbox"
+              aria-label="Add 45 Km bike ride to total"
+            />
+          </li>
+          <li
+            class="flex items-center justify-between gap-2"
+            data-workout-distance="8"
+            data-workout-calories="322"
+          >
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-person-running text-white text-xl"></i>
+              <div>
+                <div class="text-sm font-semibold">8 Km</div>
+              </div>
+            </div>
+            <div class="text-sm">55 min</div>
+            <div class="text-sm">322 calories</div>
+            <input
+              class="h-5 w-5 cursor-pointer accent-pink-500"
+              type="checkbox"
+              aria-label="Add 8 Km run to total"
+            />
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 flex items-center justify-between">
+        <div class="text-teal-600 text-xl">
+          <i class="fa-solid fa-house"></i>
+        </div>
+
+        <div class="-mt-10 flex-1 flex justify-center">
+          <button
+            class="bg-pink-500 text-white px-10 py-3 rounded-full shadow-lg transform hover:scale-105"
+          >
+            GO
+          </button>
+        </div>
+
+        <div class="text-teal-600 text-2xl">
+          <i class="fa-solid fa-list"></i>
+        </div>
+      </div>
+    </div>
+    <script>
+      const distanceTotal = document.querySelector("#distance-total");
+      const distanceRing = document.querySelector("#distance-ring");
+      const caloriesTotal = document.querySelector("#calories-total");
+      const workoutChecks = document.querySelectorAll(
+        "[data-workout-distance] input[type='checkbox']",
+      );
+      const baseDistance = Number(distanceTotal.dataset.baseDistance);
+      const allWorkoutDistance = [...workoutChecks].reduce(
+        (total, check) =>
+          total +
+          Number(
+            check.closest("[data-workout-distance]").dataset.workoutDistance,
+          ),
+        0,
+      );
+      let caloriesAnimationFrame;
+
+      function updateDistanceRing(addedDistance) {
+        const completion =
+          allWorkoutDistance === 0 ? 0 : addedDistance / allWorkoutDistance;
+        const progress = 20 + completion * 78;
+        distanceRing.style.setProperty("--ring-progress", `${progress}%`);
+      }
+
+      function animateCaloriesTotal(targetCalories) {
+        if (caloriesAnimationFrame !== undefined) {
+          cancelAnimationFrame(caloriesAnimationFrame);
+        }
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          caloriesTotal.textContent = String(targetCalories);
+          return;
+        }
+
+        const startCalories = Number(caloriesTotal.textContent);
+        const startTime = performance.now();
+        const duration = 700;
+
+        function updateCalories(timestamp) {
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          const easedProgress = 1 - (1 - progress) ** 3;
+          caloriesTotal.textContent = String(
+            Math.round(
+              startCalories + (targetCalories - startCalories) * easedProgress,
+            ),
+          );
+
+          if (progress < 1) {
+            caloriesAnimationFrame = requestAnimationFrame(updateCalories);
+          } else {
+            caloriesAnimationFrame = undefined;
+          }
+        }
+
+        caloriesAnimationFrame = requestAnimationFrame(updateCalories);
+      }
+
+      updateDistanceRing(0);
+
+      workoutChecks.forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          const addedTotals = [...workoutChecks].reduce(
+            (totals, check) => {
+              if (!check.checked) {
+                return totals;
+              }
+
+              const workout = check.closest("[data-workout-distance]");
+              return {
+                distance:
+                  totals.distance + Number(workout.dataset.workoutDistance),
+                calories:
+                  totals.calories + Number(workout.dataset.workoutCalories),
+              };
+            },
+            { distance: 0, calories: 0 },
+          );
+
+          const baseCalories = Number(caloriesTotal.dataset.baseCalories);
+          const totalDistance = baseDistance + addedTotals.distance;
+          distanceTotal.textContent = totalDistance.toFixed(1);
+          updateDistanceRing(addedTotals.distance);
+          animateCaloriesTotal(baseCalories + addedTotals.calories);
+        });
+      });
+    </script>
+  </body>
+</html>
