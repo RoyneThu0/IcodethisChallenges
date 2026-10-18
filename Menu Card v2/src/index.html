@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    class="flex min-h-screen items-center justify-center bg-[#c4e3db] bg-[radial-gradient(ellipse_at_center,#c4e3db_60%,#def2e9_100%)] p-6 font-['Open_Sans',sans-serif]"
+  >
+    <!-- Shared clip so outlined stars stroke inward and match the filled ones -->
+    <svg aria-hidden="true" class="absolute h-0 w-0">
+      <defs>
+        <clipPath id="star-clip">
+          <polygon
+            points="50,0 61.8,36.32 100,36.32 69.1,58.78 80.9,95.1 50,72.65 19.1,95.1 30.9,58.78 0,36.32 38.2,36.32"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!-- Everything inside is sized in cqw so the layout scales as one piece -->
+    <main
+      class="relative aspect-[526/954] w-[min(82vw,526px,51.4vh)] [container-type:inline-size]"
+    >
+      <section
+        class="absolute inset-0 overflow-hidden bg-[#e7eae9] shadow-[0_1.5cqw_20cqw_rgba(50,100,90,0.4)]"
+      >
+        <img
+          src="https://plus.unsplash.com/premium_photo-1729971717545-de3ce11ed283?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+          alt="Forest Fruit Pie"
+          class="absolute inset-x-0 top-0 h-[101cqw] w-full object-cover"
+        />
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-x-0 top-0 h-[40cqw] bg-gradient-to-b from-white via-white/85 to-transparent"
+        ></div>
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-x-0 top-[66cqw] h-[35cqw] bg-gradient-to-b from-[#e7eae9]/0 to-[#e7eae9]"
+        ></div>
+
+        <button
+          type="button"
+          aria-label="Open menu"
+          class="absolute left-[5.9cqw] top-[5cqw] w-[5.5cqw] text-[#707070]"
+        >
+          <svg viewBox="0 0 35 33" class="block w-full" aria-hidden="true">
+            <path
+              d="M1.5 1.5h32M1.5 16.5h32M1.5 31.5h32"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button
+          type="button"
+          aria-label="Search menu"
+          class="absolute right-[3.8cqw] top-[4.3cqw] w-[6.85cqw] text-[#707070]"
+        >
+          <svg viewBox="0 0 43.5 41" class="block w-full" aria-hidden="true">
+            <circle
+              cx="15"
+              cy="15"
+              r="13.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+            <path
+              d="M24.5 24.5 42 39.5"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <!-- Neighbouring carousel cards peeking in from either side -->
+        <div
+          aria-hidden="true"
+          class="absolute bottom-[8.2cqw] right-[94.3cqw] top-[102.9cqw] w-[78cqw] rounded-[2.8cqw] bg-white shadow-[0_0.6cqw_2cqw_rgba(0,0,0,0.05)]"
+        ></div>
+        <div
+          aria-hidden="true"
+          class="absolute bottom-[8.2cqw] left-[94.1cqw] top-[102.9cqw] w-[78cqw] rounded-[2.8cqw] bg-white shadow-[0_0.6cqw_2cqw_rgba(0,0,0,0.05)]"
+        ></div>
+
+        <article
+          class="absolute inset-x-[8.9cqw] bottom-[6cqw] top-[100.7cqw] flex flex-col items-center rounded-[2.8cqw] bg-white px-[5cqw] pb-[9.1cqw] pt-[5.65cqw] text-center shadow-[0_0.95cqw_2.8cqw_rgba(0,0,0,0.12)]"
+        >
+          <div
+            role="img"
+            aria-label="Rated 3.5 out of 5"
+            class="flex items-start gap-[1.2cqw] text-[#d12f3f]"
+          >
+            <svg
+              viewBox="0 0 100 95.1"
+              class="w-[4.47cqw] translate-y-[3.15cqw]"
+              aria-hidden="true"
+            >
+              <polygon
+                points="50,0 61.8,36.32 100,36.32 69.1,58.78 80.9,95.1 50,72.65 19.1,95.1 30.9,58.78 0,36.32 38.2,36.32"
+                fill="currentColor"
+              />
+            </svg>
+            <svg
+              viewBox="0 0 100 95.1"
+              class="w-[4.47cqw] translate-y-[0.95cqw]"
+              aria-hidden="true"
+            >
+              <polygon
+                points="50,0 61.8,36.32 100,36.32 69.1,58.78 80.9,95.1 50,72.65 19.1,95.1 30.9,58.78 0,36.32 38.2,36.32"
+                fill="currentColor"
+              />
+            </svg>
+            <svg viewBox="0 0 100 95.1" class="w-[4.47cqw]" aria-hidden="true">
+              <polygon
+                points="50,0 61.8,36.32 100,36.32 69.1,58.78 80.9,95.1 50,72.65 19.1,95.1 30.9,58.78 0,36.32 38.2,36.32"
+                fill="currentColor"
+              />
+            </svg>
+            <svg
+              viewBox="0 0 100 95.1"
+              class="w-[4.47cqw] translate-y-[0.95cqw]"
+              aria-hidden="true"
+            >
+              <polygon
+                points="50,0 61.8,36.32 100,36.32 69.1,58.78 80.9,95.1 50,72.65 19.1,95.1 30.9,58.78 0,36.32 38.2,36.32"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="13"
+                clip-path="url(#star-clip)"
+              />
+            </svg>
+            <svg
+              viewBox="0 0 100 95.1"
+              class="w-[4.47cqw] translate-y-[3.15cqw]"
+              aria-hidden="true"
+            >
+              <polygon
+                points="50,0 61.8,36.32 100,36.32 69.1,58.78 80.9,95.1 50,72.65 19.1,95.1 30.9,58.78 0,36.32 38.2,36.32"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="13"
+                clip-path="url(#star-clip)"
+              />
+            </svg>
+          </div>
+          <div
+            class="mt-[1.84cqw] text-[3.97cqw] font-bold leading-none text-[#d12f3f]"
+          >
+            3.5
+          </div>
+          <div class="mt-[0.28cqw] text-[3.1cqw] leading-none text-[#777]">
+            47 Reviews
+          </div>
+
+          <h2
+            class="mt-[4.93cqw] font-['Noto_Serif',serif] text-[5.73cqw] font-light leading-none text-[#111]"
+          >
+            Forest Fruit Pie
+          </h2>
+          <p class="mt-[2.15cqw] text-[3.82cqw] leading-[4.8cqw] text-[#777]">
+            Vivamus lectus lectus, condimentum rutrum,
+            <span id="description-more" hidden>
+              quam tellus interdum litora ac sodales, dui mi donec.
+            </span>
+          </p>
+
+          <button
+            id="read-more"
+            type="button"
+            aria-expanded="false"
+            aria-controls="description-more"
+            class="mt-auto h-[9.76cqw] w-[34.8cqw] shrink-0 rounded-[3.15cqw] bg-[#d12f3f] text-[3.24cqw] text-white transition hover:bg-[#b92636]"
+          >
+            Read More
+          </button>
+        </article>
+      </section>
+    </main>
+    <script>
+      const readMoreButton = document.querySelector("#read-more");
+      const descriptionMore = document.querySelector("#description-more");
+
+      readMoreButton.addEventListener("click", () => {
+        const isExpanded =
+          readMoreButton.getAttribute("aria-expanded") === "true";
+
+        descriptionMore.hidden = isExpanded;
+        readMoreButton.setAttribute("aria-expanded", String(!isExpanded));
+        readMoreButton.textContent = isExpanded ? "Read More" : "Read Less";
+      });
+    </script>
+  </body>
+</html>
