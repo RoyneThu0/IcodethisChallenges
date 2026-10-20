@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users Card 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.js"></script>
+
+    <style>
+      .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .toast-message {
+        background-color: #05b8c5;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        opacity: 0.9;
+        transition: opacity 0.5s;
+        animation: fadeOut 3s ease-out forwards;
+      }
+    </style>
+  </head>
+
+  <body
+    class="h-screen w-screen bg-cover bg-center flex items-center justify-center"
+    style="
+      background-image: url(https://wallpapers.com/images/hd/paper-background-er2jkg9iyxk8mtq7.jpg);
+    "
+  >
+    <button
+      id="profileLauncher"
+      type="button"
+      class="fixed left-1/2 top-1/2 z-50 h-24 w-24 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-4 border-white shadow-lg transition-transform hover:scale-110"
+      aria-label="Show profile card"
+      aria-controls="main"
+      aria-expanded="false"
+    >
+      <img
+        class="h-full w-full object-cover"
+        src="https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/654e8c53c36df72b1c430701_63ccec0c0949d931892be5c9_Aesthetic%2520Smoking%2520Girl%2520PFP%2520for%2520Tiktok%25201.jpeg"
+        alt=""
+      />
+    </button>
+    <div
+      id="main"
+      class="w-11/12 max-w-sm flex-col overflow-hidden rounded-lg bg-white text-center shadow-lg"
+      style="display: none"
+    >
+      <img
+        src="https://www.thoughtco.com/thmb/2-U3CnQpaunyC7nmRxKyvjDrg9k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-88624213-56c48e0b3df78c0b139c668e.jpg"
+        class="h-56 w-full object-cover"
+        alt=""
+      />
+      <img
+        class="-mt-12 mx-auto h-24 w-24 rounded-full border-4 border-white object-cover"
+        src="https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/654e8c53c36df72b1c430701_63ccec0c0949d931892be5c9_Aesthetic%2520Smoking%2520Girl%2520PFP%2520for%2520Tiktok%25201.jpeg"
+        alt=""
+      />
+      <p class="mt-6 text-xl font-bold">Carrie Brewer</p>
+      <p class="mt-1 text-slate-500">214 followers</p>
+      <button
+        class="mb-8 mt-6 rounded-full bg-slate-900 px-10 py-2 text-white transition-colors hover:bg-slate-700 active:bg-cyan-400"
+        onclick="showFollowing()"
+      >
+        Follow
+      </button>
+    </div>
+
+    <div
+      class="flex w-11/12 max-w-xl flex-col items-center justify-center rounded-lg bg-white shadow-lg"
+      id="Following"
+      style="display: none"
+    >
+      <div class="flex w-full h-full items-center justify-between p-7">
+        <div class="flex items-center justify-start gap-3">
+          <img
+            class="w-24 h-24 rounded-full"
+            src="https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/654e8c53c36df72b1c430701_63ccec0c0949d931892be5c9_Aesthetic%2520Smoking%2520Girl%2520PFP%2520for%2520Tiktok%25201.jpeg"
+            alt=""
+          />
+          <div>
+            <p class="font-bold mt-2">Carrie Brewer</p>
+            <p class="font-light text-slate-500">214 followers</p>
+          </div>
+        </div>
+        <div class="flex gap-2 mt-5">
+          <button
+            id="FollowBtn"
+            class="mt-3 rounded-full border border-slate-300 px-7 py-3 text-slate-700 transition-colors hover:bg-slate-100 active:bg-cyan-400 text-nowrap"
+          >
+            Follow
+          </button>
+        </div>
+      </div>
+      <img
+        src="https://www.thoughtco.com/thmb/2-U3CnQpaunyC7nmRxKyvjDrg9k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-88624213-56c48e0b3df78c0b139c668e.jpg"
+        class="w-full h-64 object-cover"
+        alt=""
+      />
+      <p class="w-full text-slate-600 mt-3 text-center p-7">
+        <span class="font-semibold">87.8K </span>views. Ljubijana Slovenia
+      </p>
+      <div class="w-full flex items-center justify-center mb-10 gap-5">
+        <button class="bg-black px-6 py-2 rounded-full text-white">
+          Free Download
+        </button>
+        <button class="border border-black px-6 py-2 rounded-full">
+          Share<i class="fa-solid fa-share ml-5"></i>
+        </button>
+      </div>
+    </div>
+    <div id="toastContainer" class="toast-container"></div>
+    <script>
+      document
+        .getElementById("profileLauncher")
+        .addEventListener("click", function () {
+          const main = document.getElementById("main");
+          const isVisible = main.style.display !== "none";
+
+          main.style.display = isVisible ? "none" : "flex";
+          this.style.display = isVisible ? "block" : "none";
+          this.setAttribute("aria-expanded", String(!isVisible));
+        });
+
+      function showFollowing() {
+        document.getElementById("main").style.display = "none";
+        document
+          .getElementById("profileLauncher")
+          .setAttribute("aria-expanded", "false");
+        document.getElementById("Following").style.display = "flex";
+      }
+
+      function showToast(message) {
+        const toastContainer = document.getElementById("toastContainer");
+
+        if (toastContainer.children.length >= 2) {
+          toastContainer.firstElementChild.remove();
+        }
+
+        const toast = document.createElement("div");
+        toast.innerText = message;
+        toast.className = "toast-message";
+        toastContainer.appendChild(toast);
+
+        setTimeout(() => {
+          toast.remove();
+        }, 2500);
+      }
+
+      let isFollowing = false;
+
+      document
+        .getElementById("FollowBtn")
+        .addEventListener("click", function () {
+          if (!isFollowing) {
+            this.textContent = "Following";
+            this.classList.remove(
+              "border-slate-300",
+              "text-slate-700",
+              "hover:bg-slate-100",
+            );
+            this.classList.add(
+              "border-green-500",
+              "bg-green-500",
+              "text-white",
+            );
+
+            showToast("You are now following !");
+
+            isFollowing = true;
+          } else {
+            this.textContent = "Follow";
+            this.classList.remove(
+              "border-green-500",
+              "bg-green-500",
+              "text-white",
+            );
+            this.classList.add(
+              "border-slate-300",
+              "text-slate-700",
+              "hover:bg-slate-100",
+            );
+
+            showToast("You have unfollowed Sally Ramos!");
+
+            isFollowing = false;
+          }
+        });
+    </script>
+  </body>
+</html>
