@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="flex min-h-screen w-full items-center justify-center bg-[#eef6ff] p-4 sm:p-8"
+  >
+    <main class="w-full max-w-2xl">
+      <div
+        class="w-full overflow-hidden rounded-2xl bg-white shadow-2xl"
+      >
+        <div
+          class="flex items-center justify-between bg-[#173b6a] px-5 py-4 text-white sm:px-8 sm:py-6"
+        >
+          <h2 class="text-xl font-bold sm:text-2xl">Book a training</h2>
+          <button aria-label="Close" class="text-white/90 hover:text-white">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+          </button>
+        </div>
+
+        <div class="px-5 py-6 sm:px-8 sm:py-10">
+          <div class="flex items-center justify-center text-center mb-8">
+            <button class="mr-4 text-gray-400 hover:text-gray-600 sm:mr-6">
+              <i class="fa-solid fa-chevron-left text-xl"></i>
+            </button>
+            <div>
+              <div class="text-xl font-extrabold sm:text-2xl">Sep. 24</div>
+              <div class="text-sm text-gray-500">Today</div>
+            </div>
+            <button class="ml-4 text-gray-400 hover:text-gray-600 sm:ml-6">
+              <i class="fa-solid fa-chevron-right text-xl"></i>
+            </button>
+          </div>
+
+          <div class="space-y-6">
+            <div
+              class="rounded-xl bg-[#173b6a] p-5 text-white shadow-[0_20px_30px_rgba(23,59,106,0.15)] sm:p-6"
+            >
+              <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 class="mb-3 text-2xl font-bold">Bodypump</h3>
+                  <div class="mb-4 text-sm text-gray-200">09:30 • 60 min</div>
+
+                  <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <div class="text-xs text-gray-300">Trained by</div>
+                    <img
+                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=80&auto=format&fit=crop&crop=faces"
+                      alt="Emily"
+                      class="w-9 h-9 rounded-full ring-2 ring-white object-cover"
+                    />
+                    <div class="text-sm font-medium">Emily Stark</div>
+                  </div>
+                </div>
+
+                <div class="w-full sm:w-auto sm:flex-shrink-0 sm:pl-6">
+                  <button
+                    class="w-full rounded bg-white px-4 py-2 font-semibold text-[#173b6a] shadow hover:brightness-95 sm:w-auto"
+                  >
+                    Book a spot
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="rounded-xl bg-[#173b6a] p-5 text-white shadow-[0_18px_28px_rgba(23,59,106,0.12)] sm:p-6"
+            >
+              <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 class="mb-3 text-2xl font-bold">Pilates</h3>
+                  <div class="mb-4 text-sm text-gray-200">10:30 • 60 min</div>
+
+                  <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <div class="text-xs text-gray-300">Trained by</div>
+                    <img
+                      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=80&auto=format&fit=crop&crop=faces"
+                      alt="Erik"
+                      class="w-9 h-9 rounded-full ring-2 ring-white object-cover"
+                    />
+                    <div class="text-sm font-medium">Erik Nest</div>
+                  </div>
+                </div>
+
+                <div class="w-full sm:w-auto sm:flex-shrink-0 sm:pl-6">
+                  <button
+                    class="w-full rounded bg-white px-4 py-2 font-semibold text-[#173b6a] shadow hover:brightness-95 sm:w-auto"
+                  >
+                    Book a spot
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
