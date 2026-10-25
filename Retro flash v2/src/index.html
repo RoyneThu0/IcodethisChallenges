@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Flash</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-full min-h-screen flex items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://cdn.britannica.com/88/137188-050-8C779D64/Boston-Public-Garden.jpg);
+    "
+  >
+    <div
+      class="w-full min-h-screen px-4 py-8 backdrop-blur-2xl bg-white/20 flex items-center justify-center sm:px-6"
+    >
+      <div class="w-full max-w-xl flex flex-col gap-3">
+        <div data-notification class="w-full group bg-white/60 rounded-xl flex">
+          <div
+            class="w-16 sm:w-20 bg-red-400/40 group-hover:bg-red-400 duration-300 ease-in-out rounded-l-xl p-3 sm:p-5 shrink-0 flex items-center justify-center"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2582/2582150.png"
+              alt=""
+              class="w-8 h-8 sm:w-12 sm:h-12 animate-pulse"
+            />
+          </div>
+          <div
+            class="relative min-w-0 flex-1 bg-white/60 group-hover:bg-white duration-300 ease-in-out rounded-r-xl p-2 sm:p-3 flex items-center justify-center"
+          >
+            <button
+              type="button"
+              aria-label="Dismiss notification"
+              class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"
+            >
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <p class="w-full text-center">
+              Your message could not be sent
+            </p>
+          </div>
+        </div>
+        <div data-notification class="w-full group bg-white/60 rounded-xl flex">
+          <div
+            class="w-16 sm:w-20 bg-green-400/40 group-hover:bg-green-400 duration-300 ease-in-out rounded-l-xl p-3 sm:p-5 shrink-0 flex items-center justify-center"
+          >
+            <img
+              src="https://cdn1.iconfinder.com/data/icons/check-mark-set/64/check_mark_approved_correct_email_envelope_message-512.png"
+              alt=""
+              class="w-8 h-8 sm:w-12 sm:h-12"
+            />
+          </div>
+          <div
+            class="relative min-w-0 flex-1 bg-white/60 group-hover:bg-white duration-300 ease-in-out rounded-r-xl p-2 sm:p-3 flex items-center justify-center"
+          >
+            <button
+              type="button"
+              aria-label="Dismiss notification"
+              class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"
+            >
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <p class="w-full text-center">Your message has been sent</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll("[data-notification] button").forEach((button) => {
+        button.addEventListener("click", () => {
+          button.closest("[data-notification]").remove();
+        });
+      });
+    </script>
+  </body>
+</html>
