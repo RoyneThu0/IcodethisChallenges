@@ -122,6 +122,8 @@
 
         const notification = button.closest("[data-notification]");
 
+        if (!notification) return;
+
         if (button.hasAttribute("data-dismiss")) {
           notification.hidden = true;
         } else if (button.hasAttribute("data-retry")) {
