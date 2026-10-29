@@ -13,63 +13,17 @@
       crossorigin="anonymous"
       referrerpolicy="noreferrer"
     />
-    <style>
-      .stage-wrap {
-        width: calc(653px * var(--s, 1));
-        height: calc(844px * var(--s, 1));
-      }
-      .stage {
-        transform: scale(var(--s, 1));
-        transform-origin: top left;
-      }
-      @media (max-width: 685px) {
-        .stage-wrap {
-          --s: 0.94;
-        }
-      }
-      @media (max-width: 650px) {
-        .stage-wrap {
-          --s: 0.84;
-        }
-      }
-      @media (max-width: 585px) {
-        .stage-wrap {
-          --s: 0.74;
-        }
-      }
-      @media (max-width: 520px) {
-        .stage-wrap {
-          --s: 0.64;
-        }
-      }
-      @media (max-width: 455px) {
-        .stage-wrap {
-          --s: 0.54;
-        }
-      }
-      @media (max-width: 390px) {
-        .stage-wrap {
-          --s: 0.45;
-        }
-      }
-      @media (max-width: 330px) {
-        .stage-wrap {
-          --s: 0.36;
-        }
-      }
-    </style>
   </head>
   <body class="flex min-h-screen items-center justify-center bg-[#1e1a38] p-4">
-    <div class="stage-wrap shrink-0">
-      <div class="stage relative h-[844px] w-[653px]">
+    <main class="relative min-h-[844px] w-full max-w-[653px] origin-center scale-[0.6]">
         <div
-          class="absolute top-0 left-0 h-[533px] w-[582px] rounded-tr-[48px] rounded-bl-[48px] bg-[linear-gradient(to_bottom_right,#ff5da9,#766aff)]"
+          class="absolute top-0 left-0 h-[533px] w-[calc(100%-71px)] rounded-tr-[48px] rounded-bl-[48px] bg-[linear-gradient(to_bottom_right,#ff5da9,#766aff)]"
         ></div>
 
         <section
-          class="absolute top-[97px] left-[104px] w-[549px] rounded-[24px] bg-[#121129] px-12 pt-12 pb-[49px]"
+          class="relative ml-auto mt-[97px] w-full max-w-[549px] rounded-[24px] bg-[#121129] px-6 pt-8 pb-8 sm:px-12 sm:pt-12 sm:pb-[49px]"
         >
-          <h1 class="mb-12 text-[32px]/[42px] font-semibold text-[#d2cdfb]">
+          <h1 class="mb-8 text-[28px]/[36px] font-semibold text-[#d2cdfb] sm:mb-12 sm:text-[32px]/[42px]">
             Closest stores
           </h1>
 
@@ -80,7 +34,7 @@
             Postal code
           </label>
 
-          <div class="mb-[39px] flex items-center gap-8">
+          <div class="mb-8 flex flex-wrap items-center gap-x-4 gap-y-4 sm:mb-[39px] sm:gap-x-8">
             <input
               id="postal"
               type="text"
@@ -90,54 +44,54 @@
             />
             <button
               type="button"
-              class="flex items-center gap-[21px] text-[24px]/[32px] font-medium text-[#8477f7] hover:text-[#9f94ff]"
+              class="flex items-center gap-3 text-lg/[28px] font-medium text-[#8477f7] hover:text-[#9f94ff] sm:gap-[21px] sm:text-[24px]/[32px]"
             >
-              <i class="fa-solid fa-location-dot text-[32px]"></i>
+              <i class="fa-solid fa-location-dot text-[28px] sm:text-[32px]"></i>
               <span>Use my location</span>
             </button>
           </div>
 
-          <ul class="space-y-[50px]">
+          <ul class="space-y-10 sm:space-y-[50px]">
             <li>
               <div class="flex items-center justify-between gap-4">
-                <h2 class="text-[24px]/[32px] font-bold text-[#d2cdfb]">
+                <h2 class="text-xl/[28px] font-bold text-[#d2cdfb] sm:text-[24px]/[32px]">
                   POINT Bergen Sentrum
                 </h2>
                 <span
-                  class="shrink-0 rounded-full bg-[#fc5da8] px-[9px] py-[4px] text-[16px]/[20px] font-bold text-white"
+                  class="shrink-0 rounded-full bg-[#fc5da8] px-[9px] py-[4px] text-sm/[20px] font-bold text-white sm:text-[16px]/[20px]"
                 >
                   CLOSED
                 </span>
               </div>
-              <p class="mt-[13px] text-[24px]/[32px] text-[#c3beee]">
+              <p class="mt-[13px] text-lg/[28px] text-[#c3beee] sm:text-[24px]/[32px]">
                 Strandagaten 55-57, 6007 Bergen
               </p>
               <p
-                class="mt-[14px] flex items-center gap-[16px] text-[24px]/[32px] text-[#c3beee]"
+                class="mt-[14px] flex items-center gap-[16px] text-lg/[28px] text-[#c3beee] sm:text-[24px]/[32px]"
               >
-                <i class="fa-regular fa-clock text-[26px]"></i>
+                <i class="fa-regular fa-clock text-[22px] sm:text-[26px]"></i>
                 <span>9:00 - 19:00</span>
               </p>
             </li>
 
             <li>
               <div class="flex items-center justify-between gap-4">
-                <h2 class="text-[24px]/[32px] font-bold text-[#d2cdfb]">
+                <h2 class="text-xl/[28px] font-bold text-[#d2cdfb] sm:text-[24px]/[32px]">
                   POIVestkanten
                 </h2>
                 <span
-                  class="shrink-0 rounded-full bg-[#06c196] px-[9px] py-[4px] text-[16px]/[20px] font-bold text-white"
+                  class="shrink-0 rounded-full bg-[#06c196] px-[9px] py-[4px] text-sm/[20px] font-bold text-white sm:text-[16px]/[20px]"
                 >
                   OPEN
                 </span>
               </div>
-              <p class="mt-[13px] text-[24px]/[32px] text-[#c3beee]">
+              <p class="mt-[13px] text-lg/[28px] text-[#c3beee] sm:text-[24px]/[32px]">
                 Strandagaten 55-57, 6007 Bergen
               </p>
               <p
-                class="mt-[14px] flex items-center gap-[16px] text-[24px]/[32px] text-[#c3beee]"
+                class="mt-[14px] flex items-center gap-[16px] text-lg/[28px] text-[#c3beee] sm:text-[24px]/[32px]"
               >
-                <i class="fa-regular fa-clock text-[26px]"></i>
+                <i class="fa-regular fa-clock text-[22px] sm:text-[26px]"></i>
                 <span>9:00 - 21:00</span>
               </p>
             </li>
@@ -145,12 +99,11 @@
 
           <button
             type="button"
-            class="mt-[51px] h-[71px] w-full rounded-[6px] bg-[#756bff] text-[24px] font-semibold text-white hover:bg-[#8278ff]"
+            class="mt-10 h-[71px] w-full rounded-[6px] bg-[#756bff] text-xl font-semibold text-white hover:bg-[#8278ff] sm:mt-[51px] sm:text-[24px]"
           >
             View all
           </button>
         </section>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
