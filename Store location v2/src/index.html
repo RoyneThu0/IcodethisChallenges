@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Location</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+    <style>
+      .stage-wrap {
+        width: calc(653px * var(--s, 1));
+        height: calc(844px * var(--s, 1));
+      }
+      .stage {
+        transform: scale(var(--s, 1));
+        transform-origin: top left;
+      }
+      @media (max-width: 685px) {
+        .stage-wrap {
+          --s: 0.94;
+        }
+      }
+      @media (max-width: 650px) {
+        .stage-wrap {
+          --s: 0.84;
+        }
+      }
+      @media (max-width: 585px) {
+        .stage-wrap {
+          --s: 0.74;
+        }
+      }
+      @media (max-width: 520px) {
+        .stage-wrap {
+          --s: 0.64;
+        }
+      }
+      @media (max-width: 455px) {
+        .stage-wrap {
+          --s: 0.54;
+        }
+      }
+      @media (max-width: 390px) {
+        .stage-wrap {
+          --s: 0.45;
+        }
+      }
+      @media (max-width: 330px) {
+        .stage-wrap {
+          --s: 0.36;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex min-h-screen items-center justify-center bg-[#1e1a38] p-4">
+    <div class="stage-wrap shrink-0">
+      <div class="stage relative h-[844px] w-[653px]">
+        <div
+          class="absolute top-0 left-0 h-[533px] w-[582px] rounded-tr-[48px] rounded-bl-[48px] bg-[linear-gradient(to_bottom_right,#ff5da9,#766aff)]"
+        ></div>
+
+        <section
+          class="absolute top-[97px] left-[104px] w-[549px] rounded-[24px] bg-[#121129] px-12 pt-12 pb-[49px]"
+        >
+          <h1 class="mb-12 text-[32px]/[42px] font-semibold text-[#d2cdfb]">
+            Closest stores
+          </h1>
+
+          <label
+            for="postal"
+            class="mb-2 block text-[17px]/[24px] text-[#c3beee]"
+          >
+            Postal code
+          </label>
+
+          <div class="mb-[39px] flex items-center gap-8">
+            <input
+              id="postal"
+              type="text"
+              inputmode="numeric"
+              value="5055"
+              class="h-[71px] w-[191px] rounded-[4px] border-2 border-[#2d2950] bg-transparent px-[18px] text-[24px] text-[#d2cdfb] outline-none focus:border-[#756bff]"
+            />
+            <button
+              type="button"
+              class="flex items-center gap-[21px] text-[24px]/[32px] font-medium text-[#8477f7] hover:text-[#9f94ff]"
+            >
+              <i class="fa-solid fa-location-dot text-[32px]"></i>
+              <span>Use my location</span>
+            </button>
+          </div>
+
+          <ul class="space-y-[50px]">
+            <li>
+              <div class="flex items-center justify-between gap-4">
+                <h2 class="text-[24px]/[32px] font-bold text-[#d2cdfb]">
+                  POINT Bergen Sentrum
+                </h2>
+                <span
+                  class="shrink-0 rounded-full bg-[#fc5da8] px-[9px] py-[4px] text-[16px]/[20px] font-bold text-white"
+                >
+                  CLOSED
+                </span>
+              </div>
+              <p class="mt-[13px] text-[24px]/[32px] text-[#c3beee]">
+                Strandagaten 55-57, 6007 Bergen
+              </p>
+              <p
+                class="mt-[14px] flex items-center gap-[16px] text-[24px]/[32px] text-[#c3beee]"
+              >
+                <i class="fa-regular fa-clock text-[26px]"></i>
+                <span>9:00 - 19:00</span>
+              </p>
+            </li>
+
+            <li>
+              <div class="flex items-center justify-between gap-4">
+                <h2 class="text-[24px]/[32px] font-bold text-[#d2cdfb]">
+                  POIVestkanten
+                </h2>
+                <span
+                  class="shrink-0 rounded-full bg-[#06c196] px-[9px] py-[4px] text-[16px]/[20px] font-bold text-white"
+                >
+                  OPEN
+                </span>
+              </div>
+              <p class="mt-[13px] text-[24px]/[32px] text-[#c3beee]">
+                Strandagaten 55-57, 6007 Bergen
+              </p>
+              <p
+                class="mt-[14px] flex items-center gap-[16px] text-[24px]/[32px] text-[#c3beee]"
+              >
+                <i class="fa-regular fa-clock text-[26px]"></i>
+                <span>9:00 - 21:00</span>
+              </p>
+            </li>
+          </ul>
+
+          <button
+            type="button"
+            class="mt-[51px] h-[71px] w-full rounded-[6px] bg-[#756bff] text-[24px] font-semibold text-white hover:bg-[#8278ff]"
+          >
+            View all
+          </button>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
