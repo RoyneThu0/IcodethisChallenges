@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum Components</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="flex min-h-screen items-center justify-center bg-[#fff3f7] font-sans text-[#2b2b2d] antialiased"
+  >
+    <main
+      class="flex w-full max-w-7xl flex-col gap-8 px-4 py-10 sm:px-6 xl:gap-15 xl:px-15.5 xl:pt-31 xl:pb-25"
+    >
+      <section
+        aria-label="Accepted answer"
+        class="mx-auto flex w-full max-w-xl items-center gap-5 rounded-md bg-white px-5 py-6 shadow-xl shadow-[#ec326a]/10 sm:gap-6 sm:pl-6.5 xl:relative xl:left-3/8 xl:mx-0 xl:h-31 xl:w-1/2 xl:max-w-none xl:py-0"
+      >
+        <span
+          class="flex size-14 shrink-0 items-center justify-center rounded-full bg-radial from-[#ebfee8] from-60% to-transparent to-70% text-2xl text-[#2fae9a]"
+        >
+          <i class="fa-solid fa-check" aria-hidden="true"></i>
+        </span>
+        <div>
+          <p class="text-base/5 text-[#222124]">
+            Solved by
+            <a href="#" class="text-[#ec326a] hover:underline">Charlie_reid</a>
+            in
+            <a href="#" class="text-[#ec326a] hover:underline">post #2</a>
+          </p>
+          <p class="mt-3 max-w-104 text-sm text-[#252527]">
+            The answer was identified. All redirects created can be found under
+            the hosting tab of the project settings.
+          </p>
+        </div>
+      </section>
+
+      <div
+        class="flex flex-col items-center gap-8 xl:flex-row xl:items-start xl:gap-12"
+      >
+        <section
+          class="w-full max-w-xl rounded-md bg-white px-5 pt-8 pb-10 shadow-xl shadow-[#ec326a]/10 sm:px-12 sm:pt-11 sm:pb-16 xl:w-4/9 xl:max-w-none"
+        >
+          <h1 class="text-lg font-bold text-[#15141b]">Create a new Topic</h1>
+
+          <form class="mt-7.5 grid grid-cols-2 gap-x-3.5 gap-y-3">
+            <label class="col-span-2">
+              <span class="sr-only">Title</span>
+              <input
+                type="text"
+                name="title"
+                required
+                placeholder="Type title, or paste a link here"
+                class="h-14 w-full rounded-sm border border-[#eeeeee] px-5 text-sm text-[#36353a] placeholder:text-[#818384] focus:border-[#ec326a]/40 focus:ring-3 focus:ring-[#ec326a]/10 focus:outline-none"
+              />
+            </label>
+
+            <label class="relative">
+              <span class="sr-only">Category</span>
+              <select
+                name="category"
+                required
+                class="h-14 w-full cursor-pointer appearance-none rounded-sm border border-[#eeeeee] bg-white pr-12 pl-5 text-sm text-[#36353a] focus:border-[#ec326a]/40 focus:ring-3 focus:ring-[#ec326a]/10 focus:outline-none"
+              >
+                <option value="" disabled selected hidden>Category</option>
+                <option>Community resources</option>
+                <option>Design help</option>
+                <option>Publishing Help</option>
+              </select>
+              <i
+                class="fa-solid fa-chevron-down pointer-events-none absolute top-1/2 right-6 -translate-y-1/2 text-xs text-[#3d3d3d]"
+                aria-hidden="true"
+              ></i>
+            </label>
+
+            <label class="relative">
+              <span class="sr-only">Tags</span>
+              <select
+                name="tags"
+                required
+                class="h-14 w-full cursor-pointer appearance-none rounded-sm border border-[#eeeeee] bg-white pr-12 pl-5 text-sm text-[#36353a] focus:border-[#ec326a]/40 focus:ring-3 focus:ring-[#ec326a]/10 focus:outline-none"
+              >
+                <option value="" disabled selected hidden>Tags</option>
+                <option>Navbar</option>
+                <option>Dark mode</option>
+                <option>Mobile</option>
+              </select>
+              <i
+                class="fa-solid fa-chevron-down pointer-events-none absolute top-1/2 right-6 -translate-y-1/2 text-xs text-[#3d3d3d]"
+                aria-hidden="true"
+              ></i>
+            </label>
+
+            <label class="col-span-2">
+              <span class="sr-only">Description</span>
+              <textarea
+                name="description"
+                placeholder="Enter your description here"
+                class="block h-28 w-full resize-none rounded-sm border border-[#eeeeee] px-5 pt-4.5 text-sm text-[#36353a] placeholder:text-[#818384] focus:border-[#ec326a]/40 focus:ring-3 focus:ring-[#ec326a]/10 focus:outline-none"
+              ></textarea>
+            </label>
+
+            <button
+              type="submit"
+              class="flex h-12 cursor-pointer items-center justify-center gap-2.5 rounded-sm bg-[#ec326a] text-sm text-[#ffe0ec] transition-colors hover:bg-[#d92a5e]"
+            >
+              <i class="fa-solid fa-plus text-base" aria-hidden="true"></i>
+              Create Topic
+            </button>
+            <button
+              type="reset"
+              class="h-12 cursor-pointer rounded-sm bg-[#eff4fd] text-sm text-[#7e8890] transition-colors hover:bg-[#e3eafa]"
+            >
+              Cancel
+            </button>
+          </form>
+        </section>
+
+        <section
+          aria-label="Topics"
+          class="group/filters w-full max-w-xl xl:max-w-none xl:flex-1"
+        >
+          <input
+            type="checkbox"
+            id="category-menu"
+            class="peer/category sr-only"
+            checked
+          />
+          <input type="checkbox" id="tag-menu" class="peer/tag sr-only" />
+
+          <div class="flex flex-wrap gap-2 sm:gap-2.5 xl:ml-5">
+            <label
+              for="category-menu"
+              class="flex h-12 flex-auto cursor-pointer items-center justify-between gap-2 rounded-sm bg-white px-3.5 text-sm shadow-sm shadow-[#ec326a]/5 select-none group-has-[#category-menu:focus-visible]/filters:ring-2 group-has-[#category-menu:focus-visible]/filters:ring-[#ec326a]/30 sm:w-40 sm:flex-none sm:gap-3 sm:px-5"
+            >
+              All categories
+              <i
+                class="fa-solid fa-chevron-down text-xs text-[#424242]"
+                aria-hidden="true"
+              ></i>
+            </label>
+            <label
+              for="tag-menu"
+              class="flex h-12 flex-auto cursor-pointer items-center justify-between gap-2 rounded-sm bg-white px-3.5 text-sm shadow-sm shadow-[#ec326a]/5 select-none group-has-[#tag-menu:focus-visible]/filters:ring-2 group-has-[#tag-menu:focus-visible]/filters:ring-[#ec326a]/30 sm:w-31 sm:flex-none sm:gap-3 sm:px-5"
+            >
+              All tags
+              <i
+                class="fa-solid fa-chevron-down text-xs text-[#424242]"
+                aria-hidden="true"
+              ></i>
+            </label>
+            <button
+              type="button"
+              class="h-12 flex-auto cursor-pointer rounded-sm bg-[#ec326a] px-4 text-sm text-[#ffe0ec] transition-colors hover:bg-[#d92a5e] sm:w-22 sm:flex-none sm:px-0"
+            >
+              Latest
+            </button>
+          </div>
+
+          <fieldset
+            class="mt-1.5 hidden w-max min-w-53 rounded-md bg-white px-4 pt-4 pb-3.5 shadow-xl shadow-[#ec326a]/10 peer-checked/category:block xl:ml-5"
+          >
+            <legend class="sr-only">Category</legend>
+            <div class="flex flex-col gap-1">
+              <label
+                class="flex h-10 cursor-pointer items-center gap-3 rounded-md px-3 text-sm text-[#313133] hover:bg-[#f6f8fe] has-[:checked]:bg-[#eff4fd] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#ec326a]/30"
+              >
+                <input type="radio" name="category" class="sr-only" />
+                <span class="size-2.5 rounded-full bg-[#6d8ce6]"></span>
+                Community resources
+              </label>
+              <label
+                class="flex h-10 cursor-pointer items-center gap-3 rounded-md px-3 text-sm text-[#313133] hover:bg-[#f6f8fe] has-[:checked]:bg-[#eff4fd] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#ec326a]/30"
+              >
+                <input type="radio" name="category" class="sr-only" checked />
+                <span class="size-2.5 rounded-full bg-[#b26eeb]"></span>
+                Design help
+              </label>
+              <label
+                class="flex h-10 cursor-pointer items-center gap-3 rounded-md px-3 text-sm text-[#313133] hover:bg-[#f6f8fe] has-[:checked]:bg-[#eff4fd] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#ec326a]/30"
+              >
+                <input type="radio" name="category" class="sr-only" />
+                <span class="size-2.5 rounded-full bg-[#ea6970]"></span>
+                Publishing Help
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset
+            class="mt-1.5 hidden w-max min-w-53 rounded-md bg-white px-4 pt-4 pb-3.5 shadow-xl shadow-[#ec326a]/10 peer-checked/tag:block sm:ml-42.5 xl:ml-47.5"
+          >
+            <legend class="sr-only">Tags</legend>
+            <div class="flex flex-col gap-1">
+              <label
+                class="flex h-10 cursor-pointer items-center gap-3 rounded-md px-3 text-sm text-[#313133] hover:bg-[#f6f8fe] has-[:checked]:bg-[#eff4fd] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#ec326a]/30"
+              >
+                <input type="checkbox" class="sr-only" />
+                <span class="text-[#9aa3ab]">#</span>
+                navbar
+              </label>
+              <label
+                class="flex h-10 cursor-pointer items-center gap-3 rounded-md px-3 text-sm text-[#313133] hover:bg-[#f6f8fe] has-[:checked]:bg-[#eff4fd] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#ec326a]/30"
+              >
+                <input type="checkbox" class="sr-only" />
+                <span class="text-[#9aa3ab]">#</span>
+                dark-mode
+              </label>
+              <label
+                class="flex h-10 cursor-pointer items-center gap-3 rounded-md px-3 text-sm text-[#313133] hover:bg-[#f6f8fe] has-[:checked]:bg-[#eff4fd] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-[#ec326a]/30"
+              >
+                <input type="checkbox" class="sr-only" />
+                <span class="text-[#9aa3ab]">#</span>
+                mobile
+              </label>
+            </div>
+          </fieldset>
+
+          <ul class="mt-12 flex flex-col gap-2.5">
+            <li>
+              <a
+                href="#"
+                class="flex items-center justify-between gap-4 rounded-md bg-white px-6 pt-5 pb-6 shadow-xl shadow-[#ec326a]/10 transition-transform hover:-translate-y-0.5"
+              >
+                <div>
+                  <h2 class="text-base/6 font-bold text-[#1d1c21]">
+                    Navbar Dropdown on Mobile
+                  </h2>
+                  <p
+                    class="mt-2 flex items-center gap-1 text-sm text-[#313035]"
+                  >
+                    <span class="size-2.5 rounded-full bg-[#ea6970]"></span>
+                    Publishing Help
+                  </p>
+                </div>
+                <div class="hidden shrink-0 gap-2 sm:flex">
+                  <img
+                    class="size-8 rounded-full object-cover ring-1 ring-black/5"
+                    src="https://i.pravatar.cc/80?img=7"
+                    alt=""
+                  />
+                  <img
+                    class="size-8 rounded-full object-cover ring-1 ring-black/5"
+                    src="https://i.pravatar.cc/80?img=50"
+                    alt=""
+                  />
+                  <img
+                    class="size-8 rounded-full object-cover ring-1 ring-black/5"
+                    src="https://i.pravatar.cc/80?img=41"
+                    alt=""
+                  />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center justify-between gap-4 rounded-md bg-white px-6 pt-5 pb-6 shadow-xl shadow-[#ec326a]/10 transition-transform hover:-translate-y-0.5"
+              >
+                <div>
+                  <h2 class="text-base/6 font-bold text-[#1d1c21]">
+                    Persistent Dark Mode
+                  </h2>
+                  <p
+                    class="mt-2 flex items-center gap-1 text-sm text-[#313035]"
+                  >
+                    <span class="size-2.5 rounded-full bg-[#b26eeb]"></span>
+                    Design Help
+                  </p>
+                </div>
+                <div class="hidden shrink-0 gap-2 sm:flex">
+                  <img
+                    class="size-8 rounded-full object-cover ring-1 ring-black/5"
+                    src="https://i.pravatar.cc/80?img=53"
+                    alt=""
+                  />
+                  <img
+                    class="size-8 rounded-full object-cover ring-1 ring-black/5"
+                    src="https://i.pravatar.cc/80?img=29"
+                    alt=""
+                  />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
