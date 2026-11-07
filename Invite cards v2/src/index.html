@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invite Cards</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-full min-h-screen overflow-x-hidden">
+    <div class="relative min-h-screen w-full overflow-hidden bg-gray-200">
+      <div
+        class="absolute left-[-12rem] top-[-12rem] h-[min(85vw,800px)] w-[min(85vw,800px)] rounded-full sm:left-10 sm:top-10"
+        style="
+          background: radial-gradient(
+            circle,
+            rgb(240, 66, 208) 40%,
+            rgb(137, 2, 255) 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-8rem] right-[-8rem] h-[min(65vw,450px)] w-[min(65vw,450px)] rounded-full sm:bottom-2 sm:right-20"
+        style="
+          background: radial-gradient(
+            circle,
+            rgb(255, 98, 0) 20%,
+            rgb(238, 2, 255) 70%
+          );
+        "
+      ></div>
+      <div class="absolute inset-0 bg-white/30 backdrop-blur-2xl"></div>
+      <div
+        class="relative z-10 flex min-h-screen w-full items-center justify-center p-4 sm:p-10"
+      >
+        <!-- The three cards share one grid cell; only the current step is shown. -->
+        <div class="grid w-full max-w-xl">
+          <!-- Step 1: Invite people -->
+          <section
+            data-step
+            data-state="current"
+            aria-labelledby="invitePeopleTitle"
+            class="col-start-1 row-start-1 w-full self-center justify-self-center transition duration-300 ease-out not-inert:delay-200 inert:pointer-events-none inert:scale-95 inert:opacity-0 inert:duration-200 inert:ease-in data-[state=next]:translate-y-6 data-[state=past]:-translate-y-6 motion-reduce:transition-none"
+          >
+            <form
+              id="inviteForm"
+              novalidate
+              class="rounded-lg bg-white/70 p-5 shadow-xl duration-300 ease-in-out hover:bg-white sm:p-10"
+            >
+              <h2
+                id="invitePeopleTitle"
+                class="text-start text-sm font-semibold text-black"
+              >
+                Invite people
+              </h2>
+              <p class="mt-3 text-xs font-light">
+                All invited people will be granted access to all sites within
+                your organisation
+              </p>
+              <div
+                class="mt-5 flex w-fit max-w-full items-center justify-start gap-1 rounded-full bg-gray-300 p-1 sm:gap-3"
+                role="group"
+                aria-label="Invite method"
+              >
+                <button
+                  id="btnEmail"
+                  type="button"
+                  class="cursor-pointer rounded-full px-3 py-2 text-xs font-medium aria-pressed:bg-white"
+                  aria-pressed="true"
+                >
+                  Invite with email
+                </button>
+                <button
+                  id="btnLink"
+                  type="button"
+                  class="cursor-pointer rounded-full px-3 py-2 text-xs duration-200 hover:bg-white aria-pressed:bg-white"
+                  aria-pressed="false"
+                >
+                  Invite with link
+                </button>
+              </div>
+
+              <div class="mt-7 flex flex-col">
+                <label
+                  id="inputLabel"
+                  for="emailInput"
+                  class="text-xs font-semibold"
+                  >Email</label
+                >
+                <div
+                  class="mt-1 flex w-full flex-col items-stretch justify-center overflow-hidden rounded-lg border border-gray-300 bg-white p-0.5 focus-within:border-purple-400 has-[[aria-invalid=true]]:border-red-400 sm:flex-row sm:items-center"
+                >
+                  <input
+                    id="emailInput"
+                    type="email"
+                    multiple
+                    placeholder="Enter email addresses"
+                    class="w-full min-w-0 rounded-lg p-3 focus:outline-none"
+                  />
+
+                  <input
+                    id="linkInput"
+                    type="text"
+                    value="https://examplelinktoshare/my-team/jid98490032"
+                    readonly
+                    class="hidden w-full min-w-0 rounded-lg p-3 focus:outline-none"
+                  />
+
+                  <button
+                    id="actionBtn"
+                    type="submit"
+                    class="shrink-0 cursor-pointer rounded-md bg-linear-to-b from-purple-400 to-purple-500 px-4 py-3 text-white sm:rounded-l-none"
+                  >
+                    Send invite
+                  </button>
+                </div>
+                <p class="mt-4 text-xs text-gray-500">
+                  People with organisational access will be sent an email
+                  invitation.
+                  <span
+                    class="cursor-pointer font-semibold underline duration-300 hover:text-blue-400"
+                    >Deactivate</span
+                  >
+                  it if you don't want this.
+                </p>
+              </div>
+            </form>
+          </section>
+
+          <!-- Step 2: Invite to team -->
+          <section
+            data-step
+            data-state="next"
+            inert
+            aria-labelledby="inviteTeamTitle"
+            class="col-start-1 row-start-1 w-full max-w-lg self-center justify-self-center transition duration-300 ease-out not-inert:delay-200 inert:pointer-events-none inert:scale-95 inert:opacity-0 inert:duration-200 inert:ease-in data-[state=next]:translate-y-6 data-[state=past]:-translate-y-6 motion-reduce:transition-none"
+          >
+            <form
+              id="teamForm"
+              novalidate
+              class="rounded-lg bg-white/70 p-5 shadow-xl duration-300 ease-in-out hover:bg-white sm:p-10"
+            >
+              <h2 id="inviteTeamTitle" class="text-sm font-semibold text-black">
+                Invite to team
+              </h2>
+
+              <div
+                class="mt-7 grid grid-cols-2 gap-2.5 text-xs font-semibold sm:grid-cols-5"
+              >
+                <span id="teamMemberLabel" class="sm:col-span-3"
+                  >Team member</span
+                >
+                <span id="permissionLabel" class="sm:col-span-2"
+                  >Permission</span
+                >
+              </div>
+              <div id="memberRows" class="mt-1 flex flex-col gap-1.5"></div>
+
+              <template id="memberRowTemplate">
+                <div class="grid grid-cols-2 gap-2.5 sm:grid-cols-5">
+                  <input
+                    type="email"
+                    name="email"
+                    autocomplete="off"
+                    placeholder="Email address"
+                    aria-labelledby="teamMemberLabel"
+                    class="w-full min-w-0 rounded-lg border border-gray-300 bg-white p-3 placeholder:text-gray-500 focus:border-purple-400 focus:outline-none aria-[invalid=true]:border-red-400 sm:col-span-3"
+                  />
+                  <div data-select class="relative sm:col-span-2">
+                    <button
+                      type="button"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                      class="group peer flex w-full cursor-pointer items-center justify-between gap-2 rounded-lg border border-gray-300 bg-white p-3 text-start text-gray-500 focus:border-purple-400 focus:outline-none aria-expanded:border-purple-400"
+                    >
+                      <span data-select-value class="truncate">Read Only</span>
+                      <i
+                        class="fa-solid fa-chevron-down text-xs text-gray-700 transition group-aria-expanded:rotate-180"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    <input type="hidden" name="permission" value="read" />
+                    <ul
+                      role="listbox"
+                      aria-labelledby="permissionLabel"
+                      class="absolute inset-x-0 top-full z-20 mt-1.5 hidden rounded-lg bg-white p-1.5 shadow-xl shadow-gray-400/20 peer-aria-expanded:block"
+                    >
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        aria-selected="true"
+                        data-value="read"
+                        class="cursor-pointer rounded-md px-1.5 py-2 outline-none focus:bg-violet-100 aria-selected:text-purple-600"
+                      >
+                        Read Only
+                      </li>
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        aria-selected="false"
+                        data-value="edit"
+                        class="cursor-pointer rounded-md px-1.5 py-2 outline-none focus:bg-violet-100 aria-selected:text-purple-600"
+                      >
+                        Read &amp; Edit
+                      </li>
+                      <li
+                        role="option"
+                        tabindex="-1"
+                        aria-selected="false"
+                        data-value="admin"
+                        class="cursor-pointer rounded-md px-1.5 py-2 outline-none focus:bg-violet-100 aria-selected:text-purple-600"
+                      >
+                        Admin
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </template>
+
+              <button
+                id="addMore"
+                type="button"
+                class="mt-4 flex cursor-pointer items-center gap-1.5 text-xs text-purple-600 duration-200 hover:text-purple-800"
+              >
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                <span class="underline underline-offset-2">Add more</span>
+              </button>
+
+              <button
+                id="sendInvites"
+                type="submit"
+                class="mt-6 cursor-pointer rounded-md bg-linear-to-b from-purple-400 to-purple-500 px-8 py-3 text-white"
+              >
+                Send invites
+              </button>
+            </form>
+          </section>
+
+          <!-- Step 3: Invite to Board -->
+          <section
+            data-step
+            data-state="next"
+            inert
+            aria-labelledby="inviteBoardTitle"
+            class="col-start-1 row-start-1 w-full max-w-sm self-center justify-self-center transition duration-300 ease-out not-inert:delay-200 inert:pointer-events-none inert:scale-95 inert:opacity-0 inert:duration-200 inert:ease-in data-[state=next]:translate-y-6 data-[state=past]:-translate-y-6 motion-reduce:transition-none"
+          >
+            <form
+              id="boardForm"
+              novalidate
+              class="relative rounded-lg bg-white/70 p-5 shadow-xl duration-300 ease-in-out hover:bg-white sm:p-10"
+            >
+              <h2
+                id="inviteBoardTitle"
+                class="text-sm font-semibold text-black"
+              >
+                Invite to Board
+              </h2>
+              <button
+                id="closeBoard"
+                type="button"
+                aria-label="Close"
+                class="absolute top-2.5 right-2.5 grid size-10 cursor-pointer place-items-center rounded-full bg-white/70 text-gray-400 shadow-sm duration-200 hover:bg-white hover:text-gray-700 sm:top-6 sm:right-6"
+              >
+                <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+              </button>
+
+              <label for="boardEmail" class="sr-only">Email address</label>
+              <input
+                id="boardEmail"
+                type="email"
+                required
+                autocomplete="email"
+                placeholder="email@address.com"
+                class="mt-7 w-full min-w-0 rounded-lg border border-gray-300 bg-white p-3 placeholder:text-gray-500 focus:border-purple-400 focus:outline-none aria-[invalid=true]:border-red-400"
+              />
+
+              <p class="mt-7 text-xs font-semibold">Invite with Link</p>
+              <p class="mt-2 text-xs text-gray-500">
+                Anyone with link can view your board.
+                <button
+                  id="createLink"
+                  type="button"
+                  class="cursor-pointer font-semibold text-purple-500 underline underline-offset-2 duration-200 hover:text-purple-700"
+                >
+                  Create Link
+                </button>
+              </p>
+
+              <button
+                id="sendInvitation"
+                type="submit"
+                class="mt-12 w-full cursor-pointer rounded-md bg-linear-to-b from-purple-400 to-purple-500 px-4 py-3 text-white"
+              >
+                Send invitation
+              </button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const BOARD_LINK = "https://examplelinktoshare/my-board/bid58210047";
+        const MAX_MEMBERS = 5;
+
+        const steps = [...document.querySelectorAll("[data-step]")];
+        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+        // Reveal one card and hide the rest. Cards before it slide up and
+        // away, cards after it wait below.
+        function showStep(index) {
+          steps.forEach((step, i) => {
+            step.inert = i !== index;
+            step.dataset.state =
+              i < index ? "past" : i === index ? "current" : "next";
+          });
+          steps[index]
+            .querySelector("input:not([type=hidden]):not(.hidden)")
+            ?.focus({ preventScroll: true });
+        }
+
+        // Confirm on the button, then move on while the label still shows.
+        async function advance(button, label, next) {
+          const original = button.innerHTML;
+          button.disabled = true;
+          button.innerHTML = `<i class="fa-solid fa-check" aria-hidden="true"></i> ${label}`;
+          await wait(700);
+          next();
+          await wait(500);
+          button.innerHTML = original;
+          button.disabled = false;
+        }
+
+        function markInvalid(fields) {
+          fields.forEach((field) => field.setAttribute("aria-invalid", "true"));
+          fields[0].focus();
+        }
+
+        function clearForm(form) {
+          form.reset();
+          form
+            .querySelectorAll("[aria-invalid]")
+            .forEach((field) => field.removeAttribute("aria-invalid"));
+        }
+
+        document.addEventListener("input", (event) =>
+          event.target.removeAttribute("aria-invalid"),
+        );
+
+        async function copyText(text) {
+          try {
+            await navigator.clipboard.writeText(text);
+            return true;
+          } catch {
+            return false;
+          }
+        }
+
+        /* Step 1: Invite people */
+        const inviteForm = document.getElementById("inviteForm");
+        const btnEmail = document.getElementById("btnEmail");
+        const btnLink = document.getElementById("btnLink");
+        const emailInput = document.getElementById("emailInput");
+        const linkInput = document.getElementById("linkInput");
+        const actionBtn = document.getElementById("actionBtn");
+        const inputLabel = document.getElementById("inputLabel");
+
+        let mode = "email";
+
+        function setMode(nextMode) {
+          mode = nextMode;
+          const emailActive = mode === "email";
+
+          emailInput.classList.toggle("hidden", !emailActive);
+          linkInput.classList.toggle("hidden", emailActive);
+          inputLabel.textContent = emailActive ? "Email" : "Share link";
+          inputLabel.htmlFor = emailActive ? "emailInput" : "linkInput";
+          actionBtn.textContent = emailActive ? "Send invite" : "Copy link";
+          btnEmail.setAttribute("aria-pressed", String(emailActive));
+          btnLink.setAttribute("aria-pressed", String(!emailActive));
+          emailInput.removeAttribute("aria-invalid");
+        }
+
+        btnEmail.addEventListener("click", () => setMode("email"));
+        btnLink.addEventListener("click", () => setMode("link"));
+
+        async function linkCopied() {
+          await advance(actionBtn, "Copied!", () => showStep(1));
+          setMode(mode);
+        }
+
+        // If the browser blocks the clipboard, copying the selected link by
+        // hand still moves the flow on.
+        linkInput.addEventListener("copy", () => {
+          if (!actionBtn.disabled) linkCopied();
+        });
+
+        inviteForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (actionBtn.disabled) return;
+
+          if (mode === "link") {
+            if (await copyText(linkInput.value)) await linkCopied();
+            else linkInput.select();
+            return;
+          }
+
+          const emails = emailInput.value
+            .split(",")
+            .map((email) => email.trim())
+            .filter(Boolean);
+          if (!emails.length || !emailInput.checkValidity()) {
+            markInvalid([emailInput]);
+            return;
+          }
+          fillTeam(emails);
+          await advance(actionBtn, "Sent", () => showStep(1));
+          setMode(mode);
+        });
+
+        /* Step 2: Invite to team */
+        const teamForm = document.getElementById("teamForm");
+        const memberRows = document.getElementById("memberRows");
+        const rowTemplate = document.getElementById("memberRowTemplate");
+        const addMoreBtn = document.getElementById("addMore");
+        const sendInvitesBtn = document.getElementById("sendInvites");
+        let rowId = 0;
+
+        function addMemberRow(email = "") {
+          const row = rowTemplate.content.firstElementChild.cloneNode(true);
+          const input = row.querySelector("input[type=email]");
+          const toggle = row.querySelector("[aria-haspopup]");
+
+          rowId += 1;
+          input.value = email;
+          toggle.id = `permission-${rowId}`;
+          toggle.setAttribute(
+            "aria-labelledby",
+            `permissionLabel permission-${rowId}`,
+          );
+          memberRows.append(row);
+          addMoreBtn.hidden = memberRows.children.length >= MAX_MEMBERS;
+          return input;
+        }
+
+        // Start with two rows, or one per email carried over from step 1.
+        function fillTeam(emails = []) {
+          memberRows.replaceChildren();
+          const count = Math.max(emails.length, 2);
+          for (let i = 0; i < count; i += 1) addMemberRow(emails[i]);
+        }
+
+        addMoreBtn.addEventListener("click", () => addMemberRow().focus());
+
+        function setSelectOpen(select, open) {
+          select
+            .querySelector("[aria-haspopup]")
+            .setAttribute("aria-expanded", String(open));
+          if (open) select.querySelector("[aria-selected=true]").focus();
+        }
+
+        function closeSelects(except) {
+          teamForm.querySelectorAll("[data-select]").forEach((select) => {
+            if (select !== except) setSelectOpen(select, false);
+          });
+        }
+
+        function choose(option) {
+          const select = option.closest("[data-select]");
+          select.querySelectorAll("[role=option]").forEach((item) => {
+            item.setAttribute("aria-selected", String(item === option));
+          });
+          select.querySelector("[data-select-value]").textContent =
+            option.textContent.trim();
+          select.querySelector("input[type=hidden]").value =
+            option.dataset.value;
+          setSelectOpen(select, false);
+          select.querySelector("[aria-haspopup]").focus();
+        }
+
+        teamForm.addEventListener("click", (event) => {
+          const toggle = event.target.closest("[aria-haspopup]");
+          if (toggle) {
+            const select = toggle.parentElement;
+            closeSelects(select);
+            setSelectOpen(
+              select,
+              toggle.getAttribute("aria-expanded") !== "true",
+            );
+            return;
+          }
+          const option = event.target.closest("[role=option]");
+          if (option) choose(option);
+        });
+
+        teamForm.addEventListener("mouseover", (event) => {
+          event.target.closest("[role=option]")?.focus();
+        });
+
+        teamForm.addEventListener("keydown", (event) => {
+          const toggle = event.target.closest("[aria-haspopup]");
+          if (toggle && ["ArrowDown", "ArrowUp"].includes(event.key)) {
+            event.preventDefault();
+            closeSelects(toggle.parentElement);
+            setSelectOpen(toggle.parentElement, true);
+            return;
+          }
+
+          const option = event.target.closest("[role=option]");
+          if (!option) return;
+          const select = option.closest("[data-select]");
+          const options = [...option.parentElement.children];
+          const index = options.indexOf(option);
+
+          if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault();
+            const step = event.key === "ArrowDown" ? 1 : -1;
+            options[(index + step + options.length) % options.length].focus();
+          } else if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            choose(option);
+          } else if (event.key === "Escape" || event.key === "Tab") {
+            if (event.key === "Escape") event.preventDefault();
+            setSelectOpen(select, false);
+            select.querySelector("[aria-haspopup]").focus();
+          }
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest("[data-select]")) closeSelects();
+        });
+
+        teamForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (sendInvitesBtn.disabled) return;
+
+          const inputs = [...memberRows.querySelectorAll("input[type=email]")];
+          const filled = inputs.filter((input) => input.value.trim());
+          const invalid = filled.filter((input) => !input.checkValidity());
+          if (!filled.length) {
+            markInvalid([inputs[0]]);
+            return;
+          }
+          if (invalid.length) {
+            markInvalid(invalid);
+            return;
+          }
+
+          if (!boardEmail.value) boardEmail.value = filled[0].value.trim();
+          await advance(sendInvitesBtn, "Sent", () => showStep(2));
+        });
+
+        /* Step 3: Invite to Board */
+        const boardForm = document.getElementById("boardForm");
+        const boardEmail = document.getElementById("boardEmail");
+        const closeBoardBtn = document.getElementById("closeBoard");
+        const createLinkBtn = document.getElementById("createLink");
+        const sendInvitationBtn = document.getElementById("sendInvitation");
+        let linkTimer;
+
+        // Back to the first card with every form emptied.
+        function restart() {
+          clearForm(inviteForm);
+          setMode("email");
+          clearForm(teamForm);
+          fillTeam();
+          showStep(0);
+          // Wait for the board card to fade out before emptying it.
+          setTimeout(() => clearForm(boardForm), 250);
+        }
+
+        closeBoardBtn.addEventListener("click", restart);
+
+        createLinkBtn.addEventListener("click", async () => {
+          const copied = await copyText(BOARD_LINK);
+          createLinkBtn.textContent = copied ? "Link copied!" : "Copy failed";
+          clearTimeout(linkTimer);
+          linkTimer = setTimeout(() => {
+            createLinkBtn.textContent = "Create Link";
+          }, 1500);
+        });
+
+        boardForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (sendInvitationBtn.disabled) return;
+          if (!boardEmail.checkValidity()) {
+            markInvalid([boardEmail]);
+            return;
+          }
+          await advance(sendInvitationBtn, "Invitation sent", restart);
+        });
+
+        fillTeam();
+        setMode("email");
+      });
+    </script>
+  </body>
+</html>
