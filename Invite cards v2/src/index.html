@@ -41,9 +41,7 @@
       <div
         class="relative z-10 flex min-h-screen w-full items-center justify-center p-4 sm:p-10"
       >
-        <!-- The three cards share one grid cell; only the current step is shown. -->
         <div class="grid w-full max-w-xl">
-          <!-- Step 1: Invite people -->
           <section
             data-step
             data-state="current"
@@ -135,7 +133,6 @@
             </form>
           </section>
 
-          <!-- Step 2: Invite to team -->
           <section
             data-step
             data-state="next"
@@ -244,7 +241,6 @@
             </form>
           </section>
 
-          <!-- Step 3: Invite to Board -->
           <section
             data-step
             data-state="next"
@@ -315,8 +311,6 @@
         const steps = [...document.querySelectorAll("[data-step]")];
         const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-        // Reveal one card and hide the rest. Cards before it slide up and
-        // away, cards after it wait below.
         function showStep(index) {
           steps.forEach((step, i) => {
             step.inert = i !== index;
@@ -328,7 +322,6 @@
             ?.focus({ preventScroll: true });
         }
 
-        // Confirm on the button, then move on while the label still shows.
         async function advance(button, label, next) {
           const original = button.innerHTML;
           button.disabled = true;
@@ -365,7 +358,6 @@
           }
         }
 
-        /* Step 1: Invite people */
         const inviteForm = document.getElementById("inviteForm");
         const btnEmail = document.getElementById("btnEmail");
         const btnLink = document.getElementById("btnLink");
@@ -398,8 +390,6 @@
           setMode(mode);
         }
 
-        // If the browser blocks the clipboard, copying the selected link by
-        // hand still moves the flow on.
         linkInput.addEventListener("copy", () => {
           if (!actionBtn.disabled) linkCopied();
         });
@@ -427,7 +417,6 @@
           setMode(mode);
         });
 
-        /* Step 2: Invite to team */
         const teamForm = document.getElementById("teamForm");
         const memberRows = document.getElementById("memberRows");
         const rowTemplate = document.getElementById("memberRowTemplate");
@@ -452,7 +441,6 @@
           return input;
         }
 
-        // Start with two rows, or one per email carried over from step 1.
         function fillTeam(emails = []) {
           memberRows.replaceChildren();
           const count = Math.max(emails.length, 2);
@@ -559,7 +547,6 @@
           await advance(sendInvitesBtn, "Sent", () => showStep(2));
         });
 
-        /* Step 3: Invite to Board */
         const boardForm = document.getElementById("boardForm");
         const boardEmail = document.getElementById("boardEmail");
         const closeBoardBtn = document.getElementById("closeBoard");
@@ -567,14 +554,12 @@
         const sendInvitationBtn = document.getElementById("sendInvitation");
         let linkTimer;
 
-        // Back to the first card with every form emptied.
         function restart() {
           clearForm(inviteForm);
           setMode("email");
           clearForm(teamForm);
           fillTeam();
           showStep(0);
-          // Wait for the board card to fade out before emptying it.
           setTimeout(() => clearForm(boardForm), 250);
         }
 
