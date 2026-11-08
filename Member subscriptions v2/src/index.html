@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Subscriptions</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="grid min-h-screen place-items-center overflow-x-hidden bg-[#f3f2fb] px-4 py-16 text-[#22213a] sm:px-8"
+  >
+    <main class="relative w-full max-w-242">
+      <div
+        class="absolute inset-x-6 -inset-y-6 rounded-3xl bg-indigo-950 sm:inset-x-12 sm:-inset-y-9"
+      ></div>
+
+      <section
+        class="relative rounded-3xl bg-white px-5 pt-10 pb-12 text-center shadow-2xl shadow-indigo-950/10 sm:px-8 sm:pb-16 md:px-10 lg:px-16 lg:pt-15 lg:pb-21"
+      >
+        <h1 class="font-serif text-2xl/8 font-bold text-indigo-950">
+          Subscriptions
+        </h1>
+        <p class="mx-auto mt-5 max-w-100 text-base/6">
+          Support these creators by purchasing their monthly subscriptions, and
+          get access to premium content:
+        </p>
+
+        <ul class="mt-5.5 flex flex-wrap justify-center gap-3 sm:gap-4.5">
+          <li>
+            <button
+              type="button"
+              class="flex h-7.5 cursor-pointer items-center gap-2 rounded-full bg-[#f3f2fb] px-2.5 transition-colors duration-200 hover:bg-indigo-950 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-950"
+            >
+              <i class="fa-solid fa-paperclip fa-fw text-lg"></i>
+              Source files
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="flex h-7.5 cursor-pointer items-center gap-2 rounded-full bg-[#f3f2fb] px-2.5 transition-colors duration-200 hover:bg-indigo-950 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-950"
+            >
+              <i class="fa-brands fa-chromecast fa-fw text-lg"></i>
+              Live streams
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="flex h-7.5 cursor-pointer items-center gap-2 rounded-full bg-[#f3f2fb] px-2.5 transition-colors duration-200 hover:bg-indigo-950 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-950"
+            >
+              <i class="fa-regular fa-calendar fa-fw text-lg"></i>
+              Meetup
+            </button>
+          </li>
+        </ul>
+
+        <div class="mt-12 flex items-center sm:mt-18">
+          <button
+            type="button"
+            aria-label="Previous creators"
+            class="hidden size-12 shrink-0 cursor-pointer place-items-center rounded-full text-2xl text-indigo-950 transition-colors duration-200 hover:bg-indigo-950 hover:text-white focus-visible:outline-2 focus-visible:outline-indigo-950 md:grid"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="grid flex-1 grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-0">
+            <article class="group flex flex-col items-center">
+              <img
+                class="size-22 rounded-full object-cover ring-4 ring-transparent transition duration-300 group-hover:ring-indigo-950/15"
+                src="https://images.unsplash.com/photo-1623605931891-d5b95ee98459?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+                alt="Ludwig Lagos"
+              />
+              <h2 class="mt-3 font-serif text-lg/7 font-bold text-indigo-950">
+                Ludwig Lagos
+              </h2>
+              <p class="mt-1 text-sm/5">Illustrator</p>
+              <button
+                type="button"
+                class="mt-4 h-9 cursor-pointer rounded-full bg-indigo-950 px-4.5 text-sm text-white transition duration-200 hover:bg-indigo-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-950 active:scale-95"
+              >
+                View content
+              </button>
+            </article>
+
+            <article class="group flex flex-col items-center">
+              <img
+                class="size-22 rounded-full object-cover ring-4 ring-transparent transition duration-300 group-hover:ring-indigo-950/15"
+                src="https://images.unsplash.com/photo-1639619628924-eced0acbab4f?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+                alt="Nina Valentine"
+              />
+              <h2 class="mt-3 font-serif text-lg/7 font-bold text-indigo-950">
+                Nina Valentine
+              </h2>
+              <p class="mt-1 text-sm/5">3D artist</p>
+              <button
+                type="button"
+                class="mt-4 h-9 cursor-pointer rounded-full bg-indigo-950 px-4.5 text-sm text-white transition duration-200 hover:bg-indigo-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-950 active:scale-95"
+              >
+                View content
+              </button>
+            </article>
+
+            <article class="group flex flex-col items-center">
+              <img
+                class="size-22 rounded-full object-cover ring-4 ring-transparent transition duration-300 group-hover:ring-indigo-950/15"
+                src="https://images.unsplash.com/photo-1499887142886-791eca5918cd?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+                alt="Karolina Vargas"
+              />
+              <h2 class="mt-3 font-serif text-lg/7 font-bold text-indigo-950">
+                Karolina Vargas
+              </h2>
+              <p class="mt-1 text-sm/5">Illustrator</p>
+              <button
+                type="button"
+                class="mt-4 h-9 cursor-pointer rounded-full bg-indigo-950 px-4.5 text-sm text-white transition duration-200 hover:bg-indigo-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-950 active:scale-95"
+              >
+                View content
+              </button>
+            </article>
+          </div>
+
+          <button
+            type="button"
+            aria-label="Next creators"
+            class="hidden size-12 shrink-0 cursor-pointer place-items-center rounded-full text-2xl text-indigo-950 transition-colors duration-200 hover:bg-indigo-950 hover:text-white focus-visible:outline-2 focus-visible:outline-indigo-950 md:grid"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
