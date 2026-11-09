@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body class="w-screen h-screen bg-gray-100 flex items-center justify-center">
+    <div class="w-11/12 max-w-3xl">
+      <nav class="w-full flex justify-center">
+        <ul class="flex gap-8 items-center text-sm text-gray-600">
+          <li><a href="#" class="hover:text-gray-900">Get Started</a></li>
+
+          <li class="relative">
+            <button
+              id="productBtn"
+              aria-expanded="false"
+              aria-controls="productMenu"
+              class="nav-dropdown flex items-center gap-1 font-medium text-gray-800 hover:text-gray-900"
+            >
+              <span>Product</span>
+              <i
+                id="productCaret"
+                class="fa-solid text-xs fa-chevron-down text-gray-500 transition-transform duration-150"
+              ></i>
+            </button>
+
+            <div
+              id="productMenu"
+              class="nav-menu pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-4 w-96 bg-white rounded-xl shadow-2xl ring-1 ring-gray-200 opacity-0 scale-95 transition-all duration-200"
+            >
+              <div class="p-6 space-y-5">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-anchor"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Why choose</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Development</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-gift"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Features</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-md text-lg"
+                  >
+                    <i class="fa-solid fa-arrows-left-right"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">Updates</div>
+                    <div class="text-sm text-gray-500">
+                      A modern and clean design system for developing fast and
+                      powerful web interfaces.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="relative">
+            <button
+              id="pricingBtn"
+              aria-expanded="false"
+              aria-controls="pricingMenu"
+              class="nav-dropdown flex items-center gap-1 font-medium text-gray-800 hover:text-gray-900"
+            >
+              <span>Pricing</span>
+              <i
+                class="fa-solid text-xs fa-chevron-down text-gray-500 transition-transform duration-150"
+              ></i>
+            </button>
+            <div
+              id="pricingMenu"
+              class="nav-menu pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-4 w-56 bg-white rounded-xl shadow-2xl ring-1 ring-gray-200 opacity-0 scale-95 transition-all duration-200"
+            >
+              <div class="p-3 space-y-1">
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Starter</a>
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Business</a>
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Enterprise</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="relative">
+            <button
+              id="demoBtn"
+              aria-expanded="false"
+              aria-controls="demoMenu"
+              class="nav-dropdown flex items-center gap-1 font-medium text-gray-800 hover:text-gray-900"
+            >
+              <span>Demo</span>
+              <i
+                class="fa-solid text-xs fa-chevron-down text-gray-500 transition-transform duration-150"
+              ></i>
+            </button>
+            <div
+              id="demoMenu"
+              class="nav-menu pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-4 w-60 bg-white rounded-xl shadow-2xl ring-1 ring-gray-200 opacity-0 scale-95 transition-all duration-200"
+            >
+              <div class="p-3 space-y-1">
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Interactive Tour</a>
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Case Studies</a>
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Developer Docs</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="relative">
+            <button
+              id="moreBtn"
+              aria-expanded="false"
+              aria-controls="moreMenu"
+              class="nav-dropdown flex items-center gap-1 font-medium text-gray-800 hover:text-gray-900"
+            >
+              <span>More</span>
+              <i
+                class="fa-solid text-xs fa-chevron-down text-gray-500 transition-transform duration-150"
+              ></i>
+            </button>
+            <div
+              id="moreMenu"
+              class="nav-menu pointer-events-none absolute left-1/2 transform -translate-x-1/2 mt-4 w-60 bg-white rounded-xl shadow-2xl ring-1 ring-gray-200 opacity-0 scale-95 transition-all duration-200"
+            >
+              <div class="p-3 space-y-1">
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Resources</a>
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Company</a>
+                <a href="#" class="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Support</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <script>
+      (function () {
+        const dropdowns = [
+          {
+            button: document.getElementById("productBtn"),
+            menu: document.getElementById("productMenu"),
+            caret: document.getElementById("productCaret"),
+          },
+          {
+            button: document.getElementById("pricingBtn"),
+            menu: document.getElementById("pricingMenu"),
+            caret: document.getElementById("pricingBtn").querySelector("i"),
+          },
+          {
+            button: document.getElementById("demoBtn"),
+            menu: document.getElementById("demoMenu"),
+            caret: document.getElementById("demoBtn").querySelector("i"),
+          },
+          {
+            button: document.getElementById("moreBtn"),
+            menu: document.getElementById("moreMenu"),
+            caret: document.getElementById("moreBtn").querySelector("i"),
+          },
+        ];
+
+        function closeAll() {
+          dropdowns.forEach(({ button, menu, caret }) => {
+            menu.classList.add("opacity-0", "pointer-events-none", "scale-95");
+            menu.classList.remove("opacity-100", "pointer-events-auto", "scale-100");
+            button.setAttribute("aria-expanded", "false");
+            if (caret) caret.style.transform = "";
+          });
+        }
+
+        dropdowns.forEach(({ button, menu, caret }) => {
+          function show() {
+            closeAll();
+            menu.classList.remove("opacity-0", "pointer-events-none", "scale-95");
+            menu.classList.add("opacity-100", "pointer-events-auto", "scale-100");
+            button.setAttribute("aria-expanded", "true");
+            if (caret) caret.style.transform = "rotate(180deg)";
+          }
+
+          function hide() {
+            menu.classList.add("opacity-0", "pointer-events-none", "scale-95");
+            menu.classList.remove("opacity-100", "pointer-events-auto", "scale-100");
+            button.setAttribute("aria-expanded", "false");
+            if (caret) caret.style.transform = "";
+          }
+
+          button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = button.getAttribute("aria-expanded") === "true";
+            if (isOpen) {
+              hide();
+            } else {
+              show();
+            }
+          });
+
+          document.addEventListener("click", (event) => {
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+              hide();
+            }
+          });
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeAll();
+        });
+      })();
+    </script>
+  </body>
+</html>
