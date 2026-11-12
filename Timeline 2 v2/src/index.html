@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body class="flex min-h-screen w-screen items-center justify-center">
+    <div class="flex w-full flex-col items-center px-6">
+      <div class="relative flex w-full flex-col items-center">
+        <div
+          class="mx-auto h-64 w-112.5 overflow-hidden rounded-2xl bg-linear-to-b from-orange-400 to-pink-300 shadow-2xl"
+        >
+          <svg
+            class="h-full w-full"
+            viewBox="0 0 500 300"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #ffee00; stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: #fff533; stop-opacity: 1" />
+              </linearGradient>
+              <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #ff6b6b; stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: #ff9a9a; stop-opacity: 1" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0,0 L500,0 L500,150 Q375,80 250,150 T0,150 Z"
+              fill="url(#orangeGrad)"
+            />
+            <path
+              d="M0,150 Q125,220 250,150 T500,150 L500,300 L0,300 Z"
+              fill="url(#pinkGrad)"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="absolute top-10 left-1/2 h-36 w-100 -translate-x-1/2 rounded-2xl bg-linear-to-r from-[#ff7b00] to-[#ff6b6b] opacity-60 blur-2xl"
+          aria-hidden="true"
+        ></div>
+
+        <div class="relative -mt-36">
+          <div
+            class="mx-auto flex h-150 w-87.5 flex-col rounded-2xl border border-white/30 bg-white/20 p-2 shadow-lg backdrop-blur-2xl"
+          >
+            <p class="text-xl font-semibold text-white">Updates</p>
+            <p class="text-white">23 in the last 7 hours</p>
+
+            <div class="mt-6 flex-1 overflow-hidden">
+              <div id="timelineWrapper" class="h-full overflow-hidden pr-2">
+                <div class="relative flex flex-col items-start">
+                  <div
+                    class="absolute top-0 bottom-0 left-6 w-0.5 -translate-x-1/2 bg-linear-to-b from-orange-300 to-pink-300 opacity-60"
+                    aria-hidden="true"
+                  ></div>
+
+                  <div class="relative mb-6 pl-16">
+                    <div
+                      class="absolute top-1/2 left-6 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-orange-300 to-pink-300"
+                    ></div>
+                    <div class="w-65 rounded-lg bg-white p-4 shadow-md">
+                      <div class="text-xs font-semibold text-orange-500">16:30</div>
+                      <div class="mt-2 text-sm font-medium text-slate-700">
+                        Believing is the Absence of Doubt
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative mb-6 pl-16">
+                    <div
+                      class="absolute top-1/2 left-6 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-orange-300 to-pink-300"
+                    ></div>
+                    <div class="w-65 rounded-lg bg-white p-4 shadow-md">
+                      <div class="text-xs font-semibold text-orange-500">14:15</div>
+                      <div class="mt-2 text-sm font-medium text-slate-700">
+                        Every Accomplishment Starts with the Decision to Try
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative mb-6 pl-16">
+                    <div
+                      class="absolute top-1/2 left-6 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-orange-300 to-pink-300"
+                    ></div>
+                    <div class="w-65 rounded-lg bg-white p-4 shadow-md">
+                      <div class="text-xs font-semibold text-orange-500">12:45</div>
+                      <div class="mt-2 text-sm font-medium text-slate-700">
+                        Your Only Limit is Your Mind
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative mb-6 pl-16">
+                    <div
+                      class="absolute top-1/2 left-6 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-orange-300 to-pink-300"
+                    ></div>
+                    <div class="w-65 rounded-lg bg-white p-4 shadow-md">
+                      <div class="text-xs font-semibold text-orange-500">10:20</div>
+                      <div class="mt-2 text-sm font-medium text-slate-700">
+                        Dream Bigger, Do Bigger
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative mb-6 pl-16">
+                    <div
+                      class="absolute top-1/2 left-6 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-orange-300 to-pink-300"
+                    ></div>
+                    <div class="w-65 rounded-lg bg-white p-4 shadow-md">
+                      <div class="text-xs font-semibold text-orange-500">09:05</div>
+                      <div class="mt-2 text-sm font-medium text-slate-700">
+                        Success Doesn't Just Find You, You Have to Go Out and Get It
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative mb-6 pl-16">
+                    <div
+                      class="absolute top-1/2 left-6 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-orange-300 to-pink-300"
+                    ></div>
+                    <div class="w-65 rounded-lg bg-white p-4 shadow-md">
+                      <div class="text-xs font-semibold text-orange-500">07:30</div>
+                      <div class="mt-2 text-sm font-medium text-slate-700">
+                        The Harder You Work for Something, the Greater You'll Feel
+                        When You Achieve It
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative mb-6 pl-16">
+                    <div
+                      class="absolute top-1/2 left-6 size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-orange-300 to-pink-300"
+                    ></div>
+                    <div class="w-65 rounded-lg bg-white p-4 shadow-md">
+                      <div class="text-xs font-semibold text-orange-500">06:00</div>
+                      <div class="mt-2 text-sm font-medium text-slate-700">
+                        Great Things Never Come from Comfort Zones
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button
+                id="toggleBtn"
+                class="relative w-full overflow-hidden rounded-lg bg-linear-to-br from-orange-400 to-pink-400 py-3 text-white shadow-md"
+              >
+                <span
+                  class="absolute -top-2 -right-2 size-3 animate-pulse rounded-full bg-pink-500"
+                ></span>
+                Show all updates
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const toggleBtn = document.getElementById("toggleBtn");
+        const wrapper = document.getElementById("timelineWrapper");
+
+        toggleBtn.addEventListener("click", function () {
+          const isNowScrollable = wrapper.classList.toggle("overflow-auto");
+          wrapper.classList.toggle("overflow-hidden", isNowScrollable === false);
+          if (isNowScrollable) {
+            wrapper.scrollTo({ top: wrapper.scrollHeight, behavior: "smooth" });
+            toggleBtn.textContent = "Collapse updates";
+          } else {
+            wrapper.scrollTo({ top: 0, behavior: "smooth" });
+            toggleBtn.innerHTML = "Show all updates";
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
