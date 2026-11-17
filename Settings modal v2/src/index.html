@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+
+  <body
+    class="relative flex min-h-screen items-center justify-center overflow-x-hidden bg-gray-600 px-4 py-6 sm:py-10"
+  >
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+      <svg
+        viewBox="0 0 1440 440"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute inset-x-0 bottom-0 h-1/2 w-full"
+        aria-hidden="true"
+      >
+        <path
+          fill="#F14C8D"
+          d="M0 132C8 127 61 110 127 110C388 110 402 241 761 241C1006 241 1194 1 1315 1C1378 1 1400 9 1440 36V440H0Z"
+        />
+        <path
+          fill="#884284"
+          d="M0 330C187 178 488 205 920 205C1150 205 1256 296 1440 370V440H0Z"
+        />
+      </svg>
+    </div>
+    <div
+      class="relative z-20 max-h-[calc(100vh-3rem)] w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-4 shadow-xl sm:max-h-[calc(100vh-5rem)] sm:p-6"
+    >
+      <div class="w-full flex justify-end">
+        <button
+          type="button"
+          class="group flex flex-col items-center hover:cursor-pointer"
+          aria-label="Close"
+          data-i18n-aria-label="close"
+        >
+          <i
+            class="fa-solid fa-xmark cursor-pointer text-2xl group-hover:text-blue-600"
+          ></i>
+          <p
+            class="text-transparent group-hover:text-gray-500 duration-300 ease-in-out"
+            data-i18n="close"
+          >
+            Close
+          </p>
+        </button>
+      </div>
+      <div id="here" class="px-1 py-3 sm:px-8 sm:py-4">
+        <p class="text-2xl font-extrabold text-purple-800 sm:text-3xl" data-i18n="settings">
+          Settings
+        </p>
+
+        <div class="mt-8">
+          <p class="text-lg font-bold text-purple-800" data-i18n="language">
+            Language
+          </p>
+          <p class="mt-2 text-sm text-gray-500" data-i18n="languageDescription">
+            Let us know which language you're most comfortable using. You can
+            change it back at any time.
+          </p>
+
+          <div class="mt-6">
+            <select
+              id="language-select"
+              class="w-full rounded-md border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-200 sm:w-64"
+              aria-label="Language"
+              data-i18n-aria-label="language"
+            >
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="my-8 border-t border-gray-200" />
+
+        <div class="flex items-center justify-between gap-4 py-4">
+          <div class="min-w-0">
+            <p class="font-bold text-purple-800" data-i18n="autoplay">
+              Autoplay videos
+            </p>
+            <p class="mt-1 text-sm text-gray-500" data-i18n="autoplayDescription">
+              Choose if you want to autoplay on your browser
+            </p>
+          </div>
+          <div class="shrink-0">
+            <label class="group relative inline-flex cursor-pointer items-center">
+              <input
+                type="checkbox"
+                class="sr-only peer"
+                checked
+                role="switch"
+                aria-label="Autoplay videos"
+                data-i18n-aria-label="autoplay"
+              />
+              <div
+                aria-hidden="true"
+                class="h-6 w-12 rounded-full bg-gray-300 transition-colors duration-200 group-hover:bg-gray-400 peer-checked:bg-purple-600 peer-checked:group-hover:bg-purple-700 peer-focus-visible:ring-4 peer-focus-visible:ring-purple-200 motion-reduce:transition-none"
+              ></div>
+              <span
+                aria-hidden="true"
+                class="absolute left-0.5 top-0.5 h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out peer-checked:translate-x-6 motion-reduce:transition-none"
+              ></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-4 py-4">
+          <div class="min-w-0">
+            <p class="font-bold text-purple-800" data-i18n="profilePhotos">
+              Show profile photos
+            </p>
+            <p class="mt-1 text-sm text-gray-500" data-i18n="profilePhotosDescription">
+              Choose whether to show or hide profile photos of other members.
+            </p>
+          </div>
+          <div class="shrink-0">
+            <label class="group relative inline-flex cursor-pointer items-center">
+              <input
+                type="checkbox"
+                class="sr-only peer"
+                role="switch"
+                aria-label="Show profile photos"
+                data-i18n-aria-label="profilePhotos"
+              />
+              <div
+                aria-hidden="true"
+                class="h-6 w-12 rounded-full bg-gray-300 transition-colors duration-200 group-hover:bg-gray-400 peer-checked:bg-purple-600 peer-checked:group-hover:bg-purple-700 peer-focus-visible:ring-4 peer-focus-visible:ring-purple-200 motion-reduce:transition-none"
+              ></div>
+              <span
+                aria-hidden="true"
+                class="absolute left-0.5 top-0.5 h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out peer-checked:translate-x-6 motion-reduce:transition-none"
+              ></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <button
+            class="w-full rounded-md bg-[#FF0066] px-6 py-2 text-white shadow hover:bg-pink-600 sm:w-auto"
+            data-i18n="save"
+          >
+            Save
+          </button>
+          <button
+            class="w-full rounded-md border border-gray-300 px-6 py-2 text-gray-600 hover:bg-gray-50 sm:w-auto"
+            data-i18n="cancel"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const translations = {
+        en: {
+          close: "Close",
+          settings: "Settings",
+          language: "Language",
+          languageDescription:
+            "Let us know which language you're most comfortable using. You can change it back at any time.",
+          autoplay: "Autoplay videos",
+          autoplayDescription: "Choose if you want to autoplay on your browser",
+          profilePhotos: "Show profile photos",
+          profilePhotosDescription:
+            "Choose whether to show or hide profile photos of other members.",
+          save: "Save",
+          cancel: "Cancel",
+        },
+        es: {
+          close: "Cerrar",
+          settings: "Configuración",
+          language: "Idioma",
+          languageDescription:
+            "Dinos qué idioma te resulta más cómodo. Puedes cambiarlo cuando quieras.",
+          autoplay: "Reproducir videos automáticamente",
+          autoplayDescription:
+            "Elige si quieres que los videos se reproduzcan automáticamente en tu navegador.",
+          profilePhotos: "Mostrar fotos de perfil",
+          profilePhotosDescription:
+            "Elige si quieres mostrar u ocultar las fotos de perfil de otros miembros.",
+          save: "Guardar",
+          cancel: "Cancelar",
+        },
+        fr: {
+          close: "Fermer",
+          settings: "Paramètres",
+          language: "Langue",
+          languageDescription:
+            "Indiquez la langue que vous préférez. Vous pourrez la modifier à tout moment.",
+          autoplay: "Lecture automatique des vidéos",
+          autoplayDescription:
+            "Choisissez si les vidéos doivent être lues automatiquement dans votre navigateur.",
+          profilePhotos: "Afficher les photos de profil",
+          profilePhotosDescription:
+            "Choisissez d'afficher ou de masquer les photos de profil des autres membres.",
+          save: "Enregistrer",
+          cancel: "Annuler",
+        },
+      };
+
+      const languageSelect = document.querySelector("#language-select");
+
+      languageSelect.addEventListener("change", (event) => {
+        const language = event.currentTarget.value;
+        const copy = translations[language];
+
+        document.documentElement.lang = language;
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          element.textContent = copy[key];
+        });
+        document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+          const key = element.dataset.i18nAriaLabel;
+          element.setAttribute("aria-label", copy[key]);
+        });
+        document.title = copy.settings;
+      });
+    </script>
+  </body>
+</html>
