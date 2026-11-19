@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Creative Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen flex items-center justify-center bg-gray-200"
+  >
+    <div class="w-11/12 max-w-sm mx-auto px-4 py-12">
+      <h2 class="text-xs font-semibold text-gray-600 tracking-wider mb-6">
+        OBJECT TYPE
+      </h2>
+
+      <div class="relative">
+        <button
+          id="dropdown-trigger"
+          class="w-full text-left bg-white border-2 border-black rounded-md px-4 py-3 flex items-center justify-between"
+          aria-expanded="false"
+        >
+          <span id="dropdown-label" class="text-gray-500"
+            >Select an object type</span
+          >
+          <i class="fa-solid fa-chevron-down text-gray-600"></i>
+        </button>
+
+        <div
+          id="dropdown-panel"
+          class="mt-3 bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hidden max-h-[70vh] overflow-y-auto"
+          role="menu"
+        >
+          <ul id="dropdown-list" class="divide-y divide-gray-100">
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Person"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-amber-200 flex items-center justify-center text-amber-700"
+                ><i class="fa-solid fa-user"></i
+              ></span>
+              <span class="text-gray-700">Person</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Book"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"
+                ><i class="fa-solid fa-book-open"></i
+              ></span>
+              <span class="text-gray-700">Book</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Exercise"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-700"
+                ><i class="fa-solid fa-dumbbell"></i
+              ></span>
+              <span class="text-gray-700">Exercise</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Income"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-lime-100 flex items-center justify-center text-lime-700"
+                ><i class="fa-solid fa-wallet"></i
+              ></span>
+              <span class="text-gray-700">Income</span>
+            </li>
+            <li
+              class="px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50"
+              data-value="Expense"
+            >
+              <span
+                class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600"
+                ><i class="fa-solid fa-arrow-up-from-bracket"></i
+              ></span>
+              <span class="text-gray-700">Expense</span>
+            </li>
+          </ul>
+
+          <button
+            id="create-btn"
+            type="button"
+            class="text-sm font-semibold text-gray-700 hover:text-black"
+            aria-expanded="false"
+            aria-controls="create-form"
+          >
+            + Add another type
+          </button>
+
+          <form id="create-form" class="hidden border-t border-gray-100 p-5">
+            <label
+              for="type-name"
+              class="mb-2 block text-xs font-semibold uppercase tracking-wide text-gray-600"
+            >
+              Name
+            </label>
+            <input
+              id="type-name"
+              name="name"
+              type="text"
+              maxlength="30"
+              placeholder="e.g. Travel"
+              required
+              class="mb-5 w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-black"
+            />
+
+            <fieldset class="mb-5">
+              <legend
+                class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-600"
+              >
+                Choose an icon
+              </legend>
+              <div id="icon-presets" class="flex flex-wrap gap-2">
+                <button type="button" class="preset-icon" data-icon="person" aria-label="Person" aria-pressed="false">
+                  <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="book" aria-label="Book" aria-pressed="false">
+                  <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="exercise" aria-label="Exercise" aria-pressed="false">
+                  <i class="fa-solid fa-dumbbell" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="income" aria-label="Income" aria-pressed="false">
+                  <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="expense" aria-label="Expense" aria-pressed="false">
+                  <i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="travel" aria-label="Travel" aria-pressed="false">
+                  <i class="fa-solid fa-plane" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="food" aria-label="Food" aria-pressed="false">
+                  <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="home" aria-label="Home" aria-pressed="false">
+                  <i class="fa-solid fa-house" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="idea" aria-label="Idea" aria-pressed="false">
+                  <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="preset-icon" data-icon="music" aria-label="Music" aria-pressed="false">
+                  <i class="fa-solid fa-music" aria-hidden="true"></i>
+                </button>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-6">
+              <legend
+                class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-600"
+              >
+                Choose a color
+              </legend>
+              <div id="color-presets" class="flex flex-wrap gap-3">
+                <button type="button" class="preset-color" data-color="violet" style="--preset-color: #8b5cf6" aria-label="Violet" aria-pressed="false"></button>
+                <button type="button" class="preset-color" data-color="blue" style="--preset-color: #3b82f6" aria-label="Blue" aria-pressed="false"></button>
+                <button type="button" class="preset-color" data-color="teal" style="--preset-color: #14b8a6" aria-label="Teal" aria-pressed="false"></button>
+                <button type="button" class="preset-color" data-color="green" style="--preset-color: #22c55e" aria-label="Green" aria-pressed="false"></button>
+                <button type="button" class="preset-color" data-color="yellow" style="--preset-color: #eab308" aria-label="Yellow" aria-pressed="false"></button>
+                <button type="button" class="preset-color" data-color="orange" style="--preset-color: #f97316" aria-label="Orange" aria-pressed="false"></button>
+                <button type="button" class="preset-color" data-color="pink" style="--preset-color: #ec4899" aria-label="Pink" aria-pressed="false"></button>
+                <button type="button" class="preset-color" data-color="red" style="--preset-color: #ef4444" aria-label="Red" aria-pressed="false"></button>
+              </div>
+            </fieldset>
+
+            <div class="flex gap-2">
+              <button
+                type="submit"
+                class="flex-1 rounded-md bg-black px-3 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+              >
+                Add type
+              </button>
+              <button
+                id="cancel-create"
+                type="button"
+                class="rounded-md border border-gray-300 px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      :root {
+        color: #171717;
+        background: #f5f2e8;
+        font-family:
+          "Arial", "Helvetica Neue", sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        margin: 0;
+        background: #f5f2e8 !important;
+        color: #171717;
+      }
+
+      body > div {
+        width: min(calc(100% - 2rem), 27rem);
+        max-width: none;
+        margin: 0 auto;
+        padding: 2rem 0;
+      }
+
+      body > div > h2 {
+        display: inline-block;
+        margin: 0 0 1.25rem;
+        padding: 0.45rem 0.65rem;
+        border: 2px solid #171717;
+        background: #c7f36b;
+        color: #171717;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+      }
+
+      #dropdown-trigger {
+        min-height: 3.75rem;
+        padding: 0.9rem 1rem;
+        border: 3px solid #171717;
+        border-radius: 0 !important;
+        background: #fff;
+        box-shadow: 5px 5px 0 #171717;
+        color: #171717;
+        font-size: 0.95rem;
+        font-weight: 750;
+        transition:
+          transform 120ms ease,
+          box-shadow 120ms ease,
+          background-color 120ms ease;
+      }
+
+      #dropdown-trigger:hover,
+      #dropdown-trigger[aria-expanded="true"] {
+        background: #fff9d8;
+      }
+
+      #dropdown-trigger:active {
+        transform: translate(3px, 3px);
+        box-shadow: 2px 2px 0 #171717;
+      }
+
+      #dropdown-trigger > span {
+        color: #171717 !important;
+      }
+
+      #dropdown-trigger > i {
+        color: #171717 !important;
+        transition: transform 120ms ease;
+      }
+
+      #dropdown-trigger[aria-expanded="true"] > i {
+        transform: rotate(180deg);
+      }
+
+      #dropdown-panel {
+        max-height: 70vh;
+        margin-top: 1rem;
+        overflow-x: hidden;
+        overflow-y: auto !important;
+        border: 3px solid #171717;
+        border-radius: 0 !important;
+        background: #fff;
+        box-shadow: 6px 6px 0 #171717;
+      }
+
+      #dropdown-list > li {
+        min-height: 4.25rem;
+        padding: 0.75rem 1rem;
+        border-color: #171717 !important;
+        transition: background-color 120ms ease;
+      }
+
+      #dropdown-list > li:hover {
+        background: #fff3a6 !important;
+      }
+
+      #dropdown-list > li > span:first-child {
+        width: 2.75rem;
+        height: 2.75rem;
+        flex: 0 0 2.75rem;
+        border: 2px solid #171717;
+        border-radius: 0 !important;
+        font-size: 1.05rem;
+      }
+
+      #dropdown-list > li > span:last-child {
+        color: #171717 !important;
+        font-weight: 750;
+      }
+
+      #dropdown-list > li > span:first-child i {
+        color: inherit;
+      }
+
+      #create-btn {
+        display: block;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border: 0;
+        border-top: 3px solid #171717;
+        background: #c7f36b !important;
+        color: #171717 !important;
+        text-align: left;
+        font-size: 0.8rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.045em;
+        cursor: pointer;
+      }
+
+      #create-btn:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      #create-form {
+        padding: 1.15rem;
+        border-color: #171717 !important;
+        background: #fff;
+      }
+
+      #create-form label,
+      #create-form legend {
+        color: #171717 !important;
+        font-size: 0.68rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+      }
+
+      #type-name {
+        min-height: 2.8rem;
+        padding: 0.65rem 0.75rem;
+        border: 2px solid #171717 !important;
+        border-radius: 0 !important;
+        background: #fff;
+        color: #171717;
+        box-shadow: 3px 3px 0 #171717;
+      }
+
+      #type-name:focus {
+        border-color: #171717 !important;
+        outline: 3px solid #78dff0;
+        outline-offset: 2px;
+      }
+
+      .preset-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #171717;
+        border-radius: 0 !important;
+        background: #fff;
+        color: #171717;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 2px 2px 0 #171717;
+        transition:
+          transform 120ms ease,
+          box-shadow 120ms ease,
+          background-color 120ms ease;
+      }
+
+      .preset-icon[aria-pressed="true"] {
+        background: #fff3a6;
+        box-shadow: 2px 2px 0 #171717;
+      }
+
+      .preset-icon:hover,
+      .preset-color:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 3px 3px 0 #171717;
+      }
+
+      .preset-color {
+        width: 1.8rem;
+        height: 1.8rem;
+        border: 2px solid #171717;
+        border-radius: 0 !important;
+        background-color: var(--preset-color);
+        cursor: pointer;
+        box-shadow: 2px 2px 0 #171717;
+        transition:
+          transform 120ms ease,
+          box-shadow 120ms ease;
+      }
+
+      .preset-color[aria-pressed="true"] {
+        outline: 2px solid #171717;
+        outline-offset: 2px;
+        box-shadow: 3px 3px 0 #171717;
+      }
+
+      #create-form button[type="submit"],
+      #cancel-create {
+        min-height: 2.75rem;
+        border: 2px solid #171717;
+        border-radius: 0 !important;
+        font-size: 0.75rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        box-shadow: 3px 3px 0 #171717;
+        transition:
+          transform 120ms ease,
+          box-shadow 120ms ease,
+          background-color 120ms ease;
+      }
+
+      #create-form button[type="submit"] {
+        background: #171717 !important;
+        color: #fff !important;
+      }
+
+      #create-form button[type="submit"]:hover {
+        background: #343434 !important;
+      }
+
+      #cancel-create {
+        background: #fff !important;
+        color: #171717 !important;
+      }
+
+      #create-form button[type="submit"]:active,
+      #cancel-create:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 #171717;
+      }
+
+      button:focus-visible,
+      li:focus-visible {
+        outline: 3px solid #168aad;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 360px) {
+        #dropdown-list > li {
+          gap: 0.65rem;
+          padding-inline: 0.75rem;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        const trigger = document.getElementById("dropdown-trigger");
+        const panel = document.getElementById("dropdown-panel");
+        const list = document.getElementById("dropdown-list");
+        const label = document.getElementById("dropdown-label");
+        const createButton = document.getElementById("create-btn");
+        const createForm = document.getElementById("create-form");
+        const nameInput = document.getElementById("type-name");
+        const iconPresets = document.getElementById("icon-presets");
+        const colorPresets = document.getElementById("color-presets");
+        const iconClasses = {
+          person: "fa-solid fa-user",
+          book: "fa-solid fa-book-open",
+          exercise: "fa-solid fa-dumbbell",
+          income: "fa-solid fa-wallet",
+          expense: "fa-solid fa-arrow-up-from-bracket",
+          travel: "fa-solid fa-plane",
+          food: "fa-solid fa-utensils",
+          home: "fa-solid fa-house",
+          idea: "fa-solid fa-lightbulb",
+          music: "fa-solid fa-music",
+        };
+        const colorValues = {
+          violet: ["#ede9fe", "#6d28d9"],
+          blue: ["#dbeafe", "#1d4ed8"],
+          teal: ["#ccfbf1", "#0f766e"],
+          green: ["#dcfce7", "#15803d"],
+          yellow: ["#fef9c3", "#a16207"],
+          orange: ["#ffedd5", "#c2410c"],
+          pink: ["#fce7f3", "#be185d"],
+          red: ["#fee2e2", "#b91c1c"],
+        };
+        let selectedIcon = "person";
+        let selectedColor = "violet";
+
+        function openPanel() {
+          trigger.setAttribute("aria-expanded", "true");
+          panel.classList.remove("hidden");
+        }
+
+        function closePanel() {
+          trigger.setAttribute("aria-expanded", "false");
+          panel.classList.add("hidden");
+        }
+
+        function setPresetSelection(group, selectedButton) {
+          group.querySelectorAll("button").forEach((button) => {
+            button.setAttribute(
+              "aria-pressed",
+              String(button === selectedButton),
+            );
+          });
+        }
+
+        setPresetSelection(iconPresets, iconPresets.querySelector("button"));
+        setPresetSelection(colorPresets, colorPresets.querySelector("button"));
+
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = trigger.getAttribute("aria-expanded") === "true";
+          if (isOpen) closePanel();
+          else openPanel();
+        });
+
+        list.addEventListener("click", (e) => {
+          const li = e.target.closest("li");
+          if (!li) return;
+          const value = li.getAttribute("data-value");
+          label.textContent = value;
+          label.classList.remove("text-gray-500");
+          label.classList.add("text-gray-700");
+          closePanel();
+        });
+
+        createButton.addEventListener("click", () => {
+          const isOpen = createButton.getAttribute("aria-expanded") === "true";
+          createButton.setAttribute("aria-expanded", String(!isOpen));
+          createForm.classList.toggle("hidden", isOpen);
+          if (!isOpen) nameInput.focus();
+        });
+
+        iconPresets.addEventListener("click", (e) => {
+          const button = e.target.closest("[data-icon]");
+          if (!button) return;
+          selectedIcon = button.dataset.icon;
+          setPresetSelection(iconPresets, button);
+        });
+
+        colorPresets.addEventListener("click", (e) => {
+          const button = e.target.closest("[data-color]");
+          if (!button) return;
+          selectedColor = button.dataset.color;
+          setPresetSelection(colorPresets, button);
+        });
+
+        document
+          .getElementById("cancel-create")
+          .addEventListener("click", () => {
+            createForm.reset();
+            nameInput.value = "";
+            createForm.classList.add("hidden");
+            createButton.setAttribute("aria-expanded", "false");
+          });
+
+        createForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = nameInput.value.trim();
+          if (!name) {
+            nameInput.focus();
+            return;
+          }
+
+          const [backgroundColor, textColor] = colorValues[selectedColor];
+          const item = document.createElement("li");
+          item.className =
+            "px-6 py-4 flex items-center gap-4 cursor-pointer hover:bg-gray-50";
+          item.dataset.value = name;
+
+          const icon = document.createElement("span");
+          icon.className =
+            "w-8 h-8 rounded-full flex items-center justify-center";
+          icon.style.backgroundColor = backgroundColor;
+          icon.style.color = textColor;
+          const iconGlyph = document.createElement("i");
+          iconGlyph.className = iconClasses[selectedIcon];
+          iconGlyph.setAttribute("aria-hidden", "true");
+          icon.append(iconGlyph);
+
+          const itemLabel = document.createElement("span");
+          itemLabel.className = "text-gray-700";
+          itemLabel.textContent = name;
+
+          item.append(icon, itemLabel);
+          list.append(item);
+          label.textContent = name;
+          label.classList.remove("text-gray-500");
+          label.classList.add("text-gray-700");
+          nameInput.value = "";
+          createForm.classList.add("hidden");
+          createButton.setAttribute("aria-expanded", "false");
+          closePanel();
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!panel.contains(e.target) && !trigger.contains(e.target))
+            closePanel();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closePanel();
+        });
+      })();
+    </script>
+  </body>
+</html>
