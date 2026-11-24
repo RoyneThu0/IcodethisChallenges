@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reminder App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="noreferrer"
+    />
+  </head>
+  <body
+    class="w-screen min-h-screen bg-gradient-to-r from-orange-600 to-orange-400 flex items-center justify-center"
+  >
+    <div class="w-11/12 max-w-xl p-5 flex md:flex-row flex-col">
+      <div class="md:w-1/3 bg-gray-700 py-5 flex flex-col">
+        <div class="px-3">
+          <input
+            id="search-input"
+            type="search"
+            class="w-full rounded-full bg-gray-600 text-white placeholder-gray-400 px-3 py-1 outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="Search"
+          />
+        </div>
+
+        <ul class="mt-5">
+          <li
+            data-category="Reminders"
+            class="w-full group hover:bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p
+              class="text-xs text-white group-hover:text-black duration-300 ease-in-out"
+            >
+              REMINDERS
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-gray-400 text-gray-300 group-hover:text-black transition-colors text-xs"
+            >
+              2
+            </p>
+          </li>
+          <li
+            data-category="To Do List"
+            class="w-full group hover:bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p
+              class="text-xs text-white group-hover:text-black duration-300 ease-in-out"
+            >
+              TO DO LIST
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-gray-400 text-gray-300 group-hover:text-black transition-colors text-xs"
+            >
+              9
+            </p>
+          </li>
+          <li
+            data-category="Shopping List"
+            class="w-full bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p class="text-xs text-black duration-300 ease-in-out">
+              SHOPPING LIST
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-400 text-black transition-colorstext-xs"
+            >
+              4
+            </p>
+          </li>
+          <li
+            data-category="Other"
+            class="w-full group hover:bg-white duration-300 ease-in-out py-2 px-3 flex justify-between items-center"
+          >
+            <p
+              class="text-xs text-white group-hover:text-black duration-300 ease-in-out"
+            >
+              OTHER
+            </p>
+            <p
+              class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-gray-400 text-gray-300 group-hover:text-black transition-colors text-xs"
+            >
+              3
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div
+        id="content-panel"
+        class="md:w-2/3 bg-white transition-all duration-200 ease-out"
+      >
+        <div class="flex items-center justify-between p-5 relative">
+          <h1 id="list-title">GROCERIES</h1>
+          <button
+            id="list-menu-button"
+            type="button"
+            class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-800"
+            aria-label="List options"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <div
+            id="list-menu"
+            class="hidden absolute right-5 top-12 z-10 w-40 rounded-md border border-gray-200 bg-white py-1 shadow-lg"
+          >
+            <button id="add-item-button" type="button" class="w-full px-3 py-2 text-left text-sm hover:bg-gray-100">
+              Add item
+            </button>
+            <button id="clear-completed-button" type="button" class="w-full px-3 py-2 text-left text-sm text-red-500 hover:bg-gray-100">
+              Clear completed
+            </button>
+          </div>
+        </div>
+        <form id="add-item-form" class="hidden px-5 mb-3">
+          <input
+            id="new-item-input"
+            type="text"
+            maxlength="80"
+            class="w-full border-b-2 border-orange-400 py-1 outline-none"
+            placeholder="New item"
+          />
+        </form>
+        <ul id="items-list" class="mt-5 px-5 space-y-1">
+          <li data-completed="true" class="cursor-pointer line-through text-lg text-gray-400">Butter</li>
+          <li data-completed="true" class="cursor-pointer line-through text-lg text-gray-400">Orange juice</li>
+          <li data-completed="false" class="cursor-pointer text-lg text-black">Cheese</li>
+          <li data-completed="true" class="cursor-pointer line-through text-lg text-gray-400">Chocolate</li>
+          <li data-completed="false" class="cursor-pointer text-lg">Corn flakes</li>
+          <li data-completed="false" class="cursor-pointer text-lg">Potatoes</li>
+          <li data-completed="false" class="cursor-pointer text-lg">Avocado</li>
+        </ul>
+        <ul id="shopping-sublist-nav" class="mt-5 w-full space-y-0.5">
+          <li data-sublist="ELECTRONICS" class="cursor-pointer flex items-center px-5 py-3 bg-gray-200 justify-between transition-colors duration-200">
+            <h1 class="font-semibold">ELECTRONICS</h1>
+            <i
+              class="fa-solid fa-ellipsis-vertical text-gray-500 cursor-pointer"
+            ></i>
+          </li>
+          <li data-sublist="BOOKS" class="cursor-pointer flex items-center px-5 py-3 bg-gray-200 justify-between transition-colors duration-200">
+            <h1 class="font-semibold">BOOKS</h1>
+            <i
+              class="fa-solid fa-ellipsis-vertical text-gray-500 cursor-pointer"
+            ></i>
+          </li>
+          <li data-sublist="CAR" class="cursor-pointer flex items-center px-5 py-3 bg-gray-200 justify-between transition-colors duration-200">
+            <h1 class="font-semibold">CAR</h1>
+            <i
+              class="fa-solid fa-ellipsis-vertical text-gray-500 cursor-pointer"
+            ></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      const listTitle = document.getElementById("list-title");
+      const itemsList = document.getElementById("items-list");
+      const searchInput = document.getElementById("search-input");
+      const menu = document.getElementById("list-menu");
+      const menuButton = document.getElementById("list-menu-button");
+      const addItemForm = document.getElementById("add-item-form");
+      const newItemInput = document.getElementById("new-item-input");
+      const contentPanel = document.getElementById("content-panel");
+      const shoppingSublistNav = document.getElementById("shopping-sublist-nav");
+
+      const lists = {
+        "Shopping List": {
+          GROCERIES: [
+            ["Butter", true],
+            ["Orange juice", true],
+            ["Cheese", false],
+            ["Chocolate", true],
+            ["Corn flakes", false],
+            ["Potatoes", false],
+            ["Avocado", false],
+          ],
+          ELECTRONICS: [["Phone charger", false], ["Headphones", false]],
+          BOOKS: [["Read tomorrow", false]],
+          CAR: [["Car wash", false]],
+        },
+        Reminders: {
+          REMINDERS: [
+            ["Call dentist", false],
+            ["Pay internet bill", true],
+          ],
+        },
+        "To Do List": {
+          "TO DO LIST": [
+            ["Finish report", false],
+            ["Reply to emails", false],
+            ["Book appointment", true],
+            ["Update portfolio", false],
+          ],
+        },
+        Other: {
+          OTHER: [
+            ["Pick up package", false],
+            ["Water plants", true],
+            ["Laundry", false],
+          ],
+        },
+      };
+
+      let activeCategory = "Shopping List";
+      let activeList = "GROCERIES";
+      let modeTransition = 0;
+
+      function updateActiveNavigation() {
+        document.querySelectorAll("[data-category]").forEach((category) => {
+          const isActive = category.dataset.category === activeCategory;
+          category.classList.toggle("bg-white", isActive);
+          category.setAttribute("aria-current", isActive ? "page" : "false");
+          category.querySelector("p:first-child")?.classList.toggle("text-black", isActive);
+          category.querySelector("p:first-child")?.classList.toggle("text-white", !isActive);
+        });
+
+        document.querySelectorAll("[data-sublist]").forEach((sublist) => {
+          const isActive = activeCategory === "Shopping List" && sublist.dataset.sublist === activeList;
+          sublist.classList.toggle("bg-white", isActive);
+          sublist.classList.toggle("bg-gray-200", !isActive);
+          sublist.setAttribute("aria-current", isActive ? "page" : "false");
+        });
+        shoppingSublistNav.classList.toggle("hidden", activeCategory !== "Shopping List");
+      }
+
+      function switchMode(category, list) {
+        const transition = ++modeTransition;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const update = () => {
+          if (transition !== modeTransition) return;
+
+          activeCategory = category;
+          activeList = list;
+          menu.classList.add("hidden");
+          menuButton.setAttribute("aria-expanded", "false");
+          addItemForm.classList.add("hidden");
+          newItemInput.value = "";
+          updateActiveNavigation();
+          render();
+          requestAnimationFrame(() => {
+            if (transition === modeTransition) {
+              contentPanel.classList.remove("opacity-0", "translate-y-1");
+            }
+          });
+        };
+
+        if (reduceMotion) {
+          update();
+          return;
+        }
+
+        contentPanel.classList.add("opacity-0", "translate-y-1");
+        window.setTimeout(update, 100);
+      }
+
+      function setItemAppearance(item) {
+        const completed = item.dataset.completed === "true";
+        item.classList.toggle("line-through", completed);
+        item.classList.toggle("text-gray-400", completed);
+        item.classList.toggle("text-black", !completed);
+      }
+
+      function render() {
+        const categoryLists = lists[activeCategory];
+        listTitle.textContent = activeList;
+        const items = categoryLists[activeList] || [];
+        const query = searchInput.value.trim().toLowerCase();
+        itemsList.innerHTML = "";
+
+        items.forEach(([name, completed]) => {
+          if (query && !name.toLowerCase().includes(query)) return;
+          const item = document.createElement("li");
+          item.textContent = name;
+          item.dataset.completed = String(completed);
+          item.className = "cursor-pointer text-lg";
+          setItemAppearance(item);
+          itemsList.appendChild(item);
+        });
+
+        if (!itemsList.children.length) {
+          const empty = document.createElement("li");
+          empty.textContent = query ? "No matching items" : "No items yet";
+          empty.className = "text-gray-400 text-lg";
+          itemsList.appendChild(empty);
+        }
+      }
+
+      function saveItem(name) {
+        const categoryLists = lists[activeCategory];
+        categoryLists[activeList].push([name, false]);
+        render();
+      }
+
+      itemsList.addEventListener("click", (event) => {
+        const item = event.target.closest("li");
+        if (!item || item.dataset.completed === undefined) return;
+        item.dataset.completed = item.dataset.completed === "true" ? "false" : "true";
+
+        const name = item.textContent;
+        const entry = lists[activeCategory][activeList].find(([itemName]) => itemName === name);
+        if (entry) entry[1] = item.dataset.completed === "true";
+        setItemAppearance(item);
+        updateCategoryCounts();
+      });
+
+      document.querySelectorAll("[data-category]").forEach((category) => {
+        category.addEventListener("click", () => {
+          const nextCategory = category.dataset.category;
+          switchMode(nextCategory, Object.keys(lists[nextCategory])[0]);
+        });
+      });
+
+      document.querySelectorAll("[data-sublist]").forEach((sublist) => {
+        sublist.addEventListener("click", () => {
+          switchMode("Shopping List", sublist.dataset.sublist);
+        });
+      });
+
+      menuButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        menu.classList.toggle("hidden");
+        menuButton.setAttribute("aria-expanded", String(!menu.classList.contains("hidden")));
+      });
+
+      document.getElementById("add-item-button").addEventListener("click", () => {
+        menu.classList.add("hidden");
+        addItemForm.classList.remove("hidden");
+        newItemInput.focus();
+      });
+
+      addItemForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = newItemInput.value.trim();
+        if (!name) return;
+        saveItem(name);
+        newItemInput.value = "";
+        addItemForm.classList.add("hidden");
+      });
+
+      document.getElementById("clear-completed-button").addEventListener("click", () => {
+        const categoryLists = lists[activeCategory];
+        categoryLists[activeList] = categoryLists[activeList].filter(([, completed]) => !completed);
+        menu.classList.add("hidden");
+        updateCategoryCounts();
+        updateActiveNavigation();
+        render();
+      });
+
+      searchInput.addEventListener("input", render);
+
+      document.addEventListener("click", (event) => {
+        if (!menu.contains(event.target) && event.target !== menuButton) {
+          menu.classList.add("hidden");
+          menuButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      function updateCategoryCounts() {
+        document.querySelectorAll("[data-category]").forEach((category) => {
+          const name = category.dataset.category;
+          const count = Object.values(lists[name]).reduce(
+            (total, entries) => total + entries.filter(([, completed]) => name === "Shopping List" ? !completed : true).length,
+            0,
+          );
+          const badge = category.querySelector("p:last-child");
+          if (badge) badge.textContent = String(count);
+        });
+      }
+
+      updateCategoryCounts();
+      render();
+    </script>
+  </body>
+</html>
