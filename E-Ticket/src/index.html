@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E ticket</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="flex min-h-screen items-center justify-center bg-gray-500 bg-cover bg-center p-4"
+    style="
+      background-image: url(https://i.pinimg.com/736x/0b/41/25/0b41253a4041ddb57004d633e4979430.jpg);
+    "
+  >
+    <main
+      aria-label="Flight ticket"
+      class="flex w-full max-w-lg flex-col drop-shadow-xl lg:h-96 lg:max-w-4xl lg:flex-row"
+    >
+      <section
+        aria-label="Ticket"
+        class="rounded-t-xl bg-white p-5 sm:p-8 lg:min-w-0 lg:flex-1 lg:rounded-l-xl lg:rounded-tr-none"
+      >
+        <div
+          class="mx-auto grid w-max grid-cols-[repeat(3,auto)] items-center gap-x-2 text-center"
+        >
+          <p class="text-3xl font-extrabold text-teal-400 sm:text-5xl">BUD</p>
+          <div aria-hidden="true" class="flex items-center gap-2 text-gray-300">
+            <span class="h-0.5 w-6 bg-gray-300 sm:w-10"></span>
+            <i class="fa-solid fa-plane text-xl sm:text-2xl"></i>
+            <span class="h-0.5 w-6 bg-gray-300 sm:w-10"></span>
+          </div>
+          <p class="text-3xl font-extrabold text-teal-400 sm:text-5xl">HEL</p>
+          <p class="mt-2 text-sm text-gray-500">Budapest</p>
+          <p class="col-start-3 mt-2 text-sm text-gray-500">Helsinki</p>
+        </div>
+
+        <dl
+          class="mt-6 grid grid-cols-2 gap-4 rounded-lg bg-teal-50 p-4 text-center sm:flex sm:justify-between sm:p-6"
+        >
+          <div>
+            <dt class="text-sm text-gray-500">Departure</dt>
+            <dd class="text-xl font-bold text-teal-400 sm:text-2xl">16:25</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-gray-500">Arrival</dt>
+            <dd class="text-xl font-bold text-teal-400 sm:text-2xl">21:40</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-gray-500">Seat</dt>
+            <dd class="text-xl font-bold text-teal-400 sm:text-2xl">54B</dd>
+          </div>
+          <div>
+            <dt class="text-sm text-gray-500">Ticket No.</dt>
+            <dd class="text-xl font-bold text-teal-400 sm:text-2xl">FF346Y</dd>
+          </div>
+        </dl>
+
+        <p class="mt-6 text-sm text-gray-400">
+          Et justo,
+          <span class="font-semibold text-gray-500">praesent sem placerat</span>
+          sapiente nec convallis non. Eget volutpat laoreet consectetuer taciti
+          dignissim.
+          <span class="font-semibold text-gray-500">Vel diam feugiat</span>
+          lacus, integer pellentesque, dolor mi ac nibh pharetra purus nonummy
+        </p>
+      </section>
+
+      <div
+        aria-hidden="true"
+        class="h-10 shrink-0 bg-white [mask-composite:intersect] [mask-image:radial-gradient(circle_1.25rem_at_0_50%,transparent_99%,black_100%),radial-gradient(circle_1.25rem_at_100%_50%,transparent_99%,black_100%)] lg:h-auto lg:w-10 lg:[mask-image:radial-gradient(circle_1.25rem_at_50%_0,transparent_99%,black_100%),radial-gradient(circle_1.25rem_at_50%_100%,transparent_99%,black_100%)]"
+      ></div>
+
+      <section
+        id="ticket-stub"
+        aria-label="Ticket stub"
+        class="rounded-b-xl bg-white p-5 sm:p-8 lg:flex lg:size-96 lg:shrink-0 lg:-rotate-90 lg:flex-col lg:justify-center lg:p-6"
+      >
+        <div
+          class="mx-auto grid w-max grid-cols-[repeat(3,auto)] items-center gap-x-2 text-center"
+        >
+          <p class="text-3xl font-extrabold text-teal-400 sm:text-5xl">BUD</p>
+          <div aria-hidden="true" class="flex items-center gap-2 text-gray-300">
+            <span class="h-0.5 w-6 bg-gray-300 sm:w-10 lg:w-6"></span>
+            <i class="fa-solid fa-plane text-xl sm:text-2xl"></i>
+            <span class="h-0.5 w-6 bg-gray-300 sm:w-10 lg:w-6"></span>
+          </div>
+          <p class="text-3xl font-extrabold text-teal-400 sm:text-5xl">HEL</p>
+          <p class="mt-2 text-sm text-gray-500">Budapest</p>
+          <p class="col-start-3 mt-2 text-sm text-gray-500">Helsinki</p>
+        </div>
+
+        <dl class="mt-6 flex justify-between gap-2 text-center">
+          <div>
+            <dt class="text-xs text-gray-500 sm:text-sm">Departure</dt>
+            <dd class="text-base font-bold text-teal-400 sm:text-2xl">16:25</dd>
+          </div>
+          <div>
+            <dt class="text-xs text-gray-500 sm:text-sm">Arrival</dt>
+            <dd class="text-base font-bold text-teal-400 sm:text-2xl">21:40</dd>
+          </div>
+          <div>
+            <dt class="text-xs text-gray-500 sm:text-sm">Seat</dt>
+            <dd class="text-base font-bold text-teal-400 sm:text-2xl">54B</dd>
+          </div>
+          <div>
+            <dt class="text-xs text-gray-500 sm:text-sm">Ticket No.</dt>
+            <dd class="text-base font-bold text-teal-400 sm:text-2xl">
+              FF346Y
+            </dd>
+          </div>
+        </dl>
+
+        <div
+          aria-hidden="true"
+          class="mx-auto mt-6 flex h-20 w-full max-w-84 justify-between sm:mt-8 lg:h-36"
+        >
+          <span class="w-2 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-3 bg-black"></span>
+          <span class="w-1.5 bg-black"></span>
+          <span class="w-2.5 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-2 bg-black"></span>
+          <span class="w-1.5 bg-black"></span>
+          <span class="w-2.5 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-2.5 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-2 bg-black"></span>
+          <span class="w-1.5 bg-black"></span>
+          <span class="w-2.5 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-2 bg-black"></span>
+          <span class="w-1.5 bg-black"></span>
+          <span class="w-2.5 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+          <span class="w-1 bg-black"></span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
